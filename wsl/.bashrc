@@ -121,7 +121,11 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
-LS_COLORS="ow=01;36;40" && export LS_COLORS
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export LS_COLORS="ow=01;36;40"
+export WIN_HOME=/mnt/c/Users/$(powershell.exe '$env:USERPROFILE' | cut -d '\' -f 3 | sed -e 's/\r//')
 
 . ~/pureline/pureline ~/.pureline.conf
+
+tmux ls
 

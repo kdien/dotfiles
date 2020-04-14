@@ -1,7 +1,10 @@
+alias cls='clear'
+alias curlx='curl -x http://proxy.example.com:8080'
 alias e.='explorer.exe .'
 alias glog='git log --graph --decorate --oneline'
 alias gs='git status'
 alias gtop='cd `git rev-parse --show-toplevel`'
-alias home='cd /mnt/c/Users/khoa/'
 alias ls='ls -lah --color=auto'
+alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dspotbugs.skip=true'
 alias upd='sudo apt update && sudo apt upgrade -y'
+
