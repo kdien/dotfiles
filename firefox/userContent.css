@@ -9,26 +9,43 @@
 }
 
 @font-face {
-    font-family: Courier New;
+    font-family: "Courier New";
     src: local("monospace");
 }
 
 @font-face {
-    font-family: Lucida Console;
+    font-family: "Lucida Console";
     src: local("monospace");
 }
 
 @-moz-document url-prefix(https://bitbucket.org/) {
     .refract-content-container .line-numbers,
     .refract-content-container .source,
-    .commit-files-summary .commit-file-diff-stats {
-        font-size: 13px !important;
-    }   
+    .commit-files-summary .commit-file-diff-stats,
+    .file-source pre {
+        -moz-tab-size: 4 !important;
+        tab-size: 4 !important;
+        /*font-size: 13px !important;*/
+    }
 }
 
 @-moz-document url-prefix(https://github.com/) {
     .blob-code-inner {
-        font-size: 13px !important;
-    }   
+        -moz-tab-size: 4 !important;
+        tab-size: 4 !important;
+        /*font-size: 13px !important;*/
+    }
+}
+
+@-moz-document url-prefix(https://www.shellcheck.net/) {
+    #terminal {
+        font-family: monospace !important;
+    }
+}
+
+@-moz-document url-prefix(https://adobe-consulting-services.github.io/) {
+    .code-block, pre code {
+        font-family: monospace !important;
+    }
 }
 
