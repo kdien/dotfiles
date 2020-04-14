@@ -9,7 +9,7 @@ Import-Module posh-git
 #Set-Theme Paradox
 
 function curlx {
-    curl.exe -x http://proxy.example.com:8080 --url $args[0]
+    curl.exe -x proxy.example.com:8080 --url $args[0]
 }
 
 function e. {
@@ -43,7 +43,7 @@ function git_https {
 }
 
 function Set-GitProxy {
-    git config --global http.proxy http://proxy.example.com:8080
+    git config --global http.proxy proxy.example.com:8080
 }
 
 function Unset-GitProxy {
