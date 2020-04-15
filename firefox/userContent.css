@@ -49,3 +49,8 @@
     }
 }
 
+@-moz-document url-prefix(https://www.w3schools.com/) {
+    .w3-code, .w3-codespan {
+        font-family: monospace !important;
+    }
+}
