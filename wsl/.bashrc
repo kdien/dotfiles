@@ -125,7 +125,6 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export LS_COLORS="ow=01;36;40"
 export WIN_HOME=/mnt/c/Users/$(powershell.exe '$env:USERPROFILE' | cut -d '\' -f 3 | sed -e 's/\r//')
 
-. ~/pureline/pureline ~/.pureline.conf
-
-tmux ls
+export PS1="\[\033[38;5;39m\][\u@\h]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\[$(tput sgr0)\]\[\033[36;5;11m\]\$(parse_git_branch)\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+#. ~/pureline/pureline ~/.pureline.conf
 
