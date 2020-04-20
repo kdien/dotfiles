@@ -6,5 +6,6 @@ alias gs='git status'
 alias gtop='cd `git rev-parse --show-toplevel`'
 alias ls='ls -lah --color=auto'
 alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dspotbugs.skip=true'
+alias npp='notepad++.exe'
 alias upd='sudo apt update && sudo apt upgrade -y'
 
