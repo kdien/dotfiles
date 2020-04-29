@@ -1,0 +1,9 @@
+Font=MesloLGS NF
+FontHeight=10
+Columns=120
+Rows=40
+Transparency=medium
+CursorType=block
+OpaqueWhenFocused=no
+CursorBlinks=no
+Window=max
