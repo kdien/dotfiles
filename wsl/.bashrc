@@ -128,5 +128,3 @@ export WIN_HOME=/mnt/c/Users/$(powershell.exe '$env:USERPROFILE' | cut -d '\' -f
 #export PS1="\[\033[38;5;39m\][\u@\h]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\[$(tput sgr0)\]\[\033[36;5;11m\]\$(parse_git_branch)\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 . ~/pureline/pureline ~/.pureline.conf
 
-tmux ls
-
