@@ -45,7 +45,7 @@ function git_https {
 }
 
 function Set-GitProxy {
-    git config --global http.proxy proxy.example.com:8080
+    git config --global http.proxy http://proxy.example.com:8080
 }
 
 function Unset-GitProxy {
