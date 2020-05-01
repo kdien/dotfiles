@@ -1,5 +1,6 @@
 Font=MesloLGS NF
 FontHeight=10
+Padding=8
 Columns=120
 Rows=40
 Transparency=medium
