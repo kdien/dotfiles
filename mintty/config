@@ -7,3 +7,7 @@ CursorType=block
 OpaqueWhenFocused=no
 CursorBlinks=no
 Window=max
+CtrlShiftShortcuts=yes
+MiddleClickAction=void
+RightClickAction=paste
+Term=xterm-256color
