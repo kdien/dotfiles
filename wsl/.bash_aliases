@@ -1,6 +1,7 @@
 alias cls='clear'
 alias curlx='curl -x proxy.example.com:8080'
 alias e.='explorer.exe .'
+alias gb='git branch -vv'
 alias glog='git log --graph --decorate --oneline'
 alias gs='git status'
 alias gtop='cd `git rev-parse --show-toplevel`'

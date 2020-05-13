@@ -21,6 +21,10 @@ function e. {
 ##########################
 ## Custom Git functions ##
 ##########################
+function gb {
+    git branch -vv
+}
+
 function glog {
     git log --graph --decorate --oneline
 }
