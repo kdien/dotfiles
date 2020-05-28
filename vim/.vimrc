@@ -1,5 +1,5 @@
 :syntax on
-":colorscheme desert
+:colorscheme default
 
 set number
 set autoindent
