@@ -122,9 +122,19 @@ if [ -f ~/.bash_functions ]; then
 fi
 
 export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
-export LS_COLORS="ow=01;36;40"
 export WIN_HOME=/mnt/c/Users/$(powershell.exe '$env:USERPROFILE' | cut -d '\' -f 3 | sed -e 's/\r//')
 
 #export PS1="\[\033[38;5;39m\][\u@\h]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\[$(tput sgr0)\]\[\033[36;5;11m\]\$(parse_git_branch)\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-. ~/pureline/pureline ~/.pureline.conf
+#. ~/pureline/pureline ~/.pureline.conf
+
+# oh-my-bash configs
+export OSH=$HOME/oh-my-bash
+OSH_THEME="90210"
+plugins=(git)
+DISABLE_AUTO_TITLE="true"
+. $OSH/oh-my-bash.sh
+
+# Overwrite unwanted configs
+export LS_COLORS="ow=01;36;40"
+unset PROMPT_DIRTRIM
 
