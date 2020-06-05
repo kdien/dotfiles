@@ -10,7 +10,7 @@
         {
             "acrylicOpacity": 0.7,
             "useAcrylic": true,
-            "colorScheme": "Campbell",
+            "colorScheme": "Tomorrow Night Bright",
             "cursorShape": "filledBox",
             "fontFace": "Consolas NF",
             "fontSize": 11,
@@ -53,8 +53,35 @@
         ]
     },
 
-    "schemes": [],
+    "schemes":
+    [
+        {
+            "name" : "Tomorrow Night Bright",
+        
+            "cursorColor": "#ffffff",
+            "selectionBackground": "#404040",
+        
+            "background" : "#000000",
+            "foreground" : "#eaeaea",
+        
+            "black" : "#000000",
+            "blue" : "#7aa6da",
+            "cyan" : "#70c0ba",
+            "green" : "#b9ca4a",
+            "purple" : "#c397d8",
+            "red" : "#d54e53",
+            "white" : "#eaeaea",
+            "yellow" : "#e6c547",
+            "brightBlack" : "#666666",
+            "brightBlue" : "#7aa6da",
+            "brightCyan" : "#54ced6",
+            "brightGreen" : "#9ec400",
+            "brightPurple" : "#b77ee0",
+            "brightRed" : "#ff3334",
+            "brightWhite" : "#ffffff",
+            "brightYellow" : "#e7c547"
+        }
+    ],
 
     "keybindings": []
 }
-
