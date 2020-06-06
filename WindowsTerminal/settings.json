@@ -12,8 +12,8 @@
             "useAcrylic": true,
             "colorScheme": "Tomorrow Night Bright",
             "cursorShape": "filledBox",
-            "fontFace": "Consolas NF",
-            "fontSize": 11,
+            "fontFace": "MesloLGS NF",
+            "fontSize": 10,
             "historySize": 10000,
             "padding": "8, 8, 8, 8"
         },
