@@ -1,0 +1,62 @@
+[
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"installDate": 1593455851455,
+		"name": "bitbucket.org",
+		"sections": [
+			{
+				"code": ".bitkit-diff-wrapper-diff * {\n    font-family: monospace !important;\n}\n\n.monaco-editor * {\n    font-size: 12px;\n}\n",
+				"domains": [
+					"bitbucket.org"
+				]
+			}
+		],
+		"updateDate": 1593533125229,
+		"_id": "63d8115f-ff91-4be4-83aa-4def543cd7bd",
+		"_rev": 1593533125229,
+		"id": 1
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"installDate": 1593456181690,
+		"name": "github.com",
+		"sections": [
+			{
+				"code": ".blob-num,\n.blob-code-inner {\n    font-family: monospace;\n}\n",
+				"domains": [
+					"github.com"
+				]
+			}
+		],
+		"updateDate": 1593456705584,
+		"_id": "edecb606-d192-456b-8659-ba46f4b765fd",
+		"_rev": 1593456705584,
+		"id": 2
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"installDate": 1593456663591,
+		"name": "global",
+		"sections": [
+			{
+				"code": "* {\n    tab-size: 4 !important;\n}\n\ncode, kbd, pre, samp, .input-monospace, .code, .ace_editor {\n    font-family: monospace !important;\n}\n"
+			}
+		],
+		"updateDate": 1593565427788,
+		"_id": "439d1d45-ed93-41fc-8868-3d124863f5ff",
+		"_rev": 1593565427788,
+		"id": 4
+	}
+]
