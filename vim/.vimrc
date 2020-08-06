@@ -6,7 +6,10 @@ augroup Jenkinsfile
     autocmd BufNewFile,BufRead Jenkinsfile* set syntax=groovy
 augroup END
 
+set mouse=a
+
 set number
+
 set autoindent
 set expandtab
 set softtabstop=4
