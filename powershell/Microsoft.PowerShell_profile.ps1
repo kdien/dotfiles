@@ -4,11 +4,11 @@ if (!(Test-Path Alias:npp)) {
 
 Set-Alias -Name curl -Value curl.exe -Option AllScope
 
-Import-Module posh-git
-$GitPromptSettings.DefaultPromptSuffix = $GitPromptSettings.DefaultPromptSuffix.Replace("'>'", "'`n>'")
+#Import-Module posh-git
+#$GitPromptSettings.DefaultPromptSuffix = $GitPromptSettings.DefaultPromptSuffix.Replace("'>'", "'`n>'")
 
-#Import-Module posh-git,oh-my-posh
-#Set-Theme Paradox
+Import-Module posh-git,oh-my-posh
+Set-Theme Paradox
 
 function curlx {
     curl.exe -x proxy.example.com:8080 --url $args[0]
