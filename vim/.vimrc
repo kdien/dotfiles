@@ -1,5 +1,6 @@
 :syntax on
 :colorscheme default
+set background=light
 
 augroup Jenkinsfile
     au!
