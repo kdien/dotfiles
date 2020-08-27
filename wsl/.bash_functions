@@ -18,7 +18,7 @@ git_ssh() {
 }
 
 set_apt_proxy() {
-    echo 'Acquire::http::Proxy "http://proxy.example.com:8080";' | sudo tee /etc/apt/apt.conf
+    echo 'Acquire::http::Proxy "http://proxy.example.com:8080";' | sudo tee -a /etc/apt/apt.conf
 }
 
 unset_apt_proxy() {
