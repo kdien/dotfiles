@@ -17,7 +17,7 @@
 		],
 		"updateDate": 1593779058345,
 		"_id": "63d8115f-ff91-4be4-83aa-4def543cd7bd",
-		"_rev": 1593779058345,
+		"_rev": 1597146901559,
 		"id": 1
 	},
 	{
@@ -38,7 +38,7 @@
 		],
 		"updateDate": 1593456705584,
 		"_id": "edecb606-d192-456b-8659-ba46f4b765fd",
-		"_rev": 1593456705584,
+		"_rev": 1597146901102,
 		"id": 2
 	},
 	{
@@ -58,5 +58,26 @@
 		"_id": "439d1d45-ed93-41fc-8868-3d124863f5ff",
 		"_rev": 1593565427788,
 		"id": 4
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"installDate": 1594994290985,
+		"name": "jenkins.alc.ca",
+		"sections": [
+			{
+				"code": "pre, code, kbd, samp, tt {\n    font-size: 1em;\n}\n",
+				"domains": [
+					"jenkins.alc.ca"
+				]
+			}
+		],
+		"updateDate": 1596132161958,
+		"_id": "dc3d0643-927f-45ff-abd1-cf65570ca68a",
+		"_rev": 1598962393575,
+		"id": 6
 	}
 ]
