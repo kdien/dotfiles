@@ -14,6 +14,9 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 [[ -f $HOME/.bash_functions ]] && source $HOME/.bash_functions
 
+# Set up some useful environment variables
+export HISTFILESIZE=
+export HISTFILE=$HOME/.zsh_history
 export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
 export LS_COLORS="ow=01;36;40"
 [[ $(command -v powershell.exe) ]] && export WIN_HOME=/mnt/c/Users/$(powershell.exe '$env:USERPROFILE' | cut -d '\' -f 3 | sed -e 's/\r//')
