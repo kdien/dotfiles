@@ -1,6 +1,6 @@
 [
 	{
-		"enabled": true,
+		"enabled": false,
 		"updateUrl": null,
 		"md5Url": null,
 		"url": null,
@@ -9,19 +9,19 @@
 		"name": "bitbucket.org",
 		"sections": [
 			{
-				"code": ".bitkit-diff-wrapper-diff .code-component,\n.bitkit-diff-wrapper-diff .line-numbers,\n.bitkit-diff-wrapper-diff .chunk-heading {\n    font-family: monospace !important;\n}\n\n.monaco-editor * {\n    font-size: 12px;\n}\n",
+				"code": "/*.bitkit-diff-wrapper-diff .code-component,\n.bitkit-diff-wrapper-diff .line-numbers,\n.bitkit-diff-wrapper-diff .chunk-heading {\n    font-family: monospace !important;\n}\n\n.monaco-editor * {\n    font-size: 12px;\n}\n*/",
 				"domains": [
 					"bitbucket.org"
 				]
 			}
 		],
-		"updateDate": 1600187572663,
+		"updateDate": 1603370003208,
 		"_id": "63d8115f-ff91-4be4-83aa-4def543cd7bd",
-		"_rev": 1600187572663,
+		"_rev": 1603370169536,
 		"id": 1
 	},
 	{
-		"enabled": true,
+		"enabled": false,
 		"updateUrl": null,
 		"md5Url": null,
 		"url": null,
@@ -30,15 +30,15 @@
 		"name": "github.com",
 		"sections": [
 			{
-				"code": ".blob-num,\n.blob-code-inner {\n    font-family: monospace;\n}\n",
+				"code": "/*.blob-num,\n.blob-code-inner {\n    font-family: monospace;\n}*/\n",
 				"domains": [
 					"github.com"
 				]
 			}
 		],
-		"updateDate": 1593456705584,
+		"updateDate": 1603370056997,
 		"_id": "edecb606-d192-456b-8659-ba46f4b765fd",
-		"_rev": 1599767524074,
+		"_rev": 1603370168716,
 		"id": 2
 	},
 	{
@@ -51,12 +51,12 @@
 		"name": "global",
 		"sections": [
 			{
-				"code": "* {\n    tab-size: 4 !important;\n}\n\ncode, kbd, pre, samp, .input-monospace, .code, .ace_editor {\n    font-family: monospace !important;\n}\n"
+				"code": "* {\n    tab-size: 4 !important;\n    -moz-tab-size: 4 !important;\n}\n"
 			}
 		],
-		"updateDate": 1593565427788,
+		"updateDate": 1603370118456,
 		"_id": "439d1d45-ed93-41fc-8868-3d124863f5ff",
-		"_rev": 1602860043256,
+		"_rev": 1603370118456,
 		"id": 4
 	},
 	{
@@ -69,15 +69,15 @@
 		"name": "jenkins.alc.ca",
 		"sections": [
 			{
-				"code": "pre, code, kbd, samp, tt {\n    font-size: 1em;\n}\n",
+				"code": "#main-panel {\n    overflow-y: hidden;\n}\n\n#projectstatus-tabBar {\n    background-color: var(--background);\n}\n\n/*pre, code, kbd, samp, tt {\n    font-size: 1em;\n}*/\n",
 				"domains": [
 					"jenkins.alc.ca"
 				]
 			}
 		],
-		"updateDate": 1596132161958,
+		"updateDate": 1603378687348,
 		"_id": "dc3d0643-927f-45ff-abd1-cf65570ca68a",
-		"_rev": 1603221627887,
+		"_rev": 1603378687348,
 		"id": 6
 	},
 	{
@@ -98,7 +98,7 @@
 		],
 		"updateDate": 1603221617860,
 		"_id": "3e20c74f-88c1-48f5-984b-43c6cd496662",
-		"_rev": 1603221617860,
+		"_rev": 1603221724039,
 		"id": 7
 	}
 ]
