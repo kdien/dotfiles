@@ -15,9 +15,9 @@
 				]
 			}
 		],
-		"updateDate": 1600187572663,
+		"updateDate": 1603897139281,
 		"_id": "63d8115f-ff91-4be4-83aa-4def543cd7bd",
-		"_rev": 1600187572663,
+		"_rev": 1603897139281,
 		"id": 1
 	},
 	{
@@ -77,7 +77,7 @@
 		],
 		"updateDate": 1596132161958,
 		"_id": "dc3d0643-927f-45ff-abd1-cf65570ca68a",
-		"_rev": 1603221627887,
+		"_rev": 1603896540966,
 		"id": 6
 	},
 	{
@@ -100,5 +100,47 @@
 		"_id": "3e20c74f-88c1-48f5-984b-43c6cd496662",
 		"_rev": 1603221617860,
 		"id": 7
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"installDate": 1603479251065,
+		"name": "www.jenkins.io",
+		"sections": [
+			{
+				"code": "code, pre {\n    font-size: 100%;\n}\n",
+				"domains": [
+					"www.jenkins.io"
+				]
+			}
+		],
+		"updateDate": 1603888483875,
+		"_id": "de5f9f0f-b867-4da0-883f-07bbb76628af",
+		"_rev": 1603888483876,
+		"id": 8
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"installDate": 1604940217922,
+		"name": "experienceleague.adobe.com",
+		"sections": [
+			{
+				"code": "#container [data-id=\"main\"] pre code, #container [data-id=\"main\"] code {\n    font-size: .875em !important;\n}",
+				"domains": [
+					"experienceleague.adobe.com"
+				]
+			}
+		],
+		"updateDate": 1604940217922,
+		"_id": "56e64cf3-e24c-40f1-9b4f-b02cc1426ec9",
+		"_rev": 1604940217923,
+		"id": 9
 	}
 ]
