@@ -38,6 +38,11 @@ function gtop {
     Set-Location $gitRoot
 }
 
+function git_clean_branches {
+    git fetch -p
+    git branch -vv | Select-String ': gone]' | ForEach-Object { git branch -D $_.ToString().Split(' ')[2] }
+}
+
 function git_ssh {
     $newRemoteUrl = (git remote get-url origin).Replace("https://kdien@bitbucket.org/", "git@bitbucket.org:")
     git remote set-url origin $newRemoteUrl
