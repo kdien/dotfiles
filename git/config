@@ -1,0 +1,15 @@
+[core]
+	autocrlf = input
+	editor = vim
+    pager = delta
+
+[delta]
+    line-numbers = true
+    syntax-theme = OneHalfDark
+
+[interactive]
+    diffFilter = delta --color-only
+
+[pull]
+	rebase = false
+
