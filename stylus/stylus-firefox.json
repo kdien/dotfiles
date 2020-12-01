@@ -1,6 +1,6 @@
 [
 	{
-		"enabled": false,
+		"enabled": true,
 		"updateUrl": null,
 		"md5Url": null,
 		"url": null,
@@ -9,37 +9,16 @@
 		"name": "bitbucket.org",
 		"sections": [
 			{
-				"code": "/*.bitkit-diff-wrapper-diff .code-component,\n.bitkit-diff-wrapper-diff .line-numbers,\n.bitkit-diff-wrapper-diff .chunk-heading {\n    font-family: monospace !important;\n}\n\n.monaco-editor * {\n    font-size: 12px;\n}\n*/",
+				"code": "/* .bitkit-diff-wrapper-diff .code-component,\n.bitkit-diff-wrapper-diff .line-numbers,\n.bitkit-diff-wrapper-diff .chunk-heading {\n    font-family: monospace !important;\n} */\n\n.monaco-editor * {\n    font-size: 12px;\n}\n",
 				"domains": [
 					"bitbucket.org"
 				]
 			}
 		],
-		"updateDate": 1603370003208,
+		"updateDate": 1606765047028,
 		"_id": "63d8115f-ff91-4be4-83aa-4def543cd7bd",
-		"_rev": 1603370169536,
+		"_rev": 1606765047028,
 		"id": 1
-	},
-	{
-		"enabled": false,
-		"updateUrl": null,
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"installDate": 1593456181690,
-		"name": "github.com",
-		"sections": [
-			{
-				"code": "/*.blob-num,\n.blob-code-inner {\n    font-family: monospace;\n}*/\n",
-				"domains": [
-					"github.com"
-				]
-			}
-		],
-		"updateDate": 1603370056997,
-		"_id": "edecb606-d192-456b-8659-ba46f4b765fd",
-		"_rev": 1603370168716,
-		"id": 2
 	},
 	{
 		"enabled": true,
@@ -51,12 +30,12 @@
 		"name": "global",
 		"sections": [
 			{
-				"code": "* {\n    tab-size: 4 !important;\n    -moz-tab-size: 4 !important;\n}\n"
+				"code": "* {\n    -moz-tab-size: 4 !important;\n}\n"
 			}
 		],
-		"updateDate": 1603370118456,
+		"updateDate": 1606764646493,
 		"_id": "439d1d45-ed93-41fc-8868-3d124863f5ff",
-		"_rev": 1603370118456,
+		"_rev": 1606764646493,
 		"id": 4
 	},
 	{
@@ -69,15 +48,15 @@
 		"name": "jenkins.alc.ca",
 		"sections": [
 			{
-				"code": "#main-panel {\n    overflow-y: hidden;\n}\n\n#projectstatus-tabBar {\n    background-color: var(--background);\n}\n\n/*pre, code, kbd, samp, tt {\n    font-size: 1em;\n}*/\n",
+				"code": ":root {\n    --font-size-monospace: 1em;\n}\n",
 				"domains": [
 					"jenkins.alc.ca"
 				]
 			}
 		],
-		"updateDate": 1603378687348,
+		"updateDate": 1606854751888,
 		"_id": "dc3d0643-927f-45ff-abd1-cf65570ca68a",
-		"_rev": 1603378687348,
+		"_rev": 1606854755795,
 		"id": 6
 	},
 	{
@@ -86,19 +65,19 @@
 		"md5Url": null,
 		"url": null,
 		"originalMd5": null,
-		"installDate": 1602592688898,
-		"name": "docs.adobe.com",
+		"installDate": 1606854561556,
+		"name": "experienceleague.adobe.com",
 		"sections": [
 			{
-				"code": "div, h1, h2, h3, h4, a {\n    font-family: sans-serif !important;\n}\n",
+				"code": "#container [data-id=\"main\"] pre code, #container [data-id=\"main\"] code {\n    font-size: .875em !important;\n}\n",
 				"domains": [
-					"docs.adobe.com"
+					"experienceleague.adobe.com"
 				]
 			}
 		],
-		"updateDate": 1603221617860,
-		"_id": "3e20c74f-88c1-48f5-984b-43c6cd496662",
-		"_rev": 1603221724039,
-		"id": 7
+		"updateDate": 1606854561556,
+		"_id": "7b1574cd-3320-4901-b718-7eac37b55079",
+		"_rev": 1606854561556,
+		"id": 8
 	}
 ]
