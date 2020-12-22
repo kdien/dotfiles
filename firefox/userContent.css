@@ -18,38 +18,19 @@
     src: local("monospace");
 }
 
-@-moz-document url-prefix(https://bitbucket.org/) {
-    .refract-content-container .line-numbers,
-    .refract-content-container .source,
-    .commit-files-summary .commit-file-diff-stats,
-    .file-source pre {
-        -moz-tab-size: 4 !important;
-        tab-size: 4 !important;
-        /*font-size: 13px !important;*/
-    }
-}
-
-@-moz-document url-prefix(https://github.com/) {
-    .blob-code-inner {
-        -moz-tab-size: 4 !important;
-        tab-size: 4 !important;
-        /*font-size: 13px !important;*/
-    }
-}
-
-@-moz-document url-prefix(https://www.shellcheck.net/) {
+@-moz-document domain("shellcheck.net") {
     #terminal {
         font-family: monospace !important;
     }
 }
 
-@-moz-document url-prefix(https://adobe-consulting-services.github.io/) {
+@-moz-document domain("adobe-consulting-services.github.io") {
     .code-block, pre code {
         font-family: monospace !important;
     }
 }
 
-@-moz-document url-prefix(https://www.w3schools.com/) {
+@-moz-document domain("w3schools.com") {
     .w3-code, .w3-codespan {
         font-family: monospace !important;
     }
