@@ -5,37 +5,16 @@
 		"md5Url": null,
 		"url": null,
 		"originalMd5": null,
-		"installDate": 1593455851455,
-		"name": "bitbucket.org",
-		"sections": [
-			{
-				"code": "/* .bitkit-diff-wrapper-diff .code-component,\n.bitkit-diff-wrapper-diff .line-numbers,\n.bitkit-diff-wrapper-diff .chunk-heading {\n    font-family: monospace !important;\n} */\n\n.monaco-editor * {\n    font-size: 12px;\n}\n",
-				"domains": [
-					"bitbucket.org"
-				]
-			}
-		],
-		"updateDate": 1606765047028,
-		"_id": "63d8115f-ff91-4be4-83aa-4def543cd7bd",
-		"_rev": 1606765047028,
-		"id": 1
-	},
-	{
-		"enabled": true,
-		"updateUrl": null,
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
 		"installDate": 1593456663591,
 		"name": "global",
 		"sections": [
 			{
-				"code": "* {\n    -moz-tab-size: 4 !important;\n}\n"
+				"code": "* {\n    -moz-tab-size: 4 !important;\n}\n\n/* For JSONView add-on */\nbody > div#json {\n\tline-height: 1.5em;\n\tfont-size: 14px;\n}\n\n@media (prefers-color-scheme: dark) {\n\tbody > div#json {\n\t\tmargin: 0;\n\t\tbackground: #2d2d2d;\n\t\tcolor: #ccc;\n\t}\n\t\n\tbody > div#json span.prop {\n\t\tfont-weight: normal;\n\t}\n\n\tbody > div#json span.num, body > div#json span.bool {\n\t\tcolor: #f08d49;\n\t}\n\n\tbody > div#json span.string, body > div#json a {\n\t\tcolor: #7ec699;\n\t}\t\n}\n"
 			}
 		],
-		"updateDate": 1606764646493,
+		"updateDate": 1608605993058,
 		"_id": "439d1d45-ed93-41fc-8868-3d124863f5ff",
-		"_rev": 1606764646493,
+		"_rev": 1608605993058,
 		"id": 4
 	},
 	{
@@ -44,40 +23,19 @@
 		"md5Url": null,
 		"url": null,
 		"originalMd5": null,
-		"installDate": 1594994290985,
-		"name": "jenkins.alc.ca",
-		"sections": [
-			{
-				"code": ":root {\n    --font-size-monospace: 1em;\n}\n",
-				"domains": [
-					"jenkins.alc.ca"
-				]
-			}
-		],
-		"updateDate": 1606854751888,
-		"_id": "dc3d0643-927f-45ff-abd1-cf65570ca68a",
-		"_rev": 1606854755795,
-		"id": 6
-	},
-	{
-		"enabled": true,
-		"updateUrl": null,
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"installDate": 1606854561556,
+		"installDate": 1604019639848,
 		"name": "experienceleague.adobe.com",
 		"sections": [
 			{
-				"code": "#container [data-id=\"main\"] pre code, #container [data-id=\"main\"] code {\n    font-size: .875em !important;\n}\n",
+				"code": "#container [data-id=\"main\"] pre code, #container [data-id=\"main\"] code {\n    font-size: .875em !important;\n}",
 				"domains": [
 					"experienceleague.adobe.com"
 				]
 			}
 		],
-		"updateDate": 1606854561556,
-		"_id": "7b1574cd-3320-4901-b718-7eac37b55079",
-		"_rev": 1606854561556,
-		"id": 8
+		"updateDate": 1604019639848,
+		"_id": "c8ad6536-4569-41dd-8fa7-d5f22c16b8e3",
+		"_rev": 1604019639849,
+		"id": 7
 	}
 ]
