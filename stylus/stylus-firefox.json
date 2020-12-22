@@ -5,6 +5,27 @@
 		"md5Url": null,
 		"url": null,
 		"originalMd5": null,
+		"installDate": 1593455851455,
+		"name": "bitbucket.org",
+		"sections": [
+			{
+				"code": "/* .bitkit-diff-wrapper-diff .code-component,\n.bitkit-diff-wrapper-diff .line-numbers,\n.bitkit-diff-wrapper-diff .chunk-heading {\n    font-family: monospace !important;\n} */\n\n.monaco-editor * {\n    font-size: 12px;\n}\n",
+				"domains": [
+					"bitbucket.org"
+				]
+			}
+		],
+		"updateDate": 1606765047028,
+		"_id": "63d8115f-ff91-4be4-83aa-4def543cd7bd",
+		"_rev": 1606765047028,
+		"id": 1
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
 		"installDate": 1593456663591,
 		"name": "global",
 		"sections": [
@@ -14,8 +35,29 @@
 		],
 		"updateDate": 1608605993058,
 		"_id": "439d1d45-ed93-41fc-8868-3d124863f5ff",
-		"_rev": 1608605993058,
+		"_rev": 1608642930430,
 		"id": 4
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"installDate": 1594994290985,
+		"name": "jenkins.alc.ca",
+		"sections": [
+			{
+				"code": ":root {\n    --font-size-monospace: 1em;\n}\n",
+				"domains": [
+					"jenkins.alc.ca"
+				]
+			}
+		],
+		"updateDate": 1606854751888,
+		"_id": "dc3d0643-927f-45ff-abd1-cf65570ca68a",
+		"_rev": 1606854755795,
+		"id": 6
 	},
 	{
 		"enabled": true,
@@ -35,7 +77,7 @@
 		],
 		"updateDate": 1604019639848,
 		"_id": "c8ad6536-4569-41dd-8fa7-d5f22c16b8e3",
-		"_rev": 1604019639849,
-		"id": 7
+		"_rev": 1608642930430,
+		"id": 8
 	}
 ]
