@@ -9,6 +9,10 @@
 		--context-hover: #414141;
 		--context-separator: #808080;
 	}
+    ::-moz-selection {
+        background-color: #005eca !important;
+        color: #fff !important;
+    }
 }
 
 @media (prefers-color-scheme: light) {
