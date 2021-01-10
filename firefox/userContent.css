@@ -18,6 +18,11 @@
     src: local("monospace");
 }
 
+@font-face {
+    font-family: "Lucida Sans Typewriter";
+    src: local("monospace");
+}
+
 @-moz-document domain("shellcheck.net") {
     #terminal {
         font-family: monospace !important;
