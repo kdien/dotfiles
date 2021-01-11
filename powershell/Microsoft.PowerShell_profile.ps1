@@ -1,3 +1,5 @@
+Set-PSReadLineKeyHandler -Chord Ctrl+d -Function DeleteCharOrExit
+
 if (!(Test-Path Alias:npp)) {
     New-Alias -Name npp -Value "notepad++.exe"
 }
