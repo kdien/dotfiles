@@ -20,6 +20,18 @@ function e. {
     explorer .
 }
 
+function Get-ProcessMemoryUsage {
+    if ([string]::IsNullOrEmpty($args[0])) {
+        Write-Error "Missing process name, e.g. Get-ProcessMemoryUsage msedge"
+        return
+    }
+    $searchName = '*' + $args[0] + '*'
+    Get-Process -Name $searchName
+    Write-Output "`r`n"
+    $usage = (Get-Process -Name $searchName | Measure-Object WorkingSet -Sum).Sum / 1GB
+    Write-Output "Total memory usage of the above processes: $usage GB"
+}
+
 ##########################
 ## Custom Git functions ##
 ##########################
