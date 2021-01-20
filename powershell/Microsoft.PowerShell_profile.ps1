@@ -32,6 +32,10 @@ function Get-ProcessMemoryUsage {
     Write-Output "Total memory usage of the above processes: $usage GB"
 }
 
+function which {
+    (Get-Command $args[0] | Select Source).Source
+}
+
 ##########################
 ## Custom Git functions ##
 ##########################
