@@ -9,15 +9,15 @@
 		"name": "bitbucket.org",
 		"sections": [
 			{
-				"code": "/* .bitkit-diff-wrapper-diff .code-component,\n.bitkit-diff-wrapper-diff .line-numbers,\n.bitkit-diff-wrapper-diff .chunk-heading {\n    font-family: monospace !important;\n} */\n\n.monaco-editor * {\n    font-size: 12px;\n}\n",
+				"code": ".monaco-editor * {\n    font-size: 12px;\n}\n",
 				"domains": [
 					"bitbucket.org"
 				]
 			}
 		],
-		"updateDate": 1606765047028,
+		"updateDate": 1611167820047,
 		"_id": "63d8115f-ff91-4be4-83aa-4def543cd7bd",
-		"_rev": 1606765047028,
+		"_rev": 1611167820047,
 		"id": 1
 	},
 	{
@@ -30,15 +30,12 @@
 		"name": "global",
 		"sections": [
 			{
-				"code": "* {\n    -moz-tab-size: 4 !important;\n}\n\n/* For JSONView add-on */\nbody > div#json {\n\tline-height: 1.5em;\n\tfont-size: 14px;\n}\n\n@media (prefers-color-scheme: dark) {\n\tbody > div#json {\n\t\tmargin: 0;\n\t\tbackground: #2d2d2d;\n\t\tcolor: #ccc;\n\t}\n\t\n\tbody > div#json span.prop {\n\t\tfont-weight: normal;\n\t}\n\n\tbody > div#json span.num, body > div#json span.bool {\n\t\tcolor: #f08d49;\n\t}\n\n\tbody > div#json span.string, body > div#json a {\n\t\tcolor: #7ec699;\n\t}\t\n}\n\n/* Modify default checkbox styles */\ninput[type=\"checkbox\"] {\n    width: 1em;\n    height: 1em;\n    -moz-appearance: none;\n    border-radius: 3px;\n    background-color: #eee;\n    border: 1px solid #222;\n    vertical-align: text-bottom;\n}\n\ninput[type=\"checkbox\"]:active {\n    background-color: #ddd;\n}\n\ninput[type=\"checkbox\"]:checked {\n    background: url(\"https://upload.wikimedia.org/wikipedia/donate/thumb/8/89/Ooui-checkbox-selected.svg/20px-Ooui-checkbox-selected.svg.png\") center center;\n}\n",
-				"regexps": [
-					"^(?!moz-extension:\\/\\/).*$"
-				]
+				"code": "* {\n    -moz-tab-size: 4 !important;\n}\n\n/* For JSONView add-on */\nbody > div#json {\n\tline-height: 1.5em;\n\tfont-size: 14px;\n}\n\n@media (prefers-color-scheme: dark) {\n\tbody > div#json {\n\t\tmargin: 0;\n\t\tbackground: #2d2d2d;\n\t\tcolor: #ccc;\n\t}\n\t\n\tbody > div#json span.prop {\n\t\tfont-weight: normal;\n\t}\n\n\tbody > div#json span.num, body > div#json span.bool {\n\t\tcolor: #f08d49;\n\t}\n\n\tbody > div#json span.string, body > div#json a {\n\t\tcolor: #7ec699;\n\t}\t\n}\n"
 			}
 		],
-		"updateDate": 1608667090498,
+		"updateDate": 1609767306490,
 		"_id": "439d1d45-ed93-41fc-8868-3d124863f5ff",
-		"_rev": 1608667090498,
+		"_rev": 1609767306490,
 		"id": 4
 	},
 	{
@@ -57,9 +54,9 @@
 				]
 			}
 		],
-		"updateDate": 1606854751888,
+		"updateDate": 1611162583469,
 		"_id": "dc3d0643-927f-45ff-abd1-cf65570ca68a",
-		"_rev": 1606854755795,
+		"_rev": 1611162583469,
 		"id": 6
 	},
 	{
