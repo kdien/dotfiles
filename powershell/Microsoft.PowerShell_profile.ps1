@@ -32,6 +32,14 @@ function Get-ProcessMemoryUsage {
     Write-Output "Total memory usage of the above processes: $usage GB"
 }
 
+function Get-ProcessOnPort {
+    if ([string]::IsNullOrEmpty($args[0])) {
+        Write-Error "Missing port number, e.g. Get-ProcessOnPort 4502"
+        return
+    }
+    Get-Process -Id (Get-NetTCPConnection -LocalPort $args[0]).OwningProcess
+}
+
 function which {
     (Get-Command $args[0] | Select Source).Source
 }
