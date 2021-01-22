@@ -1,5 +1,9 @@
 Set-PSReadLineKeyHandler -Chord Ctrl+d -Function DeleteCharOrExit
 
+$PSDefaultParameterValues = @{
+    "Get-ChildItem:Force"=$True
+}
+
 if (!(Test-Path Alias:npp)) {
     New-Alias -Name npp -Value "notepad++.exe"
 }
