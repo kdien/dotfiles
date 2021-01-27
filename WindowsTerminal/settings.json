@@ -7,12 +7,12 @@
     {
         "defaults":
         {
-            "acrylicOpacity": 0.7,
+            "acrylicOpacity": 0.9,
             "useAcrylic": true,
             "colorScheme": "Tomorrow Night Bright",
             "cursorShape": "filledBox",
-            "fontFace": "MesloLGS NF",
-            "fontSize": 10,
+            "fontFace": "MesloLGS Nerd Font",
+            "fontSize": 11,
             "historySize": 10000,
             "padding": "8, 8, 8, 8"
         },
