@@ -56,13 +56,13 @@
     [
         {
             "name" : "Tomorrow Night Bright",
-        
+
             "cursorColor": "#ffffff",
             "selectionBackground": "#404040",
-        
+
             "background" : "#000000",
             "foreground" : "#eaeaea",
-        
+
             "black" : "#000000",
             "blue" : "#7aa6da",
             "cyan" : "#70c0ba",
@@ -82,5 +82,8 @@
         }
     ],
 
-    "keybindings": []
+    "actions": [
+        { "command": { "action": "newTab", "index": 0 }, "keys": "ctrl+alt+l" },
+        { "command": { "action": "newTab", "index": 1 }, "keys": "ctrl+alt+p" }
+    ]
 }
