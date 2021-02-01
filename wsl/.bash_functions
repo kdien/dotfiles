@@ -25,6 +25,10 @@ unset_apt_proxy() {
     sudo sed -i "s/Acquire::http::Proxy.*//" /etc/apt/apt.conf
 }
 
+mvn() {
+    cmd.exe /c "mvn $@"
+}
+
 ## FileVault ##
 add_vlt() {
     vlt st | grep \? | cut -c 2- | xargs -I {} vlt add {}
