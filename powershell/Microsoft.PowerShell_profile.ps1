@@ -87,6 +87,10 @@ function git_https {
     git remote set-url origin $newRemoteUrl
 }
 
+function Git-Help {
+    wsl -- git help $args
+}
+
 function Set-GitProxy {
     git config --global http.proxy http://proxy.example.com:8080
 }
