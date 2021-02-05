@@ -60,7 +60,7 @@ function gb {
 }
 
 function glog {
-    git log --graph --decorate --oneline
+    git log --graph --decorate --oneline $args
 }
 
 function gs {
