@@ -44,6 +44,10 @@ function Get-ProcessOnPort {
     Get-Process -Id (Get-NetTCPConnection -LocalPort $args[0]).OwningProcess
 }
 
+function repo {
+    wsl -- repo $args.Replace('.\','').Replace('\','/')
+}
+
 function which {
     (Get-Command $args[0] | Select Source).Source
 }
