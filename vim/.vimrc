@@ -7,6 +7,8 @@ augroup Jenkinsfile
     autocmd BufNewFile,BufRead Jenkinsfile* set syntax=groovy
 augroup END
 
+autocmd FileType gitcommit set textwidth=0
+
 set mouse=a
 
 set number
