@@ -1,0 +1,12 @@
+#/usr/bin/bash
+
+EXT=$1
+
+if gsettings get org.gnome.shell enabled-extensions | grep -q "$EXT"; then
+    TOGGLE=disable
+else
+    TOGGLE=enable
+fi
+
+gnome-extensions "$TOGGLE" "$EXT"
+
