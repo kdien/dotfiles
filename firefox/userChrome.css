@@ -56,7 +56,7 @@
 #backForwardMenu,
 #blockedPopupOptions,
 #contentAreaContextMenu,
-#ContentSelectDropdown,
+/* #ContentSelectDropdown, */
 #customizationPaletteItemContextMenu,
 #customizationPanelItemContextMenu,
 #customization-toolbar-menu,
@@ -83,7 +83,7 @@
 #back-button > menupopup,
 #backForwardMenu menupopup,
 #contentAreaContextMenu menupopup,
-#ContentSelectDropdown menupopup,
+/* #ContentSelectDropdown menupopup, */
 #customizationPaletteItemContextMenu menupopup,
 #customizationPanelItemContextMenu menupopup,
 #customization-toolbar-menu menupopup,
@@ -129,7 +129,7 @@
 #backForwardMenu :-moz-any(menuitem, menu),
 #blockedPopupOptions :-moz-any(menuitem, menu),
 #contentAreaContextMenu :-moz-any(menuitem, menu),
-#ContentSelectDropdown :-moz-any(menuitem, menu),
+/* #ContentSelectDropdown :-moz-any(menuitem, menu), */
 #customizationPaletteItemContextMenu :-moz-any(menuitem, menu),
 #customizationPanelItemContextMenu :-moz-any(menuitem, menu),
 #customization-toolbar-menu :-moz-any(menuitem, menu),
@@ -172,7 +172,7 @@
 #backForwardMenu :-moz-any(menuitem, menu) .menu-text,
 #blockedPopupOptions :-moz-any(menuitem, menu) .menu-text,
 #contentAreaContextMenu :-moz-any(menuitem, menu) .menu-text,
-#ContentSelectDropdown :-moz-any(menuitem, menu) .menu-text,
+/* #ContentSelectDropdown :-moz-any(menuitem, menu) .menu-text, */
 #customizationPaletteItemContextMenu :-moz-any(menuitem, menu) .menu-text,
 #customizationPanelItemContextMenu :-moz-any(menuitem, menu) .menu-text,
 #customization-toolbar-menu :-moz-any(menuitem, menu) .menu-text,
@@ -215,7 +215,7 @@
 #backForwardMenu :-moz-any(menuitem, menu) .menu-iconic-text,
 #blockedPopupOptions :-moz-any(menuitem, menu) .menu-iconic-text,
 #contentAreaContextMenu :-moz-any(menuitem, menu) .menu-iconic-text,
-#ContentSelectDropdown :-moz-any(menuitem, menu) .menu-iconic-text,
+/* #ContentSelectDropdown :-moz-any(menuitem, menu) .menu-iconic-text, */
 #customizationPaletteItemContextMenu :-moz-any(menuitem, menu) .menu-iconic-text,
 #customizationPanelItemContextMenu :-moz-any(menuitem, menu) .menu-iconic-text,
 #customization-toolbar-menu :-moz-any(menuitem, menu) .menu-iconic-text,
@@ -258,7 +258,7 @@
 #backForwardMenu menugroup,
 #blockedPopupOptions menugroup,
 #contentAreaContextMenu menugroup,
-#ContentSelectDropdown menugroup,
+/* #ContentSelectDropdown menugroup, */
 #customizationPaletteItemContextMenu menugroup,
 #customizationPanelItemContextMenu menugroup,
 #customization-toolbar-menu menugroup,
@@ -299,7 +299,7 @@
 #backForwardMenu menuseparator,
 #blockedPopupOptions menuseparator,
 #contentAreaContextMenu menuseparator,
-#ContentSelectDropdown menuseparator,
+/* #ContentSelectDropdown menuseparator, */
 #customizationPaletteItemContextMenu menuseparator,
 #customizationPanelItemContextMenu menuseparator,
 #customization-toolbar-menu menuseparator,
@@ -346,7 +346,7 @@
 #backForwardMenu menuitem[type="checkbox"] > .menu-iconic-left,
 #blockedPopupOptions menuitem[type="checkbox"] > .menu-iconic-left,
 #contentAreaContextMenu menuitem[type="checkbox"] > .menu-iconic-left,
-#ContentSelectDropdown menuitem[type="checkbox"] > .menu-iconic-left,
+/* #ContentSelectDropdown menuitem[type="checkbox"] > .menu-iconic-left, */
 #customizationPaletteItemContextMenu menuitem[type="checkbox"] > .menu-iconic-left,
 #customizationPanelItemContextMenu menuitem[type="checkbox"] > .menu-iconic-left,
 #customization-toolbar-menu menuitem[type="checkbox"] > .menu-iconic-left,
@@ -388,7 +388,7 @@
 #backForwardMenu menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
 #blockedPopupOptions menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
 #contentAreaContextMenu menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
-#ContentSelectDropdown menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
+/* #ContentSelectDropdown menuitem[checked="true"][type="checkbox"] > .menu-iconic-left, */
 #customizationPaletteItemContextMenu menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
 #customizationPanelItemContextMenu menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
 #customization-toolbar-menu menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
@@ -434,7 +434,7 @@
 #backForwardMenu menuitem[type="radio"] > .menu-iconic-left,
 #blockedPopupOptions menuitem[type="radio"] > .menu-iconic-left,
 #contentAreaContextMenu menuitem[type="radio"] > .menu-iconic-left,
-#ContentSelectDropdown menuitem[type="radio"] > .menu-iconic-left,
+/* #ContentSelectDropdown menuitem[type="radio"] > .menu-iconic-left, */
 #customizationPaletteItemContextMenu menuitem[type="radio"] > .menu-iconic-left,
 #customizationPanelItemContextMenu menuitem[type="radio"] > .menu-iconic-left,
 #customization-toolbar-menu menuitem[type="radio"] > .menu-iconic-left,
@@ -476,7 +476,7 @@
 #backForwardMenu menuitem[checked="true"][type="radio"] > .menu-iconic-left,
 #blockedPopupOptions menuitem[checked="true"][type="radio"] > .menu-iconic-left,
 #contentAreaContextMenu menuitem[checked="true"][type="radio"] > .menu-iconic-left,
-#ContentSelectDropdown menuitem[checked="true"][type="radio"] > .menu-iconic-left,
+/* #ContentSelectDropdown menuitem[checked="true"][type="radio"] > .menu-iconic-left, */
 #customizationPaletteItemContextMenu menuitem[checked="true"][type="radio"] > .menu-iconic-left,
 #customizationPanelItemContextMenu menuitem[checked="true"][type="radio"] > .menu-iconic-left,
 #customization-toolbar-menu menuitem[checked="true"][type="radio"] > .menu-iconic-left,
@@ -526,7 +526,7 @@
 #backForwardMenu :-moz-any(menuitem, menu)[disabled="true"],
 #blockedPopupOptions :-moz-any(menuitem, menu)[disabled="true"],
 #contentAreaContextMenu :-moz-any(menuitem, menu)[disabled="true"],
-#ContentSelectDropdown :-moz-any(menuitem, menu)[disabled="true"],
+/* #ContentSelectDropdown :-moz-any(menuitem, menu)[disabled="true"], */
 #customizationPaletteItemContextMenu :-moz-any(menuitem, menu)[disabled="true"],
 #customizationPanelItemContextMenu :-moz-any(menuitem, menu)[disabled="true"],
 #customization-toolbar-menu :-moz-any(menuitem, menu)[disabled="true"],
@@ -568,7 +568,7 @@
 #backForwardMenu .menu-right[disabled="true"],
 #blockedPopupOptions .menu-right[disabled="true"],
 #contentAreaContextMenu .menu-right[disabled="true"],
-#ContentSelectDropdown .menu-right[disabled="true"],
+/* #ContentSelectDropdown .menu-right[disabled="true"], */
 #customizationPaletteItemContextMenu .menu-right[disabled="true"],
 #customizationPanelItemContextMenu .menu-right[disabled="true"],
 #customization-toolbar-menu .menu-right[disabled="true"],
@@ -616,7 +616,7 @@
 #backForwardMenu menuitem[checked="true"][type="checkbox"][disabled="true"] > .menu-iconic-left,
 #blockedPopupOptions menuitem[checked="true"][type="checkbox"][disabled="true"] > .menu-iconic-left,
 #contentAreaContextMenu menuitem[checked="true"][type="checkbox"][disabled="true"] > .menu-iconic-left,
-#ContentSelectDropdown menuitem[checked="true"][type="checkbox"][disabled="true"] > .menu-iconic-left,
+/* #ContentSelectDropdown menuitem[checked="true"][type="checkbox"][disabled="true"] > .menu-iconic-left, */
 #customizationPaletteItemContextMenu menuitem[checked="true"][type="checkbox"][disabled="true"] > .menu-iconic-left,
 #customizationPanelItemContextMenu menuitem[checked="true"][type="checkbox"][disabled="true"] > .menu-iconic-left,
 #customization-toolbar-menu menuitem[checked="true"][type="checkbox"][disabled="true"] > .menu-iconic-left,
@@ -658,7 +658,7 @@
 #backForwardMenu menuitem[checked="true"][type="radio"][disabled="true"] > .menu-iconic-left,
 #blockedPopupOptions menuitem[checked="true"][type="radio"][disabled="true"] > .menu-iconic-left,
 #contentAreaContextMenu menuitem[checked="true"][type="radio"][disabled="true"] > .menu-iconic-left,
-#ContentSelectDropdown menuitem[checked="true"][type="radio"][disabled="true"] > .menu-iconic-left,
+/* #ContentSelectDropdown menuitem[checked="true"][type="radio"][disabled="true"] > .menu-iconic-left, */
 #customizationPaletteItemContextMenu menuitem[checked="true"][type="radio"][disabled="true"] > .menu-iconic-left,
 #customizationPanelItemContextMenu menuitem[checked="true"][type="radio"][disabled="true"] > .menu-iconic-left,
 #customization-toolbar-menu menuitem[checked="true"][type="radio"][disabled="true"] > .menu-iconic-left,
@@ -700,7 +700,7 @@
 #backForwardMenu :-moz-any(menuitem, menu)[disabled="true"]:hover,
 #blockedPopupOptions :-moz-any(menuitem, menu)[disabled="true"]:hover,
 #contentAreaContextMenu :-moz-any(menuitem, menu)[disabled="true"]:hover,
-#ContentSelectDropdown :-moz-any(menuitem, menu)[disabled="true"]:hover,
+/* #ContentSelectDropdown :-moz-any(menuitem, menu)[disabled="true"]:hover, */
 #customizationPaletteItemContextMenu :-moz-any(menuitem, menu)[disabled="true"]:hover,
 #customizationPanelItemContextMenu :-moz-any(menuitem, menu)[disabled="true"]:hover,
 #customization-toolbar-menu :-moz-any(menuitem, menu)[disabled="true"]:hover,
@@ -743,7 +743,7 @@
 #backForwardMenu :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]),
 #blockedPopupOptions :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]),
 #contentAreaContextMenu :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]),
-#ContentSelectDropdown :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]),
+/* #ContentSelectDropdown :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]), */
 #customizationPaletteItemContextMenu :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]),
 #customizationPanelItemContextMenu :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]),
 #customization-toolbar-menu :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]),
@@ -787,7 +787,7 @@
 #backForwardMenu menuitem[checked="true"][type="checkbox"]:hover:not([disabled="true"]) > .menu-iconic-left,
 #blockedPopupOptions menuitem[checked="true"][type="checkbox"]:hover:not([disabled="true"]) > .menu-iconic-left,
 #contentAreaContextMenu menuitem[checked="true"][type="checkbox"]:hover:not([disabled="true"]) > .menu-iconic-left,
-#ContentSelectDropdown menuitem[checked="true"][type="checkbox"]:hover:not([disabled="true"]) > .menu-iconic-left,
+/* #ContentSelectDropdown menuitem[checked="true"][type="checkbox"]:hover:not([disabled="true"]) > .menu-iconic-left, */
 #customizationPaletteItemContextMenu menuitem[checked="true"][type="checkbox"]:hover:not([disabled="true"]) > .menu-iconic-left,
 #customizationPanelItemContextMenu menuitem[checked="true"][type="checkbox"]:hover:not([disabled="true"]) > .menu-iconic-left,
 #customization-toolbar-menu menuitem[checked="true"][type="checkbox"]:hover:not([disabled="true"]) > .menu-iconic-left,
@@ -829,7 +829,7 @@
 #backForwardMenu menuitem[checked="true"][type="radio"]:hover:not([disabled="true"]) > .menu-iconic-left,
 #blockedPopupOptions menuitem[checked="true"][type="radio"]:hover:not([disabled="true"]) > .menu-iconic-left,
 #contentAreaContextMenu menuitem[checked="true"][type="radio"]:hover:not([disabled="true"]) > .menu-iconic-left,
-#ContentSelectDropdown menuitem[checked="true"][type="radio"]:hover:not([disabled="true"]) > .menu-iconic-left,
+/* #ContentSelectDropdown menuitem[checked="true"][type="radio"]:hover:not([disabled="true"]) > .menu-iconic-left, */
 #customizationPaletteItemContextMenu menuitem[checked="true"][type="radio"]:hover:not([disabled="true"]) > .menu-iconic-left,
 #customizationPanelItemContextMenu menuitem[checked="true"][type="radio"]:hover:not([disabled="true"]) > .menu-iconic-left,
 #customization-toolbar-menu menuitem[checked="true"][type="radio"]:hover:not([disabled="true"]) > .menu-iconic-left,
@@ -879,7 +879,7 @@
 #backForwardMenu :-moz-any(menu, menuitem) > .menu-iconic-left,
 #blockedPopupOptions :-moz-any(menu, menuitem) > .menu-iconic-left,
 #contentAreaContextMenu :-moz-any(menu, menuitem) > .menu-iconic-left,
-#ContentSelectDropdown :-moz-any(menu, menuitem) > .menu-iconic-left,
+/* #ContentSelectDropdown :-moz-any(menu, menuitem) > .menu-iconic-left, */
 #customizationPaletteItemContextMenu :-moz-any(menu, menuitem) > .menu-iconic-left,
 #customizationPanelItemContextMenu :-moz-any(menu, menuitem) > .menu-iconic-left,
 #customization-toolbar-menu :-moz-any(menu, menuitem) > .menu-iconic-left,
@@ -922,7 +922,7 @@
 #backForwardMenu .menu-right,
 #blockedPopupOptions .menu-right,
 #contentAreaContextMenu :-moz-any(menu, menuitem):not([disabled="true"]) > .menu-right,
-#ContentSelectDropdown .menu-right,
+/* #ContentSelectDropdown .menu-right, */
 #contentAreaContextMenu menupopup:not([disabled="true"]) > .menu-right,
 #customizationPaletteItemContextMenu .menu-right,
 #customizationPanelItemContextMenu .menu-right,
@@ -971,7 +971,7 @@
 #blockedPopupOptions :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]) .menu-right,
 #contentAreaContextMenu :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]) > .menu-right,
 #contentAreaContextMenu menupopup :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]) > .menu-right,
-#ContentSelectDropdown :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]) .menu-right,
+/* #ContentSelectDropdown :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]) .menu-right, */
 #customizationPaletteItemContextMenu :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]) .menu-right,
 #customizationPanelItemContextMenu :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]) .menu-right,
 #customization-toolbar-menu :-moz-any(menu, menuitem):-moz-any(:hover, [_moz-menuactive="true"]):not([disabled="true"]) .menu-right,
@@ -1032,7 +1032,7 @@
 	margin-inline-start: -8px !important;
 }
 
-#ContentSelectDropdown > menupopup > menuitem > .menu-iconic-text
+/* #ContentSelectDropdown > menupopup > menuitem > .menu-iconic-text
 {
 	margin-left: 24px !important;
 }
@@ -1064,7 +1064,7 @@
 {
 	color: var(--context-front) !important;
 	background-image: unset !important;
-}
+} */
 
 menulist:-moz-focusring > menupopup > menuitem[_moz-menuactive="true"]
 {
