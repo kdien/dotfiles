@@ -14,7 +14,7 @@ Set-Alias -Name curl -Value curl.exe -Option AllScope
 #$GitPromptSettings.DefaultPromptSuffix = $GitPromptSettings.DefaultPromptSuffix.Replace("'>'", "'`n>'")
 
 Import-Module posh-git,oh-my-posh
-Set-Theme Paradox
+Set-PoshPrompt paradox
 
 function curlx {
     curl.exe -x proxy.example.com:8080 --url $args[0]
