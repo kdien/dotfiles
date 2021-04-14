@@ -48,10 +48,6 @@ function help {
     Get-Help $args[0] -Full | less
 }
 
-function repo {
-    wsl -- repo $args.Replace('.\','').Replace('\','/')
-}
-
 function which {
     (Get-Command $args[0] | Select Source).Source
 }
@@ -103,3 +99,35 @@ function Unset-GitProxy {
     git config --global --unset http.proxy
 }
 
+##########################
+## Custom AEM functions ##
+##########################
+function Install-AEMPackage {
+    if ([string]::IsNullOrEmpty($args[0])) {
+        Write-Error "Missing package file, e.g. Install-AEMPackage content-package.zip"
+        return
+    }
+
+    $pkg = $args[0]
+    $pass = ConvertTo-SecureString -AsPlainText -String 'admin'
+    $creds = New-Object PSCredential('admin', $pass)
+    $form = @{
+        file = Get-Item -Path "$pkg"
+        name = (Get-Item -Path "$pkg").BaseName
+        force = 'true'
+        install = 'true'
+    }
+
+    $ProgressPreference = 'SilentlyContinue'
+    $response = (Invoke-WebRequest -Authentication Basic -Credential $creds -AllowUnencryptedAuthentication -Method Post -Form $form -Uri 'http://localhost:4502/crx/packmgr/service.jsp').StatusCode
+
+    if ($response -eq 200) {
+        Write-Output "Package $((Get-Item -Path "$pkg").Name) successfully installed"
+    } else {
+        Write-Error "Error trying to install $pkg"
+    }
+}
+
+function repo {
+    wsl -- repo $args.Replace('.\','').Replace('\','/')
+}
