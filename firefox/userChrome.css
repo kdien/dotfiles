@@ -23,11 +23,13 @@
 		--context-front: #ffffff;
 		--context-separator: #808080;
 	}
+    /*
 	::-moz-selection
 	{
         background-color: #0f7bff !important;
         color: #fff !important;
     }
+    */
 }
 
 @media (prefers-color-scheme: light)
