@@ -55,30 +55,27 @@
     "schemes":
     [
         {
-            "name" : "Tomorrow Night Bright",
-
-            "cursorColor": "#ffffff",
-            "selectionBackground": "#404040",
-
-            "background" : "#000000",
-            "foreground" : "#eaeaea",
-
-            "black" : "#000000",
-            "blue" : "#7aa6da",
-            "cyan" : "#70c0ba",
-            "green" : "#b9ca4a",
-            "purple" : "#c397d8",
-            "red" : "#d54e53",
-            "white" : "#eaeaea",
-            "yellow" : "#e6c547",
-            "brightBlack" : "#666666",
-            "brightBlue" : "#7aa6da",
-            "brightCyan" : "#54ced6",
-            "brightGreen" : "#9ec400",
-            "brightPurple" : "#b77ee0",
-            "brightRed" : "#ff3334",
-            "brightWhite" : "#ffffff",
-            "brightYellow" : "#e7c547"
+            "name": "Tomorrow Night Bright",
+            "cursorColor": "#FFFFFF",
+            "selectionBackground": "#FFFFFF",
+            "background": "#0C0C0C",
+            "foreground": "#CCCCCC",
+            "black": "#0C0C0C",
+            "blue": "#7AA6DA",
+            "cyan": "#70C0BA",
+            "green": "#B9CA4A",
+            "purple": "#C397D8",
+            "red": "#D54E53",
+            "white": "#CCCCCC",
+            "yellow": "#E6C547",
+            "brightBlack": "#767676",
+            "brightBlue": "#7AA6DA",
+            "brightCyan": "#54CED6",
+            "brightGreen": "#9EC400",
+            "brightPurple": "#B77EE0",
+            "brightRed": "#FF3334",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#E7C547"
         }
     ],
 
