@@ -15,6 +15,11 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 [[ -f $HOME/.zsh_functions ]] && source $HOME/.zsh_functions
 
+# Set up `brew` completion
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 # Set up some useful environment variables
 export HISTFILESIZE=
 export HISTFILE=$HOME/.zsh_history
