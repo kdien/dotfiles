@@ -22,7 +22,7 @@ fi
 # Set up some useful environment variables
 export HISTFILESIZE=
 export HISTFILE=$HOME/.zsh_history
-export JAVA_HOME=/opt/homebrew/opt/openjdk@11
+export JAVA_HOME=$(brew --prefix)/opt/openjdk@11
 
 # Load completion scripts
 autoload -U compinit && compinit
