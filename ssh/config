@@ -1,0 +1,3 @@
+# macOS only
+Host *
+    UseKeychain yes

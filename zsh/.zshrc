@@ -24,6 +24,9 @@ export HISTFILESIZE=
 export HISTFILE=$HOME/.zsh_history
 export JAVA_HOME=$(brew --prefix)/opt/openjdk@11
 
+# Add ssh private key identities to agent
+ssh-add -l > /dev/null || ssh-add -A > /dev/null
+
 # Load completion scripts
 autoload -U compinit && compinit
 
