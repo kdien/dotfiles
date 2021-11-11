@@ -251,6 +251,39 @@ colors:
   #
   #indexed_colors: []
 
+# Colors (Atom One Light)
+# colors:
+#   # Default Colors
+#   primary:
+#     background: '0xf9f9f9'
+#     foreground: '0x2a2c33'
+
+#   # Cursor colors
+#   cursor:
+#     text: '0xffffff'
+#     cursor: '0x999999'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x000000'
+#     red:     '0xde3e35'
+#     green:   '0x3f953a'
+#     yellow:  '0xd2b67c'
+#     blue:    '0x2f5af3'
+#     magenta: '0x950095'
+#     cyan:    '0x3f953a'
+#     white:   '0xbbbbbb'
+#   # Bright colors
+#   bright:
+#     black:   '0x000000'
+#     red:     '0xde3e35'
+#     green:   '0x3f953a'
+#     yellow:  '0xd2b67c'
+#     blue:    '0x2f5af3'
+#     magenta: '0xa00095'
+#     cyan:    '0x3f953a'
+#     white:   '0xffffff'
+
 # Colors (Solarized Light)
 # colors:
 #   # Default colors
