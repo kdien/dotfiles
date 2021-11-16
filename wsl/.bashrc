@@ -129,3 +129,11 @@ export WIN_HOME=/mnt/c/Users/$(powershell.exe '$env:USERPROFILE' | cut -d '\' -f
 . ~/pureline/pureline ~/.pureline.conf
 #. ~/oh-my-bash.conf
 
+# Load SSH keys
+if command -v /usr/bin/keychain &> /dev/null; then
+    [[ -f $HOME/.ssh/id_rsa ]] && /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
+    [[ -f $HOME/.ssh/id_rsa_corning_aws ]] && /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa_corning_aws
+    [[ -f $HOME/.ssh/id_ed25519 ]] && /usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
+    . $HOME/.keychain/$HOSTNAME-sh
+fi
+
