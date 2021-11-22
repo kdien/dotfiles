@@ -8,6 +8,10 @@ if (!(Test-Path Alias:npp)) {
     New-Alias -Name npp -Value "notepad++.exe"
 }
 
+if (!(Test-Path Alias:tf)) {
+    New-Alias -Name tf -Value terraform
+}
+
 Set-Alias -Name curl -Value curl.exe -Option AllScope
 
 Invoke-Expression "$HOME\dotfiles\powershell\sshCompletion.ps1"
