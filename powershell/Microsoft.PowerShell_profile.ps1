@@ -10,6 +10,8 @@ if (!(Test-Path Alias:npp)) {
 
 Set-Alias -Name curl -Value curl.exe -Option AllScope
 
+Invoke-Expression "$HOME\dotfiles\powershell\sshCompletion.ps1"
+
 #Import-Module posh-git
 #$GitPromptSettings.DefaultPromptBeforeSuffix.Text = "`n"
 
