@@ -52,7 +52,7 @@
           "foreground": "#ffffff",
           "background": "#ff8080",
           "properties": {
-            "template": "\uE20F"
+            "template": "{{ if gt .Code 0 }}{{.Code}}{{ end }}"
           }
         }
       ]
