@@ -8,6 +8,10 @@ if (!(Test-Path Alias:npp)) {
     New-Alias -Name npp -Value "notepad++.exe"
 }
 
+if (!(Test-Path Alias:k)) {
+    New-Alias -Name k -Value "kubectl.exe"
+}
+
 if (!(Test-Path Alias:tf)) {
     New-Alias -Name tf -Value "terraform.exe"
 }
