@@ -137,6 +137,9 @@ if command -v /usr/bin/keychain &> /dev/null; then
     . $HOME/.keychain/$HOSTNAME-sh
 fi
 
-# Load terraform shell completion
-[[ -f /usr/bin/terraform ]] && complete -C /usr/bin/terraform terraform
+# Terraform
+export PATH="$HOME/.tfenv/bin:$PATH"
+if command -v terraform &> /dev/null; then
+    complete -C $(which terraform) terraform
+fi
 
