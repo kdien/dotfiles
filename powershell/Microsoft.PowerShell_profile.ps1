@@ -9,7 +9,11 @@ if (!(Test-Path Alias:npp)) {
 }
 
 if (!(Test-Path Alias:tf)) {
-    New-Alias -Name tf -Value terraform
+    New-Alias -Name tf -Value "terraform.exe"
+}
+
+if (!(Test-Path Env:GODEBUG)) {
+    [Environment]::SetEnvironmentVariable('GODEBUG', 'asyncpreemptoff=1', 'User')
 }
 
 Set-Alias -Name curl -Value curl.exe -Option AllScope
