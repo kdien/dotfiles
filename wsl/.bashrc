@@ -141,6 +141,7 @@ fi
 export PATH="$HOME/.tfenv/bin:$PATH"
 if command -v terraform &> /dev/null; then
     complete -C $(which terraform) terraform
+    complete -C $(which terraform) tf
 fi
 
 # kubectl
