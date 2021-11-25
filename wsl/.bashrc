@@ -143,3 +143,9 @@ if command -v terraform &> /dev/null; then
     complete -C $(which terraform) terraform
 fi
 
+# kubectl
+if command -v kubectl &> /dev/null; then
+    . <(kubectl completion bash)
+    complete -F __start_kubectl k
+fi
+
