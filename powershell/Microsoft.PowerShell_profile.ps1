@@ -22,14 +22,12 @@ if (!(Test-Path Env:GODEBUG)) {
 
 Set-Alias -Name curl -Value curl.exe -Option AllScope
 
-Invoke-Expression "$HOME\dotfiles\powershell\sshCompletion.ps1"
-
-#Import-Module posh-git
-#$GitPromptSettings.DefaultPromptBeforeSuffix.Text = "`n"
-
-Import-Module posh-git,oh-my-posh
+Import-Module posh-git,oh-my-posh,PSKubectlCompletion
 $env:POSH_GIT_ENABLED = $true
 Set-PoshPrompt -Theme $HOME\dotfiles\powershell\ohmyposh.json
+Register-KubectlCompletion
+
+Invoke-Expression "$HOME\dotfiles\powershell\sshCompletion.ps1"
 
 function curlx {
     curl.exe -x proxy.example.com:8080 --url $args[0]
