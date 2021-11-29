@@ -117,6 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 # User configs
+shopt -s direxpand
+
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
