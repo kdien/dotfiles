@@ -139,6 +139,11 @@ if command -v /usr/bin/keychain &> /dev/null; then
     . $HOME/.keychain/$HOSTNAME-sh
 fi
 
+# AWS
+if command -v aws &> /dev/null; then
+    complete -C $(which aws_completer) aws
+fi
+
 # Terraform
 export PATH="$HOME/.tfenv/bin:$PATH"
 if command -v terraform &> /dev/null; then
