@@ -2,13 +2,6 @@
 :colorscheme default
 set background=light
 
-augroup Jenkinsfile
-    au!
-    autocmd BufNewFile,BufRead Jenkinsfile* set syntax=groovy
-augroup END
-
-autocmd FileType gitcommit set textwidth=0
-
 set mouse=a
 
 set number
@@ -18,4 +11,13 @@ set expandtab
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
+
+augroup Jenkinsfile
+    au!
+    autocmd BufNewFile,BufRead Jenkinsfile* set syntax=groovy
+augroup END
+
+autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+autocmd FileType gitcommit set textwidth=0
 
