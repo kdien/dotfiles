@@ -157,3 +157,8 @@ if command -v kubectl &> /dev/null; then
     complete -F __start_kubectl k
 fi
 
+# minikube
+if command -v minikube &> /dev/null; then
+    . <(minikube completion bash)
+fi
+
