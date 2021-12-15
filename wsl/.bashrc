@@ -162,3 +162,8 @@ if command -v minikube &> /dev/null; then
     . <(minikube completion bash)
 fi
 
+# eksctl
+if command -v eksctl &> /dev/null; then
+    . <(eksctl completion bash)
+fi
+
