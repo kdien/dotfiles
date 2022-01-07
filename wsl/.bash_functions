@@ -1,3 +1,11 @@
+lower() {
+    echo $1 | tr '[:upper:]' '[:lower:]'
+}
+
+upper() {
+    echo $1 | tr '[:lower:]' '[:upper:]'
+}
+
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
