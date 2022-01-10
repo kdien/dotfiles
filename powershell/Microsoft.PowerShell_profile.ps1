@@ -28,6 +28,7 @@ Set-PoshPrompt -Theme $HOME\dotfiles\powershell\ohmyposh.json
 Register-KubectlCompletion
 
 Invoke-Expression "$HOME\dotfiles\powershell\sshCompletion.ps1"
+Invoke-Expression "$HOME\dotfiles\powershell\awsCompletion.ps1"
 
 function curlx {
     curl.exe -x proxy.example.com:8080 --url $args[0]
