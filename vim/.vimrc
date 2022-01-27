@@ -6,6 +6,9 @@ set mouse=a
 
 set number
 
+set splitbelow
+set splitright
+
 set autoindent
 set expandtab
 set softtabstop=4
