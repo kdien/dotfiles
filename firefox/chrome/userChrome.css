@@ -1,0 +1,25 @@
+@font-face {
+    font-family: Consolas;
+    src: local("monospace");
+}
+
+@font-face {
+    font-family: Courier;
+    src: local("monospace");
+}
+
+@font-face {
+    font-family: "Courier New";
+    src: local("monospace");
+}
+
+@font-face {
+    font-family: "Lucida Console";
+    src: local("monospace");
+}
+
+@font-face {
+    font-family: "Lucida Sans Typewriter";
+    src: local("monospace");
+}
+
