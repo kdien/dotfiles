@@ -116,54 +116,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# User configs
-shopt -s direxpand
-
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
-fi
-
-export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
+# User config
 export LS_COLORS="ow=01;36;40"
 export WIN_HOME=/mnt/c/Users/$(powershell.exe '$env:USERPROFILE' | cut -d '\' -f 3 | sed -e 's/\r//')
 
-#export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] \[\e0'
-. ~/pureline/pureline ~/.pureline.conf
-#. ~/oh-my-bash.conf
-
 # Load SSH keys
 if command -v /usr/bin/keychain &> /dev/null; then
-    [[ -f $HOME/.ssh/id_rsa ]] && /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
-    [[ -f $HOME/.ssh/id_rsa_corning_aws ]] && /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa_corning_aws
-    [[ -f $HOME/.ssh/id_ed25519 ]] && /usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
+    [ -f $HOME/.ssh/id_rsa ] && /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
+    [ -f $HOME/.ssh/id_rsa_corning_aws ] && /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa_corning_aws
+    [ -f $HOME/.ssh/id_ed25519 ] && /usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
     . $HOME/.keychain/$HOSTNAME-sh
 fi
 
-# AWS
-if command -v aws &> /dev/null; then
-    complete -C $(which aws_completer) aws
-fi
-
-# Terraform
-export PATH="$HOME/.tfenv/bin:$PATH"
-if command -v terraform &> /dev/null; then
-    complete -C $(which terraform) terraform
-    complete -C $(which terraform) tf
-fi
-
-# kubectl
-if command -v kubectl &> /dev/null; then
-    . <(kubectl completion bash)
-    complete -F __start_kubectl k
-fi
-
-# minikube
-if command -v minikube &> /dev/null; then
-    . <(minikube completion bash)
-fi
-
-# eksctl
-if command -v eksctl &> /dev/null; then
-    . <(eksctl completion bash)
-fi
+# Common bash config
+[ -f $HOME/dotfiles/bash/.bash_common ] && . $HOME/dotfiles/bash/.bash_common
 
