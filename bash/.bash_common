@@ -111,9 +111,9 @@ terraform_target() {
     local pattern=$2
     
     if [ -n "$pattern" ]; then
-        echo "$(grep ^resource $file | grep $pattern | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /')"
+        grep ^resource $file | grep -E "$pattern" | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /'
     else
-        echo "$(grep ^resource $file | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /')"
+        grep ^resource $file | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /'
     fi
 }
 
