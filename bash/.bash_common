@@ -55,7 +55,7 @@ alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.s
 alias tf='terraform'
 alias tft='terraform_target'
 
-distro=$(grep 'ID=' /etc/os-release | awk -F '=' '{print $2}')
+distro=$(grep '^ID=' /etc/os-release | awk -F '=' '{print $2}')
 if [ "$distro" == ubuntu ]; then
     alias upd='sudo apt update && sudo apt upgrade -y'
 elif [ "$distro" == fedora ]; then
