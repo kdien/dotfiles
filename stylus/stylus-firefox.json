@@ -1,83 +1,363 @@
 [
-	{
-		"enabled": true,
-		"updateUrl": null,
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"installDate": 1593455851455,
-		"name": "bitbucket.org",
-		"sections": [
-			{
-				"code": ".monaco-editor * {\n    font-size: 12px;\n}\n",
-				"domains": [
-					"bitbucket.org"
-				]
-			}
-		],
-		"updateDate": 1611167820047,
-		"_id": "63d8115f-ff91-4be4-83aa-4def543cd7bd",
-		"_rev": 1611167820047,
-		"id": 1
-	},
-	{
-		"enabled": true,
-		"updateUrl": null,
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"installDate": 1593456663591,
-		"name": "global",
-		"sections": [
-			{
-				"code": "* {\n    -moz-tab-size: 4 !important;\n}\n\n/* For JSONView add-on */\nbody > div#json {\n\tline-height: 1.5em;\n\tfont-size: 14px;\n}\n\n@media (prefers-color-scheme: dark) {\n\tbody > div#json {\n\t\tmargin: 0;\n\t\tbackground: #2d2d2d;\n\t\tcolor: #ccc;\n\t}\n\t\n\tbody > div#json span.prop {\n\t\tfont-weight: normal;\n\t}\n\n\tbody > div#json span.num, body > div#json span.bool {\n\t\tcolor: #f08d49;\n\t}\n\n\tbody > div#json span.string, body > div#json a {\n\t\tcolor: #7ec699;\n\t}\t\n}\n"
-			}
-		],
-		"updateDate": 1609767306490,
-		"_id": "439d1d45-ed93-41fc-8868-3d124863f5ff",
-		"_rev": 1609767306490,
-		"id": 4
-	},
-	{
-		"enabled": true,
-		"updateUrl": null,
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"installDate": 1594994290985,
-		"name": "jenkins.alc.ca",
-		"sections": [
-			{
-				"code": ":root {\n    --font-size-monospace: 1em;\n}\n",
-				"domains": [
-					"jenkins.alc.ca"
-				]
-			}
-		],
-		"updateDate": 1611162583469,
-		"_id": "dc3d0643-927f-45ff-abd1-cf65570ca68a",
-		"_rev": 1611162583469,
-		"id": 6
-	},
-	{
-		"enabled": true,
-		"updateUrl": null,
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"installDate": 1604019639848,
-		"name": "experienceleague.adobe.com",
-		"sections": [
-			{
-				"code": "#container [data-id=\"main\"] pre code, #container [data-id=\"main\"] code {\n    font-size: .875em !important;\n}",
-				"domains": [
-					"experienceleague.adobe.com"
-				]
-			}
-		],
-		"updateDate": 1604019639848,
-		"_id": "c8ad6536-4569-41dd-8fa7-d5f22c16b8e3",
-		"_rev": 1608642930430,
-		"id": 8
-	}
+  {
+    "settings": {
+      "openEditInWindow": false,
+      "openEditInWindow.popup": false,
+      "windowPosition": {},
+      "show-badge": true,
+      "disableAll": false,
+      "exposeIframes": false,
+      "newStyleAsUsercss": false,
+      "styleViaXhr": false,
+      "patchCsp": false,
+      "config.autosave": true,
+      "popup.breadcrumbs": true,
+      "popup.breadcrumbs.usePath": false,
+      "popup.enabledFirst": true,
+      "popup.stylesFirst": true,
+      "popup.autoResort": false,
+      "popup.borders": false,
+      "popup.findStylesInline": true,
+      "popup.findSort": "u",
+      "manage.onlyEnabled": false,
+      "manage.onlyLocal": false,
+      "manage.onlyUsercss": false,
+      "manage.onlyEnabled.invert": false,
+      "manage.onlyLocal.invert": false,
+      "manage.onlyUsercss.invert": false,
+      "manage.actions.expanded": true,
+      "manage.backup.expanded": true,
+      "manage.filters.expanded": true,
+      "manage.newUI": true,
+      "manage.newUI.favicons": false,
+      "manage.newUI.faviconsGray": true,
+      "manage.newUI.targets": 3,
+      "manage.newUI.sort": "title,asc",
+      "editor.options": {},
+      "editor.toc.expanded": true,
+      "editor.options.expanded": true,
+      "editor.lint.expanded": true,
+      "editor.publish.expanded": true,
+      "editor.lineWrapping": true,
+      "editor.smartIndent": true,
+      "editor.indentWithTabs": true,
+      "editor.tabSize": 4,
+      "editor.keyMap": "default",
+      "editor.theme": "default",
+      "editor.beautify": {
+        "selector_separator_newline": true,
+        "newline_before_open_brace": false,
+        "newline_after_open_brace": true,
+        "newline_between_properties": true,
+        "newline_before_close_brace": true,
+        "newline_between_rules": false,
+        "preserve_newlines": true,
+        "end_with_newline": false,
+        "indent_conditional": true
+      },
+      "editor.beautify.hotkey": "",
+      "editor.lintDelay": 300,
+      "editor.linter": "csslint",
+      "editor.lintReportDelay": 500,
+      "editor.matchHighlight": "token",
+      "editor.autoCloseBrackets": true,
+      "editor.autocompleteOnTyping": true,
+      "editor.contextDelete": null,
+      "editor.selectByTokens": true,
+      "editor.appliesToLineWidget": true,
+      "editor.livePreview": true,
+      "editor.colorpicker": true,
+      "editor.colorpicker.hexUppercase": false,
+      "editor.colorpicker.hotkey": "",
+      "editor.colorpicker.color": "#fff",
+      "editor.colorpicker.maxHeight": 300,
+      "hotkey._execute_browser_action": "",
+      "hotkey.openManage": "",
+      "hotkey.styleDisableAll": "",
+      "sync.enabled": "none",
+      "iconset": 0,
+      "badgeDisabled": "#8B0000",
+      "badgeNormal": "#006666",
+      "popupWidth": 246,
+      "updateInterval": 24
+    }
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1593456663591,
+    "name": "global",
+    "sections": [
+      {
+        "code": "* {\n    tab-size: 4 !important;\n}\n\nb, strong {\n\tfont-weight: bold;\n}\n\ntextarea {\n\tfont-size: 13px;\n}\n\ncode, kbd, pre, samp, .input-monospace, .code, .ace_editor {\n    font-family: monospace !important;\n}\n"
+      }
+    ],
+    "updateDate": 1651250552709,
+    "_id": "439d1d45-ed93-41fc-8868-3d124863f5ff",
+    "_rev": 1651250552709,
+    "_usw": {},
+    "id": 10
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1639451519128,
+    "name": "github.com",
+    "sections": [
+      {
+        "code": ".blob-num, .blob-code-inner, .text-mono {\n    font-family: monospace !important;\n}",
+        "domains": [
+          "github.com"
+        ]
+      }
+    ],
+    "updateDate": 1639451563421,
+    "_id": "ef574026-6076-4571-95ca-60888b722589",
+    "_rev": 1647874084310,
+    "_usw": {},
+    "id": 11
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1630358675242,
+    "name": "bamboo.corningmsp.com",
+    "sections": [
+      {
+        "code": ".ace_editor,\n#buildLog, #buildLog table, #remoteAgentLog, #ec2InstanceLog,\n.chain-logs-table .log-trace .code>div table {\n    font-family: monospace;\n}\n",
+        "domains": [
+          "bamboo.corningmsp.com"
+        ]
+      }
+    ],
+    "updateDate": 1645106552752,
+    "_id": "4b55f516-53cc-4a46-aaac-eb7b61f73919",
+    "_rev": 1645106552752,
+    "_usw": {},
+    "id": 12
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1604940217922,
+    "name": "experienceleague.adobe.com",
+    "sections": [
+      {
+        "code": "#container [data-id=\"main\"] pre code, #container [data-id=\"main\"] code {\n    font-size: .875em !important;\n}",
+        "domains": [
+          "experienceleague.adobe.com"
+        ]
+      }
+    ],
+    "updateDate": 1604940217922,
+    "_id": "56e64cf3-e24c-40f1-9b4f-b02cc1426ec9",
+    "_rev": 1639424081982,
+    "id": 13,
+    "_usw": {}
+  },
+  {
+    "enabled": false,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1603479251065,
+    "name": "www.jenkins.io",
+    "sections": [
+      {
+        "code": "code, pre {\n    font-size: 100%;\n}\n",
+        "domains": [
+          "www.jenkins.io"
+        ]
+      }
+    ],
+    "updateDate": 1603888483875,
+    "_id": "de5f9f0f-b867-4da0-883f-07bbb76628af",
+    "_rev": 1647873657741,
+    "id": 14,
+    "_usw": {}
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1627993357329,
+    "name": "corning.service-now.com",
+    "sections": [
+      {
+        "code": ".sn-card-component *,\n#activity-stream-textarea {\n    font-size: 16px !important;\n}\n\n/*\ndiv.form_title,\n.grid-widget-header-title,\nA.column_head,\nSPAN.list_group,\n.navbar .navbar-title,\n.list_search_title,\n.highcharts-axis-title,\n.highcharts-legend-item text,\ntextarea#incident\\.u_flash,\nHTML[data-doctype=\"true\"] tr.list2_no_records td {\n    font-weight: normal !important;\n}\n\na:focus,\n.btn:focus, .nav-segmented > li:focus, .btn:active:focus, .nav-segmented > li:active:focus, .btn.active:focus, .nav-segmented > li.active:focus,\n.table td:focus, .table th:focus {\n\toutline-width: 1px;\t\n}\n*/",
+        "domains": [
+          "corning.service-now.com"
+        ]
+      }
+    ],
+    "updateDate": 1651250786634,
+    "_id": "6d67ebce-098b-43bd-9ddd-d3d88ac07ea5",
+    "_rev": 1651250786634,
+    "_usw": {},
+    "id": 15
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1640812170383,
+    "name": "bounteous.app.openair.com",
+    "sections": [
+      {
+        "code": "@media (prefers-color-scheme: dark) {\n\t.oa3_ui #formGrid select *, .oa3_ui .select-oa * {\n\t\tbackground-color: #fff;\n\t}\n}",
+        "domains": [
+          "bounteous.app.openair.com"
+        ]
+      }
+    ],
+    "updateDate": 1645106821919,
+    "_id": "bfc6cb43-fc59-499a-a1f6-9bc7ab0db9da",
+    "_rev": 1651103390705,
+    "id": 16,
+    "_usw": {}
+  },
+  {
+    "enabled": false,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1641330123753,
+    "name": "override-browser",
+    "sections": [
+      {
+        "code": "input:not([type=\"file\"], [type=\"image\"]):focus-visible, select:focus-visible, button:focus-visible, textarea:focus-visible {\n\toutline-style: solid;\n}\n",
+        "regexps": [
+          "https?://(?!(login\\.microsoftonline\\.com?|service\\.sumologic\\.com)).*"
+        ]
+      }
+    ],
+    "updateDate": 1642003752815,
+    "_id": "000afc91-9e82-463c-96e2-d299ce624d34",
+    "_rev": 1651084632000,
+    "id": 17,
+    "_usw": {}
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1641487751456,
+    "name": "gitlab.com",
+    "sections": [
+      {
+        "code": "code, .code,\n.file-content.code .line-numbers a {\n\tfont-family: 'MesloLGM Nerd Font', Consolas, monospace !important;\n}",
+        "domains": [
+          "gitlab.com"
+        ]
+      }
+    ],
+    "updateDate": 1648579291168,
+    "_id": "96c201f8-174d-47b9-a420-5d3ef4958c8c",
+    "_rev": 1651084638303,
+    "id": 18,
+    "_usw": {}
+  },
+  {
+    "enabled": false,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1642004392970,
+    "name": "sumologic.com",
+    "sections": [
+      {
+        "code": "#collectormgmt-view #view-wrapper .column_table th {\n\tfont-family: unset;\n}",
+        "domains": [
+          "sumologic.com"
+        ]
+      }
+    ],
+    "updateDate": 1642004392970,
+    "_id": "47edabcb-43b5-453b-bdbe-712cf21c0059",
+    "_rev": 1651250921249,
+    "id": 19,
+    "_usw": {}
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1643118813173,
+    "name": "bitbucket.org",
+    "sections": [
+      {
+        "code": ".bitkit-diff-wrapper-diff * {\n\tfont-family: monospace !important;\n}",
+        "domains": [
+          "bitbucket.org"
+        ]
+      }
+    ],
+    "updateDate": 1643118836789,
+    "_id": "484c9be4-99d1-4510-856c-f5a77c7c9333",
+    "_rev": 1648221120190,
+    "id": 20,
+    "_usw": {}
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1645106593464,
+    "name": "plaintext",
+    "sections": [
+      {
+        "code": "@media (prefers-color-scheme: dark) {\n\t:root {\n\t\tcolor-scheme: inherit;\n\t\tbackground-color: #282c34;\n\t\tcolor: #c8c8c8;\n\t}\n}",
+        "regexps": [
+          "https?://(bamboo.corningmsp.com).*(\\.log)$"
+        ]
+      }
+    ],
+    "updateDate": 1645192550151,
+    "_id": "f59d35b5-3115-4ae8-a977-f4789f988bbb",
+    "_rev": 1645192550151,
+    "id": 21,
+    "_usw": {}
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1647352917732,
+    "name": "aem-groovyconsole",
+    "sections": [
+      {
+        "code": ".ace_editor {\n\tfont-size: 13px;\n\tline-height: 1.5;\n}",
+        "regexps": [
+          "http(s)?:\\/\\/.*\\/groovyconsole(.html)?"
+        ]
+      }
+    ],
+    "updateDate": 1647352917732,
+    "_id": "d57737df-1c2b-4c64-a40b-723a80db1414",
+    "_rev": 1647352917732,
+    "id": 22,
+    "_usw": {}
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "url": null,
+    "installDate": 1648221242331,
+    "name": "confluence",
+    "sections": [
+      {
+        "code": ".token.comment, .token.block-comment {\n\tfont-family: monospace !important;\n}",
+        "domains": [
+          "corning.atlassian.net",
+          "bounteous.jira.com"
+        ]
+      }
+    ],
+    "updateDate": 1648221296449,
+    "_id": "f192c358-8bb6-4980-b109-20968f4f8f50",
+    "_rev": 1648221296449,
+    "id": 23,
+    "_usw": {}
+  }
 ]
