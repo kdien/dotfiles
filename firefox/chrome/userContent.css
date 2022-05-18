@@ -23,6 +23,11 @@
     src: local("monospace");
 }
 
+@font-face {
+    font-family: "Segoe UI";
+    src: local("sans-serif");
+}
+
 /*
 @-moz-document regexp(".*") {
     @media (prefers-color-scheme: dark) {
