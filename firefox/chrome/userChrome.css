@@ -28,3 +28,7 @@
     src: local("sans-serif");
 }
 
+.tooltip-label {
+    min-width: unset;
+    width: 225px;
+}
