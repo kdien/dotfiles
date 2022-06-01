@@ -28,7 +28,14 @@
     src: local("sans-serif");
 }
 
+#tabbrowser-tab-tooltip {
+    display: none;
+}
+
+/*
 .tooltip-label {
     min-width: unset;
     width: 225px;
 }
+*/
+
