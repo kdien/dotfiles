@@ -94,7 +94,7 @@ user_pref("userChrome.theme.proton_color.dark_blue_accent", true);
 // user_pref("userChrome.tab.on_bottom",                       true);
 // user_pref("userChrome.tab.on_bottom.above_bookmark",        true); // Need on_bottom
 // user_pref("userChrome.tab.on_bottom.menubar_on_top",        true); // Need on_bottom
-// user_pref("userChrome.tab.always_show_tab_icon",            true);
+user_pref("userChrome.tab.always_show_tab_icon",            true);
 // user_pref("userChrome.tab.close_button_at_pinned",          true);
 // user_pref("userChrome.tab.close_button_at_pinned.always",   true);
 // user_pref("userChrome.tab.close_button_at_pinned.background", true);
