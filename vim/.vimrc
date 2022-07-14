@@ -4,10 +4,11 @@ Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'hashivim/vim-terraform'
 Plug 'Raimondi/delimitMate'
+Plug 'rakr/vim-one'
 call plug#end()
 
-colorscheme default
-set background=light
+colorscheme one
+set background=dark
 
 set mouse=a
 
