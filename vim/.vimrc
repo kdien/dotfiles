@@ -1,5 +1,12 @@
-:syntax on
-:colorscheme default
+call plug#begin()
+Plug 'pearofducks/ansible-vim'
+Plug 'preservim/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'hashivim/vim-terraform'
+Plug 'Raimondi/delimitMate'
+call plug#end()
+
+colorscheme default
 set background=light
 
 set mouse=a
