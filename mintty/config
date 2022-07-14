@@ -12,4 +12,4 @@ CtrlShiftShortcuts=yes
 MiddleClickAction=void
 RightClickAction=paste
 Term=xterm-256color
-ThemeFile=tomorrow-night-bright
+ThemeFile=one-dark
