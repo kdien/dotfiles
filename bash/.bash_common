@@ -38,6 +38,10 @@ if command -v eksctl &> /dev/null; then
     . <(eksctl completion bash)
 fi
 
+if [ -f $HOME/.nvm/nvm.sh ]; then
+    . $HOME/.nvm/nvm.sh
+fi
+
 # Aliases
 if grep -q microsoft /proc/version; then
     alias e.='explorer.exe .'
