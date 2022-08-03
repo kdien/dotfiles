@@ -261,7 +261,7 @@ colors:
 # colors:
 #   # Default Colors
 #   primary:
-#     background: '0xf9f9f9'
+#     background: '0xeeeeee'
 #     foreground: '0x2a2c33'
 
 #   # Cursor colors
