@@ -10,7 +10,7 @@ call plug#end()
 
 syntax on
 
-colorscheme default
+colorscheme one
 set background=light
 
 set mouse=a
