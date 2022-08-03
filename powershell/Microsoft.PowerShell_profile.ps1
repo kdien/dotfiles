@@ -62,6 +62,10 @@ function help {
     Get-Help $args[0] -Full | less
 }
 
+function vim {
+    wsl -- vim $args.Replace('C:\','/mnt/c/').Replace('.\','').Replace('\','/')
+}
+
 function which {
     (Get-Command $args[0] | Select Source).Source
 }
