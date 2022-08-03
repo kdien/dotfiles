@@ -11,7 +11,7 @@ call plug#end()
 syntax on
 
 colorscheme one
-set background=light
+set background=dark
 
 set mouse=a
 
