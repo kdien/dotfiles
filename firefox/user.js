@@ -1,5 +1,7 @@
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.compactmode.show", true);
+user_pref("svg.context-properties.content.enabled", true);
+user_pref("layout.css.color-mix.enabled", true);
 
 // Fix Windows font rendering
 user_pref("gfx.font_rendering.directwrite.bold_simulation", 2);
@@ -48,3 +50,10 @@ user_pref("mousewheel.system_scroll_override_on_root_content.enabled", false); /
 user_pref("mousewheel.transaction.timeout",                  1500);            ///     1500
 user_pref("toolkit.scrollbox.horizontalScrollDistance",         4);            ///        5
 user_pref("toolkit.scrollbox.verticalScrollDistance",           3);            ///        3
+
+// WaveFox config
+user_pref("userChrome.TabSeparators-Enabled", true);
+user_pref("userChrome.PhotonTabs-Enabled", true);
+user_pref("userChrome.SelectedTabHighlight-Enabled", true);
+user_pref("userChrome.AdditionalContainerIndicator-Enabled", true);
+user_pref("userChrome.NormalContextMenu-Enabled", true);
