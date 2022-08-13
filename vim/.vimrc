@@ -1,11 +1,13 @@
 call plug#begin()
+Plug 'hashivim/vim-terraform'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pearofducks/ansible-vim'
 Plug 'preservim/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'hashivim/vim-terraform'
 Plug 'Raimondi/delimitMate'
 Plug 'rakr/vim-one'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 syntax on
