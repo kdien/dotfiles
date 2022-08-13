@@ -41,5 +41,6 @@ autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType gitcommit set textwidth=0
 
 map <C-a> :set filetype=yaml.ansible<CR>
+map <C-b> :NERDTreeToggle<CR>
 vnoremap <TAB> >gv
 vnoremap <S-TAB> <gv
