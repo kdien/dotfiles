@@ -22,6 +22,9 @@ let g:coc_filetype_map = {
     \ 'yaml.ansible': 'ansible',
     \ }
 
+" ctrlp
+let g:ctrlp_show_hidden = 1
+
 syntax on
 
 colorscheme gruvbox
