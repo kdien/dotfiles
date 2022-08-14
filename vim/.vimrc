@@ -1,18 +1,29 @@
 call plug#begin()
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'hashivim/vim-terraform'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pearofducks/ansible-vim'
 Plug 'preservim/nerdtree'
 Plug 'Raimondi/delimitMate'
-Plug 'rakr/vim-one'
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+" Coc config
+let g:coc_global_extensions = [
+    \ '@yaegassy/coc-ansible',
+    \ 'coc-json'
+    \ ]
+
+let g:coc_filetype_map = {
+    \ 'yaml.ansible': 'ansible',
+    \ }
 
 syntax on
 
-colorscheme one
+colorscheme gruvbox
 set background=dark
 
 set mouse=a
@@ -42,5 +53,6 @@ autocmd FileType gitcommit set textwidth=0
 
 map <C-a> :set filetype=yaml.ansible<CR>
 map <C-b> :NERDTreeToggle<CR>
+inoremap <silent><expr> <c-@> coc#refresh()
 vnoremap <TAB> >gv
 vnoremap <S-TAB> <gv
