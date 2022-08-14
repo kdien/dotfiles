@@ -9,6 +9,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " Coc config
@@ -51,8 +52,10 @@ autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 autocmd FileType gitcommit set textwidth=0
 
+inoremap <silent><expr> <c-@> coc#refresh()
 map <C-a> :set filetype=yaml.ansible<CR>
 map <C-b> :NERDTreeToggle<CR>
-inoremap <silent><expr> <c-@> coc#refresh()
-vnoremap <TAB> >gv
+nmap <C-_> <leader>c<Space>
+vmap <C-_> <leader>c<Space>
 vnoremap <S-TAB> <gv
+vnoremap <TAB> >gv
