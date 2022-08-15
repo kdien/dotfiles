@@ -9,6 +9,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
+" Load plugins
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -23,7 +24,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" Coc config
+"""""""""""""""""""
+
+" Plugin configs
 let g:coc_global_extensions = [
   \ '@yaegassy/coc-ansible',
   \ 'coc-json',
@@ -34,20 +37,24 @@ let g:coc_filetype_map = {
   \ 'yaml.ansible': 'ansible',
   \ }
 
-"""""""""""""""""""
-
 let g:airline_powerline_fonts = 1
 
 let g:ctrlp_show_hidden = 1
 
+"""""""""""""""""""
+
+" Appearance configs
 syntax on
+set number
 
 colorscheme gruvbox
 set background=dark
 
-set mouse=a
+" Line cursor for insert mode and block cursor for normal mode
+let &t_SI="\e[6 q"
+let &t_EI="\e[2 q"
 
-set number
+set mouse=a
 
 set splitbelow
 set splitright
@@ -58,18 +65,9 @@ set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 
-let &t_SI="\e[6 q"
-let &t_EI="\e[2 q"
+"""""""""""""""""""
 
-augroup Jenkinsfile
-  autocmd!
-  autocmd BufNewFile,BufRead Jenkinsfile* set syntax=groovy
-augroup END
-
-autocmd FileType yaml,vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
-
-autocmd FileType gitcommit set textwidth=0
-
+" Keymaps
 inoremap <silent><expr> <c-@> coc#refresh()
 map <C-a> :set filetype=yaml.ansible<CR>
 map <C-b> :NERDTreeToggle<CR>
@@ -77,3 +75,15 @@ nmap <C-_> <leader>c<Space>
 vmap <C-_> <leader>c<Space>
 vnoremap <S-TAB> <gv
 vnoremap <TAB> >gv
+
+"""""""""""""""""""
+
+" Filetype configs
+autocmd FileType gitcommit set textwidth=0
+
+autocmd FileType yaml,vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+augroup Jenkinsfile
+  autocmd!
+  autocmd BufNewFile,BufRead Jenkinsfile* set filetype=groovy
+augroup END
