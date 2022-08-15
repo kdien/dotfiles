@@ -1,3 +1,14 @@
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -14,14 +25,14 @@ call plug#end()
 
 " Coc config
 let g:coc_global_extensions = [
-    \ '@yaegassy/coc-ansible',
-    \ 'coc-json',
-    \ 'coc-sh'
-    \ ]
+  \ '@yaegassy/coc-ansible',
+  \ 'coc-json',
+  \ 'coc-sh'
+  \ ]
 
 let g:coc_filetype_map = {
-    \ 'yaml.ansible': 'ansible',
-    \ }
+  \ 'yaml.ansible': 'ansible',
+  \ }
 
 """""""""""""""""""
 
@@ -51,8 +62,8 @@ let &t_SI="\e[6 q"
 let &t_EI="\e[2 q"
 
 augroup Jenkinsfile
-    autocmd!
-    autocmd BufNewFile,BufRead Jenkinsfile* set syntax=groovy
+  autocmd!
+  autocmd BufNewFile,BufRead Jenkinsfile* set syntax=groovy
 augroup END
 
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
