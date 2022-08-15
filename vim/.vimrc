@@ -22,7 +22,10 @@ let g:coc_filetype_map = {
     \ 'yaml.ansible': 'ansible',
     \ }
 
-" ctrlp
+"""""""""""""""""""
+
+let g:airline_powerline_fonts = 1
+
 let g:ctrlp_show_hidden = 1
 
 syntax on
