@@ -14,7 +14,8 @@ call plug#end()
 " Coc config
 let g:coc_global_extensions = [
     \ '@yaegassy/coc-ansible',
-    \ 'coc-json'
+    \ 'coc-json',
+    \ 'coc-sh'
     \ ]
 
 let g:coc_filetype_map = {
