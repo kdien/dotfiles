@@ -66,7 +66,7 @@ augroup Jenkinsfile
   autocmd BufNewFile,BufRead Jenkinsfile* set syntax=groovy
 augroup END
 
-autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType yaml,vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 autocmd FileType gitcommit set textwidth=0
 
