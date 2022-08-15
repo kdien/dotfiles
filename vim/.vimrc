@@ -1,6 +1,5 @@
 call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'hashivim/vim-terraform'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pearofducks/ansible-vim'
