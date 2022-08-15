@@ -1,5 +1,5 @@
-ForegroundColour = 235, 219, 178
-BackgroundColour = 234, 234, 234
+ForegroundColour = 234, 234, 234
+BackgroundColour =  40,  40,  40
 CursorColour     = 251, 241, 199
 IMECursorColour  = 251, 241, 199
 Black            =  29,  32,  33
