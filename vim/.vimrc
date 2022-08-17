@@ -29,8 +29,12 @@ call plug#end()
 " Plugin configs
 let g:coc_global_extensions = [
   \ '@yaegassy/coc-ansible',
+  \ 'coc-docker',
+  \ 'coc-html',
+  \ 'coc-java',
   \ 'coc-json',
-  \ 'coc-sh'
+  \ 'coc-pyright',
+  \ 'coc-sh',
   \ ]
 
 let g:coc_filetype_map = {
