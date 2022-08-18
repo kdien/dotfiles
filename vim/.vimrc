@@ -45,6 +45,8 @@ let g:airline_powerline_fonts = 1
 
 let g:ctrlp_show_hidden = 1
 
+let NERDTreeShowHidden = 1
+
 """""""""""""""""""
 
 " Appearance configs
