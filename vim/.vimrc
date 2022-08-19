@@ -56,6 +56,9 @@ set number
 colorscheme gruvbox
 set background=dark
 
+" Enable background transparency from terminal
+autocmd VimEnter * hi Normal ctermbg=none
+
 " Line cursor for insert mode and block cursor for normal mode
 let &t_SI="\e[6 q"
 let &t_EI="\e[2 q"
