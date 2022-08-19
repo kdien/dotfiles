@@ -52,6 +52,7 @@ let NERDTreeShowHidden = 1
 " Appearance configs
 syntax on
 set number
+set nohlsearch
 
 colorscheme gruvbox
 set background=dark
