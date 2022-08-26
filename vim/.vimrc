@@ -19,6 +19,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'Raimondi/delimitMate'
+Plug 'rakr/vim-one'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -54,11 +55,16 @@ syntax on
 set number
 set nohlsearch
 
-colorscheme gruvbox
-set background=dark
-
 " Enable background transparency from terminal
-autocmd VimEnter * hi Normal ctermbg=none
+autocmd ColorScheme * highlight Normal guibg=NONE ctermbg=NONE
+autocmd ColorScheme * highlight SignColumn guibg=NONE ctermbg=NONE
+autocmd ColorScheme * highlight diffAdded guibg=NONE ctermbg=NONE
+autocmd ColorScheme * highlight diffChanged guibg=NONE ctermbg=NONE
+autocmd ColorScheme * highlight diffRemoved guibg=NONE ctermbg=NONE
+
+set termguicolors
+colorscheme one
+set background=dark
 
 " Line cursor for insert mode and block cursor for normal mode
 let &t_SI="\e[6 q"
