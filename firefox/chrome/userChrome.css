@@ -32,10 +32,6 @@
     display: none;
 }
 
-/*
-.tooltip-label {
-    min-width: unset;
-    width: 225px;
+.tabbrowser-tab:not([pinned]) {
+    max-width: 240px !important;
 }
-*/
-
