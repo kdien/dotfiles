@@ -53,6 +53,7 @@ let NERDTreeShowHidden = 1
 " Appearance configs
 syntax on
 set number
+set relativenumber
 set nohlsearch
 
 " Enable background transparency from terminal
