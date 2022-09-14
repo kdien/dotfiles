@@ -2,6 +2,7 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.compactmode.show", true);
 user_pref("svg.context-properties.content.enabled", true);
 user_pref("layout.css.color-mix.enabled", true);
+user_pref("full-screen-api.warning.timeout", 1000);
 
 // Fix Windows font rendering
 user_pref("gfx.font_rendering.directwrite.bold_simulation", 2);
