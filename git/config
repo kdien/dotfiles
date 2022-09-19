@@ -1,6 +1,6 @@
 [core]
-	autocrlf = input
-	editor = vim
+    autocrlf = input
+    editor = vim
     pager = delta
 
 [delta]
@@ -11,5 +11,5 @@
     diffFilter = delta --color-only
 
 [pull]
-	rebase = false
+    rebase = false
 
