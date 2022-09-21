@@ -100,6 +100,8 @@ autocmd FileType gitcommit set textwidth=0
 
 autocmd FileType yaml,vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
+autocmd BufNewFile,BufRead ~/.ssh/config.d/* set filetype=sshconfig
+
 augroup Jenkinsfile
   autocmd!
   autocmd BufNewFile,BufRead Jenkinsfile* set filetype=groovy
