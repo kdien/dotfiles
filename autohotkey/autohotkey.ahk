@@ -12,7 +12,7 @@ Return
         Send {Blind}{Ctrl Up}
 Return
 
-$PrintScreen::Capslock
++CapsLock::CapsLock
 
 #+t::
 EnvGet, userdir, USERPROFILE
