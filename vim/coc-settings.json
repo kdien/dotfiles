@@ -9,5 +9,6 @@
             "initializationOptions": {},
             "settings": {}
         }
-    }
+    },
+    "powershell.integratedConsole.showOnStartup": false
 }
