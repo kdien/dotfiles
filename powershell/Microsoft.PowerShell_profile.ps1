@@ -22,9 +22,9 @@ if (!(Test-Path Env:GODEBUG)) {
 
 Set-Alias -Name curl -Value curl.exe -Option AllScope
 
-Import-Module posh-git,oh-my-posh,PSKubectlCompletion
+Import-Module posh-git,PSKubectlCompletion
+oh-my-posh init pwsh --config "$HOME\dotfiles\oh-my-posh\ohmyposh.json" | Invoke-Expression
 $env:POSH_GIT_ENABLED = $true
-Set-PoshPrompt -Theme $HOME\dotfiles\powershell\ohmyposh.json
 Register-KubectlCompletion
 
 Invoke-Expression "$HOME\dotfiles\powershell\sshCompletion.ps1"
