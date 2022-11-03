@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 shopt -s direxpand
 
-if [ -f $HOME/pureline/pureline ] && [ -f $HOME/.pureline.conf ]; then
-    . $HOME/pureline/pureline $HOME/.pureline.conf
+if ! command -v oh-my-posh &> /dev/null; then
+    sudo curl -sSL https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -o /usr/local/bin/oh-my-posh
+    sudo chmod +x /usr/local/bin/oh-my-posh
+fi
+
+if [ -f $HOME/dotfiles/oh-my-posh/ohmyposh.json ]; then
+    eval "$(oh-my-posh init bash --config $HOME/dotfiles/oh-my-posh/ohmyposh.json)"
 else
     export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] \[\e0'
 fi
