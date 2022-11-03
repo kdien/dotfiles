@@ -5,6 +5,13 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "os",
+          "style": "powerline",
+          "foreground": "#26C6DA",
+          "background": "#546E7A",
+          "template": " {{ .Icon }} "
+        },
+        {
           "background": "#ffe9aa",
           "foreground": "#100e23",
           "powerline_symbol": "\ue0b0",
@@ -78,7 +85,7 @@
         {
           "foreground": "#007ACC",
           "style": "plain",
-          "template": "\u276f ",
+          "template": "{{ if or (eq .Shell \"pwsh\") (eq .Shell \"powershell\") }}\u276f {{ else }}$ {{ end }}",
           "type": "text"
         }
       ],
