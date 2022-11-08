@@ -18,6 +18,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pearofducks/ansible-vim'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
+Plug 'puremourning/vimspector'
 Plug 'Raimondi/delimitMate'
 Plug 'rakr/vim-one'
 Plug 'sheerun/vim-polyglot'
@@ -47,6 +48,22 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_show_hidden = 1
 
 let NERDTreeShowHidden = 1
+
+let g:vimspector_enable_mappings = 'HUMAN'
+
+let g:vimspector_install_gadgets = [
+  \ 'debugger-for-chrome',
+  \ 'debugpy',
+  \ 'delve',
+  \ 'netcoredbg',
+  \ 'vscode-bash-debug',
+  \ 'vscode-firefox-debug',
+  \ 'vscode-java-debug',
+  \ 'vscode-node-debug2',
+  \ 'vscode-php-debug',
+  \ ]
+
+let g:vimspector_base_dir=expand( '$HOME/.vim/plugged/vimspector' )
 
 """""""""""""""""""
 
