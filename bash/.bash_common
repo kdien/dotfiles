@@ -2,8 +2,7 @@
 shopt -s direxpand
 
 if ! command -v oh-my-posh &> /dev/null; then
-    sudo curl -sSL https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -o /usr/local/bin/oh-my-posh
-    sudo chmod +x /usr/local/bin/oh-my-posh
+    install_or_update_ohmyposh
 fi
 
 if [ -f $HOME/dotfiles/oh-my-posh/ohmyposh.json ]; then
@@ -124,5 +123,10 @@ terraform_target() {
     else
         grep ^resource $file | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /'
     fi
+}
+
+install_or_update_ohmyposh() {
+    sudo curl -sSL https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -o /usr/local/bin/oh-my-posh
+    sudo chmod +x /usr/local/bin/oh-my-posh
 }
 
