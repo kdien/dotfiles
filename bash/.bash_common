@@ -11,7 +11,10 @@ else
     export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] \[\e0'
 fi
 
-if command -v vim &> /dev/null; then
+if command -v nvim &> /dev/null; then
+    alias vim='nvim'
+    export EDITOR=nvim
+elif command -v vim &> /dev/null; then
     export EDITOR=vim
 fi
 
@@ -117,7 +120,7 @@ rm_vlt() {
 terraform_target() {
     local file=$1
     local pattern=$2
-    
+
     if [ -n "$pattern" ]; then
         grep ^resource $file | grep -E "$pattern" | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /'
     else
