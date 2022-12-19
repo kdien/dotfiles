@@ -49,8 +49,7 @@ require('packer').startup(function(use)
   use 'numToStr/Comment.nvim'
   use 'Raimondi/delimitMate'
   use 'navarasu/onedark.nvim'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use 'nvim-lualine/lualine.nvim'
 
   -- Sync all plugins
   if is_bootstrap then
