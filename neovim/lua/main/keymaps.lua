@@ -28,3 +28,6 @@ vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 -- Don't do anything when pressing Q in normal mode
 vim.keymap.set('n', 'Q', '<nop>')
 
+-- Set Ansible filetype
+vim.keymap.set('n', '<leader>ab', ':set filetype=yaml.ansible<CR>')
+
