@@ -45,7 +45,7 @@ require('packer').startup(function(use)
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
-  use 'airblade/vim-gitgutter'
+  use 'lewis6991/gitsigns.nvim'
   use 'numToStr/Comment.nvim'
   use 'Raimondi/delimitMate'
   use 'navarasu/onedark.nvim'
