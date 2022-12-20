@@ -55,6 +55,10 @@ if grep -q microsoft /proc/version; then
     alias pwsh='pwsh.exe'
 fi
 
+if command -v xdg-open &> /dev/null; then
+    alias open='xdg-open'
+fi
+
 alias gb='git branch -vv'
 alias glog='git log --graph --decorate --oneline'
 alias gs='git status'
