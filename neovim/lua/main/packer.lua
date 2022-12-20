@@ -51,6 +51,7 @@ require('packer').startup(function(use)
   use 'Raimondi/delimitMate'
   use 'navarasu/onedark.nvim'
   use 'nvim-lualine/lualine.nvim'
+  use 'pearofducks/ansible-vim'
 
   -- Sync all plugins
   if is_bootstrap then
