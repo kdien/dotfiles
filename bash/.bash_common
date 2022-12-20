@@ -69,6 +69,7 @@ alias mvnfull='mvn clean install -PautoInstallSinglePackage'
 alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dspotbugs.skip=true'
 alias tf='terraform'
 alias tft='terraform_target'
+alias v.='vim .'
 
 distro=$(grep '^ID=' /etc/os-release | awk -F '=' '{print $2}')
 if [ "$distro" == ubuntu ]; then
