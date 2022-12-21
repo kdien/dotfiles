@@ -87,7 +87,9 @@ local sev_text = function(diagnostic)
 end
 vim.diagnostic.config({
   virtual_text = false,
-  signs = false,
+  signs = {
+    severity = { min = vim.diagnostic.severity.WARN }
+  },
   float = {
     header = '',
     border = 'single',
@@ -95,7 +97,7 @@ vim.diagnostic.config({
       return string.format(
         '%s - %s: %s',
         sev_text(diagnostic),
-        diagnostic.source,
+        diagnostic.code,
         diagnostic.message
       )
     end
