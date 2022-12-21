@@ -5,6 +5,8 @@ vim.opt.relativenumber = true
 
 vim.opt.smartindent = true
 
+vim.opt.signcolumn = 'auto:2'
+
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
