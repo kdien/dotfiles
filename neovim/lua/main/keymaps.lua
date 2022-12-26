@@ -1,8 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
-
 -- Indent and unindent highlighted blocks
 vim.keymap.set('v', '<S-TAB>', '<gv')
 vim.keymap.set('v', '<TAB>', '>gv')
