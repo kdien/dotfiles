@@ -65,6 +65,7 @@ require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'numToStr/Comment.nvim'
   use 'Raimondi/delimitMate'
+  use 'tpope/vim-surround'
   use 'navarasu/onedark.nvim'
   use 'nvim-lualine/lualine.nvim'
   use 'pearofducks/ansible-vim'
