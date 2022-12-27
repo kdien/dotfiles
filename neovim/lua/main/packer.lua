@@ -62,8 +62,11 @@ require('packer').startup(function(use)
     }
   }
 
-  use 'editorconfig/editorconfig-vim'
+  -- Git support
+  use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
+
+  use 'editorconfig/editorconfig-vim'
   use 'numToStr/Comment.nvim'
   use 'Raimondi/delimitMate'
   use 'tpope/vim-surround'
@@ -97,3 +100,4 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   group = packer_group,
   pattern = vim.fn.expand '$MYVIMRC',
 })
+
