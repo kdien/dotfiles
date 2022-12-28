@@ -1,6 +1,14 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Resize windows
+-- width
+vim.keymap.set({'n', 'v'}, '<C-Up>', '5<C-w>>')
+vim.keymap.set({'n', 'v'}, '<C-Down>', '5<C-w><')
+-- height
+vim.keymap.set({'n', 'v'}, '<C-S-Up>', '5<C-w>+')
+vim.keymap.set({'n', 'v'}, '<C-S-Down>', '5<C-w>-')
+
 -- Indent and unindent highlighted blocks
 vim.keymap.set('v', '<S-TAB>', '<gv')
 vim.keymap.set('v', '<TAB>', '>gv')
