@@ -72,7 +72,11 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'navarasu/onedark.nvim'
   use 'nvim-lualine/lualine.nvim'
+
   use 'pearofducks/ansible-vim'
+
+  -- Java
+  use 'mfussenegger/nvim-jdtls'
 
   -- Sync all plugins
   if is_bootstrap then

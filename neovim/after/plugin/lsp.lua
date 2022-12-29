@@ -60,6 +60,10 @@ lsp.on_attach(function(client, bufnr)
     return
   end
 
+  if client.name == 'jdtls' then
+    vim.cmd.LspStop('jdtls')
+  end
+
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', '<leader>vws', vim.lsp.buf.workspace_symbol, opts)
