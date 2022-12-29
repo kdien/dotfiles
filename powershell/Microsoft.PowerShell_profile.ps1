@@ -63,7 +63,7 @@ function help {
 }
 
 function vim {
-    wsl -- vim $args.Replace('C:\','/mnt/c/').Replace('.\','').Replace('\','/')
+    wsl -- nvim $args.Replace('C:\','/mnt/c/').Replace('.\','').Replace('\','/')
 }
 
 function which {
