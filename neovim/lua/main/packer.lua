@@ -34,6 +34,23 @@ require('packer').startup(function(use)
     }
   }
 
+  -- DAP (Debug Adapter Protocol)
+  use 'mfussenegger/nvim-dap'
+
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {
+     'mfussenegger/nvim-dap',
+    }
+  }
+
+  use {
+    'theHamsta/nvim-dap-virtual-text',
+    requires = {
+     'mfussenegger/nvim-dap',
+    }
+  }
+
   -- Highlight, edit, and navigate code
   use {
     'nvim-treesitter/nvim-treesitter',
