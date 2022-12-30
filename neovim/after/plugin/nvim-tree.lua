@@ -8,6 +8,10 @@ require('nvim-tree').setup({
   filters = {
     dotfiles = false
   },
+  git = {
+    enable = true,
+    ignore = false
+  },
   update_focused_file = {
     enable = true,
     debounce_delay = 15,
@@ -17,3 +21,12 @@ require('nvim-tree').setup({
 })
 
 vim.keymap.set({'n', 'v'}, '<leader>tt', vim.cmd.NvimTreeToggle)
+
+vim.keymap.set({'n', 'v'}, '<leader>t=', function()
+  vim.cmd('NvimTreeResize +5')
+end)
+
+vim.keymap.set({'n', 'v'}, '<leader>t-', function()
+  vim.cmd('NvimTreeResize -5')
+end)
+
