@@ -1,7 +1,7 @@
 local jdtls = require('jdtls')
 
 local home = os.getenv('HOME')
-local mason_packages_dir = home .. '/.local/share/nvim/mason/packages'
+local jdtls_server_dir = home .. '/.config/nvim/jdtls'
 
 if vim.fn.has 'mac' == 1 then
   config_os = 'mac'
@@ -24,21 +24,17 @@ extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = home .. '/eclipse-workspace/' .. project_name
 
-JAVA_DAP_ACTIVE = true
 local bundles = {}
-
-if JAVA_DAP_ACTIVE then
-  vim.list_extend(bundles, vim.split(vim.fn.glob(home .. '/.config/nvim/vscode-java-test/server/*.jar'), '\n'))
-  vim.list_extend(
-    bundles,
-    vim.split(
-      vim.fn.glob(
-        home .. '/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar'
-      ),
-      '\n'
-    )
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. '/.config/nvim/vscode-java-test/server/*.jar'), '\n'))
+vim.list_extend(
+  bundles,
+  vim.split(
+    vim.fn.glob(
+      home .. '/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar'
+    ),
+    '\n'
   )
-end
+)
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -54,7 +50,7 @@ local config = {
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
-    '-javaagent:' .. mason_packages_dir .. '/jdtls/lombok.jar',
+    '-javaagent:' .. home .. '/.config/nvim/dependencies/lombok.jar',
     '-Xms1g',
     '--add-modules=ALL-SYSTEM',
     '--add-opens',
@@ -63,10 +59,10 @@ local config = {
     'java.base/java.lang=ALL-UNNAMED',
 
     '-jar',
-    vim.fn.glob(mason_packages_dir .. '/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
+    vim.fn.glob(jdtls_server_dir .. '/plugins/org.eclipse.equinox.launcher_*.jar'),
 
     '-configuration',
-    mason_packages_dir .. '/jdtls/config_' .. config_os,
+    jdtls_server_dir .. '/config_' .. config_os,
 
     '-data',
     workspace_dir,
@@ -170,16 +166,35 @@ local config = {
   init_options = {
     bundles = bundles,
   },
+
+  on_attach = function(client, bufnr)
+    require('jdtls').setup_dap { hotcodereplace = 'auto' }
+    require('jdtls.dap').setup_dap_main_class_configs()
+
+    local opts = { silent = true, buffer = nil }
+    vim.keymap.set('n', '<leader>oi', jdtls.organize_imports, opts)
+    vim.keymap.set('n', '<leader>dt', jdtls.test_class, opts)
+    vim.keymap.set('n', '<leader>dm', jdtls.test_nearest_method, opts)
+    vim.keymap.set('n', '<leader>xv', jdtls.extract_variable, opts)
+    vim.keymap.set('v', '<leader>xm', vim.cmd("lua require('jdtls').extract_method(true)"), opts)
+    vim.keymap.set('n', '<leader>xc', jdtls.extract_constant, opts)
+
+    -- Remove unused imports
+    vim.keymap.set('n', '<leader>rui', function()
+      vim.diagnostic.setqflist { severity = vim.diagnostic.severity.WARN }
+      vim.cmd('packadd cfilter')
+      vim.cmd('Cfilter /main/')
+      vim.cmd('Cfilter /The import/')
+      vim.cmd('cdo normal dd')
+      vim.cmd('cclose')
+      vim.cmd('wa')
+    end, opts)
+  end
 }
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 jdtls.start_or_attach(config)
-
---[[ if JAVA_DAP_ACTIVE then
-  require('jdtls').setup_dap { hotcodereplace = 'auto' }
-  require('jdtls.dap').setup_dap_main_class_configs()
-end ]]
 
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
@@ -188,22 +203,17 @@ vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_co
 vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
 -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
-local opts = { silent = true, buffer = nil }
-vim.keymap.set('n', '<leader>oi', jdtls.organize_imports, opts)
-vim.keymap.set('n', '<leader>dt', jdtls.test_class, opts)
-vim.keymap.set('n', '<leader>dm', jdtls.test_nearest_method, opts)
-vim.keymap.set('n', '<leader>xv', jdtls.extract_variable, opts)
-vim.keymap.set('v', '<leader>xm', vim.cmd("lua require('jdtls').extract_method(true)"), opts)
-vim.keymap.set('n', '<leader>xc', jdtls.extract_constant, opts)
+require('user-lsp.cmp')
+require('user-lsp.keymaps')
 
--- Remove unused imports
-vim.keymap.set('n', '<leader>rui', function()
-  vim.diagnostic.setqflist { severity = vim.diagnostic.severity.WARN }
-  vim.cmd('packadd cfilter')
-  vim.cmd('Cfilter /main/')
-  vim.cmd('Cfilter /The import/')
-  vim.cmd('cdo normal dd')
-  vim.cmd('cclose')
-  vim.cmd('wa')
-end, opts)
+local dap = require('dap')
+dap.configurations.java = {
+  {
+    type = 'java',
+    request = 'attach',
+    name = 'Debug (Attach) - Remote',
+    hostName = '127.0.0.1',
+    port = 30303,
+  },
+}
 

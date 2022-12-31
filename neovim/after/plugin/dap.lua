@@ -1,16 +1,6 @@
 local dap = require('dap')
 local dapui = require('dapui')
 
-dap.configurations.java = {
-  {
-    type = 'java',
-    request = 'attach',
-    name = 'Debug (Attach) - Remote',
-    hostName = '127.0.0.1',
-    port = 30303,
-  },
-}
-
 dapui.setup()
 
 dap.listeners.after.event_initialized['dapui_config'] = function()

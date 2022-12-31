@@ -7,7 +7,6 @@ lsp.ensure_installed({
   'bashls',
   'csharp_ls',
   'dockerls',
-  'jdtls', -- Java  
   'jedi_language_server', -- Python
   'jsonls',
   'marksman', -- Markdown
