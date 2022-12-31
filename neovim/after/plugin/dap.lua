@@ -23,6 +23,8 @@ dap.listeners.before.event_exited['dapui_config'] = function()
   dapui.close()
 end
 
+require('nvim-dap-virtual-text').setup()
+
 vim.keymap.set('n', '<F5>', "<Cmd>lua require('dap').continue()<CR>")
 vim.keymap.set('n', '<F10>', "<Cmd>lua require('dap').step_over()<CR>")
 vim.keymap.set('n', '<F11>', "<Cmd>lua require('dap').step_into()<CR>")
