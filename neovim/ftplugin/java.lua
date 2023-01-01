@@ -171,6 +171,8 @@ local config = {
     require('jdtls').setup_dap { hotcodereplace = 'auto' }
     require('jdtls.dap').setup_dap_main_class_configs()
 
+    require('custom-lsp.keymaps')
+
     local opts = { silent = true, buffer = nil }
     vim.keymap.set('n', '<leader>oi', jdtls.organize_imports, opts)
     vim.keymap.set('n', '<leader>dt', jdtls.test_class, opts)
@@ -202,9 +204,6 @@ vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_co
 -- vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
 vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
 -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
-
-require('user-lsp.cmp')
-require('user-lsp.keymaps')
 
 local dap = require('dap')
 dap.configurations.java = {
