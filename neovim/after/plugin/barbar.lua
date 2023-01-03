@@ -3,7 +3,7 @@ require('bufferline').setup({
   auto_hide = true,
 
   -- Enable/disable current/total tabpages indicator (top right corner)
-  tabpages = false,
+  tabpages = true,
 
   -- Enable/disable close button
   closable = true,
