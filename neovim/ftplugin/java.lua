@@ -1,7 +1,7 @@
 local jdtls = require('jdtls')
 
 local home = os.getenv('HOME')
-local jdtls_server_dir = home .. '/.config/nvim/jdtls'
+local jdtls_server_dir = home .. '/.config/nvim/dependencies/jdtls'
 
 if vim.fn.has 'mac' == 1 then
   config_os = 'mac'
@@ -25,12 +25,12 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = home .. '/eclipse-workspace/' .. project_name
 
 local bundles = {}
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. '/.config/nvim/vscode-java-test/server/*.jar'), '\n'))
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. '/.config/nvim/dependencies/vscode-java-test/server/*.jar'), '\n'))
 vim.list_extend(
   bundles,
   vim.split(
     vim.fn.glob(
-      home .. '/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar'
+      home .. '/.config/nvim/dependencies/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar'
     ),
     '\n'
   )

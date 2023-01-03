@@ -1,4 +1,2 @@
 /plugin
-/java-debug
-/vscode-java-test
-/jdtls
+/dependencies/**/
