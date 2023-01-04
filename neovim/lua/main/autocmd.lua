@@ -1,3 +1,14 @@
+local highlight_on_yank = function()
+  vim.highlight.on_yank({
+    timeout = 100
+  })
+end
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  pattern = '*',
+  callback = highlight_on_yank
+})
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'ansible,lua,terraform,vim,yaml',
   command = 'setlocal tabstop=2 softtabstop=2 shiftwidth=2'
