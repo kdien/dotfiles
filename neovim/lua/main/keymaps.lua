@@ -34,3 +34,6 @@ vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 -- Don't do anything when pressing Q in normal mode
 vim.keymap.set('n', 'Q', '<nop>')
 
+-- Convert Terraform resource to target
+vim.keymap.set('n', '<leader>tft', '<Cmd>%s/^resource "\\(.*\\)" "\\(.*\\)".*/-target \\1.\\2 /<CR>')
+
