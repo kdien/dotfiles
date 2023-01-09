@@ -18,6 +18,11 @@ require('nvim-tree').setup({
     update_root = false,
     ignore_list = {},
   },
+  actions = {
+    open_file = {
+      quit_on_open = true
+    }
+  },
 })
 
 vim.keymap.set({'n', 'v'}, '<leader>tt', vim.cmd.NvimTreeToggle)
