@@ -5,14 +5,11 @@ lsp.preset('recommended')
 lsp.ensure_installed({
   'ansiblels',
   'bashls',
-  'csharp_ls',
   'dockerls',
   'gopls', -- Golang
   'jedi_language_server', -- Python
   'jsonls',
   'marksman', -- Markdown
-  'omnisharp',
-  'omnisharp_mono',
   'powershell_es',
   'sumneko_lua',
   'terraformls',
