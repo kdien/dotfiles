@@ -7,6 +7,7 @@ lsp.ensure_installed({
   'bashls',
   'csharp_ls',
   'dockerls',
+  'gopls', -- Golang
   'jedi_language_server', -- Python
   'jsonls',
   'marksman', -- Markdown
