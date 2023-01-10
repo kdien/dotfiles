@@ -66,6 +66,16 @@ local sev_text = function(diagnostic)
     return 'HINT'
   end
 end
+
+local diag_text = function(diagnostic)
+  local final_text = sev_text(diagnostic)
+  if (diagnostic.code ~= nil) then
+    final_text = final_text .. ' (' .. diagnostic.code .. ')'
+  end
+  final_text = final_text .. ': ' .. diagnostic.message
+  return final_text
+end
+
 vim.diagnostic.config({
   virtual_text = false,
   signs = {
@@ -75,12 +85,7 @@ vim.diagnostic.config({
     header = '',
     border = 'single',
     format = function(diagnostic)
-      return string.format(
-        '%s - %s: %s',
-        sev_text(diagnostic),
-        diagnostic.code,
-        diagnostic.message
-      )
+      return diag_text(diagnostic)
     end
   }
 })
