@@ -1,5 +1,5 @@
 require('onedark').setup {
-    transparent = false,
+    transparent = true,
 
     code_style = {
         comments = 'none',
