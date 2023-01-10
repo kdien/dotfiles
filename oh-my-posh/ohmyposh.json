@@ -68,6 +68,14 @@
           "type": "python"
         },
         {
+          "type": "kubectl",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#2e6ce6",
+          "template": " \uFD31 {{ .Context }}{{ if .Namespace }} :: {{ .Namespace }}{{ end }} "
+        },
+        {
           "background": "#ff8080",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
