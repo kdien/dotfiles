@@ -29,17 +29,17 @@
         "defaults": 
         {
             "altGrAliasing": true,
-            "antialiasingMode": "grayscale",
-            "backgroundImage": "%USERPROFILE%\\dotfiles\\WindowsTerminal\\bg_image.png",
-            "backgroundImageOpacity": 0.12,
+            "antialiasingMode": "cleartype",
+            //"backgroundImage": "%USERPROFILE%\\dotfiles\\WindowsTerminal\\bg_image.png",
+            //"backgroundImageOpacity": 0.12,
             "colorScheme": "Tomorrow Night Bright",
             "cursorShape": "filledBox",
             "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "face": "MesloLGM Nerd Font",
+                "face": "JetBrainsMonoNL Nerd Font",
                 "size": 11,
-                "weight": "normal"
+                "weight": "semi-light"
             },
             "historySize": 10000,
             "intenseTextStyle": "bright",
@@ -153,7 +153,7 @@
             "yellow": "#C4A000"
         },
         {
-            "background": "#020202",
+            "background": "#1F2329",
             "black": "#000000",
             "blue": "#7AA6DA",
             "brightBlack": "#666666",

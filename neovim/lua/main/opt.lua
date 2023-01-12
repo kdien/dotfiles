@@ -2,7 +2,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.opt.guicursor = ''
+vim.opt.guicursor = 'i-ci-ve:ver25'
 
 vim.opt.number = true
 vim.opt.relativenumber = true
