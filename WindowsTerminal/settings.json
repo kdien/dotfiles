@@ -37,12 +37,12 @@
             "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "face": "JetBrainsMonoNL Nerd Font",
+                "face": "MesloLGM Nerd Font",
                 "size": 11,
-                "weight": "semi-light"
+                "weight": "normal"
             },
             "historySize": 10000,
-            "intenseTextStyle": "bright",
+            "intenseTextStyle": "all",
             "opacity": 100,
             "padding": "4, 4, 4, 4",
             "scrollbarState": "hidden",
