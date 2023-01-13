@@ -1,6 +1,6 @@
 require('onedark').setup {
-  style = 'darker',
-  transparent = false,
+  style = 'dark',
+  transparent = true,
   code_style = {
     comments = 'none',
     keywords = 'none',
