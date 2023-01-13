@@ -5,11 +5,11 @@ if ! command -v oh-my-posh &> /dev/null; then
     install_or_update_ohmyposh
 fi
 
-if [ -f $HOME/dotfiles/oh-my-posh/ohmyposh.json ]; then
-    eval "$(oh-my-posh init bash --config $HOME/dotfiles/oh-my-posh/ohmyposh.json)"
+if [ -f "$HOME"/dotfiles/oh-my-posh/ohmyposh.json ]; then
+    eval "$(oh-my-posh init bash --config "$HOME"/dotfiles/oh-my-posh/ohmyposh.json)"
     oh-my-posh toggle kubectl
 else
-    export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] \[\e0'
+    export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
 fi
 
 if command -v nvim &> /dev/null; then
@@ -20,34 +20,39 @@ elif command -v vim &> /dev/null; then
 fi
 
 if command -v java &> /dev/null; then
-    export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
+    JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(which java)")")")"
+    export JAVA_HOME
 fi
 
 if command -v aws &> /dev/null; then
-    complete -C $(which aws_completer) aws
+    complete -C "$(which aws_completer)" aws
 fi
 
 export PATH="$HOME/.tfenv/bin:$PATH"
 if command -v terraform &> /dev/null; then
-    complete -C $(which terraform) terraform
-    complete -C $(which terraform) tf
+    complete -C "$(which terraform)" terraform
+    complete -C "$(which terraform)" tf
 fi
 
 if command -v kubectl &> /dev/null; then
+    # shellcheck source=/dev/null
     . <(kubectl completion bash)
     complete -F __start_kubectl k
 fi
 
 if command -v minikube &> /dev/null; then
+    # shellcheck source=/dev/null
     . <(minikube completion bash)
 fi
 
 if command -v eksctl &> /dev/null; then
+    # shellcheck source=/dev/null
     . <(eksctl completion bash)
 fi
 
-if [ -f $HOME/.nvm/nvm.sh ]; then
-    . $HOME/.nvm/nvm.sh
+if [ -f "$HOME"/.nvm/nvm.sh ]; then
+    # shellcheck source=/dev/null
+    . "$HOME"/.nvm/nvm.sh
 fi
 
 # Aliases
@@ -82,11 +87,11 @@ fi
 
 # Functions
 lower() {
-    echo $1 | tr '[:upper:]' '[:lower:]'
+    echo "$1" | tr '[:upper:]' '[:lower:]'
 }
 
 upper() {
-    echo $1 | tr '[:lower:]' '[:upper:]'
+    echo "$1" | tr '[:lower:]' '[:upper:]'
 }
 
 parse_git_branch() {
@@ -101,11 +106,11 @@ git_clean_branches() {
 }
 
 git_https() {
-    git remote set-url origin $(git remote get-url origin | sed -e "s/git@bitbucket\.org:/https:\/\/kdien@bitbucket\.org\//")
+    git remote set-url origin "$(git remote get-url origin | sed -e 's/git@bitbucket\.org:/https:\/\/kdien@bitbucket\.org\//')"
 }
 
 git_ssh() {
-    git remote set-url origin $(git remote get-url origin | sed -e "s/https:\/\/kdien@bitbucket\.org\//git@bitbucket\.org:/")
+    git remote set-url origin "$(git remote get-url origin | sed -e 's/https:\/\/kdien@bitbucket\.org\//git@bitbucket\.org:/')"
 }
 
 set_apt_proxy() {
@@ -129,9 +134,9 @@ terraform_target() {
     local pattern=$2
 
     if [ -n "$pattern" ]; then
-        grep ^resource $file | grep -E "$pattern" | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /'
+        grep ^resource "$file" | grep -E "$pattern" | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /'
     else
-        grep ^resource $file | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /'
+        grep ^resource "$file" | sed 's/resource "\(.*\)" "\(.*\)".*/-target \1.\2 /'
     fi
 }
 
