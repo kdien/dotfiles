@@ -3,12 +3,20 @@ local jdtls = require('jdtls')
 local home = os.getenv('HOME')
 local jdtls_server_dir = home .. '/.config/nvim/dependencies/jdtls'
 
-if vim.fn.has 'mac' == 1 then
+local config_os = 'linux'
+if vim.fn.has('mac') == 1 then
   config_os = 'mac'
-elseif vim.fn.has 'unix' == 1 then
-  config_os = 'linux'
-else
-  print 'Unsupported system'
+end
+
+local java_paths = {}
+java_paths['8'] = '/usr/lib/jvm/java-1.8.0-openjdk/'
+java_paths['11'] = '/usr/lib/jvm/java-11-openjdk/'
+java_paths['17'] = '/usr/lib/jvm/java-17-openjdk/'
+
+for ver, path in pairs(java_paths) do
+  if vim.fn.isdirectory(path) ~= 1 then
+    java_paths[ver] = string.sub(path, 1, string.len(path) - 1) .. '-amd64/'
+  end
 end
 
 -- Find root of project
@@ -91,15 +99,15 @@ local config = {
         runtimes = {
           {
             name = 'JavaSE-1.8',
-            path = '/usr/lib/jvm/java-1.8.0-openjdk/'
+            path = java_paths['8']
           },
           {
             name = 'JavaSE-11',
-            path = '/usr/lib/jvm/java-11-openjdk/'
+            path = java_paths['11']
           },
           {
             name = 'JavaSE-17',
-            path = '/usr/lib/jvm/java-17-openjdk/'
+            path = java_paths['17']
           },
         }
       },
