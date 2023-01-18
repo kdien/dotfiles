@@ -53,7 +53,7 @@ user_pref("toolkit.scrollbox.horizontalScrollDistance",         4);            /
 user_pref("toolkit.scrollbox.verticalScrollDistance",           3);            ///        3
 
 // WaveFox config
-user_pref("userChrome.TabSeparators-Enabled", true);
+user_pref("userChrome.TabSeparatorsMediumSaturation-Enabled", true);
 user_pref("userChrome.PhotonTabs-Enabled", true);
 user_pref("userChrome.SelectedTabHighlight-Enabled", true);
 user_pref("userChrome.AdditionalContainerIndicator-Enabled", true);
