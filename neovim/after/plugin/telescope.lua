@@ -4,6 +4,10 @@ local grep_args = { '--hidden' }
 
 telescope.setup {
   defaults = {
+    layout_config = {
+      prompt_position = 'top',
+    },
+    sorting_strategy = 'ascending',
     mappings = {
       i = {
         ['<esc>'] = actions.close
@@ -33,4 +37,5 @@ vim.keymap.set('n', '<leader>ss', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>st', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>km', builtin.keymaps, {})
+vim.keymap.set('n', '<leader>ls', builtin.buffers, {})
 
