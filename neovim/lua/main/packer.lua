@@ -71,14 +71,6 @@ require('packer').startup(function(use)
     }
   }
 
-  -- Buffer/tab bar
-  use {
-    'romgrk/barbar.nvim',
-    wants = {
-      'nvim-tree/nvim-web-devicons',
-    }
-  }
-
   -- Git support
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
