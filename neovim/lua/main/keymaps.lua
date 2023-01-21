@@ -37,3 +37,7 @@ vim.keymap.set('n', 'Q', '<nop>')
 -- Open new tmux window to the current working directory
 vim.keymap.set('n', '<leader>term', '<Cmd>!tmux new-window -c ' .. vim.fn.getcwd() .. '<CR><CR>')
 
+-- Move between buffers
+vim.keymap.set('n', '<leader>.', '<Cmd>bnext<CR>')
+vim.keymap.set('n', '<leader>,', '<Cmd>bprevious<CR>')
+
