@@ -30,8 +30,8 @@
         {
             "altGrAliasing": true,
             "antialiasingMode": "cleartype",
-            "backgroundImage": "%USERPROFILE%\\dotfiles\\WindowsTerminal\\bg_image.png",
-            "backgroundImageOpacity": 0.1,
+            //"backgroundImage": "%USERPROFILE%\\dotfiles\\WindowsTerminal\\bg_image.png",
+            //"backgroundImageOpacity": 0.1,
             "colorScheme": "Tomorrow Night Bright",
             "cursorShape": "filledBox",
             "experimental.retroTerminalEffect": false,
@@ -153,8 +153,8 @@
             "yellow": "#C4A000"
         },
         {
-            //"background": "#16191D",
-            "background": "#020202",
+            "background": "#1F2329",
+            //"background": "#020202",
             "black": "#000000",
             "blue": "#7AA6DA",
             "brightBlack": "#666666",
