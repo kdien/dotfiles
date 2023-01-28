@@ -77,7 +77,10 @@ local diag_text = function(diagnostic)
 end
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = {
+    severity = { min = vim.diagnostic.severity.WARN },
+    spacing = 6
+  },
   signs = {
     severity = { min = vim.diagnostic.severity.WARN }
   },
