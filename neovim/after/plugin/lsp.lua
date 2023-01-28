@@ -69,7 +69,7 @@ end
 
 local diag_text = function(diagnostic)
   local final_text = sev_text(diagnostic)
-  if (diagnostic.code ~= nil) then
+  if (IS_SHELL_FT) then
     final_text = final_text .. ' (' .. diagnostic.code .. ')'
   end
   final_text = final_text .. ': ' .. diagnostic.message
