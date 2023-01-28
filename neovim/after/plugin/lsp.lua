@@ -81,9 +81,7 @@ vim.diagnostic.config({
     severity = { min = vim.diagnostic.severity.WARN },
     spacing = 6
   },
-  signs = {
-    severity = { min = vim.diagnostic.severity.WARN }
-  },
+  signs = false,
   float = {
     header = '',
     border = 'single',
