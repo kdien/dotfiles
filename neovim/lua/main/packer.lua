@@ -79,13 +79,14 @@ require('packer').startup(function(use)
   use 'numToStr/Comment.nvim'
   use 'Raimondi/delimitMate'
   use 'tpope/vim-surround'
-  use 'navarasu/onedark.nvim'
   use 'nvim-lualine/lualine.nvim'
 
-  use 'pearofducks/ansible-vim'
+  -- Colorschemes
+  use 'navarasu/onedark.nvim'
 
-  -- Java
-  use 'mfussenegger/nvim-jdtls'
+  -- Code
+  use 'pearofducks/ansible-vim' -- Ansible
+  use 'mfussenegger/nvim-jdtls' -- Java
 
   -- Sync all plugins
   if is_bootstrap then
