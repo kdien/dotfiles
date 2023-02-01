@@ -7,10 +7,10 @@ lsp.ensure_installed({
   'bashls',
   'dockerls',
   'gopls', -- Golang
-  'jedi_language_server', -- Python
   'jsonls',
   'marksman', -- Markdown
   'powershell_es',
+  'pyright', -- Python
   'sumneko_lua',
   'terraformls',
   'tsserver',
