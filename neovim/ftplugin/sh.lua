@@ -1,1 +1,1 @@
-IS_SHELL_FT = true
+USE_DIAGNOSTIC_CODE = true
