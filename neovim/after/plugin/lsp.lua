@@ -9,7 +9,7 @@ lsp.ensure_installed({
   'gopls', -- Golang
   'jsonls',
   'marksman', -- Markdown
-  'powershell_es',
+  'omnisharp', -- C#/.NET
   'pyright', -- Python
   'sumneko_lua',
   'terraformls',
