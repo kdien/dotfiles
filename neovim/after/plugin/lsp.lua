@@ -8,10 +8,10 @@ lsp.ensure_installed({
   'dockerls',
   'gopls', -- Golang
   'jsonls',
+  'lua_ls',
   'marksman', -- Markdown
   'omnisharp', -- C#/.NET
   'pyright', -- Python
-  'sumneko_lua',
   'terraformls',
   'tsserver',
   'yamlls'
