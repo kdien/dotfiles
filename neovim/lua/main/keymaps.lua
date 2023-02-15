@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+
 -- Resize windows
 -- width
 vim.keymap.set({'n', 'v'}, '<C-Up>', '5<C-w>>')

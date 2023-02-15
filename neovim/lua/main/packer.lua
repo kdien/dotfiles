@@ -63,14 +63,6 @@ require('packer').startup(function(use)
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
-  -- File tree
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-    }
-  }
-
   -- Git support
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
