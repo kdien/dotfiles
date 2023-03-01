@@ -72,10 +72,6 @@ if grep -q microsoft /proc/version; then
     alias pwsh='pwsh.exe'
 fi
 
-if command -v xdg-open &> /dev/null; then
-    alias open='xdg-open'
-fi
-
 alias gb='git branch -vv'
 alias glog='git log --graph --decorate --oneline'
 alias gs='git status'
@@ -162,3 +158,11 @@ apply_win_terminal_config() {
     cat "$HOME/dotfiles/WindowsTerminal/settings.json" > "$HOME/win_home/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 }
 
+open() {
+    if grep -q microsoft /proc/version; then
+        file=$(echo "$1" | sed -e 's/\//\\/g')
+        powershell.exe -Command "Invoke-Item $file"
+    elif command -v xdg-open &> /dev/null; then
+        xdg-open "$1"
+    fi
+}
