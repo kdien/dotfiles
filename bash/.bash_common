@@ -159,10 +159,19 @@ apply_win_terminal_config() {
 }
 
 open() {
-    if grep -q microsoft /proc/version; then
-        file=$(echo "$1" | sed -e 's/\//\\/g')
-        powershell.exe -Command "Invoke-Item $file"
-    elif command -v xdg-open &> /dev/null; then
-        xdg-open "$1"
-    fi
+    case "$(uname -sr)" in
+        Darwin*)
+            /usr/bin/open "$1"
+            ;;
+        Linux*Microsoft*|Linux*microsoft*)
+            file=$(echo "$1" | sed -e 's/\//\\/g')
+            powershell.exe -Command "Invoke-Item $file"
+            ;;
+        Linux*)
+            if command -v xdg-open &> /dev/null; then
+                xdg-open "$1"
+            fi
+            ;;
+    esac
 }
+
