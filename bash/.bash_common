@@ -1,14 +1,29 @@
 #!/usr/bin/env bash
 shopt -s direxpand
 
+case "$(uname -sr)" in
+    Darwin*)
+        RUN_OS=macOS
+        ;;
+    Linux*Microsoft*|Linux*microsoft*)
+        RUN_OS=WSL
+        ;;
+    Linux*)
+        RUN_OS=Linux
+        ;;
+esac
+export RUN_OS
+
 install_or_update_ohmyposh() {
-    sudo -v
-    echo 'Downloading latest oh-my-posh...'
-    if sudo curl -sSL https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -o /usr/local/bin/oh-my-posh; then
-        echo 'Download completed'
-        echo 'Adding execute permission'
-        sudo chmod +x /usr/local/bin/oh-my-posh
-        echo 'Done.'
+    if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
+        sudo -v
+        echo 'Downloading latest oh-my-posh...'
+        if sudo curl -sSL https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -o /usr/local/bin/oh-my-posh; then
+            echo 'Download completed'
+            echo 'Adding execute permission'
+            sudo chmod +x /usr/local/bin/oh-my-posh
+            echo 'Done.'
+        fi
     fi
 }
 
@@ -148,10 +163,12 @@ terraform_target() {
 }
 
 install_or_update_awscli() {
-    curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip'
-    unzip awscliv2.zip
-    sudo ./aws/install --update
-    rm -rf awscliv2.zip aws
+    if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
+        curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip'
+        unzip awscliv2.zip
+        sudo ./aws/install --update
+        rm -rf awscliv2.zip aws
+    fi
 }
 
 apply_win_terminal_config() {
@@ -159,15 +176,15 @@ apply_win_terminal_config() {
 }
 
 open() {
-    case "$(uname -sr)" in
-        Darwin*)
+    case "$RUN_OS" in
+        macOS)
             /usr/bin/open "$1"
             ;;
-        Linux*Microsoft*|Linux*microsoft*)
+        WSL)
             file=$(echo "$1" | sed -e 's/\//\\/g')
             powershell.exe -Command "Invoke-Item $file"
             ;;
-        Linux*)
+        Linux)
             if command -v xdg-open &> /dev/null; then
                 xdg-open "$1"
             fi
