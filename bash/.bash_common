@@ -82,7 +82,7 @@ if [ -f "$HOME"/.nvm/nvm.sh ]; then
 fi
 
 # Aliases
-if grep -q microsoft /proc/version; then
+if [[ "$RUN_OS" = WSL ]]; then
     alias e.='explorer.exe .'
     alias pwsh='pwsh.exe'
 fi
@@ -100,11 +100,13 @@ alias tf='terraform'
 alias tft='terraform_target'
 alias v.='vim .'
 
-distro=$(grep '^ID=' /etc/os-release | awk -F '=' '{print $2}')
-if [ "$distro" == ubuntu ]; then
-    alias upd='sudo apt update && sudo apt upgrade -y'
-elif [ "$distro" == fedora ]; then
-    alias upd='sudo dnf upgrade -y'
+if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
+    distro=$(grep '^ID=' /etc/os-release | awk -F '=' '{print $2}')
+    if [ "$distro" == ubuntu ]; then
+        alias upd='sudo apt update && sudo apt upgrade -y'
+    elif [ "$distro" == fedora ]; then
+        alias upd='sudo dnf upgrade -y'
+    fi
 fi
 
 # Functions
