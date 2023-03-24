@@ -180,7 +180,7 @@ apply_win_terminal_config() {
 open() {
     case "$RUN_OS" in
         macOS)
-            /usr/bin/open "$1"
+            /usr/bin/open "$@"
             ;;
         WSL)
             file=$(echo "$1" | sed -e 's/\//\\/g')
@@ -188,7 +188,7 @@ open() {
             ;;
         Linux)
             if command -v xdg-open &> /dev/null; then
-                xdg-open "$1"
+                xdg-open "$@"
             fi
             ;;
     esac
