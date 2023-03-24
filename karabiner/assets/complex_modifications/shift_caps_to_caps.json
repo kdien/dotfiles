@@ -1,0 +1,25 @@
+{
+  "title": "Press shift+esc for caps_lock",
+  "rules": [
+    {
+      "description": "Press shift+esc for caps_lock",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": "shift",
+              "optional": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
