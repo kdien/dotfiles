@@ -45,10 +45,16 @@ elif command -v vim &> /dev/null; then
     export EDITOR=vim
 fi
 
-if command -v java &> /dev/null; then
-    JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(which java)")")")"
-    export JAVA_HOME
+if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
+    if command -v java &> /dev/null; then
+        JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(command -v java)")")")"
+    fi
+elif [[ "$RUN_OS" = macOS ]]; then
+    if [[ -e /Library/Java/JavaVirtualMachines/openjdk.jdk ]]; then
+        JAVA_HOME="$(readlink -f /Library/Java/JavaVirtualMachines/openjdk.jdk)/Contents/Home"
+    fi
 fi
+export JAVA_HOME
 
 if command -v aws &> /dev/null; then
     complete -C "$(which aws_completer)" aws
