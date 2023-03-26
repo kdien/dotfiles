@@ -20,7 +20,7 @@ version=$(git describe --tags | cut -d '-' -f 1 | cut -d 'v' -f 2)
 filename=$(curl -sSL "https://download.eclipse.org/jdtls/milestones/$version/latest.txt")
 cd ..
 echo "Downloading $filename"
-curl -sSLO "https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/$version/$filename"
+curl -sSL "https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/$version/$filename" -o "$filename"
 rm -rf jdtls
 mkdir -p jdtls
 echo "Extracting $filename"
