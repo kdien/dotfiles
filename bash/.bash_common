@@ -180,9 +180,9 @@ install_or_update_awscli() {
 }
 
 ap() {
-    local cmd="export AWS_PROFILE=$1"
-    echo "$cmd"
-    eval "$cmd"
+    AWS_PROFILE=$(grep '\[profile' "$HOME/.aws/config" | sed 's/\[profile \(.*\)\]/\1/g' | fzf --layout=reverse)
+    export AWS_PROFILE
+    echo "Switched to AWS profile '$AWS_PROFILE'"
 }
 
 apply_win_terminal_config() {
