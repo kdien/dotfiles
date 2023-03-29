@@ -68,6 +68,14 @@
           "type": "python"
         },
         {
+          "type": "aws",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#100e23",
+          "background": "#ffa400",
+          "template": " \uDB83\uDE0F {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} "
+        },
+        {
           "type": "kubectl",
           "style": "powerline",
           "powerline_symbol": "\uE0B0",
