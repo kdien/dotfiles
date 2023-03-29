@@ -11,6 +11,9 @@ require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
 
+  -- Module caching
+  use 'lewis6991/impatient.nvim'
+
   -- LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
