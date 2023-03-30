@@ -31,8 +31,8 @@ if ! command -v oh-my-posh &> /dev/null; then
     install_or_update_ohmyposh
 fi
 
-if [ -f "$HOME"/dotfiles/oh-my-posh/ohmyposh.json ]; then
-    eval "$(oh-my-posh init bash --config "$HOME"/dotfiles/oh-my-posh/ohmyposh.json)"
+if [[ -f "$HOME/dotfiles/oh-my-posh/ohmyposh.json" ]]; then
+    eval "$(oh-my-posh init bash --config "$HOME/dotfiles/oh-my-posh/ohmyposh.json")"
     oh-my-posh toggle aws
     oh-my-posh toggle kubectl
 else
@@ -83,9 +83,9 @@ if command -v eksctl &> /dev/null; then
     . <(eksctl completion bash)
 fi
 
-if [ -f "$HOME"/.nvm/nvm.sh ]; then
+if [[ -f "$HOME/.nvm/nvm.sh" ]]; then
     # shellcheck source=/dev/null
-    . "$HOME"/.nvm/nvm.sh
+    . "$HOME/.nvm/nvm.sh"
 fi
 
 # Aliases
@@ -106,13 +106,14 @@ alias mvnfull='mvn clean install -PautoInstallSinglePackage'
 alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dspotbugs.skip=true'
 alias tf='terraform'
 alias tft='terraform_target'
+alias v='vim'
 alias v.='vim .'
 
 if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
     distro=$(grep '^ID=' /etc/os-release | awk -F '=' '{print $2}')
-    if [ "$distro" == ubuntu ]; then
+    if [[ "$distro" == ubuntu ]]; then
         alias upd='sudo apt update && sudo apt upgrade -y'
-    elif [ "$distro" == fedora ]; then
+    elif [[ "$distro" == fedora ]]; then
         alias upd='sudo dnf upgrade -y'
     fi
 fi
@@ -165,7 +166,7 @@ terraform_target() {
     local file=$1
     local pattern=$2
 
-    if [ -n "$pattern" ]; then
+    if [[ -n "$pattern" ]]; then
         grep '^resource\|^module' "$file" | grep -E "$pattern" | sed 's/resource "\(.*\)" "\(.*\)".*/--target \1.\2 /;s/module "\([^"]*\)".*/--target module.\1 /'
     else
         grep '^resource\|^module' "$file" | sed 's/resource "\(.*\)" "\(.*\)".*/--target \1.\2 /;s/module "\([^"]*\)".*/--target module.\1 /'
