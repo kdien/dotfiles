@@ -1,6 +1,6 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
-local grep_args = { '--hidden' }
+local grep_args = { '--hidden', '--glob', '!**/.git/*' }
 
 telescope.setup {
   defaults = {
@@ -16,7 +16,7 @@ telescope.setup {
   },
   pickers = {
     find_files = {
-      hidden = true
+      find_command = { 'fd', '--type', 'f', '--hidden', '--exclude', '.git' }
     },
     live_grep = {
       additional_args = function(opts)
