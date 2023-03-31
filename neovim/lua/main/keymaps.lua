@@ -36,8 +36,9 @@ vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 -- Don't do anything when pressing Q in normal mode
 vim.keymap.set('n', 'Q', '<nop>')
 
--- Open new tmux window to the current working directory
+-- Open new tmux (split-)window to the current working directory
 vim.keymap.set('n', '<leader>term', '<Cmd>!tmux new-window -c ' .. vim.fn.getcwd() .. '<CR><CR>')
+vim.keymap.set('n', '<leader>sterm', '<Cmd>!tmux split-window -c ' .. vim.fn.getcwd() .. '<CR><CR>')
 
 -- Move between buffers
 vim.keymap.set('n', '<leader>.', '<Cmd>bnext<CR>')
