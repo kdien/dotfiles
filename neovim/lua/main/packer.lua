@@ -79,6 +79,9 @@ require('packer').startup(function(use)
   -- Colorschemes
   use 'navarasu/onedark.nvim'
 
+  -- Buffer line
+  use 'akinsho/bufferline.nvim'
+
   -- Code
   use 'pearofducks/ansible-vim' -- Ansible
   use 'mfussenegger/nvim-jdtls' -- Java
