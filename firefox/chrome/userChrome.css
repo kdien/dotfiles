@@ -32,10 +32,10 @@
     display: none;
 }
 
-/*
-.tooltip-label {
-    min-width: unset;
-    width: 225px;
+.tabbrowser-tab {
+    font-size: 85%;
 }
-*/
 
+.urlbar-input-box {
+    font-size: 95%;
+}
