@@ -70,7 +70,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
 
-  use 'editorconfig/editorconfig-vim'
   use 'numToStr/Comment.nvim'
   use 'Raimondi/delimitMate'
   use 'tpope/vim-surround'
