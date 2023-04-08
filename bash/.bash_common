@@ -33,7 +33,6 @@ fi
 
 if [[ -f "$HOME/dotfiles/oh-my-posh/ohmyposh.json" ]]; then
     eval "$(oh-my-posh init bash --config "$HOME/dotfiles/oh-my-posh/ohmyposh.json")"
-    oh-my-posh toggle aws
     oh-my-posh toggle kubectl
 else
     export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
@@ -183,9 +182,11 @@ install_or_update_awscli() {
 }
 
 ap() {
-    AWS_PROFILE=$(grep '\[profile' "$HOME/.aws/config" | sed 's/\[profile \(.*\)\]/\1/g' | fzf --layout=reverse)
-    export AWS_PROFILE
-    echo "Switched to AWS profile '$AWS_PROFILE'"
+    AWS_PROFILE=$(grep '\[profile' "$HOME/.aws/config" | sed 's/\[profile \(.*\)\]/\1/g' | fzf --layout=reverse --height=~50% --border=rounded --prompt="AWS Profile >> ")
+    if [[ -n "$AWS_PROFILE" ]]; then
+        export AWS_PROFILE
+        echo "Switched to AWS profile '$AWS_PROFILE'"
+    fi
 }
 
 apply_win_terminal_config() {
