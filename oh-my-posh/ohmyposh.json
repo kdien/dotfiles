@@ -76,6 +76,14 @@
           "template": " \uDB83\uDE0F {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} "
         },
         {
+          "type": "az",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#0178d4",
+          "template": " \uEBD8 {{ .Name }} "
+        },
+        {
           "type": "kubectl",
           "style": "powerline",
           "powerline_symbol": "\uE0B0",

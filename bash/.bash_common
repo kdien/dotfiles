@@ -33,6 +33,7 @@ fi
 
 if [[ -f "$HOME/dotfiles/oh-my-posh/ohmyposh.json" ]]; then
     eval "$(oh-my-posh init bash --config "$HOME/dotfiles/oh-my-posh/ohmyposh.json")"
+    oh-my-posh toggle az
     oh-my-posh toggle kubectl
 else
     export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
@@ -94,6 +95,7 @@ if [[ "$RUN_OS" = WSL ]]; then
 fi
 
 alias at='oh-my-posh toggle aws'
+alias azt='oh-my-posh toggle az'
 alias gb='git branch -vv'
 alias glog='git log --graph --decorate --oneline'
 alias gs='git status'
