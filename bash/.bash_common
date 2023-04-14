@@ -67,6 +67,12 @@ if command -v terraform &> /dev/null; then
     complete -C "$(which terraform)" tf
 fi
 
+if command -v terraform-docs &> /dev/null; then
+    # shellcheck source=/dev/null
+    . <(terraform-docs completion bash)
+    complete -F __start_terraform-docs tfd
+fi
+
 if command -v kubectl &> /dev/null; then
     # shellcheck source=/dev/null
     . <(kubectl completion bash)
@@ -107,6 +113,7 @@ alias mvnfull='mvn clean install -PautoInstallSinglePackage'
 alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dspotbugs.skip=true'
 alias tf='terraform'
 alias tft='terraform_target'
+alias tfd='terraform-docs'
 alias v='vim'
 alias v.='vim .'
 
