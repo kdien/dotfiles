@@ -198,6 +198,15 @@ ap() {
     fi
 }
 
+azs() {
+    new_sub=$(az account list --output json | jq -r '.[].name' | fzf --layout=reverse --height=~50% --border=rounded --prompt="Azure subscription >> ")
+    if [[ -n "$new_sub" ]]; then
+        az account set --name "$new_sub"
+        new_sub=$(az account list | jq -r '.[] | select(.isDefault==true) | .name')
+        echo "Switched to Azure subscription '$new_sub'"
+    fi
+}
+
 apply_win_terminal_config() {
     cat "$HOME/dotfiles/WindowsTerminal/settings.json" > "$HOME/win_home/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 }
