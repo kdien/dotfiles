@@ -80,6 +80,14 @@ require('packer').startup(function(use)
   -- Colorschemes
   use 'navarasu/onedark.nvim'
 
+  -- Markdown preview
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = function()
+      vim.fn['mkdp#util#install']()
+    end
+  }
+
   -- Code
   use 'pearofducks/ansible-vim' -- Ansible
   use 'mfussenegger/nvim-jdtls' -- Java
