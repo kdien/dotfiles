@@ -37,6 +37,8 @@ require('packer').startup(function(use)
     }
   }
 
+  use 'folke/neodev.nvim'
+
   -- DAP (Debug Adapter Protocol)
   use 'mfussenegger/nvim-dap'
 
