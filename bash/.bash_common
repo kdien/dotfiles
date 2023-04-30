@@ -100,6 +100,10 @@ if [[ "$RUN_OS" = WSL ]]; then
     alias pwsh='pwsh.exe'
 fi
 
+if command -v bat &> /dev/null; then
+    alias cat='bat --theme OneHalfDark'
+fi
+
 alias at='oh-my-posh toggle aws'
 alias azt='oh-my-posh toggle az'
 alias gb='git branch -vv'
