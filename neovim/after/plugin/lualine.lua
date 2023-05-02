@@ -4,7 +4,17 @@ require('lualine').setup {
       'mode'
     },
     lualine_b = {
-      'branch', 'diff', 'diagnostics'
+      'branch',
+      'diff',
+      {
+        'diagnostics',
+        symbols = {
+          error = 'E:',
+          warn = 'W:',
+          info = 'I:',
+          hint = 'H:'
+        }
+      }
     },
     lualine_c = {
       {
