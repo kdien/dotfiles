@@ -61,6 +61,10 @@ if command -v aws &> /dev/null; then
     complete -C "$(which aws_completer)" aws
 fi
 
+if [[ -d /opt/wine-stable/bin ]]; then
+    export PATH="/opt/wine-stable/bin:$PATH"
+fi
+
 export PATH="$HOME/.tfenv/bin:$PATH"
 if command -v terraform &> /dev/null; then
     complete -C "$(which terraform)" terraform
