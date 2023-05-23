@@ -65,7 +65,10 @@ if [[ -d /opt/wine-stable/bin ]]; then
     export PATH="/opt/wine-stable/bin:$PATH"
 fi
 
-export PATH="$HOME/.tfenv/bin:$PATH"
+if [[ -d "$HOME/.tfenv/bin" ]]; then
+    export PATH="$HOME/.tfenv/bin:$PATH"
+fi
+
 if command -v terraform &> /dev/null; then
     complete -C "$(which terraform)" terraform
     complete -C "$(which terraform)" tf
