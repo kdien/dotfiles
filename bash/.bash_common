@@ -125,6 +125,8 @@ alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.s
 alias tf='terraform'
 alias tft='terraform_target'
 alias tfd='terraform-docs'
+alias ti='terraform init'
+alias tp='terraform plan'
 alias v='vim'
 alias v.='vim .'
 
