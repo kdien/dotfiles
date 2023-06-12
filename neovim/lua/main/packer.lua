@@ -73,7 +73,6 @@ require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   use 'numToStr/Comment.nvim'
-  use 'Raimondi/delimitMate'
   use 'tpope/vim-surround'
   use 'nvim-lualine/lualine.nvim'
 
