@@ -25,6 +25,12 @@ require('lspconfig').ansiblels.setup({
   }
 })
 
+require('lspconfig').terraformls.setup({
+  filetypes = {
+    "terraform"
+  }
+})
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
