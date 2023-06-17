@@ -1,12 +1,10 @@
-local highlight_on_yank = function()
-  vim.highlight.on_yank({
-    timeout = 100
-  })
-end
-
 vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
-  callback = highlight_on_yank
+  callback = function()
+    vim.highlight.on_yank({
+      timeout = 100
+    })
+  end
 })
 
 vim.api.nvim_create_autocmd('FileType', {
