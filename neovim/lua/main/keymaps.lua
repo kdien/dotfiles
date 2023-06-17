@@ -37,8 +37,8 @@ vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 vim.keymap.set('n', 'Q', '<nop>')
 
 -- Open new tmux (split-)window to the current working directory
-vim.keymap.set('n', '<leader>term', '<Cmd>!tmux new-window -c "' .. vim.fn.getcwd() .. '"<CR><CR>')
-vim.keymap.set('n', '<leader>sterm', '<Cmd>!tmux split-window -c "' .. vim.fn.getcwd() .. '"<CR><CR>')
+vim.keymap.set('n', '<leader>term', '<Cmd>silent !tmux new-window -c "' .. vim.fn.getcwd() .. '"<CR>')
+vim.keymap.set('n', '<leader>sterm', '<Cmd>silent !tmux split-window -c "' .. vim.fn.getcwd() .. '"<CR>')
 
 -- Move between buffers
 vim.keymap.set('n', '<leader>.', '<Cmd>bnext<CR>')
