@@ -45,3 +45,11 @@ vim.keymap.set('n', '<leader>.', '<Cmd>bnext<CR>')
 vim.keymap.set('n', '<leader>,', '<Cmd>bprevious<CR>')
 vim.keymap.set('n', '<leader>q', '<Cmd>b#<CR>')
 
+-- Change tab size
+vim.keymap.set('n', '<leader>ts', function()
+  vim.ui.input({prompt = 'Update tab size: '}, function(input)
+    vim.opt.tabstop = tonumber(input)
+    vim.opt.softtabstop = tonumber(input)
+    vim.opt.shiftwidth = tonumber(input)
+  end)
+end)
