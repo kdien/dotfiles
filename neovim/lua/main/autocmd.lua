@@ -27,8 +27,3 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   command = 'set filetype=groovy'
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'go',
-  command = 'set noexpandtab'
-})
-
