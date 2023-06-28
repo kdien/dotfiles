@@ -114,6 +114,7 @@ fi
 alias at='oh-my-posh toggle aws'
 alias azt='oh-my-posh toggle az'
 alias gb='git branch -vv'
+alias gd='git diff'
 alias glog='git log --graph --decorate --oneline'
 alias gs='git status'
 alias gtop='cd `git rev-parse --show-toplevel`'
