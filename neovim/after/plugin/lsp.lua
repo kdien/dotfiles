@@ -64,25 +64,18 @@ end)
 
 lsp.setup()
 
-local sev_text = function(diagnostic)
-  if diagnostic.severity == vim.diagnostic.severity.ERROR then
-    return 'ERROR'
-  elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-    return 'WARN'
-  elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-    return 'INFO'
-  elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-    return 'HINT'
-  end
-end
-
 local diag_text = function(diagnostic)
-  local final_text = sev_text(diagnostic)
-  if (USE_DIAGNOSTIC_CODE and diagnostic.code ~= nil) then
-    final_text = final_text .. ' (' .. diagnostic.code .. ')'
+  local sev_text
+  if diagnostic.severity == vim.diagnostic.severity.ERROR then
+    sev_text = 'ERROR'
+  elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+    sev_text = 'WARN'
+  elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+    sev_text = 'INFO'
+  elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+    sev_text = 'HINT'
   end
-  final_text = final_text .. ': ' .. diagnostic.message
-  return final_text
+  return sev_text .. ': ' .. diagnostic.message
 end
 
 vim.diagnostic.config({
