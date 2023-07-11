@@ -218,10 +218,10 @@ ap() {
 }
 
 azs() {
-    new_sub=$(az account list --output json | jq -r '.[].name' | fzf --layout=reverse --height=~50% --border=rounded --prompt="Azure subscription >> ")
+    new_sub=$(jq -r '.subscriptions[].name' "$HOME/.azure/azureProfile.json" | fzf --layout=reverse --height=~50% --border=rounded --prompt="Azure subscription >> ")
     if [[ -n "$new_sub" ]]; then
         az account set --name "$new_sub"
-        new_sub=$(az account list | jq -r '.[] | select(.isDefault==true) | .name')
+        new_sub=$(jq -r '.subscriptions[] | select(.isDefault==true) | .name' "$HOME/.azure/azureProfile.json")
         echo "Switched to Azure subscription '$new_sub'"
     fi
 }
