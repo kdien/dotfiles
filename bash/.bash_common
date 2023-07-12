@@ -210,7 +210,7 @@ ssm() {
 }
 
 ap() {
-    new_profile=$(grep '\[profile' "$HOME/.aws/config" | sed 's/\[profile \(.*\)\]/\1/g' | fzf --layout=reverse --height=~50% --border=rounded --prompt="AWS Profile >> ")
+    new_profile=$(grep '\[profile' "$HOME/.aws/config" | sed 's/\[profile \(.*\)\]/\1/g' | sort | fzf --layout=reverse --height=~50% --border=rounded --prompt="AWS Profile >> ")
     if [[ -n "$new_profile" ]]; then
         export AWS_PROFILE=$new_profile
         echo "Switched to AWS profile '$AWS_PROFILE'"
@@ -218,7 +218,7 @@ ap() {
 }
 
 azs() {
-    new_sub=$(jq -r '.subscriptions[].name' "$HOME/.azure/azureProfile.json" | fzf --layout=reverse --height=~50% --border=rounded --prompt="Azure subscription >> ")
+    new_sub=$(jq -r '.subscriptions[].name' "$HOME/.azure/azureProfile.json" | sort | fzf --layout=reverse --height=~50% --border=rounded --prompt="Azure subscription >> ")
     if [[ -n "$new_sub" ]]; then
         az account set --name "$new_sub"
         new_sub=$(jq -r '.subscriptions[] | select(.isDefault==true) | .name' "$HOME/.azure/azureProfile.json")
