@@ -27,3 +27,7 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   command = 'set filetype=groovy'
 })
 
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  pattern = 'terraform.tfvars',
+  command = 'set filetype=terraform'
+})
