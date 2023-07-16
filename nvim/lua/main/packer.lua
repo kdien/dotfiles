@@ -74,7 +74,6 @@ require('packer').startup(function(use)
 
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
-  use 'nvim-lualine/lualine.nvim'
 
   -- Colorschemes
   use 'navarasu/onedark.nvim'

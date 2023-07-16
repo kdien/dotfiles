@@ -23,3 +23,15 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.scrolloff = 10
+
+vim.opt.laststatus = 3
+
+local parse_git_branch = function()
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  if string.len(branch) > 0 then
+    branch = '[' .. branch .. ']'
+  end
+  return branch
+end
+
+vim.opt.statusline = parse_git_branch() .. '%=%-F %m%r%w%=%y [%{&fileformat}]  %l:%c  %p%%'
