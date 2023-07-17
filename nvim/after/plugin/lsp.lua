@@ -14,6 +14,7 @@ lsp.ensure_installed({
   'marksman', -- Markdown
   'omnisharp', -- C#/.NET
   'pyright', -- Python
+  'rust_analyzer',
   'terraformls',
   'tsserver',
   'yamlls'
