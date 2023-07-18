@@ -26,7 +26,7 @@ vim.opt.scrolloff = 10
 
 vim.opt.laststatus = 3
 
-local parse_git_branch = function()
+function ParseGitBranch()
   local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
   if string.len(branch) > 0 then
     branch = '[' .. branch .. ']'
@@ -34,4 +34,4 @@ local parse_git_branch = function()
   return branch
 end
 
-vim.opt.statusline = parse_git_branch() .. '%=%-F %m%r%w%=%y [%{&fileformat}]  %l:%c  %p%%'
+vim.opt.statusline = "%{luaeval('ParseGitBranch()')}%=%-F %m%r%w%=%y [%{&fileformat}]  %l:%c  %p%%"
