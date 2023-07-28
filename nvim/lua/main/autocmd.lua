@@ -46,6 +46,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 
 vim.api.nvim_create_autocmd('BufWritePost', {
   group = augroup,
-  pattern = '*.rust',
+  pattern = '*.rs',
   command = 'silent !rustfmt %'
 })
