@@ -31,3 +31,21 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   pattern = 'terraform.tfvars',
   command = 'set filetype=terraform'
 })
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  group = augroup,
+  pattern = '*.tf',
+  command = 'silent !terraform fmt %'
+})
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  group = augroup,
+  pattern = '*.go',
+  command = 'silent !gofmt -w %'
+})
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  group = augroup,
+  pattern = '*.rust',
+  command = 'silent !rustfmt %'
+})
