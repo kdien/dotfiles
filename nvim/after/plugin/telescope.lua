@@ -8,11 +8,6 @@ telescope.setup {
       prompt_position = 'top',
     },
     sorting_strategy = 'ascending',
-    mappings = {
-      i = {
-        ['<esc>'] = actions.close
-      },
-    },
   },
   pickers = {
     find_files = {
