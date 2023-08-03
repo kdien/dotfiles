@@ -1,0 +1,17 @@
+#tabbrowser-tab-tooltip {
+    display: none;
+}
+
+.titlebar-spacer[type="pre-tabs"] {
+    width: 15px !important;
+}
+
+#statuspanel {
+    font-size: 115% !important;
+    margin: 3px !important;
+}
+
+#statuspanel-label {
+    border-radius: 4px !important;
+    background-color: #3d3d3d !important;
+}
