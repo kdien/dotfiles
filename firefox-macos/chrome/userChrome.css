@@ -15,3 +15,7 @@
     border-radius: 4px !important;
     background-color: #3d3d3d !important;
 }
+
+.titlebar-spacer[type="post-tabs"] {
+    width: 5px !important;
+}

@@ -39,3 +39,7 @@
 #urlbar-input-container {
     font-size: 95%;
 }
+
+.titlebar-spacer[type="post-tabs"] {
+    width: 5px !important;
+}
