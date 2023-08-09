@@ -30,8 +30,9 @@ selection:
   save_to_clipboard: true
 
 cursor:
-  # Block | Underline | Beam
-  style: Block
+  style:
+    shape: Block
+    blinking: Off
 
 live_config_reload: true
 
