@@ -4,6 +4,7 @@ if vim.fn.empty(vim.fn.glob(impatient_path)) == 0 then
 end
 
 require('main.opt')
+require('main.globals')
 require('main.keymaps')
 require('main.packer')
 require('main.autocmd')
