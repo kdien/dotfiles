@@ -29,6 +29,7 @@ if use_lualine then
       }
     },
   }
+  vim.opt.showmode = false
 
 else
   function ParseGitBranch()
