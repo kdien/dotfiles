@@ -1,6 +1,7 @@
 require('neodev').setup()
 
 local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
 
 lsp.preset('recommended')
 
@@ -20,15 +21,15 @@ lsp.ensure_installed({
   'yamlls'
 })
 
-require('lspconfig').ansiblels.setup({
+lspconfig.ansiblels.setup({
   filetypes = {
-    "ansible"
+    'ansible'
   }
 })
 
-require('lspconfig').terraformls.setup({
+lspconfig.terraformls.setup({
   filetypes = {
-    "terraform"
+    'terraform'
   }
 })
 
@@ -50,16 +51,10 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.set_preferences({
-  suggest_lsp_servers = false,
-  sign_icons = {
-    error = 'E',
-    warn = 'W',
-    hint = 'H',
-    info = 'I'
-  }
+  suggest_lsp_servers = false
 })
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function()
   require('custom-lsp.keymaps')
 end)
 
