@@ -94,7 +94,7 @@
           "template": " \ufd31 {{ .Context }}{{ if .Namespace }} :: {{ .Namespace }}{{ end }} "
         },
         {
-          "type": "exit",
+          "type": "status",
           "style": "powerline",
           "foreground": "#ffffff",
           "background": "#ff8080",
