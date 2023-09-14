@@ -10,10 +10,7 @@ ap() {
 }
 
 ssm() {
-    if [[ -z "$AWS_PROFILE" ]]; then
-        echo 'AWS_PROFILE must be set first'
-        return 1
-    fi
+    [[ -z "$AWS_PROFILE" ]] && ap
 
     echo 'Querying running EC2 instances in current AWS profile...'
     instance_id=$( \
