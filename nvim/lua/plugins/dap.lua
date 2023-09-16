@@ -36,5 +36,14 @@ return {
 
       require('nvim-dap-virtual-text').setup({})
     end
+  },
+
+  {
+    'leoluz/nvim-dap-go',
+    dependencies = 'mfussenegger/nvim-dap',
+    ft = 'go',
+    config = function()
+      require('dap-go').setup()
+    end
   }
 }
