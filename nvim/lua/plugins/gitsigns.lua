@@ -5,7 +5,7 @@ return {
 
     config = function()
       require('gitsigns').setup({
-        sign_priority = 100,
+        sign_priority = 10,
         on_attach = function(bufnr)
           local gs = package.loaded.gitsigns
 
