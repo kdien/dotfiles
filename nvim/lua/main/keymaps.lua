@@ -5,11 +5,11 @@ vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- Resize windows
 -- width
-vim.keymap.set({'n', 'v'}, '<C-Up>', '5<C-w>>')
-vim.keymap.set({'n', 'v'}, '<C-Down>', '5<C-w><')
+vim.keymap.set({ 'n', 'v' }, '<C-Up>', '5<C-w>>')
+vim.keymap.set({ 'n', 'v' }, '<C-Down>', '5<C-w><')
 -- height
-vim.keymap.set({'n', 'v'}, '<C-S-Up>', '5<C-w>+')
-vim.keymap.set({'n', 'v'}, '<C-S-Down>', '5<C-w>-')
+vim.keymap.set({ 'n', 'v' }, '<C-S-Up>', '5<C-w>+')
+vim.keymap.set({ 'n', 'v' }, '<C-S-Down>', '5<C-w>-')
 
 -- Indent and unindent highlighted blocks
 vim.keymap.set('v', '<S-TAB>', '<gv')
@@ -27,18 +27,21 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('x', '<leader>p', [["_dP]])
 
 -- Yank into system clipboard
-vim.keymap.set({'n', 'v'}, '<leader>y', [["+y]])
+vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+yg$]])
 
 -- Delete into void register
-vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 
 -- Don't do anything when pressing Q in normal mode
 vim.keymap.set('n', 'Q', '<nop>')
 
 -- Open new tmux (split-)window to the current working directory
-vim.keymap.set('n', '<leader>term', '<Cmd>silent !tmux new-window -c "' .. vim.fn.getcwd() .. '"<CR>')
-vim.keymap.set('n', '<leader>sterm', '<Cmd>silent !tmux split-window -c "' .. vim.fn.getcwd() .. '"<CR>')
+function SetTmuxKeymaps()
+  vim.keymap.set('n', '<leader>term', '<Cmd>silent !tmux new-window -c "' .. vim.fn.getcwd() .. '"<CR>')
+  vim.keymap.set('n', '<leader>sterm', '<Cmd>silent !tmux split-window -c "' .. vim.fn.getcwd() .. '"<CR>')
+end
+SetTmuxKeymaps()
 
 -- Move between buffers
 vim.keymap.set('n', '<leader>.', '<Cmd>bnext<CR>')
@@ -47,7 +50,7 @@ vim.keymap.set('n', '<leader>q', '<Cmd>b#<CR>')
 
 -- Change tab size
 vim.keymap.set('n', '<leader>ts', function()
-  vim.ui.input({prompt = 'Update tab size: '}, function(input)
+  vim.ui.input({ prompt = 'Update tab size: ' }, function(input)
     vim.opt.tabstop = tonumber(input)
     vim.opt.softtabstop = tonumber(input)
     vim.opt.shiftwidth = tonumber(input)
