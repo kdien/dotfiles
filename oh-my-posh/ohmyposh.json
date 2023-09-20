@@ -50,7 +50,8 @@
           "properties": {
             "fetch_status": true,
             "fetch_stash_count": true,
-            "fetch_upstream_icon": true
+            "fetch_upstream_icon": true,
+            "branch_icon": "\ue0a0 "
           },
           "background_templates": [
             "{{ if .Working.Changed }}#FFEB3B{{ end }}",
