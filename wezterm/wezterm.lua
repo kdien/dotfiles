@@ -25,17 +25,25 @@ config.colors = require('colors')
 
 config.default_cursor_style = 'SteadyBlock'
 
-local fonts = {}
-table.insert(fonts, platform == 'mac' and 'SF Mono' or 'SFMono')
-table.insert(fonts, 'Menlo')
-table.insert(fonts, 'Consolas')
-table.insert(fonts, 'monospace')
+config.font = wezterm.font({
+  family = 'Fira Code',
+  weight = 'Regular',
+  -- harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- disable ligatures
+})
 
-config.font = wezterm.font_with_fallback(fonts)
+config.font_rules = {
+  {
+    intensity = 'Bold',
+    font = wezterm.font({
+      family = 'Fira Code',
+      weight = 'Medium'
+    })
+  }
+}
 
 config.font_size = platform == 'mac' and 15.0 or 11.5
 
-config.line_height = 1.15
+config.line_height = 1.1
 
 local padding = {}
 padding['left'] = platform == 'mac' and 8 or 4
