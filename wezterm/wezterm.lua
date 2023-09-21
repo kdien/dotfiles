@@ -28,7 +28,7 @@ config.default_cursor_style = 'SteadyBlock'
 config.font = wezterm.font({
   family = 'Fira Code',
   weight = 'Regular',
-  -- harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- disable ligatures
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- disable ligatures
 })
 
 config.font_rules = {
