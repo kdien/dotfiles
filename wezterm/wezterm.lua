@@ -7,11 +7,11 @@ wezterm.on('gui-startup', function()
 end)
 
 local platform = 'linux'
-local home = require('os').getenv('HOME') or ''
-if string.match(home, '^/Users') then
-  platform = 'mac'
-elseif string.match(home, '^C:\\Users') then
+local home = require('os').getenv('HOME')
+if not home then
   platform = 'win'
+elseif string.match(home, '^/Users') then
+  platform = 'mac'
 end
 
 local config = {}
