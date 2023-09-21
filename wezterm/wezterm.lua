@@ -10,13 +10,22 @@ local platform = 'linux'
 local home = require('os').getenv('HOME') or ''
 if string.match(home, '^/Users') then
   platform = 'mac'
+elseif string.match(home, '^C:\\Users') then
+  platform = 'win'
 end
 
 local config = {}
 
 config.automatically_reload_config = true
 
-config.window_decorations = 'RESIZE'
+if platform == 'win' then
+  config.default_prog = { 'wsl.exe', '--cd', '~' }
+end
+
+if platform ~= 'win' then
+  config.window_decorations = 'RESIZE'
+end
+
 config.enable_tab_bar = false
 config.enable_scroll_bar = false
 config.window_close_confirmation = 'NeverPrompt'
