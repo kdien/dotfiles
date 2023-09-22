@@ -16,6 +16,26 @@ git_clean_branches() {
     done
 }
 
+git_copy_branch() {
+    local branch
+    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+
+    if command -v pbcopy &>/dev/null; then
+        pbcopy <<< "$branch"
+        return
+    fi
+
+    if command -v xclip &>/dev/null; then
+        xclip -selection clipboard <<< "$branch"
+        return
+    fi
+
+    if command -v clip.exe &>/dev/null; then
+        echo -n "$branch" | clip.exe
+        return
+    fi
+}
+
 git_https() {
     git remote set-url origin "$(git remote get-url origin | sed -e 's/git@bitbucket\.org:/https:\/\/kdien@bitbucket\.org\//')"
 }
