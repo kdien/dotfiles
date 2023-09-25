@@ -35,16 +35,16 @@ config.colors = require('colors')
 config.default_cursor_style = 'SteadyBlock'
 
 config.font = wezterm.font({
-  family = 'Fira Code',
+  family = 'Fira Mono',
   weight = 'Regular',
-  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0', 'ss01' } -- disable ligatures
+  -- harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0', 'ss01' } -- disable ligatures
 })
 
 config.font_rules = {
   {
     intensity = 'Bold',
     font = wezterm.font({
-      family = 'Fira Code',
+      family = 'Fira Mono',
       weight = 'Medium'
     })
   }
