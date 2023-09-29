@@ -35,28 +35,25 @@ config.colors = require('colors')
 config.default_cursor_style = 'SteadyBlock'
 
 config.font = wezterm.font({
-  family = 'Bitstream Vera Sans Mono',
-  weight = 'Regular',
-  -- harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0', 'ss01' } -- disable ligatures
+  family = 'Meslo LG M',
+  weight = 'Regular'
 })
 
 config.font_rules = {
   {
     intensity = 'Bold',
     font = wezterm.font({
-      family = 'Bitstream Vera Sans Mono',
-      weight = 'Regular'
+      family = 'Meslo LG M',
+      weight = 'Bold'
     })
   }
 }
 
-config.freetype_load_flags = 'NO_HINTING'
-
-config.bold_brightens_ansi_colors = false
-
 config.font_size = platform == 'mac' and 15.0 or 11.5
-
-config.line_height = 1.15
+-- config.line_height = 1.15
+config.bold_brightens_ansi_colors = false
+config.freetype_load_flags = 'NO_HINTING'
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- disable ligatures
 
 local padding = {}
 padding['left'] = platform == 'mac' and 8 or 4
