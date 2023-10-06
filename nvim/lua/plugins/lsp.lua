@@ -41,9 +41,9 @@ return {
         'gopls', -- Golang
         'jsonls',
         'lua_ls',
-        'marksman', -- Markdown
+        'marksman',  -- Markdown
         'omnisharp', -- C#/.NET
-        'pyright', -- Python
+        'pyright',   -- Python
         'rust_analyzer',
         'terraformls',
         'tsserver',
@@ -81,6 +81,19 @@ return {
 
       lsp.set_preferences({
         suggest_lsp_servers = false
+      })
+
+      lsp.format_on_save({
+        format_opts = {
+          async = false,
+          timeout_ms = 10000
+        },
+        servers = {
+          ['gopls'] = { 'go' },
+          ['lua_ls'] = { 'lua' },
+          ['rust_analyzer'] = { 'rust' },
+          ['terraformls'] = { 'terraform' },
+        }
       })
 
       lsp.on_attach(function()
