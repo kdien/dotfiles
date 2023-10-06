@@ -6,6 +6,16 @@ wezterm.on('gui-startup', function()
   window:gui_window():maximize()
 end)
 
+wezterm.on('toggle-ligatures', function(window)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.harfbuzz_features then
+    overrides.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+  else
+    overrides.harfbuzz_features = nil
+  end
+  window:set_config_overrides(overrides)
+end)
+
 local platform = 'linux'
 local home = require('os').getenv('HOME')
 if not home then
@@ -71,5 +81,13 @@ padding['bottom'] = platform == 'mac' and 8 or 4
 config.window_padding = padding
 
 config.selection_word_boundary = ' \t\n;,\'"'
+
+config.keys = {
+  {
+    key = 'L',
+    mods = 'CTRL',
+    action = wezterm.action.EmitEvent('toggle-ligatures')
+  }
+}
 
 return config
