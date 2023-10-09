@@ -38,7 +38,8 @@ vim.list_extend(
   bundles,
   vim.split(
     vim.fn.glob(
-      home .. '/.config/nvim/dependencies/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar'
+      home ..
+      '/.config/nvim/dependencies/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar'
     ),
     '\n'
   )
@@ -175,18 +176,16 @@ local config = {
     bundles = bundles,
   },
 
-  on_attach = function(client, bufnr)
+  on_attach = function()
     require('jdtls').setup_dap { hotcodereplace = 'auto' }
     require('jdtls.dap').setup_dap_main_class_configs()
-
-    require('custom-lsp.keymaps')
 
     local opts = { silent = true, buffer = nil }
     vim.keymap.set('n', '<leader>oi', jdtls.organize_imports, opts)
     vim.keymap.set('n', '<leader>dt', jdtls.test_class, opts)
     vim.keymap.set('n', '<leader>dm', jdtls.test_nearest_method, opts)
     vim.keymap.set('n', '<leader>xv', jdtls.extract_variable, opts)
-    vim.keymap.set('v', '<leader>xm', vim.cmd("lua require('jdtls').extract_method(true)"), opts)
+    vim.keymap.set('v', '<leader>xm', "<Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
     vim.keymap.set('n', '<leader>xc', jdtls.extract_constant, opts)
 
     -- Remove unused imports
@@ -223,4 +222,3 @@ dap.configurations.java = {
     port = 30303,
   },
 }
-

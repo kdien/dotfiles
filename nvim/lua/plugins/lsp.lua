@@ -1,106 +1,99 @@
 return {
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    'folke/neodev.nvim',
+    lazy = true
+  },
+
+  {
+    'neovim/nvim-lspconfig',
     event = { 'BufReadPre', 'BufNewFile' },
 
     dependencies = {
-      -- LSP Support
-      'neovim/nvim-lspconfig',
       'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Autocompletion
-      'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lua',
-      'hrsh7th/cmp-path',
-      'saadparwaiz1/cmp_luasnip',
-
-      -- Snippets
-      'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
-
-      -- Neovim config
-      'folke/neodev.nvim'
+      'williamboman/mason-lspconfig.nvim'
     },
 
     config = function()
       require('neodev').setup()
 
-      local lsp = require('lsp-zero')
       local lspconfig = require('lspconfig')
+      local lsp_defaults = lspconfig.util.default_config
 
-      lsp.preset('recommended')
+      lsp_defaults.capabilities = vim.tbl_deep_extend(
+        'force',
+        lsp_defaults.capabilities,
+        require('cmp_nvim_lsp').default_capabilities()
+      )
 
-      lsp.ensure_installed({
-        'ansiblels',
-        'bashls',
-        'dockerls',
-        'gopls', -- Golang
-        'jsonls',
-        'lua_ls',
-        'marksman',  -- Markdown
-        'omnisharp', -- C#/.NET
-        'pyright',   -- Python
-        'rust_analyzer',
-        'terraformls',
-        'tsserver',
-        'yamlls'
+      vim.api.nvim_create_autocmd('LspAttach', {
+        desc = 'LSP actions',
+        callback = function()
+          require('main.custom-lsp').set_keymaps()
+          require('main.custom-lsp').format_on_save()
+        end
       })
 
-      lspconfig.ansiblels.setup({
-        filetypes = {
-          'ansible'
-        }
-      })
+      require('mason').setup({})
 
-      lspconfig.terraformls.setup({
-        filetypes = {
-          'terraform'
-        }
-      })
+      local default_setup = function(server)
+        lspconfig[server].setup({})
+      end
 
-      local cmp = require('cmp')
-      local cmp_select = { behavior = cmp.SelectBehavior.Select }
-      local cmp_mappings = lsp.defaults.cmp_mappings({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-Space>'] = cmp.mapping.complete()
-      })
-
-      -- disable completion with tab
-      cmp_mappings['<Tab>'] = nil
-      cmp_mappings['<S-Tab>'] = nil
-
-      lsp.setup_nvim_cmp({
-        mapping = cmp_mappings
-      })
-
-      lsp.set_preferences({
-        suggest_lsp_servers = false
-      })
-
-      lsp.format_on_save({
-        format_opts = {
-          async = false,
-          timeout_ms = 10000
+      require('mason-lspconfig').setup({
+        ensure_installed = {
+          'ansiblels',
+          'bashls',
+          'dockerls',
+          'gopls', -- Golang
+          'jsonls',
+          'lua_ls',
+          'marksman',  -- Markdown
+          'omnisharp', -- C#/.NET
+          'pyright',   -- Python
+          'rust_analyzer',
+          'terraformls',
+          'tsserver',
+          'yamlls'
         },
-        servers = {
-          ['gopls'] = { 'go' },
-          ['lua_ls'] = { 'lua' },
-          ['rust_analyzer'] = { 'rust' },
-          ['terraformls'] = { 'terraform' },
+
+        handlers = {
+          default_setup,
+
+          ansiblels = function()
+            lspconfig.ansiblels.setup({
+              filetypes = { 'ansible' }
+            })
+          end,
+
+          lua_ls = function()
+            lspconfig.lua_ls.setup({
+              settings = {
+                Lua = {
+                  diagnostics = {
+                    disable = { 'missing-fields' }
+                  }
+                }
+              }
+            })
+          end,
+
+          terraformls = function()
+            lspconfig.terraformls.setup({
+              filetypes = { 'terraform' }
+            })
+          end
         }
       })
 
-      lsp.on_attach(function()
-        require('custom-lsp.keymaps')
-      end)
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+        vim.lsp.handlers.hover,
+        { border = 'rounded' }
+      )
 
-      lsp.setup()
+      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+        vim.lsp.handlers.signature_help,
+        { border = 'rounded' }
+      )
 
       vim.diagnostic.config({
         virtual_text = {
@@ -110,7 +103,7 @@ return {
         signs = false,
         float = {
           header = '',
-          border = 'single'
+          border = 'rounded'
         }
       })
     end
