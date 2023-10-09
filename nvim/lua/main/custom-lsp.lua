@@ -21,25 +21,24 @@ end
 
 function M.format_on_save()
   vim.api.nvim_create_autocmd('BufWritePre', {
-    desc = 'Auto-format on save',
-    group = vim.api.nvim_create_augroup('format_on_save', { clear = true }),
+    desc = 'Auto-format on save with LSP',
+    group = vim.api.nvim_create_augroup('format_on_save_lsp', { clear = true }),
+    pattern = {
+      '*.go',
+      '*.lua',
+      '*.rs',
+    },
+    command = 'lua vim.lsp.buf.format({ async = false })'
+  })
 
-    callback = function(opts)
-      local buf_filetype = vim.bo[opts.buf].filetype
-
-      local lsp_fmt_filetypes = {
-        'go',
-        'lua',
-        'rust',
-        'terraform',
-      }
-      for _, ft in pairs(lsp_fmt_filetypes) do
-        if ft == buf_filetype then
-          vim.lsp.buf.format({ async = false })
-          return
-        end
-      end
-    end
+  vim.api.nvim_create_autocmd('BufWritePost', {
+    desc = 'Auto-format on save for Terraform',
+    group = vim.api.nvim_create_augroup('format_on_save_tf', { clear = true }),
+    pattern = {
+      '*.tf',
+      '*.tfvars',
+    },
+    command = 'silent !terraform fmt %'
   })
 end
 
