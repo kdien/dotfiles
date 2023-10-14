@@ -52,7 +52,7 @@ config.colors = require('colors')
 config.default_cursor_style = 'SteadyBlock'
 
 config.font = wezterm.font({
-  family = 'Meslo LG M',
+  family = 'MesloLGM Nerd Font',
   weight = 'Regular'
 })
 
@@ -60,7 +60,7 @@ config.font_rules = {
   {
     intensity = 'Bold',
     font = wezterm.font({
-      family = 'Meslo LG M',
+      family = 'MesloLGM Nerd Font',
       weight = 'Bold'
     })
   }
