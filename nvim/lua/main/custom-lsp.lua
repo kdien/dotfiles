@@ -25,6 +25,7 @@ function M.format_on_save()
     group = vim.api.nvim_create_augroup('format_on_save_lsp', { clear = true }),
     pattern = {
       '*.go',
+      '*.java',
       '*.lua',
       '*.rs',
     },
