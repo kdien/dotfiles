@@ -58,12 +58,22 @@ config.font = wezterm.font({
   weight = string.match(font_family, 'JetBrains') and 'Light' or 'Regular'
 })
 
+local function get_bold_weight()
+  if string.match(font_family, 'Fira') or string.match(font_family, 'JetBrains') then
+    return 'Medium'
+  elseif string.match(font_family, 'Monaco') then
+    return 'Regular'
+  else
+    return 'Bold'
+  end
+end
+
 config.font_rules = {
   {
     intensity = 'Bold',
     font = wezterm.font({
       family = font_family,
-      weight = (string.match(font_family, 'Fira') or string.match(font_family, 'JetBrains')) and 'Medium' or 'Bold'
+      weight = get_bold_weight()
     })
   }
 }
