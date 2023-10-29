@@ -74,4 +74,22 @@ config.window_padding = padding
 
 config.selection_word_boundary = ' \t\n;,\'"'
 
+config.keys = {
+  {
+    key = 'L',
+    mods = 'CTRL',
+    action = wezterm.action.EmitEvent('toggle-ligatures')
+  }
+}
+
+wezterm.on('toggle-ligatures', function(window)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.harfbuzz_features then
+    overrides.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+  else
+    overrides.harfbuzz_features = nil
+  end
+  window:set_config_overrides(overrides)
+end)
+
 return config
