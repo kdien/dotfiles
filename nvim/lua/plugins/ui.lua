@@ -23,14 +23,30 @@ return {
 
     config = function()
       require('lualine').setup({
+        options = {
+          component_separators = '|',
+          section_separators = '',
+          icons_enabled = false
+        },
         sections = {
           lualine_a = {
             'mode'
           },
           lualine_b = {
-            'branch',
+            {
+              'branch',
+              icons_enabled = true
+            },
             'diff',
-            'diagnostics'
+            {
+              'diagnostics',
+              symbols = {
+                error = 'E:',
+                warn = 'W:',
+                info = 'I:',
+                hint = 'H:'
+              },
+            }
           },
           lualine_c = {
             {
@@ -40,7 +56,13 @@ return {
           },
           lualine_x = {
             'filetype',
-            'fileformat'
+            {
+              'fileformat',
+              symbols = {
+                dos = 'dos',
+                unix = 'unix'
+              }
+            }
           },
           lualine_y = {
             'location'
