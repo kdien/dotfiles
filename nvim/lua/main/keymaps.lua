@@ -41,6 +41,7 @@ function SetTmuxKeymaps()
   vim.keymap.set('n', '<leader>term', '<Cmd>silent !tmux new-window -c "' .. vim.fn.getcwd() .. '"<CR>')
   vim.keymap.set('n', '<leader>sterm', '<Cmd>silent !tmux split-window -c "' .. vim.fn.getcwd() .. '"<CR>')
 end
+
 SetTmuxKeymaps()
 
 -- Move between buffers
@@ -51,8 +52,8 @@ vim.keymap.set('n', '<leader>q', '<Cmd>b#<CR>')
 -- Change tab size
 vim.keymap.set('n', '<leader>ts', function()
   vim.ui.input({ prompt = 'Update tab size: ' }, function(input)
-    vim.opt.tabstop = tonumber(input)
-    vim.opt.softtabstop = tonumber(input)
-    vim.opt.shiftwidth = tonumber(input)
+    vim.opt_local.tabstop = tonumber(input)
+    vim.opt_local.softtabstop = tonumber(input)
+    vim.opt_local.shiftwidth = tonumber(input)
   end)
 end)
