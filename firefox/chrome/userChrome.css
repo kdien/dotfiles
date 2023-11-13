@@ -48,7 +48,9 @@
     margin: 3px !important;
 }
 
-#statuspanel-label {
-    border-radius: 4px !important;
-    background-color: #3d3d3d !important;
+@media (prefers-color-scheme: dark) {
+    #statuspanel-label {
+        border-radius: 4px !important;
+        background-color: #3d3d3d !important;
+    }
 }
