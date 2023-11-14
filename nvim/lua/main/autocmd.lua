@@ -39,3 +39,8 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = 'terraform.tfvars',
   command = 'set filetype=terraform'
 })
+
+vim.api.nvim_create_autocmd('TermOpen', {
+  group = augroup,
+  command = 'setlocal nonumber norelativenumber'
+})
