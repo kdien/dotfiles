@@ -41,11 +41,11 @@ config.colors = require('colors')
 
 config.default_cursor_style = 'SteadyBlock'
 
-local font_family = 'FiraCode Nerd Font'
+local font_family = 'GitLab Mono'
 
 config.font = wezterm.font({
   family = font_family,
-  weight = 'Regular'
+  weight = 'Light'
 })
 
 config.font_rules = {
@@ -58,21 +58,21 @@ config.font_rules = {
   }
 }
 
-config.font_size = platform == 'mac' and 14.5 or 11.0
-config.line_height = 1.1
+config.font_size = platform == 'mac' and 15.0 or 11.5
+-- config.line_height = 1.1
 config.bold_brightens_ansi_colors = false
 config.freetype_load_flags = 'NO_HINTING'
-config.harfbuzz_features = {
-  'calt=0',
-  'clig=0',
-  'liga=0',
-  -- 'cv02', -- g
-  'cv15', -- *
-  -- 'ss01', -- r
-  'ss03', -- &
-  'ss05', -- @
-  'zero', -- 0
-}
+-- config.harfbuzz_features = {
+--   'calt=0',
+--   'clig=0',
+--   'liga=0',
+--   -- 'cv02', -- g
+--   'cv15', -- *
+--   -- 'ss01', -- r
+--   'ss03', -- &
+--   'ss05', -- @
+--   'zero', -- 0
+-- }
 
 local padding = {}
 padding['left'] = platform == 'mac' and 8 or 4
