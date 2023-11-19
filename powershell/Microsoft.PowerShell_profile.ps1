@@ -1,4 +1,5 @@
 Set-PSReadLineKeyHandler -Chord Ctrl+d -Function DeleteCharOrExit
+Set-PSReadLineOption -PredictionSource None
 
 $PSDefaultParameterValues = @{
     "Get-ChildItem:Force"=$True
