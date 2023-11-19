@@ -7,10 +7,18 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "os",
+          "style": "powerline",
+          "foreground": "#26c6da",
+          "background": "#546e7a",
+          "template": " {{ .Icon }} "
+        },
+        {
           "type": "session",
           "style": "powerline",
           "foreground": "#100e23",
           "background": "#ffffff",
+          "powerline_symbol": "\ue0b0",
           "template": " {{ .UserName }}@{{ .HostName }} "
         },
         {
