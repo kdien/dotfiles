@@ -6,7 +6,7 @@ return {
         style = 'dark',
         transparent = true,
         code_style = {
-          comments = 'italic',
+          comments = 'none',
           keywords = 'none',
           functions = 'none',
           strings = 'none',
