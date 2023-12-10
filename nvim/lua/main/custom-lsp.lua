@@ -41,6 +41,13 @@ function M.format_on_save()
     },
     command = 'silent !terraform fmt %'
   })
+
+  vim.api.nvim_create_autocmd('BufWritePost', {
+    desc = 'Auto-format on save for Python using Black',
+    group = vim.api.nvim_create_augroup('format_on_save_python_black', { clear = true }),
+    pattern = '*.py',
+    command = 'silent !black %'
+  })
 end
 
 return M

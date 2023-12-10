@@ -51,6 +51,7 @@ return {
       require('mason-nvim-dap').setup({
         ensure_installed = {
           'delve',
+          'python',
         }
       })
     end
@@ -62,6 +63,15 @@ return {
     ft = 'go',
     config = function()
       require('dap-go').setup()
+    end
+  },
+
+  {
+    'mfussenegger/nvim-dap-python',
+    dependencies = 'mfussenegger/nvim-dap',
+    ft = 'python',
+    config = function()
+      require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
     end
   }
 }
