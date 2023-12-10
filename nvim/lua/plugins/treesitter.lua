@@ -74,5 +74,16 @@ return {
         },
       })
     end
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    event = { 'BufReadPre', 'BufNewFile' },
+
+    config = function()
+      vim.keymap.set('n', '[f', function()
+        require('treesitter-context').go_to_context()
+      end)
+    end
   }
 }
