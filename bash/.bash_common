@@ -199,3 +199,7 @@ open() {
             ;;
     esac
 }
+
+pd() {
+    python3 -m pydoc "$1"
+}
