@@ -78,7 +78,9 @@ return {
 
   {
     'lukas-reineke/indent-blankline.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    keys = {
+      { '<leader>ti', '<Cmd>IBLToggle<CR>' }
+    },
 
     config = function()
       require('ibl').setup({
