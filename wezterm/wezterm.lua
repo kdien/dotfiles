@@ -24,6 +24,8 @@ config.automatically_reload_config = true
 
 if platform == 'win' then
   config.default_prog = { 'wsl.exe', '--cd', '~' }
+  config.window_background_opacity = 0
+  config.win32_system_backdrop = 'Mica'
 end
 
 if platform ~= 'win' then
@@ -41,11 +43,11 @@ config.colors = require('colors')
 
 config.default_cursor_style = 'SteadyBlock'
 
-local font_family = 'GitLab Mono'
+local font_family = 'Berkeley Mono'
 
 config.font = wezterm.font({
   family = font_family,
-  weight = 'Light'
+  weight = 'Regular'
 })
 
 config.font_rules = {
@@ -53,26 +55,16 @@ config.font_rules = {
     intensity = 'Bold',
     font = wezterm.font({
       family = font_family,
-      weight = 'DemiBold'
+      weight = 'Bold'
     })
   }
 }
 
 config.font_size = platform == 'mac' and 15.0 or 11.5
--- config.line_height = 1.1
+config.line_height = 1.1
 config.bold_brightens_ansi_colors = false
 config.freetype_load_flags = 'NO_HINTING'
--- config.harfbuzz_features = {
---   'calt=0',
---   'clig=0',
---   'liga=0',
---   -- 'cv02', -- g
---   'cv15', -- *
---   -- 'ss01', -- r
---   'ss03', -- &
---   'ss05', -- @
---   'zero', -- 0
--- }
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- disable ligatures
 
 local padding = {}
 padding['left'] = platform == 'mac' and 8 or 4
@@ -84,22 +76,16 @@ config.window_padding = padding
 
 config.selection_word_boundary = ' \t\n;,\'"'
 
-config.keys = {
-  {
-    key = 'L',
-    mods = 'CTRL',
-    action = wezterm.action.EmitEvent('toggle-ligatures')
-  }
-}
+config.keys = {}
 
-wezterm.on('toggle-ligatures', function(window)
-  local overrides = window:get_config_overrides() or {}
-  if not overrides.harfbuzz_features then
-    overrides.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
-  else
-    overrides.harfbuzz_features = nil
-  end
-  window:set_config_overrides(overrides)
-end)
+if platform == 'win' then
+  table.insert(config.keys, {
+    key = 'p',
+    mods = 'CTRL|ALT',
+    action = wezterm.action.SpawnCommandInNewTab {
+      args = { 'pwsh.exe', '-WorkingDirectory', '~' }
+    }
+  })
+end
 
 return config

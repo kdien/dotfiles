@@ -29,5 +29,5 @@ return {
     '#b77ee0',
     '#54ced6',
     '#ffffff'
- },
+  },
 }
