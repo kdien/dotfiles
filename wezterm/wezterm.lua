@@ -1,5 +1,6 @@
 local wezterm = require('wezterm')
 local mux = wezterm.mux
+local getenv = require('os').getenv
 
 wezterm.on('gui-startup', function()
   local _, _, window = mux.spawn_window({})
@@ -7,7 +8,7 @@ wezterm.on('gui-startup', function()
 end)
 
 local platform = 'linux'
-local home = require('os').getenv('HOME')
+local home = getenv('HOME')
 if not home then
   platform = 'win'
 elseif string.match(home, '^/Users') then
@@ -28,8 +29,12 @@ if platform == 'win' then
   config.win32_system_backdrop = 'Mica'
 end
 
-if platform ~= 'win' then
+if platform == 'mac' then
   config.window_decorations = 'RESIZE'
+end
+
+if platform == 'linux' then
+  config.window_decorations = getenv('XDG_SESSION_TYPE') == 'wayland' and 'RESIZE' or 'NONE'
 end
 
 config.enable_tab_bar = true
