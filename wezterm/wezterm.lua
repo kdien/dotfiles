@@ -33,7 +33,7 @@ if platform == 'mac' then
   config.window_decorations = 'RESIZE'
 end
 
-if platform == 'linux' and getenv('XDG_CURRENT_DESKTOP') == 'GNOME' then
+if platform == 'linux' and string.match(getenv('XDG_CURRENT_DESKTOP'), 'GNOME') then
   config.window_decorations = getenv('XDG_SESSION_TYPE') == 'wayland' and 'RESIZE' or 'NONE'
 end
 
