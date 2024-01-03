@@ -41,5 +41,10 @@ return {
       vim.g.vrc_set_default_mapping = 0
       vim.keymap.set('n', '<leader>rq', '<Cmd>call VrcQuery()<CR>')
     end
+  },
+
+  {
+    'github/copilot.vim',
+    event = { 'InsertEnter' }
   }
 }
