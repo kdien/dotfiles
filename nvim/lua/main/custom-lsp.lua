@@ -24,6 +24,7 @@ function M.format_on_save()
     desc = 'Auto-format on save with LSP',
     group = vim.api.nvim_create_augroup('format_on_save_lsp', { clear = true }),
     pattern = {
+      '*.cs',
       '*.go',
       '*.java',
       '*.lua',
