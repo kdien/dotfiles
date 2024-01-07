@@ -41,5 +41,26 @@ return {
       vim.g.vrc_set_default_mapping = 0
       vim.keymap.set('n', '<leader>rq', '<Cmd>call VrcQuery()<CR>')
     end
+  },
+
+  {
+    'j-hui/fidget.nvim',
+    version = '1.x.x',
+    event = event,
+
+    opts = {
+      progress = {
+        display = {
+          render_limit = 5,
+          done_ttl = 1
+        }
+      },
+      notification = {
+        window = {
+          winblend = 0,
+          border = 'none'
+        }
+      }
+    }
   }
 }
