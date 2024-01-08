@@ -44,10 +44,18 @@ end
 
 SetTmuxKeymaps()
 
--- Move between buffers
-vim.keymap.set('n', '<leader>.', '<Cmd>bnext<CR>')
-vim.keymap.set('n', '<leader>,', '<Cmd>bprevious<CR>')
+-- Cycle through open buffers
+vim.keymap.set('n', ']b', '<Cmd>bnext<CR>')
+vim.keymap.set('n', '[b', '<Cmd>bprevious<CR>')
 vim.keymap.set('n', '<leader>q', '<Cmd>b#<CR>')
+
+-- Cycle through quickfix list items
+vim.keymap.set('n', ']e', '<Cmd>try | cnext | catch | cfirst | catch | endtry<CR>')
+vim.keymap.set('n', '[e', '<Cmd>try | cprevious | catch | clast | catch | endtry<CR>')
+
+-- Cycle through open tabs
+vim.keymap.set('n', ']t', '<Cmd>tabnext<CR>')
+vim.keymap.set('n', '[t', '<Cmd>tabprevious<CR>')
 
 -- Change tab size
 vim.keymap.set('n', '<leader>ts', function()
