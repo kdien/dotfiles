@@ -35,3 +35,5 @@ function ParseGitBranch()
 end
 
 vim.opt.statusline = "%{luaeval('ParseGitBranch()')}%=%-F %m%r%w%=%y [%{&fileformat}]  %l:%c  %p%%"
+
+vim.g.netrw_banner = 0
