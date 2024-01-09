@@ -36,7 +36,11 @@ install_or_update_ohmyposh() {
 }
 
 if ! command -v oh-my-posh &> /dev/null; then
-    install_or_update_ohmyposh
+    read -rp 'oh-my-posh not found. Install it? (y/n) ' ans
+    if [[ "${ans,,}" = 'y' ]]; then
+        echo 'Root privilege is required'
+        install_or_update_ohmyposh
+    fi
 fi
 
 if [[ -f "$HOME/dotfiles/oh-my-posh/ohmyposh.json" ]]; then
