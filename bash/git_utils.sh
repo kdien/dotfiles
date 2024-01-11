@@ -25,13 +25,18 @@ git_copy_branch() {
         return
     fi
 
-    if command -v xclip &>/dev/null; then
+    if command -v clip.exe &>/dev/null; then
+        echo -n "$branch" | clip.exe
+        return
+    fi
+
+    if [[ "$XDG_SESSION_TYPE" = 'x11' ]]; then
         xclip -selection clipboard <<< "$branch"
         return
     fi
 
-    if command -v clip.exe &>/dev/null; then
-        echo -n "$branch" | clip.exe
+    if [[ "$XDG_SESSION_TYPE" = 'wayland' ]]; then
+        wl-copy <<< "$branch"
         return
     fi
 }
