@@ -1,4 +1,4 @@
-import = ["/Users/kdien/.config/alacritty/themes/default.toml"]
+import = ["~/.config/alacritty/themes/default.toml"]
 live_config_reload = true
 
 [env]
