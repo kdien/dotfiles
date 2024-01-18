@@ -39,7 +39,7 @@ install_or_update_starship() {
     if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
         sudo -v
         echo 'Downloading latest starship...'
-        if sudo curl -sSL https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz -o /tmp/starship.tar.gz; then
+        if curl -sSL https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz -o /tmp/starship.tar.gz; then
             echo 'Download completed'
             echo 'Extracting and installing starship'
             sudo tar -xf /tmp/starship.tar.gz -C /usr/local/bin
