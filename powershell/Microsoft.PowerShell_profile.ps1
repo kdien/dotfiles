@@ -24,7 +24,8 @@ if (!(Test-Path Env:GODEBUG)) {
 Set-Alias -Name curl -Value curl.exe -Option AllScope
 
 Import-Module posh-git
-oh-my-posh init pwsh --config "$HOME\dotfiles\oh-my-posh\ohmyposh.json" | Invoke-Expression
+$env:STARSHIP_CONFIG = "$HOME/dotfiles/starship/starship.toml"
+Invoke-Expression (&starship init powershell)
 $env:POSH_GIT_ENABLED = $true
 
 Invoke-Expression "$HOME\dotfiles\powershell\sshCompletion.ps1"

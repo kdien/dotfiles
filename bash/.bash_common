@@ -35,18 +35,25 @@ install_or_update_ohmyposh() {
     fi
 }
 
-if ! command -v oh-my-posh &> /dev/null; then
-    read -rp 'oh-my-posh not found. Install it? (y/n) ' ans
-    if [[ "${ans,,}" = 'y' ]]; then
-        echo 'Root privilege is required'
-        install_or_update_ohmyposh
+install_or_update_starship() {
+    if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
+        sudo -v
+        echo 'Downloading latest starship...'
+        if sudo curl -sSL https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz -o /tmp/starship.tar.gz; then
+            echo 'Download completed'
+            echo 'Extracting and installing starship'
+            sudo tar -xf /tmp/starship.tar.gz -C /usr/local/bin
+            echo 'Adding execute permission'
+            sudo chmod +x /usr/local/bin/starship
+            rm -f /tmp/starship.tar.gz
+            echo 'Done.'
+        fi
     fi
-fi
+}
 
-if [[ -f "$HOME/dotfiles/oh-my-posh/ohmyposh.json" ]]; then
-    eval "$(oh-my-posh init bash --config "$HOME/dotfiles/oh-my-posh/ohmyposh.json")"
-    oh-my-posh toggle az
-    oh-my-posh toggle kubectl
+if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.toml"; then
+    export STARSHIP_CONFIG="$HOME/dotfiles/starship/starship.toml"
+    eval "$(starship init bash)"
 else
     export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
 fi
@@ -121,10 +128,8 @@ if command -v bat &> /dev/null; then
     alias cat='bat --theme OneHalfDark'
 fi
 
-alias at='oh-my-posh toggle aws'
-alias azt='oh-my-posh toggle az'
 alias k='kubectl'
-alias kt='oh-my-posh toggle kubectl'
+alias kt='starship toggle kubernetes'
 alias ls='ls -lah --color=auto'
 alias mvnfull='mvn clean install -PautoInstallSinglePackage'
 alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dspotbugs.skip=true'
