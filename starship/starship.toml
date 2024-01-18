@@ -4,7 +4,7 @@ scan_timeout = 100
 command_timeout = 1000
 add_newline = false
 
-format = '$username@$hostname$all'
+format = '$username$hostname$all'
 
 [aws]
 format = '\[[$symbol ($profile)(@$region)(\[$duration\])]($style)\] '
@@ -103,7 +103,7 @@ format = '\[[$symbol($version)]($style)\] '
 format = '\[[$symbol$branch]($style)\] '
 
 [hostname]
-format = '[$hostname]($style)\] '
+format = '[@$hostname]($style)\] '
 style = 'green'
 ssh_only = false
 
