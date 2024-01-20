@@ -49,6 +49,7 @@ format = '\[[$symbol($version)]($style)\] '
 truncation_length = 99
 truncate_to_repo = false
 truncation_symbol = '…/'
+read_only = ' 🔒'
 
 [docker_context]
 format = '\[[$symbol$context]($style)\] '
