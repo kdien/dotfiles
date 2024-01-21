@@ -60,7 +60,7 @@ config.font_rules = {
     intensity = 'Bold',
     font = wezterm.font({
       family = font_family,
-      weight = 'Bold'
+      weight = 'Regular'
     })
   }
 }
