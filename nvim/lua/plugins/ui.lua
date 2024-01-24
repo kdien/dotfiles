@@ -35,8 +35,7 @@ return {
           lualine_b = {
             {
               'branch',
-              icons_enabled = true,
-              icon = ''
+              icons_enabled = true
             },
             'diff',
             {
