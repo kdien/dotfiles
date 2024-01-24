@@ -8,7 +8,7 @@ format = '$username$hostname$all'
 
 [aws]
 format = '\[[$symbol ($profile)(@$region)(\[$duration\])]($style)\] '
-symbol = '󰸏 '
+symbol = '󰸏'
 
 [azure]
 format = '\[[$symbol ($subscription)]($style)\] '
@@ -169,7 +169,7 @@ format = '\[[$symbol($version)]($style)\] '
 
 [python]
 format = '\[[${symbol} ${pyenv_prefix}(${version})(\($virtualenv\))]($style)\] '
-symbol = ' '
+symbol = ''
 
 [raku]
 format = '\[[$symbol($version-$vm_version)]($style)\] '
@@ -197,7 +197,7 @@ format = '\[[$symbol($version)]($style)\] '
 
 [terraform]
 format = '\[[$symbol $version]($style)\] '
-symbol = '󱁢 '
+symbol = '󱁢'
 
 [time]
 format = '\[[$time]($style)\] '
