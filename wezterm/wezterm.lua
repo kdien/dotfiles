@@ -49,7 +49,7 @@ config.colors = require('colors')
 
 config.default_cursor_style = 'SteadyBlock'
 
-local font_family = 'Berkeley Mono'
+local font_family = 'MesloLGM Nerd Font'
 
 config.font = wezterm.font({
   family = font_family,
@@ -67,7 +67,7 @@ config.font_rules = {
 }
 
 config.font_size = platform == 'mac' and 15.0 or 11.5
-config.line_height = 1.1
+-- config.line_height = 1.1
 config.bold_brightens_ansi_colors = false
 config.freetype_load_flags = 'NO_HINTING'
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- disable ligatures
