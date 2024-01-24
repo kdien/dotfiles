@@ -42,11 +42,11 @@
                 "weight": "normal"
             },
             "historySize": 10000,
-            "intenseTextStyle": "bright",
-            "opacity": 100,
+            "intenseTextStyle": "none",
+            "opacity": 85,
+            "useAcrylic": true,
             "padding": "4, 4, 4, 4",
-            "scrollbarState": "hidden",
-            "useAcrylic": false
+            "scrollbarState": "hidden"
         },
         "list": 
         [
@@ -153,8 +153,8 @@
             "yellow": "#C4A000"
         },
         {
-            "background": "#1F2329",
-            //"background": "#020202",
+            //"background": "#1F2329",
+            "background": "#020202",
             "black": "#000000",
             "blue": "#7AA6DA",
             "brightBlack": "#666666",
@@ -180,6 +180,5 @@
     "showTabsInTitlebar": true,
     "tabSwitcherMode": "disabled",
     "trimBlockSelection": true,
-    "wordDelimiters": " ;,\\\""
+    "wordDelimiters": " \t\n;,\""
 }
-
