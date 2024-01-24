@@ -24,7 +24,7 @@ format = '\[[$symbol($version(-$name))]($style)\] '
 format = '\[[$symbol($version)]($style)\] '
 
 [cmd_duration]
-format = '\[[⏱ $duration]($style)\] '
+format = '\[[󰔛 $duration]($style)\] '
 style = 'white'
 
 [cobol]
