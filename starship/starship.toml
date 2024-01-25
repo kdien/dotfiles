@@ -82,7 +82,8 @@ format = '\[[$symbol$branch]($style)\] '
 format = '([\[$all_status$ahead_behind\]]($style) )'
  
 [golang]
-format = '\[[$symbol($version)]($style)\] '
+format = '\[[$symbol ($version)]($style)\] '
+symbol = ""
 
 [gradle]
 format = '\[[$symbol($version)]($style)\] '
