@@ -212,3 +212,32 @@ open() {
 pd() {
     python3 -m pydoc "$1"
 }
+
+install_nerd_fonts() {
+    set -o pipefail
+    font=$( \
+        curl -sSLH 'Accept: application/vnd.github+json' https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest \
+        | jq -r '.assets[] | select(.browser_download_url | match("\\.tar\\..*$")) | .name' \
+        | cut -d '.' -f 1 \
+        | fzf --layout reverse --height=~50% --border=rounded --prompt='Select font: '
+    )
+    [[ -z "$font" ]] && return
+
+    echo "Downloading $font"
+    curl -sSL "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$font.tar.xz" -o "$font.tar.xz"
+
+    if [[ "$RUN_OS" = WSL ]]; then
+        mv "$font.tar.xz" "$HOME/win_home/Downloads"
+        echo "Downloaded $font to Downloads directory"
+        return
+    fi
+
+    fontdir="$HOME/.local/share/fonts"
+    dest="$fontdir/$font-nf"
+    mkdir -p "$dest" || return 1
+    tar -xf "$font.tar.xz" --directory="$dest" --wildcards '*NerdFont-*' || { rm -rf "$dest"; return 1; }
+    echo "Installed $font to $dest"
+
+    echo 'Cleaning up downloaded tarball'
+    rm -f "$font.tar.xz"
+}
