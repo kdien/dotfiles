@@ -121,7 +121,8 @@ format = '\[[$symbol($version)]($style)\] '
 format = '\[[$symbol$context( \($namespace\))]($style)\] '
 
 [lua]
-format = '\[[$symbol($version)]($style)\] '
+format = '\[[$symbol ($version)]($style)\] '
+symbol = "󰢱"
 
 [memory_usage]
 format = '\[$symbol[$ram( | $swap)]($style)\] '
