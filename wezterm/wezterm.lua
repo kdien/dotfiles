@@ -22,6 +22,7 @@ if wezterm.config_builder then
 end
 
 config.automatically_reload_config = true
+config.front_end = 'OpenGL'
 
 if platform == 'win' then
   config.default_prog = { 'wsl.exe', '--cd', '~' }
