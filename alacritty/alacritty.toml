@@ -3,6 +3,13 @@ live_config_reload = true
 
 [env]
 TERM = "xterm-256color"
+# macOS
+# SHELL = "/opt/homebrew/bin/bash"
+
+# Windows
+# [shell]
+# program = "wsl.exe"
+# args = ["~"]
 
 [window]
 decorations = "none"
@@ -17,6 +24,10 @@ size = 11.5
 
 [font.normal]
 family = "MesloLGM Nerd Font"
+style = "Regular"
+
+[font.bold]
+style = "Regular"
 
 [cursor.style]
 blinking = "Off"
