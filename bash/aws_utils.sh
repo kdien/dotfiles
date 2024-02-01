@@ -12,6 +12,11 @@ ap() {
 ssm() {
     [[ -z "$AWS_PROFILE" ]] && ap
 
+    if [[ "$1" =~ ^i-.+ ]]; then
+        aws ssm start-session --target "$1"
+        return
+    fi
+
     echo 'Querying running EC2 instances in current AWS profile...'
     instance_id=$( \
         aws ec2 describe-instances \
