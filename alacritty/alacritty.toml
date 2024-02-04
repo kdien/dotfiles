@@ -39,3 +39,6 @@ save_to_clipboard = true
 [[mouse.bindings]]
 action = "Paste"
 mouse = "Right"
+
+[keyboard]
+bindings = [{ key = "N", mods = "Control|Shift", action = "CreateNewWindow" }]
