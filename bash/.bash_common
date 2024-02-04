@@ -28,6 +28,8 @@ install_or_update_ohmyposh() {
         echo 'Downloading latest oh-my-posh...'
         if sudo curl -sSL https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -o /usr/local/bin/oh-my-posh; then
             echo 'Download completed'
+            echo 'Setting proper ownership'
+            sudo chown root:root /usr/local/bin/oh-my-posh
             echo 'Adding execute permission'
             sudo chmod +x /usr/local/bin/oh-my-posh
             echo 'Done.'
@@ -43,6 +45,8 @@ install_or_update_starship() {
             echo 'Download completed'
             echo 'Extracting and installing starship'
             sudo tar -xf /tmp/starship.tar.gz -C /usr/local/bin
+            echo 'Setting proper ownership'
+            sudo chown root:root /usr/local/bin/starship
             echo 'Adding execute permission'
             sudo chmod +x /usr/local/bin/starship
             rm -f /tmp/starship.tar.gz
