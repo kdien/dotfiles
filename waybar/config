@@ -22,7 +22,7 @@
     "show-passive-items": true
   },
   "pulseaudio": {
-    "format": "{icon}",
+    "format": "{icon} {volume}%",
     "format-bluetooth": "{icon}",
     "format-bluetooth-muted": " {icon}",
     "format-muted": " ",
@@ -34,7 +34,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": ["", "󰕾", ""]
     },
     "on-click": "pavucontrol",
     "tooltip": "{format_source}"
@@ -51,7 +51,8 @@
     "format-icons": [" ", " ", " "]
   },
   "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": " <span color='#ffffff'>{:%a %b %d %I:%M%p}</span>"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+    "format": " <span color='#ffffff'>{:%a %b %d  %I:%M %p}</span>",
+    "on-click": "gnome-calendar"
   }
 }
