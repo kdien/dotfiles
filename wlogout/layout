@@ -1,0 +1,30 @@
+{
+    "label" : "lock",
+    "action" : "swaylock --daemonize --indicator-idle-visible --color 000000 && sleep 1 && hyprctl dispatch dpms off",
+    "text" : "Lock",
+    "keybind" : "l"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "Logout",
+    "keybind" : "e"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "s"
+}
+{
+    "label" : "suspend",
+    "action" : "swaylock --daemonize --indicator-idle-visible --color 000000 && systemctl suspend",
+    "text" : "Suspend",
+    "keybind" : "u"
+}
