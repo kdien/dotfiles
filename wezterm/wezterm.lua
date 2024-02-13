@@ -39,6 +39,10 @@ if platform == 'linux' and string.match(desktop, 'GNOME') then
   config.window_decorations = getenv('XDG_SESSION_TYPE') == 'wayland' and 'RESIZE' or 'NONE'
 end
 
+if platform == 'linux' and desktop == 'Hyprland' then
+  config.window_background_opacity = 0.9
+end
+
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
