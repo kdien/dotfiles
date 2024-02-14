@@ -32,17 +32,11 @@ end
 
 if platform == 'mac' then
   config.window_decorations = 'RESIZE'
-  config.window_background_opacity = 0.9
-  config.macos_window_background_blur = 100
 end
 
 local desktop = getenv('XDG_CURRENT_DESKTOP') or ''
 if platform == 'linux' and string.match(desktop, 'GNOME') then
   config.window_decorations = getenv('XDG_SESSION_TYPE') == 'wayland' and 'RESIZE' or 'NONE'
-end
-
-if platform == 'linux' and desktop == 'Hyprland' then
-  config.window_background_opacity = 0.9
 end
 
 config.enable_tab_bar = true
