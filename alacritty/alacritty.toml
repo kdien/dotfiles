@@ -14,6 +14,8 @@ TERM = "xterm-256color"
 [window]
 decorations = "none"
 startup_mode = "Maximized"
+opacity = 0.9
+blur = true
 
 [window.padding]
 x = 4
