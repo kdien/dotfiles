@@ -33,14 +33,14 @@ function M.format_on_save()
     command = 'lua vim.lsp.buf.format({ async = false })'
   })
 
-  vim.api.nvim_create_autocmd('BufWritePost', {
+  vim.api.nvim_create_autocmd('BufWritePre', {
     desc = 'Auto-format on save for Terraform',
     group = vim.api.nvim_create_augroup('format_on_save_tf', { clear = true }),
     pattern = {
       '*.tf',
       '*.tfvars',
     },
-    command = 'silent !terraform fmt %'
+    command = 'silent %!terraform fmt -'
   })
 
   vim.api.nvim_create_autocmd('BufWritePost', {
