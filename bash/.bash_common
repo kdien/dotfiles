@@ -237,7 +237,7 @@ install_nerd_fonts() {
     fi
 
     fontdir="$HOME/.local/share/fonts"
-    dest="$fontdir/$font-nf"
+    dest="$fontdir/$font-NF"
     mkdir -p "$dest" || return 1
     tar -xf "$font.tar.xz" --directory="$dest" --wildcards '*NerdFont-*' || { rm -rf "$dest"; return 1; }
     echo "Installed $font to $dest"
