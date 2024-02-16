@@ -7,6 +7,10 @@ wezterm.on('gui-startup', function()
   window:gui_window():maximize()
 end)
 
+wezterm.on('format-window-title', function()
+  return 'WezTerm'
+end)
+
 local platform = 'linux'
 local home = getenv('HOME')
 if not home then
