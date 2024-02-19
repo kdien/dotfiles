@@ -51,9 +51,10 @@ return {
           'omnisharp', -- C#/.NET
           'pyright',   -- Python
           'rust_analyzer',
+          'taplo',     -- TOML
           'terraformls',
           'tsserver',
-          'yamlls'
+          'yamlls',
         },
 
         handlers = {

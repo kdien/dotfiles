@@ -29,6 +29,7 @@ function M.format_on_save()
       '*.java',
       '*.lua',
       '*.rs',
+      '*.toml',
     },
     command = 'lua vim.lsp.buf.format({ async = false })'
   })
