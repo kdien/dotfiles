@@ -29,6 +29,12 @@ style = "Regular"
 [font.bold]
 style = "Regular"
 
+# [font.offset]
+# y = 2
+#
+# [font.glyph_offset]
+# y = 2
+
 [cursor.style]
 blinking = "Off"
 shape = "Block"
