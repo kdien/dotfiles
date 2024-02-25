@@ -14,6 +14,7 @@ TERM = "xterm-256color"
 [window]
 decorations = "none"
 startup_mode = "Maximized"
+dynamic_title = false
 
 [window.padding]
 x = 4
