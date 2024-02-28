@@ -77,13 +77,13 @@ config.bold_brightens_ansi_colors = false
 config.freetype_load_flags = 'NO_HINTING'
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- disable ligatures
 
-local padding = {}
-padding['left'] = platform == 'mac' and 8 or 4
-padding['right'] = platform == 'mac' and 8 or 4
-padding['top'] = platform == 'mac' and 8 or 4
-padding['bottom'] = platform == 'mac' and 8 or 4
-
-config.window_padding = padding
+local padding = platform == 'mac' and 8 or 4
+config.window_padding = {
+  left = padding,
+  right = padding,
+  top = padding,
+  bottom = padding
+}
 
 config.selection_word_boundary = ' \t\n;,\'"'
 
