@@ -40,6 +40,7 @@ function M.format_on_save()
     pattern = {
       '*.tf',
       '*.tfvars',
+      '*.tftest.hcl',
     },
     command = 'silent !terraform fmt %'
   })
