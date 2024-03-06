@@ -70,6 +70,13 @@ return {
             lspconfig.lua_ls.setup({
               settings = {
                 Lua = {
+                  runtime = { version = 'LuaJIT' },
+                  workspace = { checkThirdParty = false },
+
+                  completion = {
+                    callSnippet = 'Replace'
+                  },
+
                   diagnostics = {
                     disable = { 'missing-fields' }
                   }
