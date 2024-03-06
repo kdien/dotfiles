@@ -1,0 +1,10 @@
+root = true
+
+[*]
+indent_style = space
+end_of_line = lf
+
+[[shell]]
+indent_size = 2
+binary_next_line = true
+switch_case_indent = true
