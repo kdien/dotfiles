@@ -3,133 +3,133 @@
 shopt -s direxpand
 
 case "$(uname -sr)" in
-    Darwin*)
-        RUN_OS=macOS
-        ;;
-    Linux*Microsoft*|Linux*microsoft*)
-        RUN_OS=WSL
-        ;;
-    Linux*)
-        RUN_OS=Linux
-        ;;
+  Darwin*)
+    RUN_OS=macOS
+    ;;
+  Linux*Microsoft* | Linux*microsoft*)
+    RUN_OS=WSL
+    ;;
+  Linux*)
+    RUN_OS=Linux
+    ;;
 esac
 export RUN_OS
 
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # shellcheck source=/dev/null
 . "$HOME/dotfiles/bash/git_utils.sh"
 
 install_or_update_ohmyposh() {
-    if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
-        sudo -v
-        echo 'Downloading latest oh-my-posh...'
-        if sudo curl -sSL https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -o /usr/local/bin/oh-my-posh; then
-            echo 'Download completed'
-            echo 'Setting proper ownership'
-            sudo chown root:root /usr/local/bin/oh-my-posh
-            echo 'Adding execute permission'
-            sudo chmod +x /usr/local/bin/oh-my-posh
-            echo 'Done.'
-        fi
+  if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
+    sudo -v
+    echo 'Downloading latest oh-my-posh...'
+    if sudo curl -sSL https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -o /usr/local/bin/oh-my-posh; then
+      echo 'Download completed'
+      echo 'Setting proper ownership'
+      sudo chown root:root /usr/local/bin/oh-my-posh
+      echo 'Adding execute permission'
+      sudo chmod +x /usr/local/bin/oh-my-posh
+      echo 'Done.'
     fi
+  fi
 }
 
 install_or_update_starship() {
-    if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
-        sudo -v
-        echo 'Downloading latest starship...'
-        if curl -sSL https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz -o /tmp/starship.tar.gz; then
-            echo 'Download completed'
-            echo 'Extracting and installing starship'
-            sudo tar -xf /tmp/starship.tar.gz -C /usr/local/bin
-            echo 'Setting proper ownership'
-            sudo chown root:root /usr/local/bin/starship
-            echo 'Adding execute permission'
-            sudo chmod +x /usr/local/bin/starship
-            rm -f /tmp/starship.tar.gz
-            echo 'Done.'
-        fi
+  if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
+    sudo -v
+    echo 'Downloading latest starship...'
+    if curl -sSL https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz -o /tmp/starship.tar.gz; then
+      echo 'Download completed'
+      echo 'Extracting and installing starship'
+      sudo tar -xf /tmp/starship.tar.gz -C /usr/local/bin
+      echo 'Setting proper ownership'
+      sudo chown root:root /usr/local/bin/starship
+      echo 'Adding execute permission'
+      sudo chmod +x /usr/local/bin/starship
+      rm -f /tmp/starship.tar.gz
+      echo 'Done.'
     fi
+  fi
 }
 
 if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.toml"; then
-    export STARSHIP_CONFIG="$HOME/dotfiles/starship/starship.toml"
-    eval "$(starship init bash)"
+  export STARSHIP_CONFIG="$HOME/dotfiles/starship/starship.toml"
+  eval "$(starship init bash)"
 else
-    export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
+  export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
 fi
 
-if command -v nvim &> /dev/null; then
-    alias vim='nvim'
-    export EDITOR=nvim
-elif command -v vim &> /dev/null; then
-    export EDITOR=vim
+if command -v nvim &>/dev/null; then
+  alias vim='nvim'
+  export EDITOR=nvim
+elif command -v vim &>/dev/null; then
+  export EDITOR=vim
 fi
 
 if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
-    if command -v java &> /dev/null; then
-        JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(command -v java)")")")"
-    fi
+  if command -v java &>/dev/null; then
+    JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(command -v java)")")")"
+  fi
 elif [[ "$RUN_OS" = macOS ]]; then
-    if [[ -e /Library/Java/JavaVirtualMachines/openjdk.jdk ]]; then
-        JAVA_HOME="$(readlink -f /Library/Java/JavaVirtualMachines/openjdk.jdk)/Contents/Home"
-    fi
+  if [[ -e /Library/Java/JavaVirtualMachines/openjdk.jdk ]]; then
+    JAVA_HOME="$(readlink -f /Library/Java/JavaVirtualMachines/openjdk.jdk)/Contents/Home"
+  fi
 fi
 export JAVA_HOME
 
-if command -v aws &> /dev/null; then
-    complete -C "$(which aws_completer)" aws
-    # shellcheck source=/dev/null
-    . "$HOME/dotfiles/bash/aws_utils.sh"
+if command -v aws &>/dev/null; then
+  complete -C "$(which aws_completer)" aws
+  # shellcheck source=/dev/null
+  . "$HOME/dotfiles/bash/aws_utils.sh"
 fi
 
 if [[ -d /opt/wine-stable/bin ]]; then
-    export PATH="/opt/wine-stable/bin:$PATH"
+  export PATH="/opt/wine-stable/bin:$PATH"
 fi
 
 if [[ -d "$HOME/.tfenv/bin" ]]; then
-    export PATH="$HOME/.tfenv/bin:$PATH"
+  export PATH="$HOME/.tfenv/bin:$PATH"
 fi
 
-if command -v terraform &> /dev/null; then
-    complete -C "$(which terraform)" terraform
-    complete -C "$(which terraform)" tf
-    # shellcheck source=/dev/null
-    . "$HOME/dotfiles/bash/terraform_utils.sh"
+if command -v terraform &>/dev/null; then
+  complete -C "$(which terraform)" terraform
+  complete -C "$(which terraform)" tf
+  # shellcheck source=/dev/null
+  . "$HOME/dotfiles/bash/terraform_utils.sh"
 fi
 
-if command -v kubectl &> /dev/null; then
-    # shellcheck source=/dev/null
-    . <(kubectl completion bash)
-    complete -F __start_kubectl k
+if command -v kubectl &>/dev/null; then
+  # shellcheck source=/dev/null
+  . <(kubectl completion bash)
+  complete -F __start_kubectl k
 fi
 
-if command -v minikube &> /dev/null; then
-    # shellcheck source=/dev/null
-    . <(minikube completion bash)
+if command -v minikube &>/dev/null; then
+  # shellcheck source=/dev/null
+  . <(minikube completion bash)
 fi
 
-if command -v eksctl &> /dev/null; then
-    # shellcheck source=/dev/null
-    . <(eksctl completion bash)
+if command -v eksctl &>/dev/null; then
+  # shellcheck source=/dev/null
+  . <(eksctl completion bash)
 fi
 
 if [[ -f "$HOME/.nvm/nvm.sh" ]]; then
-    # shellcheck source=/dev/null
-    . "$HOME/.nvm/nvm.sh"
+  # shellcheck source=/dev/null
+  . "$HOME/.nvm/nvm.sh"
 fi
 
 # Aliases
 if [[ "$RUN_OS" = WSL ]]; then
-    alias e.='explorer.exe .'
-    alias pwsh='pwsh.exe'
+  alias e.='explorer.exe .'
+  alias pwsh='pwsh.exe'
 fi
 
-if command -v bat &> /dev/null; then
-    alias cat='bat --theme OneHalfDark'
+if command -v bat &>/dev/null; then
+  alias cat='bat --theme OneHalfDark'
 fi
 
 alias k='kubectl'
@@ -141,107 +141,110 @@ alias v='vim'
 alias v.='vim .'
 
 if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
-    distro=$(grep '^ID=' /etc/os-release | awk -F '=' '{print $2}')
-    if [[ "$distro" == ubuntu ]]; then
-        alias upd='sudo apt update && sudo apt upgrade -y'
-    elif [[ "$distro" == fedora ]]; then
-        alias upd='sudo dnf upgrade -y'
-    fi
+  distro=$(grep '^ID=' /etc/os-release | awk -F '=' '{print $2}')
+  if [[ "$distro" == ubuntu ]]; then
+    alias upd='sudo apt update && sudo apt upgrade -y'
+  elif [[ "$distro" == fedora ]]; then
+    alias upd='sudo dnf upgrade -y'
+  fi
 fi
 
 # Functions
 lower() {
-    echo "$1" | tr '[:upper:]' '[:lower:]'
+  echo "$1" | tr '[:upper:]' '[:lower:]'
 }
 
 upper() {
-    echo "$1" | tr '[:lower:]' '[:upper:]'
+  echo "$1" | tr '[:lower:]' '[:upper:]'
 }
 
 set_apt_proxy() {
-    echo 'Acquire::http::Proxy "http://proxy.example.com:8080";' | sudo tee -a /etc/apt/apt.conf
+  echo 'Acquire::http::Proxy "http://proxy.example.com:8080";' | sudo tee -a /etc/apt/apt.conf
 }
 
 unset_apt_proxy() {
-    sudo sed -i "s/Acquire::http::Proxy.*//" /etc/apt/apt.conf
+  sudo sed -i "s/Acquire::http::Proxy.*//" /etc/apt/apt.conf
 }
 
 add_vlt() {
-    vlt st | grep \? | cut -c 2- | xargs -I {} vlt add {}
+  vlt st | grep \? | cut -c 2- | xargs -I {} vlt add {}
 }
 
 rm_vlt() {
-    vlt st | grep ! | cut -c 2- | xargs -I {} vlt rm {}
+  vlt st | grep ! | cut -c 2- | xargs -I {} vlt rm {}
 }
 
 install_or_update_awscli() {
-    if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
-        curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip'
-        unzip awscliv2.zip
-        sudo ./aws/install --update
-        rm -rf awscliv2.zip aws
-    fi
+  if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
+    curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip'
+    unzip awscliv2.zip
+    sudo ./aws/install --update
+    rm -rf awscliv2.zip aws
+  fi
 }
 
 azs() {
-    new_sub=$(jq -r '.subscriptions[].name' "$HOME/.azure/azureProfile.json" | sort | fzf --layout=reverse --height=~50% --border=rounded --prompt="Azure subscription >> ")
-    if [[ -n "$new_sub" ]]; then
-        az account set --name "$new_sub"
-        new_sub=$(jq -r '.subscriptions[] | select(.isDefault==true) | .name' "$HOME/.azure/azureProfile.json")
-        echo "Switched to Azure subscription '$new_sub'"
-    fi
+  new_sub=$(jq -r '.subscriptions[].name' "$HOME/.azure/azureProfile.json" | sort | fzf --layout=reverse --height=~50% --border=rounded --prompt="Azure subscription >> ")
+  if [[ -n "$new_sub" ]]; then
+    az account set --name "$new_sub"
+    new_sub=$(jq -r '.subscriptions[] | select(.isDefault==true) | .name' "$HOME/.azure/azureProfile.json")
+    echo "Switched to Azure subscription '$new_sub'"
+  fi
 }
 
 apply_win_terminal_config() {
-    cat "$HOME/dotfiles/WindowsTerminal/settings.json" > "$HOME/win_home/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+  cat "$HOME/dotfiles/WindowsTerminal/settings.json" >"$HOME/win_home/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 }
 
 open() {
-    case "$RUN_OS" in
-        macOS)
-            /usr/bin/open "$@"
-            ;;
-        WSL)
-            file=$(echo "$1" | sed -e 's/\//\\/g')
-            powershell.exe -Command "Invoke-Item $file"
-            ;;
-        Linux)
-            if command -v xdg-open &> /dev/null; then
-                xdg-open "$@"
-            fi
-            ;;
-    esac
+  case "$RUN_OS" in
+    macOS)
+      /usr/bin/open "$@"
+      ;;
+    WSL)
+      file=$(echo "$1" | sed -e 's/\//\\/g')
+      powershell.exe -Command "Invoke-Item $file"
+      ;;
+    Linux)
+      if command -v xdg-open &>/dev/null; then
+        xdg-open "$@"
+      fi
+      ;;
+  esac
 }
 
 pd() {
-    python3 -m pydoc "$1"
+  python3 -m pydoc "$1"
 }
 
 install_nerd_fonts() {
-    set -o pipefail
-    font=$( \
-        curl -sSLH 'Accept: application/vnd.github+json' https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest \
-        | jq -r '.assets[] | select(.browser_download_url | match("\\.tar\\..*$")) | .name' \
-        | cut -d '.' -f 1 \
-        | fzf --layout reverse --height=~50% --border=rounded --prompt='Select font: '
-    )
-    [[ -z "$font" ]] && return
+  set -o pipefail
+  font=$(
+    curl -sSLH 'Accept: application/vnd.github+json' https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest \
+      | jq -r '.assets[] | select(.browser_download_url | match("\\.tar\\..*$")) | .name' \
+      | cut -d '.' -f 1 \
+      | fzf --layout reverse --height=~50% --border=rounded --prompt='Select font: '
+  )
+  [[ -z "$font" ]] && return
 
-    echo "Downloading $font"
-    curl -sSL "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$font.tar.xz" -o "$font.tar.xz"
+  echo "Downloading $font"
+  curl -sSL "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$font.tar.xz" -o "$font.tar.xz"
 
-    if [[ "$RUN_OS" = WSL ]]; then
-        mv "$font.tar.xz" "$HOME/win_home/Downloads"
-        echo "Downloaded $font to Downloads directory"
-        return
-    fi
+  if [[ "$RUN_OS" = WSL ]]; then
+    mv "$font.tar.xz" "$HOME/win_home/Downloads"
+    echo "Downloaded $font to Downloads directory"
+    return
+  fi
 
-    fontdir="$HOME/.local/share/fonts"
-    dest="$fontdir/$font-NF"
-    mkdir -p "$dest" || return 1
-    tar -xf "$font.tar.xz" --directory="$dest" --wildcards '*NerdFont-*' || { rm -rf "$dest"; return 1; }
-    echo "Installed $font to $dest"
+  fontdir="$HOME/.local/share/fonts"
+  dest="$fontdir/$font-NF"
+  mkdir -p "$dest" || return 1
+  tar -xf "$font.tar.xz" --directory="$dest" --wildcards '*NerdFont-*' || {
+    rm -rf "$dest"
+    return 1
+  }
+  echo "Installed $font to $dest"
 
-    echo 'Cleaning up downloaded tarball'
-    rm -f "$font.tar.xz"
+  echo 'Cleaning up downloaded tarball'
+  rm -f "$font.tar.xz"
 }

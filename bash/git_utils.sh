@@ -6,45 +6,45 @@ alias glog='git log --graph --decorate --oneline'
 alias gs='git status'
 
 gtop() {
-    cd "$(git rev-parse --show-toplevel)" || return
+  cd "$(git rev-parse --show-toplevel)" || return
 }
 
 git_clean_branches() {
-    git fetch -p
-    git branch -vv | grep ': gone]' | while read -r branch; do
-        git branch -D "${branch%% *}"
-    done
+  git fetch -p
+  git branch -vv | grep ': gone]' | while read -r branch; do
+    git branch -D "${branch%% *}"
+  done
 }
 
 git_copy_branch() {
-    local branch
-    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  local branch
+  branch=$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
 
-    if command -v pbcopy &>/dev/null; then
-        pbcopy <<< "$branch"
-        return
-    fi
+  if command -v pbcopy &>/dev/null; then
+    pbcopy <<<"$branch"
+    return
+  fi
 
-    if command -v clip.exe &>/dev/null; then
-        echo -n "$branch" | clip.exe
-        return
-    fi
+  if command -v clip.exe &>/dev/null; then
+    echo -n "$branch" | clip.exe
+    return
+  fi
 
-    if [[ "$XDG_SESSION_TYPE" = 'x11' ]]; then
-        xclip -selection clipboard <<< "$branch"
-        return
-    fi
+  if [[ "$XDG_SESSION_TYPE" = 'x11' ]]; then
+    xclip -selection clipboard <<<"$branch"
+    return
+  fi
 
-    if [[ "$XDG_SESSION_TYPE" = 'wayland' ]]; then
-        wl-copy <<< "$branch"
-        return
-    fi
+  if [[ "$XDG_SESSION_TYPE" = 'wayland' ]]; then
+    wl-copy <<<"$branch"
+    return
+  fi
 }
 
 git_https() {
-    git remote set-url origin "$(git remote get-url origin | sed -e 's/git@bitbucket\.org:/https:\/\/kdien@bitbucket\.org\//')"
+  git remote set-url origin "$(git remote get-url origin | sed -e 's/git@bitbucket\.org:/https:\/\/kdien@bitbucket\.org\//')"
 }
 
 git_ssh() {
-    git remote set-url origin "$(git remote get-url origin | sed -e 's/https:\/\/kdien@bitbucket\.org\//git@bitbucket\.org:/')"
+  git remote set-url origin "$(git remote get-url origin | sed -e 's/https:\/\/kdien@bitbucket\.org\//git@bitbucket\.org:/')"
 }
