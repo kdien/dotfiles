@@ -3,19 +3,19 @@ return {
     'rcarriga/nvim-dap-ui',
     dependencies = {
       'mfussenegger/nvim-dap',
-      'theHamsta/nvim-dap-virtual-text'
+      'theHamsta/nvim-dap-virtual-text',
     },
 
     keys = {
-      { '<F5>',       "<Cmd>lua require('dap').continue()<CR>" },
-      { '<F10>',      "<Cmd>lua require('dap').step_over()<CR>" },
-      { '<F11>',      "<Cmd>lua require('dap').step_into()<CR>" },
-      { '<F12>',      "<Cmd>lua require('dap').step_out()<CR>" },
-      { '<Leader>b',  "<Cmd>lua require('dap').toggle_breakpoint()<CR>" },
-      { '<Leader>B',  "<Cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>" },
+      { '<F5>', "<Cmd>lua require('dap').continue()<CR>" },
+      { '<F10>', "<Cmd>lua require('dap').step_over()<CR>" },
+      { '<F11>', "<Cmd>lua require('dap').step_into()<CR>" },
+      { '<F12>', "<Cmd>lua require('dap').step_out()<CR>" },
+      { '<Leader>b', "<Cmd>lua require('dap').toggle_breakpoint()<CR>" },
+      { '<Leader>B', "<Cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>" },
       { '<Leader>lp', "<Cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>" },
       { '<Leader>dr', "<Cmd>lua require('dap').repl.open()<CR>" },
-      { '<Leader>dl', "<Cmd>lua require('dap').run_last()<CR>" }
+      { '<Leader>dl', "<Cmd>lua require('dap').run_last()<CR>" },
     },
 
     config = function()
@@ -35,7 +35,7 @@ return {
       end
 
       require('nvim-dap-virtual-text').setup({})
-    end
+    end,
   },
 
   {
@@ -44,7 +44,7 @@ return {
 
     dependencies = {
       'williamboman/mason.nvim',
-      'mfussenegger/nvim-dap'
+      'mfussenegger/nvim-dap',
     },
 
     config = function()
@@ -52,9 +52,9 @@ return {
         ensure_installed = {
           'delve',
           'python',
-        }
+        },
       })
-    end
+    end,
   },
 
   {
@@ -63,7 +63,7 @@ return {
     ft = 'go',
     config = function()
       require('dap-go').setup()
-    end
+    end,
   },
 
   {
@@ -72,6 +72,6 @@ return {
     ft = 'python',
     config = function()
       require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
-    end
-  }
+    end,
+  },
 }

@@ -14,24 +14,27 @@ return {
       { '<leader>km', '<Cmd>Telescope keymaps<CR>' },
       { '<leader>di', '<Cmd>Telescope diagnostics<CR>' },
 
-      { '<leader>sa',
+      {
+        '<leader>sa',
         function()
           local git_root = vim.fn.system("git rev-parse --show-toplevel | tr -d '\n'")
           require('telescope.builtin').find_files({ cwd = git_root, no_ignore = true })
-        end
+        end,
       },
 
-      { '<leader>sg',
+      {
+        '<leader>sg',
         function()
           require('telescope.builtin').git_files({ show_untracked = true })
-        end
+        end,
       },
 
-      { '<leader>ls',
+      {
+        '<leader>ls',
         function()
           require('telescope.builtin').buffers({ sort_lastused = true })
-        end
-      }
+        end,
+      },
     },
 
     config = function()
@@ -49,15 +52,15 @@ return {
           live_grep = {
             additional_args = function()
               return { '--hidden', '--glob', '!**/.git/*' }
-            end
+            end,
           },
           grep_string = {
             additional_args = function()
               return { '--hidden', '--glob', '!**/.git/*' }
-            end
+            end,
           },
         },
       })
-    end
-  }
+    end,
+  },
 }

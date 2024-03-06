@@ -10,11 +10,11 @@ return {
           keywords = 'none',
           functions = 'none',
           strings = 'none',
-          variables = 'none'
-        }
+          variables = 'none',
+        },
       })
       require('onedark').load()
-    end
+    end,
   },
 
   {
@@ -26,16 +26,16 @@ return {
         options = {
           component_separators = '|',
           section_separators = '',
-          icons_enabled = false
+          icons_enabled = false,
         },
         sections = {
           lualine_a = {
-            'mode'
+            'mode',
           },
           lualine_b = {
             {
               'branch',
-              icons_enabled = true
+              icons_enabled = true,
             },
             'diff',
             {
@@ -44,14 +44,14 @@ return {
                 error = 'E:',
                 warn = 'W:',
                 info = 'I:',
-                hint = 'H:'
+                hint = 'H:',
               },
-            }
+            },
           },
           lualine_c = {
             {
               'filename',
-              path = 3
+              path = 3,
             },
           },
           lualine_x = {
@@ -60,38 +60,38 @@ return {
               'fileformat',
               symbols = {
                 dos = 'dos',
-                unix = 'unix'
-              }
-            }
+                unix = 'unix',
+              },
+            },
           },
           lualine_y = {
-            'location'
+            'location',
           },
           lualine_z = {
-            'progress'
-          }
+            'progress',
+          },
         },
       })
       vim.opt.showmode = false
-    end
+    end,
   },
 
   {
     'lukas-reineke/indent-blankline.nvim',
     keys = {
-      { '<leader>ti', '<Cmd>IBLToggle<CR>' }
+      { '<leader>ti', '<Cmd>IBLToggle<CR>' },
     },
 
     config = function()
       require('ibl').setup({
         indent = {
           -- char = '┇'
-          char = '┆'
+          char = '┆',
         },
         scope = {
-          enabled = false
-        }
+          enabled = false,
+        },
       })
-    end
-  }
+    end,
+  },
 }

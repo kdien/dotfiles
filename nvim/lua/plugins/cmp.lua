@@ -24,7 +24,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip', keyword_length = 2 },
           { name = 'path' },
-          { name = 'buffer',  keyword_length = 3 },
+          { name = 'buffer', keyword_length = 3 },
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-Space>'] = cmp.mapping.complete(),
@@ -54,9 +54,9 @@ return {
             local menu_name = short_name[entry.source.name] or entry.source.name
             item.menu = string.format('[%s]', menu_name)
             return item
-          end
-        }
+          end,
+        },
       })
-    end
-  }
+    end,
+  },
 }

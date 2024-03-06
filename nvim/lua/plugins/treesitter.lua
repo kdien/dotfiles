@@ -74,7 +74,7 @@ return {
           additional_vim_regex_highlighting = false,
         },
       })
-    end
+    end,
   },
 
   {
@@ -85,6 +85,6 @@ return {
       vim.keymap.set('n', '[f', function()
         require('treesitter-context').go_to_context()
       end)
-    end
-  }
+    end,
+  },
 }

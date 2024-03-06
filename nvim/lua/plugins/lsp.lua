@@ -1,7 +1,7 @@
 return {
   {
     'folke/neodev.nvim',
-    lazy = true
+    lazy = true,
   },
 
   {
@@ -10,7 +10,7 @@ return {
 
     dependencies = {
       'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim'
+      'williamboman/mason-lspconfig.nvim',
     },
 
     config = function()
@@ -19,11 +19,7 @@ return {
       local lspconfig = require('lspconfig')
       local lsp_defaults = lspconfig.util.default_config
 
-      lsp_defaults.capabilities = vim.tbl_deep_extend(
-        'force',
-        lsp_defaults.capabilities,
-        require('cmp_nvim_lsp').default_capabilities()
-      )
+      lsp_defaults.capabilities = vim.tbl_deep_extend('force', lsp_defaults.capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP actions',
@@ -44,7 +40,7 @@ return {
           vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
           vim.keymap.set({ 'i', 's' }, '<C-f>', "<Cmd>lua require('luasnip').jump(1)<CR>")
           vim.keymap.set({ 'i', 's' }, '<C-b>', "<Cmd>lua require('luasnip').jump(-1)<CR>")
-        end
+        end,
       })
 
       require('mason').setup({})
@@ -61,11 +57,11 @@ return {
           'gopls', -- Golang
           'jsonls',
           'lua_ls',
-          'marksman',  -- Markdown
+          'marksman', -- Markdown
           'omnisharp', -- C#/.NET
-          'pyright',   -- Python
+          'pyright', -- Python
           'rust_analyzer',
-          'taplo',     -- TOML
+          'taplo', -- TOML
           'terraformls',
           'tsserver',
           'yamlls',
@@ -76,7 +72,7 @@ return {
 
           ansiblels = function()
             lspconfig.ansiblels.setup({
-              filetypes = { 'ansible' }
+              filetypes = { 'ansible' },
             })
           end,
 
@@ -88,46 +84,40 @@ return {
                   workspace = { checkThirdParty = false },
 
                   completion = {
-                    callSnippet = 'Replace'
+                    callSnippet = 'Replace',
                   },
 
                   diagnostics = {
-                    disable = { 'missing-fields' }
-                  }
-                }
-              }
+                    disable = { 'missing-fields' },
+                  },
+                },
+              },
             })
           end,
 
           terraformls = function()
             lspconfig.terraformls.setup({
-              filetypes = { 'terraform' }
+              filetypes = { 'terraform' },
             })
-          end
-        }
+          end,
+        },
       })
 
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        { border = 'rounded' }
-      )
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
 
-      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-        vim.lsp.handlers.signature_help,
-        { border = 'rounded' }
-      )
+      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
       vim.diagnostic.config({
         virtual_text = {
           severity = { min = vim.diagnostic.severity.WARN },
-          spacing = 6
+          spacing = 6,
         },
         signs = false,
         float = {
           header = '',
-          border = 'rounded'
-        }
+          border = 'rounded',
+        },
       })
-    end
-  }
+    end,
+  },
 }

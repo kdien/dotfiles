@@ -22,22 +22,22 @@ return {
         start_delay = 3000,
         debounce_hours = 5,
       })
-    end
+    end,
   },
 
   {
     'tpope/vim-fugitive',
-    event = event
+    event = event,
   },
 
   {
     'tpope/vim-rhubarb',
-    event = event
+    event = event,
   },
 
   {
     'tpope/vim-surround',
-    event = event
+    event = event,
   },
 
   {
@@ -45,7 +45,7 @@ return {
     event = event,
     config = function()
       require('Comment').setup()
-    end
+    end,
   },
 
   {
@@ -64,7 +64,7 @@ return {
       vim.g.vrc_response_default_content_type = 'application/json'
       vim.g.vrc_set_default_mapping = 0
       vim.keymap.set('n', '<leader>rq', '<Cmd>call VrcQuery()<CR>')
-    end
+    end,
   },
 
   {
@@ -76,21 +76,21 @@ return {
       progress = {
         display = {
           render_limit = 5,
-          done_ttl = 1
-        }
+          done_ttl = 1,
+        },
       },
       notification = {
         window = {
           winblend = 0,
-          border = 'none'
-        }
-      }
-    }
+          border = 'none',
+        },
+      },
+    },
   },
 
   {
     'github/copilot.vim',
     lazy = true,
-    cmd = { 'Copilot' }
-  }
+    cmd = { 'Copilot' },
+  },
 }

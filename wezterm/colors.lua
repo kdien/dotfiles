@@ -17,7 +17,7 @@ return {
     '#7aa6da',
     '#c397d8',
     '#70c0ba',
-    '#eaeaea'
+    '#eaeaea',
   },
 
   brights = {
@@ -28,6 +28,6 @@ return {
     '#7aa6da',
     '#b77ee0',
     '#54ced6',
-    '#ffffff'
+    '#ffffff',
   },
 }

@@ -58,7 +58,7 @@ local font_family = 'MesloLGM Nerd Font'
 
 config.font = wezterm.font({
   family = font_family,
-  weight = 'Regular'
+  weight = 'Regular',
 })
 
 config.font_rules = {
@@ -66,9 +66,9 @@ config.font_rules = {
     intensity = 'Bold',
     font = wezterm.font({
       family = font_family,
-      weight = 'Regular'
-    })
-  }
+      weight = 'Regular',
+    }),
+  },
 }
 
 config.font_size = platform == 'mac' and 15.0 or 11.5
@@ -82,7 +82,7 @@ config.window_padding = {
   left = padding,
   right = padding,
   top = padding,
-  bottom = padding
+  bottom = padding,
 }
 
 config.selection_word_boundary = ' \t\n;,\'"'
@@ -93,9 +93,9 @@ if platform == 'win' then
   table.insert(config.keys, {
     key = 'p',
     mods = 'CTRL|ALT',
-    action = wezterm.action.SpawnCommandInNewTab {
-      args = { 'pwsh.exe', '-WorkingDirectory', '~' }
-    }
+    action = wezterm.action.SpawnCommandInNewTab({
+      args = { 'pwsh.exe', '-WorkingDirectory', '~' },
+    }),
   })
 end
 
