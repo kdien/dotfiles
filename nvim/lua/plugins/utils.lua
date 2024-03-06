@@ -9,8 +9,9 @@ return {
     config = function()
       require('mason-tool-installer').setup({
         ensure_installed = {
-          'black',
+          'black', -- Python
           'editorconfig-checker',
+          'isort', -- Python
           'shellcheck',
           'shfmt',
           'stylua',
