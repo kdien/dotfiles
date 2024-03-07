@@ -35,6 +35,13 @@ return {
           require('telescope.builtin').buffers({ sort_lastused = true })
         end,
       },
+
+      {
+        '<leader>sn',
+        function()
+          require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config'), no_ignore = true })
+        end,
+      },
     },
 
     config = function()
