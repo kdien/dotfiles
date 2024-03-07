@@ -18,7 +18,16 @@ vim.api.nvim_create_autocmd('DirChanged', {
 
 vim.api.nvim_create_autocmd('FileType', {
   group = augroup,
-  pattern = 'ansible,hcl,lua,terraform,vim,yaml',
+  pattern = {
+    'ansible',
+    'hcl',
+    'json',
+    'lua',
+    'sh',
+    'terraform',
+    'vim',
+    'yaml',
+  },
   command = 'setlocal tabstop=2 softtabstop=2 shiftwidth=2',
 })
 
