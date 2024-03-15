@@ -71,7 +71,7 @@ config.font_rules = {
   },
 }
 
-config.font_size = platform == 'mac' and 15.0 or 11.5
+config.font_size = platform == 'mac' and 15.0 or 11.25
 -- config.line_height = 1.1
 config.bold_brightens_ansi_colors = false
 config.freetype_load_flags = 'NO_HINTING'
