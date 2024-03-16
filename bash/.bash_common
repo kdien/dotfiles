@@ -86,12 +86,16 @@ if command -v aws &>/dev/null; then
   . "$HOME/dotfiles/bash/aws_utils.sh"
 fi
 
-if [[ -d /opt/wine-stable/bin ]]; then
-  export PATH="/opt/wine-stable/bin:$PATH"
-fi
-
 if [[ -d "$HOME/.tfenv/bin" ]]; then
   export PATH="$HOME/.tfenv/bin:$PATH"
+fi
+
+if [[ -d "$HOME/.local/share/nvim/mason/bin" ]]; then
+  export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+fi
+
+if command -v fzf &>/dev/null; then
+  export FZF_DEFAULT_OPTS='--layout=reverse --height=~50% --border=rounded'
 fi
 
 if command -v terraform &>/dev/null; then
