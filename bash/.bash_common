@@ -144,13 +144,10 @@ alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.s
 alias v='vim'
 alias v.='vim .'
 
-if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
-  distro=$(grep '^ID=' /etc/os-release | awk -F '=' '{print $2}')
-  if [[ "$distro" == ubuntu ]]; then
-    alias upd='sudo apt update && sudo apt upgrade -y'
-  elif [[ "$distro" == fedora ]]; then
-    alias upd='sudo dnf upgrade -y'
-  fi
+if command -v apt &>/dev/null; then
+  alias upd='sudo apt update && sudo apt upgrade -y'
+elif command -v dnf &>/dev/null; then
+  alias upd='sudo dnf upgrade -y'
 fi
 
 # Functions
