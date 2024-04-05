@@ -12,6 +12,10 @@ if command -v terraform-docs &>/dev/null; then
   complete -F __start_terraform-docs tfd
 fi
 
+tf_clean() {
+  rm -rf .terraform .terraform.lock.hcl
+}
+
 terraform_target() {
   local file=$1
   local pattern=$2
