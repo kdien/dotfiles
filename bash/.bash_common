@@ -55,9 +55,12 @@ install_or_update_starship() {
   fi
 }
 
-if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.toml"; then
-  export STARSHIP_CONFIG="$HOME/dotfiles/starship/starship.toml"
-  eval "$(starship init bash)"
+if command -v oh-my-posh &>/dev/null && test -f "$HOME/dotfiles/oh-my-posh/ohmyposh.json"; then
+  eval "$(oh-my-posh init bash --config "$HOME/dotfiles/oh-my-posh/ohmyposh.json")"
+  oh-my-posh toggle az
+  oh-my-posh toggle kubectl
+  alias azt='oh-my-posh toggle az'
+  alias kt='oh-my-posh toggle kubectl'
 else
   export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
 fi
@@ -137,7 +140,6 @@ if command -v bat &>/dev/null; then
 fi
 
 alias k='kubectl'
-alias kt='starship toggle kubernetes'
 alias ls='ls -lah --color=auto'
 alias mvnfull='mvn clean install -PautoInstallSinglePackage'
 alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dspotbugs.skip=true'
