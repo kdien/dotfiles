@@ -87,6 +87,18 @@
           "template": " \ufd31 {{ .Context }}{{ if .Namespace }} :: {{ .Namespace }}{{ end }} "
         },
         {
+          "type": "executiontime",
+          "style": "powerline",
+          "foreground": "#ffffff",
+          "background": "#393c3f",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "threshold": 2000,
+            "style": "round"
+          },
+          "template": " {{ .FormattedMs }} "
+        },
+        {
           "type": "status",
           "style": "powerline",
           "foreground": "#ffffff",
