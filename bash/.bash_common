@@ -135,7 +135,8 @@ if [[ "$RUN_OS" = WSL ]]; then
 fi
 
 if command -v bat &>/dev/null; then
-  alias cat='bat --theme OneHalfDark'
+  export BAT_THEME=OneHalfDark
+  alias cat='bat'
 fi
 
 alias k='kubectl'
