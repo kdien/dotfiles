@@ -80,7 +80,7 @@ format = '\[[$symbol$branch]($style)\] '
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
- 
+
 [golang]
 format = '\[[$symbol ($version)]($style)\] '
 symbol = ""
@@ -119,6 +119,7 @@ format = '\[[$symbol($version)]($style)\] '
 
 [kubernetes]
 format = '\[[$symbol$context( \($namespace\))]($style)\] '
+disabled = true
 
 [lua]
 format = '\[[$symbol ($version)]($style)\] '
