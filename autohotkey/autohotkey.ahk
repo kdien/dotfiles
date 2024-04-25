@@ -1,21 +1,28 @@
-﻿#q::Send !{F4}
-
-+CapsLock::CapsLock
+﻿#q::Send("!{F4}")
 
 *CapsLock::
 {
-    Send {Blind}{Ctrl Down}
+    Send("{Blind}{Ctrl Down}")
     global cDown := A_TickCount
     Return
 }
 
 *CapsLock up::
 {
-    If (A_TickCount - cDown < 100)  ; Modify press time as needed (milliseconds)
-        Send {Blind}{Ctrl Up}{Esc}
+    If ((A_TickCount - cDown) < 150)  ; Modify press time as needed (milliseconds)
+        Send("{Blind}{Ctrl Up}{Esc}")
     Else
-        Send {Blind}{Ctrl Up}
+        Send("{Blind}{Ctrl Up}")
     Return
 }
 
-#+p::Run "mspaint.exe"
++CapsLock::CapsLock
+
+#+t::
+{
+    userdir := EnvGet("USERPROFILE")
+    Run("powershell.exe -WindowStyle Hidden `"" userdir "\dotfiles\powershell\toggleWindowsTheme.ps1`"")
+    Return
+}
+
+#+p::Run("mspaint.exe")
