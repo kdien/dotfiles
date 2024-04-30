@@ -235,7 +235,9 @@ install_nerd_fonts() {
 
   if [[ "$RUN_OS" = WSL ]]; then
     mv "$font.tar.xz" "$HOME/win_home/Downloads"
-    echo "Downloaded $font to Downloads directory"
+    cd "$HOME/win_home/Downloads" || return
+    tar -xf "$font.tar.xz" --wildcards '*NerdFont-*'
+    explorer.exe .
     return
   fi
 
