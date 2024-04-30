@@ -2,7 +2,7 @@
 # shellcheck disable=SC2016
 
 ap() {
-  new_profile=$(grep '\[profile' "$HOME/.aws/config" | sed 's/\[profile \(.*\)\]/\1/g' | sort | fzf --layout=reverse --height=~50% --border=rounded --prompt='AWS Profile >> ')
+  new_profile=$(grep '\[profile' "$HOME/.aws/config" | sed 's/\[profile \(.*\)\]/\1/g' | sort | fzf --prompt='AWS Profile >> ')
   if [[ -n "$new_profile" ]]; then
     export AWS_PROFILE=$new_profile
     echo "Switched to AWS profile '$AWS_PROFILE'"
@@ -24,7 +24,7 @@ ssm() {
       --query 'Reservations[*].Instances[*].{Name:Tags[?Key==`Name`]|[0].Value,InstanceId:InstanceId}' \
       --output text \
       | sort -k 2 \
-      | fzf --layout=reverse --height=~50% --border=rounded --prompt='Select instance: ' \
+      | fzf --prompt='Select instance: ' \
       | awk '{print $1}'
   )
 
