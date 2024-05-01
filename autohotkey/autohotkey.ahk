@@ -1,22 +1,55 @@
-﻿#q::Send("!{F4}")
+#q::Send("!{F4}")
 
-*CapsLock::
-{
-    Send("{Blind}{Ctrl Down}")
-    global cDown := A_TickCount
-    Return
-}
-
-*CapsLock up::
-{
-    If ((A_TickCount - cDown) < 150)  ; Modify press time as needed (milliseconds)
-        Send("{Blind}{Ctrl Up}{Esc}")
-    Else
-        Send("{Blind}{Ctrl Up}")
-    Return
-}
-
-+CapsLock::CapsLock
+SetCapsLockState("AlwaysOff")
+CapsLock::Send("{Esc}")
+CapsLock & a::Send("^a")
+CapsLock & b::Send("^b")
+CapsLock & c::Send("^c")
+CapsLock & d::Send("^d")
+CapsLock & e::Send("^e")
+CapsLock & f::Send("^f")
+CapsLock & g::Send("^g")
+CapsLock & h::Send("^h")
+CapsLock & i::Send("^i")
+CapsLock & j::Send("^j")
+CapsLock & k::Send("^k")
+CapsLock & l::Send("^l")
+CapsLock & m::Send("^m")
+CapsLock & n::Send("^n")
+CapsLock & o::Send("^o")
+CapsLock & p::Send("^p")
+CapsLock & q::Send("^q")
+CapsLock & r::Send("^r")
+CapsLock & s::Send("^s")
+CapsLock & t::Send("^t")
+CapsLock & u::Send("^u")
+CapsLock & v::Send("^v")
+CapsLock & w::Send("^w")
+CapsLock & x::Send("^x")
+CapsLock & y::Send("^y")
+CapsLock & z::Send("^z")
+CapsLock & 0::Send("^0")
+CapsLock & 1::Send("^1")
+CapsLock & 2::Send("^2")
+CapsLock & 3::Send("^3")
+CapsLock & 4::Send("^4")
+CapsLock & 5::Send("^5")
+CapsLock & 6::Send("^6")
+CapsLock & 7::Send("^7")
+CapsLock & 8::Send("^8")
+CapsLock & 9::Send("^9")
+CapsLock & '::Send("^'")
+CapsLock & ,::Send("^,")
+CapsLock & .::Send("^.")
+CapsLock & /::Send("^/")
+CapsLock & -::Send("^-")
+CapsLock & =::Send("^=")
+CapsLock & [::Send("^[")
+CapsLock & ]::Send("^]")
+CapsLock & Up::Send("^{Up}")
+CapsLock & Down::Send("^{Down}")
+CapsLock & Left::Send("^{Left}")
+CapsLock & Right::Send("^{Right}")
 
 #+t::
 {
