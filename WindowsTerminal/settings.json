@@ -1,184 +1,174 @@
 {
-    "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
-    [
-        {
-            "command": 
-            {
-                "action": "newTab",
-                "profile": "{2c4de342-38b7-51cf-b940-2309a097f518}"
-            },
-            "keys": "ctrl+alt+l"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab",
-                "profile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}"
-            },
-            "keys": "ctrl+alt+p"
-        }
-    ],
-    "alwaysShowTabs": false,
-    "copyOnSelect": true,
-    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-    "launchMode": "maximized",
-    "profiles": 
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "actions": [
     {
-        "defaults": 
-        {
-            "altGrAliasing": true,
-            "antialiasingMode": "cleartype",
-            //"backgroundImage": "%USERPROFILE%\\dotfiles\\WindowsTerminal\\bg_image.png",
-            //"backgroundImageOpacity": 0.1,
-            "colorScheme": "Tomorrow Night Bright",
-            "cursorShape": "filledBox",
-            "experimental.retroTerminalEffect": false,
-            "font": 
-            {
-                "face": "MesloLGM Nerd Font",
-                "size": 11,
-                "weight": "normal"
-            },
-            "historySize": 10000,
-            "intenseTextStyle": "none",
-            "opacity": 85,
-            "useAcrylic": true,
-            "padding": "4, 4, 4, 4",
-            "scrollbarState": "hidden"
-        },
-        "list": 
-        [
-            {
-                "commandline": "C:\\Windows\\system32\\wsl.exe -d Ubuntu",
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-                "hidden": false,
-                "name": "PowerShell",
-                "source": "Windows.Terminal.PowershellCore"
-            },
-            {
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "name": "cmd"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": true,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            }
-        ]
+      "command": {
+        "action": "newTab",
+        "profile": "{2c4de342-38b7-51cf-b940-2309a097f518}"
+      },
+      "keys": "ctrl+alt+l"
     },
-    "schemes": 
-    [
-        {
-            "background": "#282828",
-            "black": "#282828",
-            "blue": "#458588",
-            "brightBlack": "#928374",
-            "brightBlue": "#83A598",
-            "brightCyan": "#8EC07C",
-            "brightGreen": "#B8BB26",
-            "brightPurple": "#D3869B",
-            "brightRed": "#FB4934",
-            "brightWhite": "#EBDBB2",
-            "brightYellow": "#FABD2F",
-            "cursorColor": "#EBDBB2",
-            "cyan": "#689D6A",
-            "foreground": "#EAEAEA",
-            "green": "#98971A",
-            "name": "Gruvbox Dark",
-            "purple": "#B16286",
-            "red": "#CC241D",
-            "selectionBackground": "#EAEAEA",
-            "white": "#A89984",
-            "yellow": "#D79921"
-        },
-        {
-            "background": "#FBF1C7",
-            "black": "#282828",
-            "blue": "#458588",
-            "brightBlack": "#928374",
-            "brightBlue": "#076678",
-            "brightCyan": "#427B58",
-            "brightGreen": "#79740E",
-            "brightPurple": "#8F3F71",
-            "brightRed": "#9D0006",
-            "brightWhite": "#EBDBB2",
-            "brightYellow": "#B57614",
-            "cursorColor": "#AD9C8A",
-            "cyan": "#689D6A",
-            "foreground": "#3C3836",
-            "green": "#98971A",
-            "name": "Gruvbox Light",
-            "purple": "#B16286",
-            "red": "#CC241D",
-            "selectionBackground": "#3C3836",
-            "white": "#7C6F64",
-            "yellow": "#D79921"
-        },
-        {
-            "background": "#F9F9F9",
-            "black": "#000000",
-            "blue": "#3465A4",
-            "brightBlack": "#555753",
-            "brightBlue": "#729FCF",
-            "brightCyan": "#34E2E2",
-            "brightGreen": "#8AE234",
-            "brightPurple": "#AD7FA8",
-            "brightRed": "#EF2929",
-            "brightWhite": "#EEEEEC",
-            "brightYellow": "#FCE94F",
-            "cursorColor": "#B0B0B0",
-            "cyan": "#06989A",
-            "foreground": "#555753",
-            "green": "#4E9A06",
-            "name": "Tango Light - Modified",
-            "purple": "#75507B",
-            "red": "#CC0000",
-            "selectionBackground": "#FFFFFF",
-            "white": "#D3D7CF",
-            "yellow": "#C4A000"
-        },
-        {
-            //"background": "#1F2329",
-            "background": "#020202",
-            "black": "#000000",
-            "blue": "#7AA6DA",
-            "brightBlack": "#666666",
-            "brightBlue": "#7AA6DA",
-            "brightCyan": "#54CED6",
-            "brightGreen": "#9EC400",
-            "brightPurple": "#B77EE0",
-            "brightRed": "#FF3334",
-            "brightWhite": "#FFFFFF",
-            "brightYellow": "#E7C547",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#70C0BA",
-            "foreground": "#D9D9D9",
-            "green": "#B9CA4A",
-            "name": "Tomorrow Night Bright",
-            "purple": "#C397D8",
-            "red": "#D54E53",
-            "selectionBackground": "#EAEAEA",
-            "white": "#EAEAEA",
-            "yellow": "#E6C547"
-        }
-    ],
-    "showTabsInTitlebar": true,
-    "tabSwitcherMode": "disabled",
-    "trimBlockSelection": true,
-    "wordDelimiters": " \t\n;,\""
+    {
+      "command": {
+        "action": "newTab",
+        "profile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}"
+      },
+      "keys": "ctrl+alt+p"
+    }
+  ],
+  "alwaysShowTabs": false,
+  "copyOnSelect": true,
+  "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+  "launchMode": "maximized",
+  "profiles": {
+    "defaults": {
+      "altGrAliasing": true,
+      "antialiasingMode": "cleartype",
+      "colorScheme": "Tomorrow Night Bright",
+      "cursorShape": "filledBox",
+      "experimental.retroTerminalEffect": false,
+      "font": {
+        "face": "MesloLGM Nerd Font",
+        "size": 11.25,
+        "weight": "normal"
+      },
+      "historySize": 10000,
+      "intenseTextStyle": "none",
+      "opacity": 100,
+      "useAcrylic": false,
+      "useAtlasEngine": true,
+      "padding": "4, 4, 4, 4",
+      "scrollbarState": "hidden"
+    },
+    "list": [
+      {
+        "commandline": "C:\\Windows\\system32\\wsl.exe -d Ubuntu",
+        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+        "hidden": false,
+        "name": "Ubuntu",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+        "hidden": false,
+        "name": "PowerShell",
+        "source": "Windows.Terminal.PowershellCore"
+      },
+      {
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
+      },
+      {
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "cmd"
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": true,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "background": "#282828",
+      "black": "#282828",
+      "blue": "#458588",
+      "brightBlack": "#928374",
+      "brightBlue": "#83A598",
+      "brightCyan": "#8EC07C",
+      "brightGreen": "#B8BB26",
+      "brightPurple": "#D3869B",
+      "brightRed": "#FB4934",
+      "brightWhite": "#EBDBB2",
+      "brightYellow": "#FABD2F",
+      "cursorColor": "#EBDBB2",
+      "cyan": "#689D6A",
+      "foreground": "#EAEAEA",
+      "green": "#98971A",
+      "name": "Gruvbox Dark",
+      "purple": "#B16286",
+      "red": "#CC241D",
+      "selectionBackground": "#EAEAEA",
+      "white": "#A89984",
+      "yellow": "#D79921"
+    },
+    {
+      "background": "#FBF1C7",
+      "black": "#282828",
+      "blue": "#458588",
+      "brightBlack": "#928374",
+      "brightBlue": "#076678",
+      "brightCyan": "#427B58",
+      "brightGreen": "#79740E",
+      "brightPurple": "#8F3F71",
+      "brightRed": "#9D0006",
+      "brightWhite": "#EBDBB2",
+      "brightYellow": "#B57614",
+      "cursorColor": "#AD9C8A",
+      "cyan": "#689D6A",
+      "foreground": "#3C3836",
+      "green": "#98971A",
+      "name": "Gruvbox Light",
+      "purple": "#B16286",
+      "red": "#CC241D",
+      "selectionBackground": "#3C3836",
+      "white": "#7C6F64",
+      "yellow": "#D79921"
+    },
+    {
+      "background": "#F9F9F9",
+      "black": "#000000",
+      "blue": "#3465A4",
+      "brightBlack": "#555753",
+      "brightBlue": "#729FCF",
+      "brightCyan": "#34E2E2",
+      "brightGreen": "#8AE234",
+      "brightPurple": "#AD7FA8",
+      "brightRed": "#EF2929",
+      "brightWhite": "#EEEEEC",
+      "brightYellow": "#FCE94F",
+      "cursorColor": "#B0B0B0",
+      "cyan": "#06989A",
+      "foreground": "#555753",
+      "green": "#4E9A06",
+      "name": "Tango Light - Modified",
+      "purple": "#75507B",
+      "red": "#CC0000",
+      "selectionBackground": "#FFFFFF",
+      "white": "#D3D7CF",
+      "yellow": "#C4A000"
+    },
+    {
+      "background": "#1B1F24",
+      "black": "#000000",
+      "blue": "#7AA6DA",
+      "brightBlack": "#666666",
+      "brightBlue": "#7AA6DA",
+      "brightCyan": "#54CED6",
+      "brightGreen": "#9EC400",
+      "brightPurple": "#B77EE0",
+      "brightRed": "#FF3334",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#E7C547",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#70C0BA",
+      "foreground": "#D9D9D9",
+      "green": "#B9CA4A",
+      "name": "Tomorrow Night Bright",
+      "purple": "#C397D8",
+      "red": "#D54E53",
+      "selectionBackground": "#EAEAEA",
+      "white": "#EAEAEA",
+      "yellow": "#E6C547"
+    }
+  ],
+  "showTabsInTitlebar": true,
+  "tabSwitcherMode": "disabled",
+  "trimBlockSelection": true,
+  "wordDelimiters": " \t\n;,\""
 }
