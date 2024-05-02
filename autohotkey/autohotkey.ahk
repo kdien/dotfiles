@@ -51,6 +51,7 @@ CapsLock & Down::Send("^{Down}")
 CapsLock & Left::Send("^{Left}")
 CapsLock & Right::Send("^{Right}")
 CapsLock & Space::Send("^{Space}")
+CapsLock & Backspace::Send("^{Backspace}")
 
 #+t::
 {
