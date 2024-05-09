@@ -31,7 +31,12 @@
       "font": {
         "face": "MesloLGM Nerd Font",
         "size": 11.25,
-        "weight": "normal"
+        "weight": "normal",
+        "features": {
+          "calt": 0,
+          "clig": 0,
+          "liga": 0
+        }
       },
       "historySize": 10000,
       "intenseTextStyle": "none",
