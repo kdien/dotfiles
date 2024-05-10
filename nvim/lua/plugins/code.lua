@@ -6,6 +6,10 @@ return {
     build = function()
       vim.fn['mkdp#util#install']()
     end,
+
+    config = function()
+      vim.g.mkdp_echo_preview_url = 1
+    end,
   },
 
   {
