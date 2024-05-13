@@ -1,4 +1,3 @@
-vim.opt.background = 'light'
 vim.opt.guicursor = ''
 
 vim.opt.number = true
