@@ -1,6 +1,21 @@
+local background = vim.go.background
+
 return {
   {
+    'projekt0n/github-nvim-theme',
+    enabled = background == 'light' and true or false,
+    config = function()
+      require('github-theme').setup({
+        options = {
+          transparent = true,
+        },
+      })
+      vim.cmd('colorscheme github_light')
+    end,
+  },
+  {
     'navarasu/onedark.nvim',
+    enabled = background == 'dark' and true or false,
     config = function()
       require('onedark').setup({
         style = 'dark',
@@ -24,6 +39,7 @@ return {
     config = function()
       require('lualine').setup({
         options = {
+          theme = background == 'dark' and 'onedark' or 'onelight',
           component_separators = '|',
           section_separators = '',
           icons_enabled = false,
