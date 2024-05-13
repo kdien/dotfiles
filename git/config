@@ -5,7 +5,7 @@
 
 [delta]
     line-numbers = true
-    syntax-theme = OneHalfDark
+    syntax-theme = OneHalfLight
 
 [interactive]
     diffFilter = delta --color-only
