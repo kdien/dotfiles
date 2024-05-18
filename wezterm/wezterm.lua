@@ -29,9 +29,11 @@ config.automatically_reload_config = true
 config.front_end = 'OpenGL'
 
 if platform == 'win' then
-  config.default_prog = { 'wsl.exe', '--cd', '~' }
-  config.window_background_opacity = 0
-  config.win32_system_backdrop = 'Mica'
+  if #wezterm.default_wsl_domains() > 0 then
+    config.default_prog = { 'wsl.exe', '--cd', '~' }
+  else
+    config.default_prog = { 'pwsh.exe', '-WorkingDirectory', '~' }
+  end
 end
 
 if platform == 'mac' then
@@ -54,11 +56,11 @@ config.colors = require('colors')
 
 config.default_cursor_style = 'SteadyBlock'
 
-local font_family = 'MesloLGM Nerd Font'
+local font_family = 'JetBrains Mono'
 
 config.font = wezterm.font({
   family = font_family,
-  weight = 'Regular',
+  weight = 'Light',
 })
 
 config.font_rules = {
@@ -71,7 +73,7 @@ config.font_rules = {
   },
 }
 
-config.font_size = platform == 'mac' and 15.0 or 11.25
+config.font_size = platform == 'mac' and 15.0 or 11.5
 -- config.line_height = 1.1
 config.bold_brightens_ansi_colors = false
 config.freetype_load_flags = 'NO_HINTING'
