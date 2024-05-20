@@ -17,24 +17,24 @@ startup_mode = "Maximized"
 dynamic_title = false
 
 [window.padding]
-x = 4
-y = 4
+x = 2
+y = 2
 
 [font]
-size = 11.25
+size = 11.5
 
 [font.normal]
-family = "MesloLGM Nerd Font"
+family = "DejaVu Sans Mono"
 style = "Regular"
 
 [font.bold]
 style = "Regular"
 
-# [font.offset]
-# y = 2
-#
-# [font.glyph_offset]
-# y = 2
+[font.offset]
+y = 2
+
+[font.glyph_offset]
+y = 2
 
 [cursor.style]
 blinking = "Off"
