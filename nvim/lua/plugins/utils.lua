@@ -97,6 +97,17 @@ return {
         },
       })
       vim.keymap.set('n', '<leader>e', '<Cmd>Oil<CR>')
+
+      local open_cmd = 'xdg-open'
+      if vim.fn.has('wsl') == 1 then
+        open_cmd = 'cmd.exe /C start'
+      elseif vim.fn.has('mac') == 1 then
+        open_cmd = 'open'
+      end
+
+      vim.api.nvim_create_user_command('Browse', function(opts)
+        vim.fn.system({ open_cmd, opts.fargs[1] })
+      end, { nargs = 1 })
     end,
   },
 
