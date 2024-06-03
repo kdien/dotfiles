@@ -100,7 +100,7 @@ return {
 
       local open_cmd = 'xdg-open'
       if vim.fn.has('wsl') == 1 then
-        open_cmd = 'cmd.exe /C start'
+        open_cmd = 'wslview'
       elseif vim.fn.has('mac') == 1 then
         open_cmd = 'open'
       end
