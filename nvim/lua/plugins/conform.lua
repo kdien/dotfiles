@@ -17,6 +17,7 @@ return {
           }
         end,
         formatters_by_ft = {
+          json = { 'jq' },
           lua = { 'stylua' },
           python = { 'isort', 'black' },
           sh = { 'shfmt' },
