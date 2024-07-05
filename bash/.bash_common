@@ -55,11 +55,15 @@ install_or_update_starship() {
   fi
 }
 
-if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.toml"; then
-  export STARSHIP_CONFIG="$HOME/dotfiles/starship/starship.toml"
-  eval "$(starship init bash)"
-  alias azt='starship toggle azure'
-  alias kt='starship toggle kubernetes'
+# if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.toml"; then
+#   export STARSHIP_CONFIG="$HOME/dotfiles/starship/starship.toml"
+#   eval "$(starship init bash)"
+#   alias azt='starship toggle azure'
+#   alias kt='starship toggle kubernetes'
+if command -v oh-my-posh &>/dev/null && test -f "$HOME/dotfiles/oh-my-posh/ohmyposh.json"; then
+  eval "$(oh-my-posh init bash --config "$HOME/dotfiles/oh-my-posh/ohmyposh.json")"
+  alias azt='oh-my-posh toggle az'
+  alias kt='oh-my-posh toggle kubectl'
 else
   export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
 fi
