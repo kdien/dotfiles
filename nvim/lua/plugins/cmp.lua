@@ -1,6 +1,7 @@
 return {
   {
     'hrsh7th/nvim-cmp',
+    branch = 'main',
     event = { 'InsertEnter' },
 
     dependencies = {
