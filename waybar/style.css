@@ -27,13 +27,11 @@ tooltip label {
 }
 
 #workspaces button.focused {
-  background: #333333;
-  border-bottom: 2px solid #327bd1;
+  background: #1e497d;
 }
 
 #workspaces button.active {
-  background: #333333;
-  border-bottom: 2px solid #327bd1;
+  background: #1e497d;
 }
 
 #pulseaudio {
