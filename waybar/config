@@ -25,7 +25,7 @@
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon}",
     "format-bluetooth-muted": " {icon}",
-    "format-muted": " ",
+    "format-muted": "",
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",
@@ -34,7 +34,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "󰕾", ""]
+      "default": ["", "", ""]
     },
     "on-click": "pavucontrol",
     "tooltip": "{format_source}"
