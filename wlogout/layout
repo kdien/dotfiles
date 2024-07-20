@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "swaylock && sleep 1 && hyprctl dispatch dpms off",
+    "action" : "hyprlock & sleep 2 && hyprctl dispatch dpms off",
     "text" : "Lock",
     "keybind" : "l"
 }
@@ -24,7 +24,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "swaylock && systemctl suspend",
+    "action" : "hyprlock & sleep 2 && systemctl suspend",
     "text" : "Suspend",
     "keybind" : "u"
 }
