@@ -103,6 +103,8 @@ fi
 if command -v fzf &>/dev/null; then
   export FZF_DEFAULT_OPTS='--layout=reverse --height=~50% --border=rounded'
   alias fzfp='fzf --preview="bat --color=always {}"'
+  # shellcheck source=/dev/null
+  . <(fzf --bash)
 fi
 
 if command -v terraform &>/dev/null; then
