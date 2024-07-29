@@ -4,15 +4,17 @@ term = xterm-ghostty
 title = Ghostty
 
 window-decoration = false
+window-height = 3000
+window-width = 3000
 
-font-family = JetBrains Mono
+font-family = MesloLGS Nerd Font
 
-font-style = Light
-font-style-bold = SemiBold
-font-style-italic = Light Italic
-font-style-bold-italic = SemiBold Italic
+font-style = default
+font-style-bold = disable
+font-style-italic = disable
+font-style-bold-italic = disable
 
-font-size = 11.5
+font-size = 11.25
 
 bold-is-bright = false
 
@@ -42,7 +44,7 @@ cursor-style-blink = false
 window-padding-x = 2
 window-padding-y = 2
 
-copy-on-select = true
+copy-on-select = clipboard
 
 confirm-close-surface = false
 
