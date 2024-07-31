@@ -1,7 +1,8 @@
 return {
   {
-    'folke/neodev.nvim',
-    lazy = true,
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {},
   },
 
   {
@@ -14,8 +15,6 @@ return {
     },
 
     config = function()
-      require('neodev').setup()
-
       local lspconfig = require('lspconfig')
       local lsp_defaults = lspconfig.util.default_config
 
