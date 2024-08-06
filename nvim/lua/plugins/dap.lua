@@ -3,6 +3,7 @@ return {
     'rcarriga/nvim-dap-ui',
     dependencies = {
       'mfussenegger/nvim-dap',
+      'nvim-neotest/nvim-nio',
       'theHamsta/nvim-dap-virtual-text',
     },
 
@@ -34,7 +35,16 @@ return {
         dapui.close()
       end
 
-      require('nvim-dap-virtual-text').setup({})
+      vim.api.nvim_create_user_command('DapListBreakpoints', function()
+        dap.list_breakpoints()
+        vim.cmd('copen')
+      end, {})
+
+      vim.api.nvim_create_user_command('DapClearBreakpoints', function()
+        dap.clear_breakpoints()
+      end, {})
+
+      require('nvim-dap-virtual-text').setup({ enable_commands = true })
     end,
   },
 
