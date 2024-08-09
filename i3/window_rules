@@ -1,0 +1,4 @@
+# vim:ft=i3config
+
+assign [class="(Alacritty|ghostty|wezterm)"] 1
+assign [class="(brave|chrome|firefox)"] 2
