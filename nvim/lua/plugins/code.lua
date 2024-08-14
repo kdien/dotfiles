@@ -1,6 +1,7 @@
 return {
   {
     'iamcco/markdown-preview.nvim',
+    branch = 'master',
     ft = 'markdown',
 
     build = function()
