@@ -4,8 +4,8 @@ term = xterm-ghostty
 title = Ghostty
 
 window-decoration = false
-window-height = 3000
-window-width = 3000
+window-height = 150
+window-width = 250
 
 font-family = Meslo LG M
 
@@ -43,7 +43,8 @@ cursor-style-blink = false
 
 window-padding-x = 2
 window-padding-y = 2
-window-padding-color = extend
+window-padding-balance = true
+window-padding-color = background
 
 copy-on-select = clipboard
 
@@ -53,3 +54,4 @@ shell-integration = detect
 shell-integration-features = sudo,no-cursor,no-title
 
 macos-option-as-alt = true
+mouse-hide-while-typing = true
