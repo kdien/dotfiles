@@ -260,3 +260,15 @@ install_nerd_fonts() {
   echo 'Cleaning up downloaded tarball'
   rm -f "$font.tar.xz"
 }
+
+c() {
+  if [[ -n "$1" ]]; then
+    cd "$HOME/code/$1" || return
+  else
+    local repo
+    repo=$(find "$HOME/code" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | fzf)
+    if [[ -n "$repo" ]]; then
+      cd "$HOME/code/$repo" || return
+    fi
+  fi
+}
