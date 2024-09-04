@@ -40,8 +40,8 @@ return {
       require('lualine').setup({
         options = {
           theme = background == 'dark' and 'onedark' or 'onelight',
-          component_separators = '|',
-          section_separators = '',
+          -- component_separators = '|',
+          -- section_separators = '',
           icons_enabled = false,
         },
         sections = {
