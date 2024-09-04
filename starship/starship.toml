@@ -4,7 +4,16 @@ scan_timeout = 100
 command_timeout = 1000
 add_newline = true
 
-format = '$username$hostname$all'
+format = """
+$username\
+$hostname\
+$directory\
+$all\
+$kubernetes\
+$cmd_duration\
+$line_break\
+$character\
+"""
 
 [aws]
 format = '\[[$symbol ($profile)(@$region)(\[$duration\])]($style)\] '
@@ -119,7 +128,8 @@ format = '\[[$symbol($version)]($style)\] '
 
 [kubernetes]
 format = '\[[$symbol$context( \($namespace\))]($style)\] '
-disabled = true
+disabled = false
+style = '#5989eb'
 
 [lua]
 format = '\[[$symbol ($version)]($style)\] '
