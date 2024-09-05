@@ -11,6 +11,7 @@ return {
         ensure_installed = {
           'black', -- Python
           'editorconfig-checker',
+          'gofumpt',
           'isort', -- Python
           'shellcheck',
           'shfmt',
