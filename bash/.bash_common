@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1090,SC1091
 
 shopt -s direxpand
 
@@ -19,7 +20,6 @@ parse_git_branch() {
   git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-# shellcheck source=/dev/null
 . "$HOME/dotfiles/bash/git_utils.sh"
 
 install_or_update_ohmyposh() {
@@ -88,7 +88,6 @@ export JAVA_HOME
 
 if command -v aws &>/dev/null; then
   complete -C "$(which aws_completer)" aws
-  # shellcheck source=/dev/null
   . "$HOME/dotfiles/bash/aws_utils.sh"
 fi
 
@@ -103,35 +102,33 @@ fi
 if command -v fzf &>/dev/null; then
   export FZF_DEFAULT_OPTS='--layout=reverse --height=~50% --border=rounded'
   alias fzfp='fzf --preview="bat --color=always {}"'
-  # shellcheck source=/dev/null
   . <(fzf --bash)
 fi
 
 if command -v terraform &>/dev/null; then
   complete -C "$(which terraform)" terraform
   complete -C "$(which terraform)" tf
-  # shellcheck source=/dev/null
   . "$HOME/dotfiles/bash/terraform_utils.sh"
 fi
 
 if command -v kubectl &>/dev/null; then
-  # shellcheck source=/dev/null
   . <(kubectl completion bash)
   complete -F __start_kubectl k
 fi
 
 if command -v minikube &>/dev/null; then
-  # shellcheck source=/dev/null
   . <(minikube completion bash)
 fi
 
 if command -v eksctl &>/dev/null; then
-  # shellcheck source=/dev/null
   . <(eksctl completion bash)
 fi
 
+if command -v go &>/dev/null; then
+  . "$HOME/dotfiles/bash/go_utils.sh"
+fi
+
 if [[ -f "$HOME/.nvm/nvm.sh" ]]; then
-  # shellcheck source=/dev/null
   . "$HOME/.nvm/nvm.sh"
 fi
 
