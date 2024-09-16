@@ -37,6 +37,19 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
 
     config = function()
+      local custom_ft = function()
+        if vim.bo.filetype == 'yaml' then
+          local schema = require('yaml-companion').get_buf_schema(0)
+          if schema.result[1].name == 'none' then
+            return 'yaml'
+          else
+            return 'yaml.' .. schema.result[1].name
+          end
+        else
+          return vim.bo.filetype
+        end
+      end
+
       require('lualine').setup({
         options = {
           theme = background == 'dark' and 'onedark' or 'onelight',
@@ -71,7 +84,7 @@ return {
             },
           },
           lualine_x = {
-            'filetype',
+            custom_ft,
             {
               'fileformat',
               symbols = {

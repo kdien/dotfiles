@@ -109,6 +109,11 @@ return {
               filetypes = { 'terraform' },
             })
           end,
+
+          yamlls = function()
+            local cfg = require('yaml-companion').setup({})
+            lspconfig.yamlls.setup(cfg)
+          end,
         },
       })
 
