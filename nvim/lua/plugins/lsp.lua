@@ -62,7 +62,7 @@ return {
           'rust_analyzer',
           'taplo', -- TOML
           'terraformls',
-          'tsserver',
+          'ts_ls',
           'yamlls',
         },
 
