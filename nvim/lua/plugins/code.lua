@@ -38,6 +38,10 @@ return {
     branch = 'main',
     event = 'VeryLazy',
 
+    keys = {
+      { '<leader>sy', '<Cmd>Telescope yaml_schema<CR>' },
+    },
+
     config = function()
       require('telescope').load_extension('yaml_schema')
     end,
