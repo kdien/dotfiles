@@ -50,6 +50,12 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   command = 'set filetype=terraform',
 })
 
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  group = augroup,
+  pattern = '.envrc*',
+  command = 'set filetype=sh',
+})
+
 vim.api.nvim_create_autocmd('TermOpen', {
   group = augroup,
   command = 'setlocal nonumber norelativenumber',
