@@ -13,6 +13,7 @@ return {
       vim.cmd('colorscheme github_light')
     end,
   },
+
   {
     'navarasu/onedark.nvim',
     enabled = background == 'dark' and true or false,
@@ -26,6 +27,9 @@ return {
           functions = 'none',
           strings = 'none',
           variables = 'none',
+        },
+        diagnostics = {
+          undercurl = false,
         },
       })
       require('onedark').load()
