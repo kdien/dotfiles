@@ -1,3 +1,7 @@
+local git_root = function()
+  return vim.fn.system("git rev-parse --show-toplevel | tr -d '\n'")
+end
+
 return {
   {
     'nvim-telescope/telescope.nvim',
@@ -17,8 +21,7 @@ return {
       {
         '<leader>sa',
         function()
-          local git_root = vim.fn.system("git rev-parse --show-toplevel | tr -d '\n'")
-          require('telescope.builtin').find_files({ cwd = git_root, no_ignore = true })
+          require('telescope.builtin').find_files({ cwd = git_root(), no_ignore = true })
         end,
       },
 
@@ -26,6 +29,13 @@ return {
         '<leader>sg',
         function()
           require('telescope.builtin').git_files({ show_untracked = true })
+        end,
+      },
+
+      {
+        '<leader>sp',
+        function()
+          require('telescope.builtin').live_grep({ cwd = git_root() })
         end,
       },
 
