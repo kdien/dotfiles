@@ -46,7 +46,10 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
 
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   group = augroup,
-  pattern = 'terraform.tfvars',
+  pattern = {
+    '*.tf',
+    'terraform.tfvars',
+  },
   command = 'set filetype=terraform',
 })
 
