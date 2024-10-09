@@ -14,6 +14,8 @@ font-style-bold = false
 font-style-italic = false
 font-style-bold-italic = false
 
+font-thicken = false
+
 font-size = 11.25
 
 bold-is-bright = false
@@ -23,6 +25,9 @@ font-feature = -liga
 font-feature = -dlig
 
 adjust-cell-height =
+adjust-cell-width =
+adjust-underline-thickness = -1
+adjust-underline-position = 2
 
 background = #1b1f24
 foreground = #d9d9d9
