@@ -3,8 +3,6 @@ live_config_reload = true
 
 [env]
 TERM = "xterm-256color"
-# macOS
-# SHELL = "/opt/homebrew/bin/bash"
 
 # Windows
 # [shell]
@@ -21,20 +19,20 @@ x = 2
 y = 2
 
 [font]
-size = 11.5
+size = 11.25
 
 [font.normal]
-family = "DejaVu Sans Mono"
+family = "MesloLGM Nerd Font"
 style = "Regular"
 
 [font.bold]
 style = "Regular"
 
-[font.offset]
-y = 2
+# [font.offset]
+# y = 2
 
-[font.glyph_offset]
-y = 2
+# [font.glyph_offset]
+# y = 2
 
 [cursor.style]
 blinking = "Off"
