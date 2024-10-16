@@ -28,6 +28,15 @@ return {
           strings = 'none',
           variables = 'none',
         },
+        colors = {
+          grey = '#6c727e',
+        },
+        highlights = {
+          ['FloatBorder'] = { bg = '#393f4a' },
+          ['NormalFloat'] = { bg = '#393f4a' },
+          ['Visual'] = { bg = '#4e525d' },
+          ['WinSeparator'] = { fg = '#4e525d' },
+        },
         diagnostics = {
           undercurl = false,
         },
