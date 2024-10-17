@@ -118,6 +118,10 @@ if command -v kubectl &>/dev/null; then
   complete -F __start_kubectl k
 fi
 
+if command -v kustomize &>/dev/null; then
+  . <(kustomize completion bash)
+fi
+
 if command -v minikube &>/dev/null; then
   . <(minikube completion bash)
 fi
