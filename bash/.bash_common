@@ -114,20 +114,7 @@ if command -v terraform &>/dev/null; then
 fi
 
 if command -v kubectl &>/dev/null; then
-  . <(kubectl completion bash)
-  complete -F __start_kubectl k
-fi
-
-if command -v kustomize &>/dev/null; then
-  . <(kustomize completion bash)
-fi
-
-if command -v minikube &>/dev/null; then
-  . <(minikube completion bash)
-fi
-
-if command -v eksctl &>/dev/null; then
-  . <(eksctl completion bash)
+  . "$HOME/dotfiles/bash/kube_utils.sh"
 fi
 
 if command -v go &>/dev/null; then
@@ -149,7 +136,6 @@ if command -v bat &>/dev/null; then
   alias cat='bat'
 fi
 
-alias k='kubectl'
 alias ls='ls -lah --color=auto'
 alias mvnfull='mvn clean install -PautoInstallSinglePackage'
 alias mvnquick='mvn clean install -PautoInstallBundle -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dspotbugs.skip=true'
