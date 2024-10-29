@@ -25,3 +25,13 @@ kconf() {
     export KUBECONFIG="$HOME/.kube/$config"
   fi
 }
+
+kct() {
+  [[ -z "$KUBECONFIG" ]] && kconf
+
+  local context
+  context=$(kubectl config get-contexts --output name | fzf --prompt='Select kube context: ')
+  if [[ -n "$context" ]]; then
+    kubectl config use-context "$context"
+  fi
+}
