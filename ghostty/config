@@ -24,6 +24,8 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
+freetype-load-flags = no-hinting
+
 adjust-cell-height =
 adjust-cell-width =
 adjust-underline-thickness = -1
