@@ -34,7 +34,7 @@ adjust-underline-position = 2
 background = #1b1f24
 foreground = #d9d9d9
 selection-foreground = #000000
-selection-background = #fffacd
+selection-background = #bad5fb
 selection-invert-fg-bg = false
 palette = 0=#000000
 palette = 1=#d54e53

@@ -7,7 +7,7 @@ return {
   cursor_border = '#ffffff',
 
   selection_fg = '#000000',
-  selection_bg = '#fffacd',
+  selection_bg = '#bad5fb',
 
   ansi = {
     '#000000',

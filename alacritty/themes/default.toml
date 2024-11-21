@@ -7,7 +7,7 @@ cursor = "0xffffff"
 text = "0x000000"
 
 [colors.selection]
-background = "0xfffacd"
+background = "0xbad5fb"
 text = "0x000000"
 
 [colors.normal]
