@@ -8,6 +8,7 @@ window-height = 150
 window-width = 250
 
 font-family = Meslo LG M
+# font-variation = wght=350
 
 font-style = default
 font-style-bold = false
@@ -15,6 +16,8 @@ font-style-italic = false
 font-style-bold-italic = false
 
 font-thicken = false
+
+# font-codepoint-map = U+2190-U+21F3='JetBrains Mono'
 
 font-size = 11.25
 
