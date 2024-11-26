@@ -18,7 +18,7 @@ git_clean_branches() {
 
 git_copy_branch() {
   local branch
-  branch=$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  branch=$(git branch --show-current)
 
   if command -v pbcopy &>/dev/null; then
     pbcopy <<<"$branch"

@@ -16,10 +16,6 @@ case "$(uname -sr)" in
 esac
 export RUN_OS
 
-parse_git_branch() {
-  git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
 . "$HOME/dotfiles/bash/git_utils.sh"
 
 install_or_update_ohmyposh() {
@@ -65,7 +61,7 @@ if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.
 #   alias azt='oh-my-posh toggle az'
 #   alias kt='oh-my-posh toggle kubectl'
 else
-  export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(parse_git_branch)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
+  export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(git branch --show-current)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
 fi
 
 if command -v nvim &>/dev/null; then
