@@ -27,6 +27,8 @@ end
 
 config.automatically_reload_config = true
 config.front_end = 'OpenGL'
+config.max_fps = 120
+config.audible_bell = 'Disabled'
 
 if platform == 'win' then
   if #wezterm.default_wsl_domains() > 0 then
@@ -56,19 +58,32 @@ config.colors = require('colors')
 
 config.default_cursor_style = 'SteadyBlock'
 
-local font_family = 'JetBrains Mono'
+local primary_font = 'JetBrains Mono'
+local fallback_font = 'MesloLGM Nerd Font Mono'
 
-config.font = wezterm.font({
-  family = font_family,
-  weight = 'Light',
+config.font = wezterm.font_with_fallback({
+  {
+    family = primary_font,
+    weight = 330,
+  },
+  {
+    family = fallback_font,
+    weight = 'Regular',
+  },
 })
 
 config.font_rules = {
   {
     intensity = 'Bold',
-    font = wezterm.font({
-      family = font_family,
-      weight = 'Regular',
+    font = wezterm.font_with_fallback({
+      {
+        family = primary_font,
+        weight = 330,
+      },
+      {
+        family = fallback_font,
+        weight = 'Regular',
+      },
     }),
   },
 }
