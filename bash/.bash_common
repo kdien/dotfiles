@@ -96,7 +96,10 @@ if [[ -d "$HOME/.local/share/nvim/mason/bin" ]]; then
 fi
 
 if command -v fzf &>/dev/null; then
-  export FZF_DEFAULT_OPTS='--layout=reverse --height=~50% --border=rounded'
+  FZF_DEFAULT_OPTS='--layout=reverse --height=~50% --border=rounded'
+  [[ "$TERMINAL_THEME" = 'light' ]] && FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=light"
+  export FZF_DEFAULT_OPTS
+
   alias fzfp='fzf --preview="bat --color=always {}"'
   if fzf --bash &>/dev/null; then
     . <(fzf --bash)
@@ -128,7 +131,9 @@ if [[ "$RUN_OS" = WSL ]]; then
 fi
 
 if command -v bat &>/dev/null; then
-  export BAT_THEME=OneHalfDark
+  BAT_THEME=OneHalfDark
+  [[ "$TERMINAL_THEME" = 'light' ]] && BAT_THEME=OneHalfLight
+  export BAT_THEME
   alias cat='bat'
 fi
 

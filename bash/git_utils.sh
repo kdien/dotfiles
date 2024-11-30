@@ -5,6 +5,10 @@ alias gd='git diff'
 alias glog='git log --graph --decorate --oneline'
 alias gs='git status'
 
+delta_theme=OneHalfDark
+[[ "$TERMINAL_THEME" = 'light' ]] && delta_theme=OneHalfLight
+git config --global delta.syntax-theme "$delta_theme"
+
 gtop() {
   cd "$(git rev-parse --show-toplevel)" || return
 }
