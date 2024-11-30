@@ -1,22 +1,8 @@
-local background = vim.go.background
+vim.o.background = os.getenv('TERMINAL_THEME') or 'dark'
 
 return {
   {
-    'projekt0n/github-nvim-theme',
-    enabled = background == 'light' and true or false,
-    config = function()
-      require('github-theme').setup({
-        options = {
-          transparent = true,
-        },
-      })
-      vim.cmd('colorscheme github_light')
-    end,
-  },
-
-  {
     'navarasu/onedark.nvim',
-    enabled = background == 'dark' and true or false,
     config = function()
       require('onedark').setup({
         style = 'dark',
