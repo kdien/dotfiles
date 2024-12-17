@@ -2,9 +2,6 @@ local git_root = function()
   return vim.fn.system("git rev-parse --show-toplevel | tr -d '\n'")
 end
 
-local builtin = require('telescope.builtin')
-local actions = require('telescope.actions')
-
 return {
   {
     'nvim-telescope/telescope.nvim',
@@ -27,35 +24,35 @@ return {
       {
         '<leader>sa',
         function()
-          builtin.find_files({ cwd = git_root(), no_ignore = true })
+          require('telescope.builtin').find_files({ cwd = git_root(), no_ignore = true })
         end,
       },
 
       {
         '<leader>sg',
         function()
-          builtin.git_files({ show_untracked = true })
+          require('telescope.builtin').git_files({ show_untracked = true })
         end,
       },
 
       {
         '<leader>sp',
         function()
-          builtin.live_grep({ cwd = git_root() })
+          require('telescope.builtin').live_grep({ cwd = git_root() })
         end,
       },
 
       {
         '<leader>ls',
         function()
-          builtin.buffers({ sort_lastused = true })
+          require('telescope.builtin').buffers({ sort_lastused = true })
         end,
       },
 
       {
         '<leader>sn',
         function()
-          builtin.find_files({ cwd = vim.fn.stdpath('config'), no_ignore = true })
+          require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config'), no_ignore = true })
         end,
       },
     },
@@ -85,7 +82,7 @@ return {
           buffers = {
             mappings = {
               n = {
-                ['d'] = actions.delete_buffer,
+                ['d'] = require('telescope.actions').delete_buffer,
               },
             },
           },
