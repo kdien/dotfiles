@@ -33,6 +33,7 @@ adjust-cell-width =
 adjust-underline-thickness = -1
 adjust-underline-position = 2
 
+window-colorspace = display-p3
 background = #1b1f24
 foreground = #d9d9d9
 selection-foreground = #000000
@@ -64,3 +65,6 @@ shell-integration-features = sudo,no-cursor,no-title
 
 macos-option-as-alt = true
 mouse-hide-while-typing = true
+
+auto-update = check
+auto-update-channel = stable
