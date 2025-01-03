@@ -34,7 +34,7 @@ adjust-underline-thickness = -1
 adjust-underline-position = 2
 
 window-colorspace = display-p3
-background = #1b1f24
+# background = #1b1f24
 foreground = #d9d9d9
 selection-foreground = #000000
 selection-background = #bad5fb
