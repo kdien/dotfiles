@@ -46,9 +46,9 @@ git_copy_branch() {
 }
 
 git_https() {
-  git remote set-url origin "$(git remote get-url origin | sed -e 's/git@bitbucket\.org:/https:\/\/kdien@bitbucket\.org\//')"
+  git remote set-url origin "$(git remote get-url origin | sed -e 's/git@github.com:/https:\/\/github.com\//')"
 }
 
 git_ssh() {
-  git remote set-url origin "$(git remote get-url origin | sed -e 's/https:\/\/kdien@bitbucket\.org\//git@bitbucket\.org:/')"
+  git remote set-url origin "$(git remote get-url origin | sed -e 's/https:\/\/github.com\//git@github.com:/')"
 }
