@@ -17,12 +17,12 @@ return {
         colors = {
           grey = '#6c727e',
         },
-        -- highlights = {
-        --   ['FloatBorder'] = { bg = '#393f4a' },
-        --   ['NormalFloat'] = { bg = '#393f4a' },
-        --   ['Visual'] = { bg = '#474e5d' },
-        --   ['WinSeparator'] = { fg = '#474e5d' },
-        -- },
+        highlights = {
+          ['FloatBorder'] = { bg = '#393f4a' },
+          ['NormalFloat'] = { bg = '#393f4a' },
+          ['Visual'] = { bg = '#474e5d' },
+          ['WinSeparator'] = { fg = '#474e5d' },
+        },
         diagnostics = {
           undercurl = false,
         },
