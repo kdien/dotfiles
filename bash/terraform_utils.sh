@@ -6,6 +6,10 @@ alias tfd='terraform-docs'
 alias ti='terraform init'
 alias tp='terraform plan'
 
+if command -v tenv &>/dev/null; then
+  export TENV_DETACHED_PROXY=false
+fi
+
 if command -v terraform-docs &>/dev/null; then
   # shellcheck source=/dev/null
   . <(terraform-docs completion bash)
