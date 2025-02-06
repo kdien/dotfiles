@@ -52,7 +52,7 @@ install_or_update_starship() {
 }
 
 if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.toml"; then
-  export STARSHIP_CONFIG="$HOME/dotfiles/starship/starship.toml"
+  export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
   eval "$(starship init bash)"
   alias azt='starship toggle azure'
   alias kt='starship toggle kubernetes'
