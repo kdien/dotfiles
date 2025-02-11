@@ -59,6 +59,7 @@ return {
           'marksman', -- Markdown
           'omnisharp', -- C#/.NET
           'pyright', -- Python
+          'regal',
           'rust_analyzer',
           'taplo', -- TOML
           'terraformls',

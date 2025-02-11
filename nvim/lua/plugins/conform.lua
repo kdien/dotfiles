@@ -21,6 +21,7 @@ return {
           lua = { 'stylua' },
           proto = { 'buf' },
           python = { 'isort', 'black' },
+          rego = { 'opa_fmt' },
           sh = { 'shfmt' },
           terraform = { 'terraform_fmt' },
           ['*'] = { 'codespell' },
