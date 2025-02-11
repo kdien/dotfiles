@@ -2,6 +2,14 @@ local git_root = function()
   return vim.fn.system("git rev-parse --show-toplevel | tr -d '\n'")
 end
 
+local grep_args = {
+  '--hidden',
+  '--glob',
+  '!**/.git/*',
+  '--glob',
+  '!vendor/*',
+}
+
 return {
   {
     'nvim-telescope/telescope.nvim',
@@ -71,12 +79,12 @@ return {
           },
           live_grep = {
             additional_args = function()
-              return { '--hidden', '--glob', '!**/.git/*' }
+              return grep_args
             end,
           },
           grep_string = {
             additional_args = function()
-              return { '--hidden', '--glob', '!**/.git/*' }
+              return grep_args
             end,
           },
           buffers = {
