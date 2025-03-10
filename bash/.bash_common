@@ -16,6 +16,8 @@ case "$(uname -sr)" in
 esac
 export RUN_OS
 
+export LESS=-R
+
 . "$HOME/dotfiles/bash/git_utils.sh"
 
 install_or_update_ohmyposh() {
