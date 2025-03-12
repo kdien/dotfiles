@@ -34,7 +34,7 @@ format = '\[[$symbol($version)]($style)\] '
 
 [cmd_duration]
 format = '\[[took $duration]($style)\] '
-style = 'white'
+style = 'none'
 
 [cobol]
 format = '\[[$symbol($version)]($style)\] '
