@@ -1,5 +1,4 @@
 require('main.opt')
-require('main.globals')
 require('main.keymaps')
 require('main.lazy')
 require('main.autocmd')
