@@ -58,12 +58,7 @@ return {
         },
         sections = {
           lualine_a = {
-            {
-              'mode',
-              fmt = function(str)
-                return str:sub(1, 1):upper() .. str:sub(2):lower()
-              end,
-            },
+            'mode',
           },
           lualine_b = {
             {
