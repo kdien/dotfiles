@@ -16,7 +16,7 @@ case "$(uname -sr)" in
 esac
 export RUN_OS
 
-export LESS=-RF
+export LESS='-RF --tabs=4'
 
 . "$HOME/dotfiles/bash/git_utils.sh"
 
