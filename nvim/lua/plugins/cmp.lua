@@ -1,66 +1,77 @@
 return {
   {
-    'hrsh7th/nvim-cmp',
-    branch = 'main',
+    'Saghen/blink.cmp',
+    version = '1.*',
     event = { 'InsertEnter' },
 
     dependencies = {
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lua',
-      'hrsh7th/cmp-path',
-      'saadparwaiz1/cmp_luasnip',
-
       'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
+      version = 'v2.*',
     },
 
-    config = function()
-      local cmp = require('cmp')
-      local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-      cmp.setup({
-        view = {
-          entries = 'native',
-        },
-        sources = {
-          { name = 'nvim_lua' },
-          { name = 'nvim_lsp' },
-          { name = 'luasnip', keyword_length = 2 },
-          { name = 'path' },
-          { name = 'buffer', keyword_length = 3 },
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-          ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        }),
-        snippet = {
-          expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-          end,
-        },
-        formatting = {
-          fields = {
-            'abbr',
-            'kind',
-            'menu',
+    opts = {
+      keymap = {
+        preset = 'default',
+        ['<C-u>'] = { 'scroll_documentation_up' },
+        ['<C-d>'] = { 'scroll_documentation_down' },
+      },
+      completion = {
+        menu = {
+          auto_show = true,
+          border = 'none',
+          draw = {
+            columns = {
+              { 'label' },
+              { 'kind_icon', 'kind', gap = 1 },
+              { 'source_name' },
+            },
+            components = {
+              source_name = {
+                text = function(ctx)
+                  return string.format('[%s]', ctx.source_name)
+                end,
+              },
+            },
           },
-          format = function(entry, item)
-            local short_name = {
-              nvim_lsp = 'LSP',
-              nvim_lua = 'nvim',
-            }
-            local menu_name = short_name[entry.source.name] or entry.source.name
-            item.menu = string.format('[%s]', menu_name)
-            return item
-          end,
         },
-      })
-    end,
+        accept = {
+          auto_brackets = {
+            enabled = false,
+          },
+        },
+        documentation = {
+          auto_show = true,
+          window = {
+            border = 'none',
+          },
+        },
+        list = {
+          selection = {
+            preselect = true,
+            auto_insert = false,
+          },
+        },
+      },
+      sources = {
+        default = {
+          'lsp',
+          'snippets',
+          'path',
+          'buffer',
+        },
+      },
+      snippets = {
+        preset = 'luasnip',
+      },
+      cmdline = {
+        keymap = {
+          preset = 'inherit',
+          ['<C-n>'] = { 'select_next', 'fallback' },
+          ['<C-p>'] = { 'select_prev', 'fallback' },
+          ['<C-y>'] = { 'accept', 'fallback' },
+          ['<C-e>'] = { 'cancel', 'fallback' },
+        },
+      },
+    },
   },
 }
