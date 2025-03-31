@@ -34,8 +34,14 @@ return {
           vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename)
           vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
           vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help)
-          vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+
+          vim.keymap.set('n', ']d', function()
+            vim.diagnostic.jump({ count = 1, float = true })
+          end)
+          vim.keymap.set('n', '[d', function()
+            vim.diagnostic.jump({ count = -1, float = true })
+          end)
+
           vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
           vim.keymap.set({ 'i', 's' }, '<C-f>', "<Cmd>lua require('luasnip').jump(1)<CR>")
           vim.keymap.set({ 'i', 's' }, '<C-b>', "<Cmd>lua require('luasnip').jump(-1)<CR>")
@@ -125,20 +131,12 @@ return {
         },
       })
 
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-
-      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
-
       vim.diagnostic.config({
         virtual_text = {
           severity = { min = vim.diagnostic.severity.WARN },
           spacing = 6,
         },
         signs = false,
-        float = {
-          header = '',
-          border = 'rounded',
-        },
       })
     end,
   },

@@ -20,6 +20,9 @@ return {
       local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
       cmp.setup({
+        view = {
+          entries = 'native',
+        },
         sources = {
           { name = 'nvim_lua' },
           { name = 'nvim_lsp' },
