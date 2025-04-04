@@ -1,15 +1,16 @@
 [core]
-    autocrlf = input
-    editor = nvim
-    pager = delta
+	autocrlf = input
+	editor = nvim
+	pager = delta
 
 [delta]
-    line-numbers = true
-    syntax-theme = OneHalfDark
+	line-numbers = true
+	syntax-theme = OneHalfDark
+	tabs = 4
 
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [pull]
-    rebase = false
+	rebase = false
 
