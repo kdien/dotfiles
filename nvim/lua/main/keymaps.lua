@@ -65,3 +65,12 @@ vim.keymap.set('n', '<leader>ts', function()
     vim.opt_local.shiftwidth = tonumber(input)
   end)
 end)
+
+-- Toggle winborder
+vim.keymap.set('n', '<leader>wb', function()
+  if vim.o.winborder == 'none' then
+    vim.o.winborder = 'rounded'
+  else
+    vim.o.winborder = 'none'
+  end
+end)
