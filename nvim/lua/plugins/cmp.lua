@@ -14,6 +14,7 @@ return {
         preset = 'default',
         ['<C-u>'] = { 'scroll_documentation_up' },
         ['<C-d>'] = { 'scroll_documentation_down' },
+        ['<Tab>'] = { 'fallback' },
       },
       completion = {
         menu = {
