@@ -45,6 +45,12 @@ return {
       end, {})
 
       require('nvim-dap-virtual-text').setup({ enable_commands = true })
+
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('DapUI', { clear = true }),
+        pattern = 'dapui_*',
+        command = 'setlocal winborder=none',
+      })
     end,
   },
 
