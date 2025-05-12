@@ -10,8 +10,8 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
 
     dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      { 'mason-org/mason.nvim', version = '^1.0.0' },
+      { 'mason-org/mason-lspconfig.nvim', version = '^1.0.0' },
     },
 
     config = function()
