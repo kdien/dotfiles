@@ -24,6 +24,7 @@ return {
           rego = { 'opa_fmt' },
           sh = { 'shfmt' },
           terraform = { 'terraform_fmt' },
+          yaml = { 'dprint' },
           ['*'] = { 'codespell' },
           ['_'] = { 'trim_whitespace' },
         },
