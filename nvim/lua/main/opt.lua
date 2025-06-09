@@ -2,6 +2,7 @@ vim.opt.winborder = 'rounded'
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.fillchars = 'eob: '
 
 vim.opt.smartindent = true
 
