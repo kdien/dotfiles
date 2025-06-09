@@ -3,14 +3,10 @@ vim.o.background = os.getenv('TERMINAL_THEME') or 'dark'
 return {
   {
     'tjdevries/colorbuddy.nvim',
-    config = function()
-      vim.cmd('colorscheme gruvmate')
-    end,
   },
 
   {
     'navarasu/onedark.nvim',
-    enabled = false,
     config = function()
       require('onedark').setup({
         style = vim.o.background,
@@ -35,7 +31,6 @@ return {
           undercurl = false,
         },
       })
-      require('onedark').load()
     end,
   },
 
