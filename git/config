@@ -5,7 +5,6 @@
 
 [delta]
 	line-numbers = true
-	syntax-theme = OneHalfDark
 	tabs = 4
 
 [interactive]
