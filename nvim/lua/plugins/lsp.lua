@@ -30,8 +30,8 @@ return {
           vim.keymap.set('n', 'gr', vim.lsp.buf.references)
           vim.keymap.set('n', '<leader>vw', '<Cmd>Telescope lsp_workspace_symbols<CR>')
           vim.keymap.set('n', '<leader>vs', '<Cmd>Telescope lsp_document_symbols<CR>')
-          vim.keymap.set('n', '<leader>vca', vim.lsp.buf.code_action)
-          vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename)
+          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
           vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
           vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help)
 
