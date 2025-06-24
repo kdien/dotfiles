@@ -149,7 +149,7 @@
       "yellow": "#C4A000"
     },
     {
-      "background": "#1B1F24",
+      "background": "#282C34",
       "black": "#000000",
       "blue": "#7AA6DA",
       "brightBlack": "#666666",
@@ -162,12 +162,12 @@
       "brightYellow": "#E7C547",
       "cursorColor": "#FFFFFF",
       "cyan": "#70C0BA",
-      "foreground": "#D9D9D9",
+      "foreground": "#D4D4D4",
       "green": "#B9CA4A",
       "name": "Tomorrow Night Bright",
       "purple": "#C397D8",
       "red": "#D54E53",
-      "selectionBackground": "#EAEAEA",
+      "selectionBackground": "#BAD5FB",
       "white": "#EAEAEA",
       "yellow": "#E6C547"
     }
