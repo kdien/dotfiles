@@ -58,10 +58,11 @@ if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.
   eval "$(starship init bash)"
   alias azt='starship toggle azure'
   alias kt='starship toggle kubernetes'
-# if command -v oh-my-posh &>/dev/null && test -f "$HOME/dotfiles/oh-my-posh/ohmyposh.json"; then
-#   eval "$(oh-my-posh init bash --config "$HOME/dotfiles/oh-my-posh/ohmyposh.json")"
+# if command -v oh-my-posh &>/dev/null && test -f "$HOME/.config/oh-my-posh/config.json"; then
+#   eval "$(oh-my-posh init bash --config "$HOME/.config/oh-my-posh/config.json")"
 #   alias azt='oh-my-posh toggle az'
 #   alias kt='oh-my-posh toggle kubectl'
+#   oh-my-posh toggle az
 else
   export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(git branch --show-current)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
 fi
