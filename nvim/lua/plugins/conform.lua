@@ -20,7 +20,7 @@ return {
           json = { 'jq' },
           lua = { 'stylua' },
           proto = { 'buf' },
-          python = { 'isort', 'black' },
+          python = { 'ruff_organize_imports', 'ruff_format' },
           rego = { 'opa_fmt' },
           sh = { 'shfmt' },
           terraform = { 'terraform_fmt' },

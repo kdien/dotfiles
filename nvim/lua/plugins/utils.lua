@@ -9,11 +9,9 @@ return {
     config = function()
       require('mason-tool-installer').setup({
         ensure_installed = {
-          'black', -- Python
           'buf', -- Protobuf
           'editorconfig-checker',
           'gofumpt',
-          'isort', -- Python
           'shellcheck',
           'shfmt',
           'stylua',

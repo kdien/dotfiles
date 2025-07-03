@@ -66,6 +66,7 @@ return {
           'omnisharp', -- C#/.NET
           'pyright', -- Python
           'regal',
+          'ruff', -- Python
           'rust_analyzer',
           'taplo', -- TOML
           'terraformls',
@@ -109,6 +110,12 @@ return {
                   },
                 },
               },
+            })
+          end,
+
+          ruff = function()
+            lspconfig.ruff.setup({
+              cmd = { 'true' },
             })
           end,
 
