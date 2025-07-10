@@ -84,6 +84,7 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
 
     config = function()
+      require('treesitter-context').setup({})
       vim.keymap.set('n', '[f', function()
         require('treesitter-context').go_to_context()
       end)
