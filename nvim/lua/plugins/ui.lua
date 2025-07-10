@@ -18,10 +18,10 @@ return {
           strings = 'none',
           variables = 'none',
         },
-        colors = {
+        colors = vim.o.background == 'dark' and {
           fg = '#d4d4d4',
           grey = '#6c727e',
-        },
+        } or {},
         highlights = vim.o.background == 'dark' and {
           ['FloatBorder'] = { bg = '#393f4a' },
           ['NormalFloat'] = { bg = '#393f4a' },
