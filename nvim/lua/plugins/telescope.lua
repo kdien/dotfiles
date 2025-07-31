@@ -15,7 +15,7 @@ return {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = {
-      'nvim-lua/plenary.nvim',
+      { 'nvim-lua/plenary.nvim', branch = 'master' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     cmd = 'Telescope',
@@ -101,21 +101,6 @@ return {
       })
 
       require('telescope').load_extension('fzf')
-
-      -- Workaround to fix Telescope until https://github.com/nvim-lua/plenary.nvim/pull/649 is merged
-      vim.api.nvim_create_autocmd('User', {
-        group = vim.api.nvim_create_augroup('TelescopeWorkaround', { clear = true }),
-        pattern = 'TelescopeFindPre',
-        callback = function()
-          vim.opt_local.winborder = 'none'
-          vim.api.nvim_create_autocmd('WinLeave', {
-            once = true,
-            callback = function()
-              vim.opt_local.winborder = 'rounded'
-            end,
-          })
-        end,
-      })
     end,
   },
 }
