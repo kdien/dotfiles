@@ -2,6 +2,7 @@ require('main.opt')
 require('main.keymaps')
 require('main.lazy')
 require('main.autocmd')
+require('main.user_commands')
 require('main.statusline')
 
 vim.cmd('colorscheme onedark')
