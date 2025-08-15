@@ -110,10 +110,4 @@ return {
       end, { nargs = 1 })
     end,
   },
-
-  {
-    'github/copilot.vim',
-    lazy = true,
-    cmd = { 'Copilot' },
-  },
 }
