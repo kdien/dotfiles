@@ -21,9 +21,7 @@ font-size = 11.25
 
 bold-is-bright = false
 
-font-feature = -calt
-font-feature = -liga
-font-feature = -dlig
+font-feature = -calt,-liga,-dlig
 
 freetype-load-flags = no-hinting
 
