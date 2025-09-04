@@ -42,9 +42,9 @@ shape = "Block"
 [selection]
 save_to_clipboard = true
 
-[[mouse.bindings]]
-action = "Paste"
-mouse = "Right"
+[mouse]
+hide_when_typing = true
+bindings = [{ mouse = "Right", action = "Paste" }]
 
 [keyboard]
 bindings = [{ key = "N", mods = "Control|Shift", action = "CreateNewWindow" }]
