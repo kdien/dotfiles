@@ -1,10 +1,10 @@
 return {
-  foreground = '#d4d4d4',
+  foreground = '#cccccc',
   background = '#282c34',
 
   cursor_fg = '#000000',
-  cursor_bg = '#ffffff',
-  cursor_border = '#ffffff',
+  cursor_bg = '#cccccc',
+  cursor_border = '#cccccc',
 
   selection_fg = '#000000',
   selection_bg = '#bad5fb',

@@ -32,7 +32,7 @@ adjust-underline-thickness = -1
 adjust-underline-position = 2
 
 background = #282c34
-foreground = #d4d4d4
+foreground = #cccccc
 selection-foreground = #000000
 selection-background = #bad5fb
 selection-invert-fg-bg = false

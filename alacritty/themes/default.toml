@@ -1,9 +1,9 @@
 [colors.primary]
 background = "0x282c34"
-foreground = "0xd4d4d4"
+foreground = "0xcccccc"
 
 [colors.cursor]
-cursor = "0xffffff"
+cursor = "0xcccccc"
 text = "0x000000"
 
 [colors.selection]
