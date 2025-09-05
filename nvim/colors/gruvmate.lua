@@ -7,7 +7,7 @@ local c = colorbuddy.colors
 local g = colorbuddy.groups
 local s = colorbuddy.styles
 
-Color.new('white', '#d4d4d4')
+Color.new('white', '#cccccc')
 Color.new('red', '#cc6666')
 Color.new('pink', '#fef601')
 Color.new('green', '#99cc99')

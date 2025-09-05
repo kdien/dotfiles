@@ -19,7 +19,7 @@ return {
           variables = 'none',
         },
         colors = vim.o.background == 'dark' and {
-          fg = '#d4d4d4',
+          fg = '#cccccc',
           grey = '#6c727e',
         } or {},
         highlights = vim.o.background == 'dark' and {
