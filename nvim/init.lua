@@ -7,6 +7,26 @@ require('main.statusline')
 
 vim.cmd('colorscheme onedark')
 
+local hl_groups = {
+  'Normal',
+  'Terminal',
+  'SignColumn',
+  'FoldColumn',
+  'Folded',
+  'LineNr',
+  'DiffAdd',
+  'DiffChange',
+  'DiffDelete',
+  'DiffText',
+  'GitGutterAdd',
+  'GitGutterChange',
+  'GitGutterDelete',
+  'GitGutterChangeDelete',
+}
+for _, group in ipairs(hl_groups) do
+  vim.cmd('highlight ' .. group .. ' guibg=NONE')
+end
+
 -- Disable LSP semantic token highlighting
 for _, group in ipairs(vim.fn.getcompletion('@lsp', 'highlight')) do
   vim.api.nvim_set_hl(0, group, {})
