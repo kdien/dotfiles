@@ -6,7 +6,7 @@ alias glog='git log --graph --decorate --oneline'
 alias gs='git status'
 
 delta_theme=OneHalfDark
-[[ "$TERMINAL_THEME" = 'light' ]] && delta_theme=OneHalfLight
+[[ "$TERMINAL_THEME" = 'light' ]] && delta_theme=GitHub
 git config --global delta.syntax-theme "$delta_theme"
 
 gtop() {

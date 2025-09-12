@@ -135,7 +135,7 @@ fi
 
 if command -v bat &>/dev/null; then
   BAT_THEME=OneHalfDark
-  [[ "$TERMINAL_THEME" = 'light' ]] && BAT_THEME=OneHalfLight
+  [[ "$TERMINAL_THEME" = 'light' ]] && BAT_THEME=GitHub
   export BAT_THEME
   alias cat='bat'
 fi
