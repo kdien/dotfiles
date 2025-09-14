@@ -25,6 +25,7 @@ return {
           width = 0.5,
         },
         auto_insert_mode = false,
+        chat_autocomplete = false,
       })
     end,
   },
