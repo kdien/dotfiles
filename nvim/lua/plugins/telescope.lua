@@ -66,12 +66,21 @@ return {
     },
 
     config = function()
+      local actions = require('telescope.actions')
       require('telescope').setup({
         defaults = {
           layout_config = {
             prompt_position = 'top',
           },
           sorting_strategy = 'ascending',
+          mappings = {
+            n = {
+              ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+            },
+            i = {
+              ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+            },
+          },
         },
         pickers = {
           find_files = {
@@ -90,7 +99,7 @@ return {
           buffers = {
             mappings = {
               n = {
-                ['d'] = require('telescope.actions').delete_buffer,
+                ['d'] = actions.delete_buffer,
               },
             },
           },
