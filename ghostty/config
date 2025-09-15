@@ -4,8 +4,7 @@ term = xterm-ghostty
 title = Ghostty
 
 window-decoration = false
-window-height = 150
-window-width = 250
+maximize = true
 
 font-family = Meslo LG M
 # font-variation = wght=350
@@ -35,7 +34,6 @@ background = #282c34
 foreground = #cccccc
 selection-foreground = #000000
 selection-background = #bad5fb
-selection-invert-fg-bg = false
 palette = 0=#000000
 palette = 1=#d54e53
 palette = 2=#b9ca4a
