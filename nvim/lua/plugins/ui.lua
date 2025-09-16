@@ -6,6 +6,17 @@ return {
   },
 
   {
+    'Mofiqul/vscode.nvim',
+    opts = {
+      group_overrides = {
+        ModeMsg = { bg = 'NONE' },
+        StatusLine = { bg = '#c9c9c9' },
+        StatusLineNC = { bg = '#dfdfdf' },
+      },
+    },
+  },
+
+  {
     'navarasu/onedark.nvim',
     config = function()
       require('onedark').setup({

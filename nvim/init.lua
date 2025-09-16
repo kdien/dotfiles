@@ -5,7 +5,8 @@ require('main.autocmd')
 require('main.user_commands')
 require('main.statusline')
 
-vim.cmd('colorscheme onedark')
+local c = vim.o.background == 'light' and 'vscode' or 'onedark'
+vim.cmd('colorscheme ' .. c)
 
 local hl_groups = {
   'Normal',
