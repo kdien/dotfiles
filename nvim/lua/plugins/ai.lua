@@ -25,6 +25,11 @@ return {
         },
         auto_insert_mode = false,
         chat_autocomplete = false,
+        mappings = {
+          complete = {
+            insert = '', -- needed to allow <Tab> (from `copilot.vim`) to work in the chat window
+          },
+        },
       })
     end,
   },
