@@ -134,7 +134,7 @@ if [[ "$RUN_OS" = WSL ]]; then
 fi
 
 if command -v bat &>/dev/null; then
-  BAT_THEME=OneHalfDark
+  BAT_THEME=ansi
   [[ "$TERMINAL_THEME" = 'light' ]] && BAT_THEME=GitHub
   export BAT_THEME
   alias cat='bat'
