@@ -48,7 +48,7 @@ return {
           variables = 'none',
         },
         colors = vim.o.background == 'dark' and {
-          fg = '#cccccc',
+          fg = TERM_FG_COLOR or '#abb2bf',
           grey = '#6c727e',
         } or {},
         highlights = vim.o.background == 'dark' and {

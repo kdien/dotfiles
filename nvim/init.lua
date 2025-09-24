@@ -1,3 +1,7 @@
+if vim.env.GHOSTTY_RESOURCES_DIR and vim.env.GHOSTTY_RESOURCES_DIR ~= '' then
+  TERM_FG_COLOR = vim.fn.system("ghostty +show-config | awk -F '=' '/^foreground =/ {print $2}' | tr -d [:space:]")
+end
+
 require('main.opt')
 require('main.keymaps')
 require('main.lazy')
