@@ -17,6 +17,24 @@ return {
   },
 
   {
+    'maxmx03/solarized.nvim',
+    opts = {
+      transparent = {
+        enabled = true,
+        normalfloat = false,
+      },
+      on_highlights = function(colors, color)
+        local groups = {
+          Visual = { fg = 'NONE' },
+          FloatBorder = { bg = colors.base04 },
+          TreeSitterContext = { bg = '#1a404b' },
+        }
+        return groups
+      end,
+    },
+  },
+
+  {
     'navarasu/onedark.nvim',
     config = function()
       require('onedark').setup({
