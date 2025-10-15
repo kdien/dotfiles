@@ -29,6 +29,10 @@ format = '\[[$symbol($version)]($style)\] '
 [c]
 format = '\[[$symbol($version(-$name))]($style)\] '
 
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
+
 [cmake]
 format = '\[[$symbol($version)]($style)\] '
 
