@@ -25,7 +25,7 @@ git_copy_branch() {
   branch=$(git branch --show-current)
 
   if command -v pbcopy &>/dev/null; then
-    pbcopy <<<"$branch"
+    echo -n "$branch" | pbcopy
     return
   fi
 
@@ -35,12 +35,12 @@ git_copy_branch() {
   fi
 
   if [[ "$XDG_SESSION_TYPE" = 'x11' ]]; then
-    xclip -selection clipboard <<<"$branch"
+    echo -n "$branch" | xclip -selection clipboard
     return
   fi
 
   if [[ "$XDG_SESSION_TYPE" = 'wayland' ]]; then
-    wl-copy <<<"$branch"
+    echo -n "$branch" | wl-copy
     return
   fi
 }
