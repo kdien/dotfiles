@@ -25,15 +25,6 @@ local hl_groups = {
   'SignColumn',
   'FoldColumn',
   'Folded',
-  'LineNr',
-  'DiffAdd',
-  'DiffChange',
-  'DiffDelete',
-  'DiffText',
-  'GitGutterAdd',
-  'GitGutterChange',
-  'GitGutterDelete',
-  'GitGutterChangeDelete',
 }
 for _, group in ipairs(hl_groups) do
   vim.cmd('highlight ' .. group .. ' guibg=NONE')
