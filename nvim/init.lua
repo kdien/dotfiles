@@ -2,6 +2,13 @@ if vim.env.GHOSTTY_RESOURCES_DIR and vim.env.GHOSTTY_RESOURCES_DIR ~= '' then
   TERM_FG_COLOR = vim.fn.system("ghostty +show-config | awk -F '=' '/^foreground =/ {print $2}' | tr -d [:space:]")
 end
 
+if vim.env.ALACRITTY_SOCKET then
+  local term_fg = vim.fn.system('alacritty msg get-config 2>/dev/null | jq -r .colors.primary.foreground | tr -d [:space:]')
+  if term_fg and term_fg ~= '' then
+    TERM_FG_COLOR = term_fg
+  end
+end
+
 require('main.opt')
 require('main.keymaps')
 require('main.lazy')
