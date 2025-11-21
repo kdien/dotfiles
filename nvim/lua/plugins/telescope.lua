@@ -20,6 +20,8 @@ return {
     },
     cmd = 'Telescope',
 
+    enabled = false,
+
     keys = {
       { '<leader>sr', '<Cmd>Telescope resume<CR>' },
       { '<leader>sf', '<Cmd>Telescope find_files<CR>' },
