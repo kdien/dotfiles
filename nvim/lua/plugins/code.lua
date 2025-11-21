@@ -36,14 +36,17 @@ return {
   {
     'someone-stole-my-name/yaml-companion.nvim',
     branch = 'main',
-    event = 'VeryLazy',
+    ft = 'yaml',
 
     keys = {
-      { '<leader>sy', '<Cmd>Telescope yaml_schema<CR>' },
+      {
+        '<leader>sy',
+        function()
+          require('yaml-companion').open_ui_select()
+        end,
+      },
     },
 
-    config = function()
-      require('telescope').load_extension('yaml_schema')
-    end,
+    opts = {},
   },
 }
