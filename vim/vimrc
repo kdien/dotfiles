@@ -1,0 +1,510 @@
+" ============================================================================
+" VIM CONFIGURATION - Migrated from Neovim
+" Using vim-lsp + ale for LSP and linting/formatting
+" ============================================================================
+
+" ============================================================================
+" PLUGIN MANAGEMENT - vim-plug
+" ============================================================================
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+      \| PlugInstall --sync | source $MYVIMRC
+      \| endif
+
+call plug#begin('~/.vim/plugged')
+
+" LSP and completion
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'  " Auto-install LSP servers
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+" Linting and formatting
+Plug 'dense-analysis/ale'
+
+" Fuzzy finder (replaces Telescope)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Git integration
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
+
+" Code editing
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+" File explorer (lighter alternative to oil.nvim)
+" Using built-in netrw, but you can add:
+" Plug 'preservim/nerdtree'
+
+" Statusline
+Plug 'itchyny/lightline.vim'
+
+" AI
+" Plug 'github/copilot.vim'
+
+" Language-specific
+Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install', 'for': 'markdown' }
+Plug 'diepm/vim-rest-console', { 'for': 'rest' }
+
+" Color schemes
+Plug 'joshdick/onedark.vim'
+Plug 'tomasiser/vim-code-dark'
+
+call plug#end()
+
+" ============================================================================
+" BASIC SETTINGS
+" ============================================================================
+set nocompatible
+filetype plugin indent on
+syntax on
+
+" Line numbers
+set number
+set relativenumber
+
+" Indentation
+set smartindent
+set expandtab
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+
+" Search
+set incsearch
+set ignorecase
+set smartcase
+set nohlsearch
+
+" UI
+set termguicolors
+set background=dark
+set fillchars=eob:\
+set laststatus=2
+set mouse=a
+
+" Splits
+set splitbelow
+set splitright
+
+" Scrolling
+set scrolloff=10
+
+" Reduce delay to normal mode
+set timeoutlen=1000 ttimeoutlen=50
+
+" netrw settings
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
+" WSL clipboard support
+if has('wsl')
+  let g:clipboard = {
+        \   'name': 'WslClipboard',
+        \   'copy': {
+        \      '+': 'clip.exe',
+        \      '*': 'clip.exe',
+        \    },
+        \   'paste': {
+        \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        \   },
+        \   'cache_enabled': 0,
+        \ }
+  let g:netrw_browsex_viewer = 'cmd.exe /C start'
+endif
+
+" ============================================================================
+" KEY MAPPINGS
+" ============================================================================
+let mapleader = ' '
+let maplocalleader = ' '
+
+" File explorer
+nnoremap <leader>e :Explore<CR>
+
+" Resize windows
+nnoremap <M-Up> :vertical resize +5<CR>
+nnoremap <M-Down> :vertical resize -5<CR>
+nnoremap <M-S-Up> :resize +5<CR>
+nnoremap <M-S-Down> :resize -5<CR>
+
+" Indent and unindent highlighted blocks
+vnoremap <S-TAB> <gv
+vnoremap <TAB> >gv
+
+" Move highlighted blocks
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Center cursor vertically while <C-d> and <C-u>
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" Paste and keep the previously yanked content
+xnoremap <leader>p "_dP
+
+" Yank into system clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+yg$
+
+" Delete into void register
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" Don't do anything when pressing Q
+nnoremap Q <nop>
+
+" Cycle through open buffers
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprevious<CR>
+nnoremap <leader>q :b#<CR>
+
+" Cycle through quickfix list items
+nnoremap ]e :try<bar>cnext<bar>catch<bar>cfirst<bar>catch<bar>endtry<CR>
+nnoremap [e :try<bar>cprevious<bar>catch<bar>clast<bar>catch<bar>endtry<CR>
+
+" Cycle through tabs
+nnoremap ]t :tabnext<CR>
+nnoremap [t :tabprevious<CR>
+
+" ============================================================================
+" LSP CONFIGURATION (vim-lsp)
+" ============================================================================
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+
+  " LSP keymaps (matching your nvim config)
+  nmap <buffer> K <plug>(lsp-hover)
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> go <plug>(lsp-type-definition)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> <leader>ca <plug>(lsp-code-action)
+  nmap <buffer> <leader>vd <plug>(lsp-document-diagnostics)
+  nmap <buffer> <leader>vs <plug>(lsp-document-symbol)
+  nmap <buffer> <leader>vw <plug>(lsp-workspace-symbol)
+  nmap <buffer> ]d <plug>(lsp-next-diagnostic)
+  nmap <buffer> [d <plug>(lsp-previous-diagnostic)
+
+  " Format
+  nmap <buffer> <leader>f <plug>(lsp-document-format)
+
+  " Signature help in insert mode
+  inoremap <buffer> <C-h> <C-\><C-o>:LspHover<CR>
+endfunction
+
+augroup lsp_install
+  autocmd!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" LSP settings
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 0
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_signs_enabled = 0  " Using ale for signs
+let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_document_highlight_enabled = 0
+let g:lsp_semantic_enabled = 0  " Disable semantic tokens like your nvim config
+
+" Show diagnostics on hover
+let g:lsp_diagnostics_highlights_delay = 100
+let g:lsp_diagnostics_highlights_insert_mode_enabled = 0
+
+" vim-lsp-settings will auto-install these servers:
+" - ansiblels (Ansible)
+" - bash-language-server
+" - docker-langserver
+" - gopls (Go)
+" - json-languageserver
+" - lua-language-server
+" - marksman (Markdown)
+" - omnisharp (C#)
+" - pyright (Python)
+" - rust-analyzer
+" - taplo (TOML)
+" - terraform-ls
+" - typescript-language-server
+" - yaml-language-server
+
+" Server-specific settings
+if executable('gopls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls']},
+        \ 'allowlist': ['go', 'gomod', 'gowork'],
+        \ 'workspace_config': {
+        \   'gopls': {
+        \     'gofumpt': v:true,
+        \     'buildFlags': ['-tags=integration']
+        \   }
+        \ }
+        \ })
+endif
+
+" ============================================================================
+" ALE CONFIGURATION (linting + formatting)
+" ============================================================================
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 1
+let g:ale_sign_priority = 10
+
+" Signs (matching your gitsigns priority)
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_sign_info = 'ℹ'
+
+" Virtual text (warnings only, like your nvim config)
+let g:ale_virtualtext_cursor = 'current'
+let g:ale_virtualtext_prefix = '  '
+
+" Linters by filetype
+let g:ale_linters = {
+      \   'go': ['gopls', 'golangci-lint'],
+      \   'python': ['ruff', 'pyright'],
+      \   'javascript': ['eslint'],
+      \   'typescript': ['eslint', 'tsserver'],
+      \   'sh': ['shellcheck'],
+      \   'yaml': ['yamllint'],
+      \   'json': ['jsonlint'],
+      \}
+
+" Fixers by filetype (matching your conform.nvim config)
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'go': ['gofumpt'],
+      \   'python': ['ruff', 'ruff_format'],
+      \   'lua': ['stylua'],
+      \   'sh': ['shfmt'],
+      \   'terraform': ['terraform'],
+      \   'json': ['jq'],
+      \   'yaml': ['prettier'],
+      \}
+
+" Commands to toggle formatting (like your nvim config)
+command! FormatDisable let b:ale_fix_on_save = 0
+command! FormatEnable let b:ale_fix_on_save = 1
+command! -bang FormatDisableGlobal
+      \ if <bang>0 | let g:ale_fix_on_save = 0 | else | let b:ale_fix_on_save = 0 | endif
+
+" ============================================================================
+" ASYNCOMPLETE CONFIGURATION (completion)
+" ============================================================================
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 1
+let g:asyncomplete_popup_delay = 200
+
+" Tab completion
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR>    pumvisible() ? asyncomplete#close_popup() : "\<CR>"
+
+" Close preview window after completion
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" ============================================================================
+" FZF CONFIGURATION (replaces Telescope)
+" ============================================================================
+" FZF keymaps (matching your telescope keymaps)
+nnoremap <leader>sf :Files<CR>
+nnoremap <leader>sg :GFiles<CR>
+nnoremap <leader>sa :AllFiles<CR>
+nnoremap <leader>ss :Rg<CR>
+nnoremap <leader>st :RgWord<CR>
+nnoremap <leader>sp :RgRoot<CR>
+nnoremap <leader>ls :Buffers<CR>
+nnoremap <leader>sh :Helptags<CR>
+nnoremap <leader>km :Maps<CR>
+nnoremap <leader>sr :History<CR>
+nnoremap <leader>sn :FindNvimConfig<CR>
+
+" Custom commands
+command! AllFiles call fzf#run(fzf#wrap({
+      \ 'source': 'git ls-files --exclude-standard --others --cached 2>/dev/null || find . -type f',
+      \ 'options': ['--preview', 'bat --color=always --style=numbers {}']
+      \ }))
+
+command! RgRoot call fzf#vim#grep(
+      \ 'rg --hidden --glob "!**/.git/*" --glob "!vendor/*" --column --line-number --no-heading --color=always --smart-case -- '.shellescape(''),
+      \ 1, {'dir': system('git rev-parse --show-toplevel 2>/dev/null')[:-2]}, 0)
+
+command! RgWord call fzf#vim#grep(
+      \ 'rg --hidden --glob "!**/.git/*" --glob "!vendor/*" --column --line-number --no-heading --color=always --smart-case -- '.shellescape(expand('<cword>')),
+      \ 1, fzf#vim#with_preview(), 0)
+
+command! FindNvimConfig call fzf#run(fzf#wrap({
+      \ 'source': 'find ~/.vim -type f',
+      \ 'options': ['--preview', 'bat --color=always --style=numbers {}']
+      \ }))
+
+" FZF layout (matching your telescope top prompt position)
+let g:fzf_layout = { 'down': '40%' }
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
+" Send to quickfix with Ctrl-Q
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+      \ 'ctrl-q': function('s:build_quickfix_list'),
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+
+" ============================================================================
+" GIT CONFIGURATION
+" ============================================================================
+" Gitgutter settings
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '_'
+let g:gitgutter_sign_removed_first_line = '‾'
+let g:gitgutter_sign_modified_removed = '~'
+let g:gitgutter_sign_priority = 10
+
+" Gitgutter keymaps (matching your gitsigns)
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
+nmap <leader>hs <Plug>(GitGutterStageHunk)
+nmap <leader>hr <Plug>(GitGutterUndoHunk)
+nmap <leader>hp <Plug>(GitGutterPreviewHunk)
+nmap <leader>hb :GitGutterLineBlamesToggle<CR>
+nmap <leader>hd :GitGutterDiffOrig<CR>
+
+" Stage/unstage buffer
+nnoremap <leader>hS :!git add %<CR>
+nnoremap <leader>hR :!git checkout %<CR>
+
+" ============================================================================
+" LIGHTLINE STATUSLINE
+" ============================================================================
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'filetype', 'fileformat' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead',
+      \   'filetype': 'LightlineFiletype',
+      \ },
+      \ }
+
+function! LightlineFiletype()
+  return &filetype
+endfunction
+
+" ============================================================================
+" PLUGIN-SPECIFIC SETTINGS
+" ============================================================================
+
+" vim-rest-console
+let g:vrc_allow_get_request_body = 1
+let g:vrc_auto_format_response_enabled = 1
+let g:vrc_curl_opts = {'-sSL': ''}
+let g:vrc_keepalt = 1
+let g:vrc_response_default_content_type = 'application/json'
+let g:vrc_set_default_mapping = 0
+autocmd FileType rest nnoremap <buffer> <leader>rq :call VrcQuery()<CR>
+
+" Markdown preview
+let g:mkdp_echo_preview_url = 1
+
+" Ansible
+nnoremap <leader>ab :set filetype=ansible<CR>:set syntax=yaml.ansible<CR>
+
+" ============================================================================
+" AUTOCOMMANDS
+" ============================================================================
+augroup UserGroup
+  autocmd!
+
+  " Highlight on yank
+  if exists('##TextYankPost')
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=100}
+  endif
+
+  " File type specific tab settings
+  autocmd FileType ansible,hcl,json,lua,sh,terraform,vim,xml,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+  " SSH config
+  autocmd BufNewFile,BufRead ~/.ssh/config.d/* set filetype=sshconfig
+
+  " Jenkinsfile
+  autocmd BufNewFile,BufRead Jenkinsfile* set filetype=groovy
+
+  " Terraform
+  autocmd BufNewFile,BufRead *.tf,terraform.tfvars set filetype=terraform
+
+  " .envrc
+  autocmd BufNewFile,BufRead .envrc* set filetype=sh
+
+  " Terminal
+  autocmd TerminalOpen * setlocal nonumber norelativenumber
+augroup END
+
+" ============================================================================
+" USER COMMANDS
+" ============================================================================
+command! StripANSI %s/\e\[[0-9;]*m//g
+
+" Browse command for WSL/Mac
+if has('wsl')
+  command! -nargs=1 Browse silent !wslview <args>
+elseif has('mac')
+  command! -nargs=1 Browse silent !open <args>
+else
+  command! -nargs=1 Browse silent !xdg-open <args>
+endif
+
+" ============================================================================
+" COLOR SCHEME
+" ============================================================================
+" Set background based on environment variable
+if $TERMINAL_THEME == 'light'
+  set background=light
+  colorscheme one
+else
+  set background=dark
+  colorscheme onedark
+endif
+
+" Make background transparent (matching your nvim config)
+highlight Normal guibg=NONE ctermbg=NONE
+highlight Terminal guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight FoldColumn guibg=NONE ctermbg=NONE
+highlight Folded guibg=NONE ctermbg=NONE
+
+" ============================================================================
+" LOCAL CONFIGURATION
+" ============================================================================
+" Load local config files from ~/.vim/local/*.vim
+if isdirectory(expand('~/.vim/local'))
+  for config_file in split(glob('~/.vim/local/*.vim'), '\n')
+    execute 'source' config_file
+  endfor
+endif
