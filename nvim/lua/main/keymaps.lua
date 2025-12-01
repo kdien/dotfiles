@@ -3,6 +3,8 @@ vim.g.maplocalleader = ' '
 
 vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 
+vim.keymap.set({}, '<C-c>', '<Esc>')
+
 -- Resize windows
 -- width
 vim.keymap.set({ 'n', 'v' }, '<M-Up>', '5<C-w>>')
