@@ -29,6 +29,9 @@ return {
           complete = {
             insert = '', -- needed to allow <Tab> (from `copilot.vim`) to work in the chat window
           },
+          close = {
+            insert = '',
+          },
         },
       })
     end,
