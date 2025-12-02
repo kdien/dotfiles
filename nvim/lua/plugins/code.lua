@@ -34,7 +34,7 @@ return {
   },
 
   {
-    'someone-stole-my-name/yaml-companion.nvim',
+    'kdien/yaml-companion.nvim',
     branch = 'main',
     ft = 'yaml',
 
@@ -47,6 +47,13 @@ return {
       },
     },
 
-    opts = {},
+    opts = {
+      schemas = {
+        {
+          name = 'Argo',
+          uri = 'https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/jsonschema/schema.json',
+        },
+      },
+    },
   },
 }

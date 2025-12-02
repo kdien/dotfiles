@@ -126,14 +126,7 @@ return {
           end,
 
           yamlls = function()
-            local cfg = require('yaml-companion').setup({
-              schemas = {
-                {
-                  name = 'Argo',
-                  uri = 'https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/jsonschema/schema.json',
-                },
-              },
-            })
+            local cfg = require('yaml-companion').setup({})
             lspconfig.yamlls.setup(cfg)
           end,
         },
