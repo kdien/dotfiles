@@ -1,4 +1,7 @@
 Set-PSReadLineKeyHandler -Chord Ctrl+d -Function DeleteCharOrExit
+Set-PSReadLineKeyHandler -Chord Ctrl+u -Function RevertLine
+Set-PSReadLineKeyHandler -Chord Ctrl+n -Function NextHistory
+Set-PSReadLineKeyHandler -Chord Ctrl+p -Function PreviousHistory
 Set-PSReadLineOption -PredictionSource None
 
 $PSDefaultParameterValues = @{
