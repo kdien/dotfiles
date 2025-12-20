@@ -89,6 +89,10 @@ function gs {
     git status
 }
 
+function gd {
+    git diff $args
+}
+
 function gtop {
     $gitRoot = git rev-parse --show-toplevel
     Set-Location $gitRoot
