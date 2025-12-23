@@ -25,9 +25,13 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.automatically_reload_config = true
-config.front_end = 'OpenGL'
 config.max_fps = 120
+config.animation_fps = 1
+config.front_end = 'OpenGL'
+config.webgpu_power_preference = 'HighPerformance'
+config.prefer_egl = true
+
+config.automatically_reload_config = true
 config.audible_bell = 'Disabled'
 
 if platform == 'win' then
@@ -58,40 +62,29 @@ config.colors = require('colors')
 
 config.default_cursor_style = 'SteadyBlock'
 
-local primary_font = 'JetBrains Mono'
-local fallback_font = 'MesloLGM Nerd Font Mono'
+local font = 'Meslo LG M'
 
-config.font = wezterm.font_with_fallback({
-  {
-    family = primary_font,
-    weight = 330,
-  },
-  {
-    family = fallback_font,
-    weight = 'Regular',
-  },
+config.font = wezterm.font({
+  family = font,
+  weight = 'Regular',
 })
 
 config.font_rules = {
   {
     intensity = 'Bold',
-    font = wezterm.font_with_fallback({
-      {
-        family = primary_font,
-        weight = 330,
-      },
-      {
-        family = fallback_font,
-        weight = 'Regular',
-      },
+    font = wezterm.font({
+      family = font,
+      weight = 'Regular',
     }),
   },
 }
 
-config.font_size = platform == 'mac' and 15.0 or 11.5
+config.font_size = platform == 'mac' and 15.0 or 11.25
 -- config.line_height = 1.1
 config.bold_brightens_ansi_colors = false
 config.freetype_load_flags = 'NO_HINTING'
+config.freetype_load_target = 'Light'
+config.freetype_render_target = 'HorizontalLcd'
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- disable ligatures
 
 local padding = platform == 'mac' and 8 or 4
