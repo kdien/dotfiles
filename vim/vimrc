@@ -41,13 +41,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
-" File explorer (lighter alternative to oil.nvim)
-" Using built-in netrw, but you can add:
-" Plug 'preservim/nerdtree'
-
-" Statusline
-Plug 'itchyny/lightline.vim'
-
 " AI
 " Plug 'github/copilot.vim'
 
@@ -90,8 +83,14 @@ set nohlsearch
 set termguicolors
 set background=dark
 set fillchars=eob:\
-set laststatus=2
 set mouse=a
+
+set laststatus=2
+set statusline=%-f\ %m%r%w%=%y\ [%{&fileformat}]\ %l:%c\ %p%%
+
+" Line cursor for insert mode and block cursor for normal mode
+let &t_SI="\e[6 q"
+let &t_EI="\e[2 q"
 
 " Splits
 set splitbelow
@@ -101,7 +100,8 @@ set splitright
 set scrolloff=10
 
 " Reduce delay to normal mode
-set timeoutlen=1000 ttimeoutlen=50
+set timeoutlen=1000
+set ttimeoutlen=50
 
 " netrw settings
 let g:netrw_banner = 0
@@ -129,6 +129,8 @@ endif
 " ============================================================================
 let mapleader = ' '
 let maplocalleader = ' '
+
+noremap <C-c> <Esc>
 
 " File explorer
 nnoremap <leader>e :Explore<CR>
@@ -395,27 +397,6 @@ nmap <leader>hd :GitGutterDiffOrig<CR>
 " Stage/unstage buffer
 nnoremap <leader>hS :!git add %<CR>
 nnoremap <leader>hR :!git checkout %<CR>
-
-" ============================================================================
-" LIGHTLINE STATUSLINE
-" ============================================================================
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'filetype', 'fileformat' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead',
-      \   'filetype': 'LightlineFiletype',
-      \ },
-      \ }
-
-function! LightlineFiletype()
-  return &filetype
-endfunction
 
 " ============================================================================
 " PLUGIN-SPECIFIC SETTINGS
