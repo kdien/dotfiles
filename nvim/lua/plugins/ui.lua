@@ -6,36 +6,31 @@ return {
   },
 
   {
-    'Mofiqul/vscode.nvim',
-    opts = {
-      group_overrides = {
-        ModeMsg = { bg = 'NONE' },
-        StatusLine = { bg = '#c9c9c9' },
-        StatusLineNC = { bg = '#dfdfdf' },
-      },
-    },
-  },
+    'projekt0n/github-nvim-theme',
+    enabled = vim.o.background == 'light' and true or false,
 
-  {
-    'maxmx03/solarized.nvim',
-    opts = {
-      transparent = {
-        enabled = true,
-        normalfloat = false,
-      },
-      on_highlights = function(colors, color)
-        local groups = {
-          Visual = { fg = 'NONE' },
-          FloatBorder = { bg = colors.base04 },
-          TreeSitterContext = { bg = '#1a404b' },
-        }
-        return groups
-      end,
-    },
+    config = function()
+      require('github-theme').setup({
+        options = {
+          transparent = true,
+          hide_nc_statusline = false,
+          dim_inactive = true,
+        },
+        groups = {
+          github_light = {
+            NormalFloat = { fg = '#1f2328', bg = '#f6f8fa' },
+            FloatBorder = { fg = '#1f2328', bg = '#f6f8fa' },
+          },
+        },
+      })
+      vim.cmd('colorscheme github_light')
+    end,
   },
 
   {
     'navarasu/onedark.nvim',
+    enabled = vim.o.background == 'dark' and true or false,
+
     config = function()
       require('onedark').setup({
         style = vim.o.background,
@@ -61,6 +56,7 @@ return {
           undercurl = false,
         },
       })
+      require('onedark').load()
     end,
   },
 

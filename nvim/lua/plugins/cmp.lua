@@ -19,7 +19,7 @@ return {
       completion = {
         menu = {
           auto_show = true,
-          border = 'none',
+          border = os.getenv('TERMINAL_THEME') == 'light' and 'rounded' or 'none',
           draw = {
             columns = {
               { 'label' },
@@ -43,7 +43,7 @@ return {
         documentation = {
           auto_show = true,
           window = {
-            border = 'none',
+            border = os.getenv('TERMINAL_THEME') == 'light' and 'rounded' or 'none',
           },
         },
         list = {
