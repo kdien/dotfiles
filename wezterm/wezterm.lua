@@ -58,7 +58,7 @@ config.use_fancy_tab_bar = false
 config.enable_scroll_bar = false
 config.window_close_confirmation = 'NeverPrompt'
 
-config.colors = require('colors')
+config.colors = require('colors.default')
 
 config.default_cursor_style = 'SteadyBlock'
 

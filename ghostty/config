@@ -43,6 +43,10 @@ palette = 5=#c397d8
 palette = 6=#70c0ba
 palette = 7=#eaeaea
 
+# theme = Alabaster
+# cursor-color = #636363
+# cursor-text =
+
 cursor-style = block
 cursor-style-blink = false
 
