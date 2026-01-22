@@ -6,6 +6,17 @@ return {
   },
 
   {
+    'tomasiser/vim-code-dark',
+    enabled = vim.o.background == 'dark' and true or false,
+
+    config = function()
+      vim.g.codedark_conservative = 1
+      vim.cmd('colorscheme codedark')
+      vim.cmd('highlight! link NormalFloat Pmenu')
+    end,
+  },
+
+  {
     'projekt0n/github-nvim-theme',
     enabled = vim.o.background == 'light' and true or false,
 
@@ -36,7 +47,7 @@ return {
 
   {
     'navarasu/onedark.nvim',
-    enabled = vim.o.background == 'dark' and true or false,
+    enabled = false,
 
     config = function()
       require('onedark').setup({
