@@ -17,9 +17,16 @@ return {
           dim_inactive = true,
         },
         groups = {
+          all = {
+            DiagnosticUnderlineError = { style = 'underline' },
+            DiagnosticUnderlineWarn = { style = 'underline' },
+            DiagnosticUnderlineInfo = { style = 'underline' },
+            DiagnosticUnderlineHint = { style = 'underline' },
+          },
           github_light = {
             NormalFloat = { fg = '#1f2328', bg = '#f6f8fa' },
             FloatBorder = { fg = '#1f2328', bg = '#f6f8fa' },
+            StatusLineNC = { fg = '#f6f8fa', bg = '#96beee' },
           },
         },
       })
