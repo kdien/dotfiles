@@ -11,7 +11,11 @@ return {
 
     config = function()
       vim.g.codedark_conservative = 1
+      vim.g.codedark_transparent = 1
       vim.cmd('colorscheme codedark')
+      vim.cmd('highlight Pmenu guibg=#393f4a')
+      vim.cmd('highlight CursorLine guibg=NONE')
+      vim.cmd('highlight ModeMsg guibg=NONE')
       vim.cmd('highlight! link NormalFloat Pmenu')
     end,
   },
