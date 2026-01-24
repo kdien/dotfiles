@@ -48,11 +48,11 @@
   },
   "battery": {
     "format": "{icon} {capacity}%",
-    "format-icons": [" ", " ", " "]
+    "format-icons": ["", "", ""]
   },
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-    "format": " <span color='#ffffff'>{:%a %b %d  %I:%M %p}</span>",
+    "format": " <span color='#ffffff'>{:%a %b %d %I:%M %p}</span>",
     "on-click": "gnome-calendar"
   },
   "custom/powerbutton": {
