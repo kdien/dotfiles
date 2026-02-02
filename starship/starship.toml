@@ -18,23 +18,34 @@ $character\
 [aws]
 format = '\[[$symbol ($profile)(@$region)(\[$duration\])]($style)\] '
 symbol = '󰸏'
+style = "yellow"
 
 [azure]
 format = '\[[$symbol ($subscription)]($style)\] '
 disabled = true
+style = "blue"
+
+[[battery.display]]
+style = "red"
+
+[buf]
+style = "blue"
 
 [bun]
 format = '\[[$symbol($version)]($style)\] '
+style = "red"
 
 [c]
 format = '\[[$symbol($version(-$name))]($style)\] '
+style = "149"
 
 [character]
-success_symbol = '[\$](bold green)'
-error_symbol = '[\$](bold red)'
+success_symbol = '[\$](green)'
+error_symbol = '[\$](red)'
 
 [cmake]
 format = '\[[$symbol($version)]($style)\] '
+style = "blue"
 
 [cmd_duration]
 format = '\[[took $duration]($style)\] '
@@ -42,79 +53,135 @@ style = 'none'
 
 [cobol]
 format = '\[[$symbol($version)]($style)\] '
+style = "blue"
 
 [conda]
 format = '\[[$symbol$environment]($style)\] '
+style = "green"
+
+[container]
+style = "red dimmed"
 
 [crystal]
 format = '\[[$symbol($version)]($style)\] '
+style = "red"
 
 [daml]
 format = '\[[$symbol($version)]($style)\] '
+style = "cyan"
 
 [dart]
 format = '\[[$symbol($version)]($style)\] '
+style = "blue"
 
 [deno]
 format = '\[[$symbol($version)]($style)\] '
+style = "green"
 
 [directory]
 truncation_length = 99
 truncate_to_repo = false
 truncation_symbol = '…/'
 read_only = ' 🔒'
+style = "cyan"
+
+[direnv]
+style = "orange"
 
 [docker_context]
 format = '\[[$symbol$context]($style)\] '
+style = "blue"
 
 [dotnet]
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\] '
+style = "blue"
 
 [elixir]
 format = '\[[$symbol($version \(OTP $otp_version\))]($style)\] '
+style = "purple"
 
 [elm]
 format = '\[[$symbol($version)]($style)\] '
+style = "cyan"
 
 [erlang]
 format = '\[[$symbol($version)]($style)\] '
+style = "red"
 
 [fennel]
 format = '\[[$symbol($version)]($style)\] '
+style = "green"
+
+[fill]
+style = "black"
+
+[fortran]
+style = "purple"
 
 [fossil_branch]
 format = '\[[$symbol$branch]($style)\] '
+style = "purple"
+
+[fossil_metrics]
+added_style = "green"
+deleted_style = "red"
 
 [gcloud]
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\] '
+style = "blue"
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\] '
+style = "purple"
+
+[git_commit]
+style = "green"
+
+[git_metrics]
+added_style = "green"
+deleted_style = "red"
+
+[git_state]
+style = "yellow"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "red"
+
+[gleam]
+style = "#FFAFF3"
 
 [golang]
 format = '\[[$symbol ($version)]($style)\] '
 symbol = ""
+style = "cyan"
 
 [gradle]
 format = '\[[$symbol($version)]($style)\] '
+style = "bright-cyan"
 
 [guix_shell]
 format = '\[[$symbol]($style)\] '
+style = "yellow"
 
 [haskell]
 format = '\[[$symbol($version)]($style)\] '
+style = "purple"
 
 [haxe]
 format = '\[[$symbol($version)]($style)\] '
+style = "fg:202"
 
 [helm]
 format = '\[[$symbol($version)]($style)\] '
+style = "white"
 
 [hg_branch]
 format = '\[[$symbol$branch]($style)\] '
+style = "purple"
+
+[hg_state]
+style = "yellow"
 
 [hostname]
 format = '[@$hostname]($style)\] '
@@ -124,11 +191,16 @@ ssh_only = false
 [java]
 format = '\[[$symbol($version)]($style)\] '
 
+[jobs]
+style = "blue"
+
 [julia]
 format = '\[[$symbol($version)]($style)\] '
+style = "purple"
 
 [kotlin]
 format = '\[[$symbol($version)]($style)\] '
+style = "blue"
 
 [kubernetes]
 format = '\[[$symbol$context( \($namespace\))]($style)\] '
@@ -138,100 +210,171 @@ style = '#5989eb'
 [lua]
 format = '\[[$symbol ($version)]($style)\] '
 symbol = "󰢱"
+style = "blue"
 
 [memory_usage]
 format = '\[$symbol[$ram( | $swap)]($style)\] '
+style = "white dimmed"
 
 [meson]
 format = '\[[$symbol$project]($style)\] '
+style = "blue"
+
+[mise]
+style = "purple"
+
+[mojo]
+style = "208"
+
+[netns]
+style = "blue dimmed"
 
 [nim]
 format = '\[[$symbol($version)]($style)\] '
+style = "yellow"
 
 [nix_shell]
 format = '\[[$symbol$state( \($name\))]($style)\] '
+style = "blue"
 
 [nodejs]
 format = '\[[$symbol($version)]($style)\] '
+style = "green"
 
 [ocaml]
 format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\] '
+style = "yellow"
+
+[odin]
+style = "bright-blue"
 
 [opa]
 format = '\[[$symbol($version)]($style)\] '
+style = "blue"
 
 [openstack]
 format = '\[[$symbol$cloud(\($project\))]($style)\] '
+style = "yellow"
 
 [os]
 format = '\[[$symbol]($style)\] '
+style = "white"
 
 [package]
 format = '\[[$symbol$version]($style)\] '
+style = "208"
 
 [perl]
 format = '\[[$symbol($version)]($style)\] '
+style = "149"
 
 [php]
 format = '\[[$symbol($version)]($style)\] '
+style = "147"
 
 [pijul_channel]
 format = '\[[$symbol$channel]($style)\] '
+style = "purple"
+
+[pixi]
+style = "yellow"
 
 [pulumi]
 format = '\[[$symbol$stack]($style)\] '
+style = "5"
 
 [purescript]
 format = '\[[$symbol($version)]($style)\] '
+style = "white"
 
 [python]
 format = '\[[${symbol} ${pyenv_prefix}(${version})(\($virtualenv\))]($style)\] '
 symbol = ''
+style = "yellow"
+
+[quarto]
+style = "#75AADB"
 
 [raku]
 format = '\[[$symbol($version-$vm_version)]($style)\] '
+style = "149"
 
 [red]
 format = '\[[$symbol($version)]($style)\] '
+style = "red"
+
+[rlang]
+style = "blue"
 
 [ruby]
 format = '\[[$symbol($version)]($style)\] '
+style = "red"
 
 [rust]
 format = '\[[$symbol($version)]($style)\] '
+style = "red"
 
 [scala]
 format = '\[[$symbol($version)]($style)\] '
+style = "red"
+
+[shell]
+style = "white"
+
+[shlvl]
+style = "yellow"
+
+[singularity]
+style = "blue dimmed"
+
+[solidity]
+format = '\[[$symbol($version)]($style)\] '
+style = "blue"
 
 [spack]
 format = '\[[$symbol$environment]($style)\] '
+style = "blue"
+
+[status]
+style = "red"
 
 [sudo]
 format = '\[[as $symbol]($style)\] '
+style = "blue"
 
 [swift]
 format = '\[[$symbol($version)]($style)\] '
+style = "202"
 
 [terraform]
 format = '\[[$symbol $version]($style)\] '
 symbol = '󱁢'
+style = "105"
 
 [time]
 format = '\[[$time]($style)\] '
+style = "yellow"
+
+[typst]
+style = "#0093A7"
 
 [username]
 format = '\[[$user]($style)'
 style_user = 'green'
 show_always = true
+style_root = "red"
 
 [vagrant]
 format = '\[[$symbol($version)]($style)\] '
+style = "cyan"
 
 [vlang]
 format = '\[[$symbol($version)]($style)\] '
+style = "blue"
+
+[xmake]
+style = "green"
 
 [zig]
 format = '\[[$symbol($version)]($style)\] '
-
-[solidity]
-format = '\[[$symbol($version)]($style)\] '
+style = "yellow"
