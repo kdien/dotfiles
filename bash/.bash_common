@@ -3,6 +3,10 @@
 
 shopt -s direxpand
 
+# both ctrl+space and ctrl+@ send null character
+# for some reason only "\C-@" works for binding
+bind '"\C-@": alias-expand-line'
+
 case "$(uname -sr)" in
   Darwin*)
     RUN_OS=macOS
