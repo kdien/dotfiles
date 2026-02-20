@@ -645,17 +645,3 @@ call <sid>hi('MemberRefExpr', s:cdYellow, {}, 'italic', {})
 call <sid>hi('Namespace', s:cdSilver, {}, 'none', {})
 call <sid>hi('NamespaceRef', s:cdSilver, {}, 'none', {})
 call <sid>hi('NamespaceAlias', s:cdSilver, {}, 'none', {})
-
-" C++ lsp-cxx-highlight
-call <sid>hi('LspCxxHlSymClass', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('LspCxxHlSymStruct', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('LspCxxHlSymEnum', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('LspCxxHlSymTypeAlias', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('LspCxxHlSymTypeParameter', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('LspCxxHlSymConcept', s:cdBlueGreen, {}, 'italic', {})
-call <sid>hi('LspCxxHlSymNamespace', s:cdSilver, {}, 'none', {})
-
-" Coc Explorer:
-call <sid>hi('CocHighlightText', {}, s:cdSelection, 'none', {})
-call <sid>hi('CocExplorerIndentLine', s:cdCursorDark, {}, 'none', {})
-call <sid>hi('CocInlayHint', s:cdLineNumber, {}, 'none', {})
