@@ -36,8 +36,6 @@ return {
 
   {
     'navarasu/onedark.nvim',
-    enabled = false,
-
     config = function()
       require('onedark').setup({
         style = vim.o.background,
@@ -58,12 +56,12 @@ return {
           ['NormalFloat'] = { bg = '#393f4a' },
           ['Visual'] = { bg = '#474e5d' },
           ['WinSeparator'] = { fg = '#474e5d' },
+          ['CursorLine'] = { bg = 'NONE' },
         } or {},
         diagnostics = {
           undercurl = false,
         },
       })
-      require('onedark').load()
     end,
   },
 
