@@ -1,6 +1,7 @@
 return {
   {
     'github/copilot.vim',
+    lazy = true,
     config = function()
       vim.keymap.set('i', '<C-c>', '<Plug>(copilot-dismiss)<Esc>')
     end,
