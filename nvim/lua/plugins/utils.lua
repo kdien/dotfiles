@@ -41,14 +41,6 @@ return {
   },
 
   {
-    'numToStr/Comment.nvim',
-    event = event,
-    config = function()
-      require('Comment').setup()
-    end,
-  },
-
-  {
     'diepm/vim-rest-console',
     ft = 'rest',
 
