@@ -15,11 +15,6 @@ return {
     },
 
     config = function()
-      local lspconfig = require('lspconfig')
-      local lsp_defaults = lspconfig.util.default_config
-
-      lsp_defaults.capabilities = vim.tbl_deep_extend('force', lsp_defaults.capabilities, require('blink.cmp').get_lsp_capabilities())
-
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP actions',
         callback = function()
@@ -50,87 +45,75 @@ return {
 
       require('mason').setup({})
 
-      local default_setup = function(server)
-        lspconfig[server].setup({})
+      local lsp_servers = {
+        'ansiblels',
+        'bashls',
+        'dockerls',
+        'gopls', -- Golang
+        'jsonls',
+        'lua_ls',
+        'marksman', -- Markdown
+        'omnisharp', -- C#/.NET
+        'pyright', -- Python
+        'regal',
+        'ruff', -- Python
+        'rust_analyzer',
+        'taplo', -- TOML
+        'terraformls',
+        'ts_ls',
+        'yamlls',
+      }
+
+      require('mason-lspconfig').setup({ ensure_installed = lsp_servers })
+
+      local custom_configs = {
+        ansiblels = {
+          filetypes = { 'ansible' },
+        },
+
+        gopls = {
+          settings = {
+            gopls = {
+              gofumpt = true,
+              buildFlags = { '-tags=integration' },
+            },
+          },
+        },
+
+        lua_ls = {
+          settings = {
+            Lua = {
+              runtime = { version = 'LuaJIT' },
+              workspace = { checkThirdParty = false },
+
+              completion = {
+                callSnippet = 'Replace',
+              },
+
+              diagnostics = {
+                disable = { 'missing-fields' },
+              },
+            },
+          },
+        },
+
+        ruff = {
+          cmd = { 'true' },
+        },
+
+        terraformls = {
+          filetypes = { 'terraform' },
+        },
+
+        yamlls = require('yaml-companion').setup({}),
+      }
+
+      for _, s in ipairs(lsp_servers) do
+        if custom_configs[s] ~= nil then
+          vim.lsp.config(s, custom_configs[s])
+        end
+        vim.lsp.enable(s)
       end
-
-      require('mason-lspconfig').setup({
-        ensure_installed = {
-          'ansiblels',
-          'bashls',
-          'dockerls',
-          'gopls', -- Golang
-          'jsonls',
-          'lua_ls',
-          'marksman', -- Markdown
-          'omnisharp', -- C#/.NET
-          'pyright', -- Python
-          'regal',
-          'ruff', -- Python
-          'rust_analyzer',
-          'taplo', -- TOML
-          'terraformls',
-          'ts_ls',
-          'yamlls',
-        },
-
-        handlers = {
-          default_setup,
-
-          ansiblels = function()
-            lspconfig.ansiblels.setup({
-              filetypes = { 'ansible' },
-            })
-          end,
-
-          gopls = function()
-            lspconfig.gopls.setup({
-              settings = {
-                gopls = {
-                  gofumpt = true,
-                  buildFlags = { '-tags=integration' },
-                },
-              },
-            })
-          end,
-
-          lua_ls = function()
-            lspconfig.lua_ls.setup({
-              settings = {
-                Lua = {
-                  runtime = { version = 'LuaJIT' },
-                  workspace = { checkThirdParty = false },
-
-                  completion = {
-                    callSnippet = 'Replace',
-                  },
-
-                  diagnostics = {
-                    disable = { 'missing-fields' },
-                  },
-                },
-              },
-            })
-          end,
-
-          ruff = function()
-            lspconfig.ruff.setup({
-              cmd = { 'true' },
-            })
-          end,
-
-          terraformls = function()
-            lspconfig.terraformls.setup({
-              filetypes = { 'terraform' },
-            })
-          end,
-
-          yamlls = function()
-            local cfg = require('yaml-companion').setup({})
-            lspconfig.yamlls.setup(cfg)
-          end,
-        },
-      })
 
       vim.diagnostic.config({
         virtual_text = {
