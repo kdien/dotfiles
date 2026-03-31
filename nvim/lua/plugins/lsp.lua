@@ -112,8 +112,9 @@ return {
         if custom_configs[s] ~= nil then
           vim.lsp.config(s, custom_configs[s])
         end
-        vim.lsp.enable(s)
       end
+
+      vim.lsp.enable(lsp_servers)
 
       vim.diagnostic.config({
         virtual_text = {
