@@ -51,10 +51,16 @@ return {
       })
 
       vim.api.nvim_create_autocmd('FileType', {
-        group = augroup,
         pattern = '*',
-        callback = function()
-          pcall(vim.treesitter.start)
+        callback = function(arg)
+          local excluded = {
+            'yaml',
+          }
+          for _, t in ipairs(excluded) do
+            if arg.match ~= t then
+              pcall(vim.treesitter.start)
+            end
+          end
         end,
       })
     end,

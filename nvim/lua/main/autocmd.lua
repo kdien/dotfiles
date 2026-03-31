@@ -63,14 +63,3 @@ vim.api.nvim_create_autocmd('TermOpen', {
   group = augroup,
   command = 'setlocal nonumber norelativenumber',
 })
-
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  group = augroup,
-  pattern = {
-    '*.yaml',
-    '*.yml',
-  },
-  callback = function()
-    vim.treesitter.stop()
-  end,
-})
