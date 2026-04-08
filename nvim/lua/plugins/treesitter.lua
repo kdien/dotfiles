@@ -6,7 +6,7 @@ return {
     build = ':TSUpdate',
 
     config = function()
-      require('nvim-treesitter').install({
+      local langs = {
         'bash',
         'c_sharp',
         'cmake',
@@ -48,17 +48,20 @@ return {
         'vimdoc',
         'vue',
         'yaml',
-      })
+      }
+
+      require('nvim-treesitter').install(langs)
 
       vim.api.nvim_create_autocmd('FileType', {
         pattern = '*',
-        callback = function(arg)
-          local excluded = {
+        callback = function(ev)
+          local excluded_ft = {
             'yaml',
           }
-          for _, t in ipairs(excluded) do
-            if arg.match ~= t then
-              pcall(vim.treesitter.start)
+          for _, l in ipairs(langs) do
+            local filetypes = vim.treesitter.language.get_filetypes(l)
+            if vim.tbl_contains(filetypes, ev.match) and not vim.tbl_contains(excluded_ft, ev.match) then
+              vim.treesitter.start()
             end
           end
         end,
