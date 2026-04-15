@@ -10,6 +10,9 @@ if exists("syntax_on")
 endif
 let g:colors_name="codedark"
 
+let g:codedark_conservative=1
+let g:codedark_transparent=1
+
 " Highlighting function (inspiration from https://github.com/chriskempson/base16-vim)
 if &t_Co >= 256
     let g:codedark_term256=1
@@ -74,15 +77,30 @@ endif
 " (some of them may be unused)
 
 " Transparent background
+if !exists("g:codedark_transparent")
+    let g:codedark_transparent=0
+endif
+
+if !exists("g:codedark_modern")
+    let g:codedark_modern=0
+endif
 
 let s:cdNone = {'gui': 'NONE', 'cterm': 'NONE', 'cterm256': 'NONE'}
+let s:cdFront = s:cdNone
+let s:cdBack = {'gui': '#1E1E1E', 'cterm': s:cterm00, 'cterm256': '234'}
+if g:codedark_modern | let s:cdBack = {'gui': '#1f1f1f', 'cterm': 'NONE', 'cterm256': '234'} | endif
+if g:codedark_transparent | let s:cdBack = {'gui': 'NONE', 'cterm': 'NONE', 'cterm256': 'NONE'} | endif
 
 let s:cdTabCurrent = {'gui': '#1E1E1E', 'cterm': s:cterm00, 'cterm256': '234'}
+if g:codedark_modern | let s:cdTabCurrent = {'gui': '#1f1f1f', 'cterm': s:cterm00, 'cterm256': '234'} | endif
 let s:cdTabOther = {'gui': '#2D2D2D', 'cterm': s:cterm01, 'cterm256': '236'}
+if g:codedark_modern | let s:cdTabOther = {'gui': '#181818', 'cterm': s:cterm01, 'cterm256': '236'} | endif
 let s:cdTabOutside = {'gui': '#252526', 'cterm': s:cterm01, 'cterm256': '235'}
+if g:codedark_modern | let s:cdTabOutside = {'gui': '#181818', 'cterm': s:cterm01, 'cterm256': '236'} | endif
 
 let s:cdLeftDark = {'gui': '#252526', 'cterm': s:cterm01, 'cterm256': '235'}
 let s:cdLeftMid = {'gui': '#373737', 'cterm': s:cterm03, 'cterm256': '237'}
+if g:codedark_modern | let s:cdLeftMid = {'gui': '#181818', 'cterm': 'NONE', 'cterm256': '237'} | endif
 let s:cdLeftLight = {'gui': '#3F3F46', 'cterm': s:cterm03, 'cterm256': '238'}
 
 let s:cdPopupFront = {'gui': '#BBBBBB', 'cterm': s:cterm06, 'cterm256': '250'}
@@ -101,18 +119,24 @@ let s:cdSelection = {'gui': '#264F78', 'cterm': s:cterm03, 'cterm256': '24'}
 let s:cdLineNumber = {'gui': '#5A5A5A', 'cterm': s:cterm04, 'cterm256': '240'}
 
 let s:cdDiffRedDark = {'gui': '#4B1818', 'cterm': s:cterm08, 'cterm256': '52'}
+if g:codedark_modern | let s:cdDiffRedDark = {'gui': '#da3633', 'cterm': 'NONE', 'cterm256': '52'} | endif
 let s:cdDiffRedLight = {'gui': '#6F1313', 'cterm': s:cterm08, 'cterm256': '52'}
 let s:cdDiffRedLightLight = {'gui': '#FB0101', 'cterm': s:cterm08, 'cterm256': '09'}
 let s:cdDiffGreenDark = {'gui': '#373D29', 'cterm': s:cterm0B, 'cterm256': '237'}
+if g:codedark_modern | let s:cdDiffGreenDark = {'gui': '#238636', 'cterm': 'NONE', 'cterm256': '237'} | endif
 let s:cdDiffGreenLight = {'gui': '#4B5632', 'cterm': s:cterm09, 'cterm256': '58'}
 let s:cdDiffBlueLight = {'gui': '#87d7ff', 'cterm': s:cterm0C, 'cterm256': '117'}
 let s:cdDiffBlue = {'gui': '#005f87', 'cterm': s:cterm0D, 'cterm256': '24'}
 
 let s:cdSearchCurrent = {'gui': '#4B5632', 'cterm': s:cterm09, 'cterm256': '58'}
+if g:codedark_modern | let s:cdSearchCurrent = {'gui': '#9e6a03', 'cterm': s:cterm09, 'cterm256': '58'} | endif
 let s:cdSearch = {'gui': '#773800', 'cterm': s:cterm03, 'cterm256': '94'}
 
 " Syntax colors:
 
+if !exists("g:codedark_conservative")
+    let g:codedark_conservative=0
+endif
 
 " Italicized comments
 if !exists("g:codedark_italics")
@@ -124,60 +148,65 @@ let s:cdViolet = {'gui': '#646695', 'cterm': s:cterm04, 'cterm256': '60'}
 let s:cdBlue = {'gui': '#569CD6', 'cterm': s:cterm0D, 'cterm256': '75'}
 let s:cdDarkBlue = {'gui': '#223E55', 'cterm': s:cterm0D, 'cterm256': '73'}
 let s:cdLightBlue = {'gui': '#9CDCFE', 'cterm': s:cterm0C, 'cterm256': '117'}
+if g:codedark_conservative | let s:cdLightBlue = s:cdFront | endif
 let s:cdGreen = {'gui': '#6A9955', 'cterm': s:cterm0B, 'cterm256': '65'}
 let s:cdBlueGreen = {'gui': '#4EC9B0', 'cterm': s:cterm0F, 'cterm256': '43'}
 let s:cdLightGreen = {'gui': '#B5CEA8', 'cterm': s:cterm09, 'cterm256': '151'}
 let s:cdRed = {'gui': '#F44747', 'cterm': s:cterm08, 'cterm256': '203'}
+if g:codedark_modern | let s:cdRed = {'gui': '#f85149', 'cterm': s:cterm08, 'cterm256': '203'} | endif
 let s:cdOrange = {'gui': '#CE9178', 'cterm': s:cterm0F, 'cterm256': '173'}
 let s:cdLightRed = {'gui': '#D16969', 'cterm': s:cterm08, 'cterm256': '167'}
+if g:codedark_conservative | let s:cdLightRed = s:cdOrange | endif
 let s:cdYellowOrange = {'gui': '#D7BA7D', 'cterm': s:cterm0A, 'cterm256': '179'}
 let s:cdYellow = {'gui': '#DCDCAA', 'cterm': s:cterm0A, 'cterm256': '187'}
+if g:codedark_conservative | let s:cdYellow = s:cdFront | endif
 let s:cdPink = {'gui': '#C586C0', 'cterm': s:cterm0E, 'cterm256': '176'}
+if g:codedark_conservative | let s:cdPink = s:cdBlue | endif
 let s:cdSilver = {'gui': '#C0C0C0', 'cterm': s:cterm05, 'cterm256': '7'}
 
 " UI (built-in)
 "    <sid>hi(GROUP, FOREGROUND, BACKGROUND, ATTRIBUTE, SPECIAL)
-call <sid>hi('Normal', s:cdNone, s:cdNone, 'none', {})
+call <sid>hi('Normal', s:cdFront, s:cdBack, 'none', {})
 call <sid>hi('ColorColumn', {}, s:cdCursorDarkDark, 'none', {})
 call <sid>hi('Cursor', s:cdCursorDark, s:cdCursorLight, 'none', {})
 call <sid>hi('CursorLine', {}, s:cdNone, 'none', {})
 hi! link CursorColumn CursorLine
 call <sid>hi('Directory', s:cdBlue, s:cdNone, 'none', {})
-call <sid>hi('DiffAdd', s:cdNone, s:cdDiffGreenLight, 'none', {})
-call <sid>hi('DiffChange', s:cdNone, s:cdDiffBlue, 'none', {})
-call <sid>hi('DiffDelete', s:cdNone, s:cdDiffRedLight, 'none', {})
-call <sid>hi('DiffText', s:cdNone, s:cdDiffBlueLight, 'none', {})
-call <sid>hi('EndOfBuffer', s:cdLineNumber, s:cdNone, 'none', {})
-call <sid>hi('ErrorMsg', s:cdRed, s:cdNone, 'none', {})
-call <sid>hi('VertSplit', s:cdSplitDark, s:cdNone, 'none', {})
+call <sid>hi('DiffAdd', s:cdFront, s:cdDiffGreenLight, 'none', {})
+call <sid>hi('DiffChange', s:cdFront, s:cdDiffBlue, 'none', {})
+call <sid>hi('DiffDelete', s:cdFront, s:cdDiffRedLight, 'none', {})
+call <sid>hi('DiffText', s:cdBack, s:cdDiffBlueLight, 'none', {})
+call <sid>hi('EndOfBuffer', s:cdLineNumber, s:cdBack, 'none', {})
+call <sid>hi('ErrorMsg', s:cdRed, s:cdBack, 'none', {})
+call <sid>hi('VertSplit', s:cdSplitDark, s:cdBack, 'none', {})
 call <sid>hi('Folded', s:cdLeftLight, s:cdLeftDark, 'underline', {})
-call <sid>hi('FoldColumn', s:cdLineNumber, s:cdNone, 'none', {})
-call <sid>hi('SignColumn', {}, s:cdNone, 'none', {})
+call <sid>hi('FoldColumn', s:cdLineNumber, s:cdBack, 'none', {})
+call <sid>hi('SignColumn', {}, s:cdBack, 'none', {})
 call <sid>hi('IncSearch', s:cdNone, s:cdSearchCurrent, 'none', {})
-call <sid>hi('LineNr', s:cdLineNumber, s:cdNone, 'none', {})
-call <sid>hi('CursorLineNr', s:cdPopupFront, s:cdNone, 'none', {})
+call <sid>hi('LineNr', s:cdLineNumber, s:cdBack, 'none', {})
+call <sid>hi('CursorLineNr', s:cdPopupFront, s:cdBack, 'none', {})
 call <sid>hi('MatchParen', s:cdNone, s:cdCursorDark, 'none', {})
-call <sid>hi('ModeMsg', s:cdNone, s:cdNone, 'none', {})
+call <sid>hi('ModeMsg', s:cdFront, s:cdNone, 'none', {})
 hi! link MoreMsg ModeMsg
 call <sid>hi('NonText', s:cdLineNumber, s:cdNone, 'none', {})
 call <sid>hi('Pmenu', s:cdPopupFront, s:cdPopupBack, 'none', {})
 call <sid>hi('PmenuSel', s:cdPopupFront, s:cdPopupHighlightBlue, 'none', {})
 call <sid>hi('PmenuSbar', {}, s:cdPopupHighlightGray, 'none', {})
 call <sid>hi('PmenuThumb', {}, s:cdPopupFront, 'none', {})
-call <sid>hi('Question', s:cdBlue, s:cdNone, 'none', {})
+call <sid>hi('Question', s:cdBlue, s:cdBack, 'none', {})
 call <sid>hi('Search', s:cdNone, s:cdSearch, 'none', {})
 call <sid>hi('SpecialKey', s:cdLineNumber, s:cdNone, 'none', {})
-call <sid>hi('StatusLine', s:cdNone, s:cdLeftMid, 'none', {})
-call <sid>hi('StatusLineNC', s:cdNone, s:cdLeftDark, 'none', {})
-call <sid>hi('TabLine', s:cdNone, s:cdTabOther, 'none', {})
-call <sid>hi('TabLineFill', s:cdNone, s:cdTabOutside, 'none', {})
-call <sid>hi('TabLineSel', s:cdNone, s:cdTabCurrent, 'none', {})
+call <sid>hi('StatusLine', s:cdFront, s:cdLeftMid, 'none', {})
+call <sid>hi('StatusLineNC', s:cdFront, s:cdLeftDark, 'none', {})
+call <sid>hi('TabLine', s:cdFront, s:cdTabOther, 'none', {})
+call <sid>hi('TabLineFill', s:cdFront, s:cdTabOutside, 'none', {})
+call <sid>hi('TabLineSel', s:cdFront, s:cdTabCurrent, 'none', {})
 call <sid>hi('Title', s:cdNone, s:cdNone, 'bold', {})
 call <sid>hi('Visual', s:cdNone, s:cdSelection, 'none', {})
 hi! link VisualNOS Visual
-call <sid>hi('WarningMsg', s:cdOrange, s:cdNone, 'none', {})
+call <sid>hi('WarningMsg', s:cdOrange, s:cdBack, 'none', {})
 call <sid>hi('WildMenu', s:cdNone, s:cdSelection, 'none', {})
-call <sid>hi('netrwMarkFile', s:cdNone, s:cdSelection, 'none', {})
+call <sid>hi('netrwMarkFile', s:cdFront, s:cdSelection, 'none', {})
 hi! link NormalFloat Pmenu
 
 " Legacy groups for official git.vim and diff.vim syntax
@@ -194,13 +223,13 @@ call <sid>hi('Character', s:cdOrange, {}, 'none', {})
 call <sid>hi('Number', s:cdLightGreen, {}, 'none', {})
 call <sid>hi('Boolean', s:cdBlue, {}, 'none', {})
 hi! link Float Number
-call <sid>hi('Identifier', s:cdNone, {}, 'none', {})
+call <sid>hi('Identifier', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('Function', s:cdYellow, {}, 'none', {})
 call <sid>hi('Statement', s:cdPink, {}, 'none', {})
 call <sid>hi('Conditional', s:cdPink, {}, 'none', {})
 call <sid>hi('Repeat', s:cdPink, {}, 'none', {})
 call <sid>hi('Label', s:cdPink, {}, 'none', {})
-call <sid>hi('Operator', s:cdNone, {}, 'none', {})
+call <sid>hi('Operator', s:cdFront, {}, 'none', {})
 call <sid>hi('Keyword', s:cdPink, {}, 'none', {})
 call <sid>hi('Exception', s:cdPink, {}, 'none', {})
 call <sid>hi('PreProc', s:cdPink, {}, 'none', {})
@@ -213,20 +242,20 @@ call <sid>hi('StorageClass', s:cdBlue, {}, 'none', {})
 call <sid>hi('Structure', s:cdBlue, {}, 'none', {})
 call <sid>hi('Typedef', s:cdBlue, {}, 'none', {})
 call <sid>hi('Special', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('SpecialChar', s:cdNone, {}, 'none', {})
-call <sid>hi('Tag', s:cdNone, {}, 'none', {})
-call <sid>hi('Delimiter', s:cdNone, {}, 'none', {})
+call <sid>hi('SpecialChar', s:cdFront, {}, 'none', {})
+call <sid>hi('Tag', s:cdFront, {}, 'none', {})
+call <sid>hi('Delimiter', s:cdFront, {}, 'none', {})
 if g:codedark_italics | call <sid>hi('SpecialComment', s:cdGreen, {}, 'italic', {}) | else | call <sid>hi('SpecialComment', s:cdGreen, {}, 'none', {}) | endif
-call <sid>hi('Debug', s:cdNone, {}, 'none', {})
+call <sid>hi('Debug', s:cdFront, {}, 'none', {})
 call <sid>hi('Underlined', s:cdNone, {}, 'underline', {})
-call <sid>hi("Conceal", s:cdNone, s:cdNone, 'none', {})
-call <sid>hi('Ignore', s:cdNone, {}, 'none', {})
-call <sid>hi('Error', s:cdRed, s:cdNone, 'undercurl', s:cdRed)
+call <sid>hi("Conceal", s:cdFront, s:cdBack, 'none', {})
+call <sid>hi('Ignore', s:cdBack, {}, 'none', {})
+call <sid>hi('Error', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
-call <sid>hi('SpellBad', s:cdRed, s:cdNone, 'undercurl', s:cdRed)
-call <sid>hi('SpellCap', s:cdRed, s:cdNone, 'undercurl', s:cdRed)
-call <sid>hi('SpellRare', s:cdRed, s:cdNone, 'undercurl', s:cdRed)
-call <sid>hi('SpellLocal', s:cdRed, s:cdNone, 'undercurl', s:cdRed)
+call <sid>hi('SpellBad', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellCap', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellRare', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellLocal', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
 " NEOVIM
 " Make neovim specific groups load only on Neovim
@@ -267,18 +296,18 @@ if has("nvim")
     call <sid>hiTS('@keyword', 'TSKeyword', s:cdBlue, {}, 'none', {})
     call <sid>hiTS('@keyword.function', 'TSKeywordFunction', s:cdBlue, {}, 'none', {})
     call <sid>hiTS('@keyword.operator', 'TSKeywordOperator', s:cdBlue, {}, 'none', {})
-    call <sid>hiTS('@operator', 'TSOperator', s:cdNone, {}, 'none', {})
+    call <sid>hiTS('@operator', 'TSOperator', s:cdFront, {}, 'none', {})
     call <sid>hiTS('@exception', 'TSException', s:cdPink, {}, 'none', {})
     call <sid>hiTS('@type', 'TSType', s:cdBlueGreen, {}, 'none', {})
     call <sid>hiTSlink('@type.builtin', 'TSTypeBuiltin', 'Type')
     call <sid>hi('TSStructure', s:cdLightBlue, {}, 'none', {})
     call <sid>hiTSlink('@include', 'TSInclude', 'Include')
     " Variable
-    call <sid>hiTS('@variable', 'TSVariable', s:cdNone, {}, 'none', {})
-    call <sid>hiTS('@variable.builtin', 'TSVariableBuiltin', s:cdNone, {}, 'none', {})
+    call <sid>hiTS('@variable', 'TSVariable', s:cdLightBlue, {}, 'none', {})
+    call <sid>hiTS('@variable.builtin', 'TSVariableBuiltin', s:cdLightBlue, {}, 'none', {})
     " Text
-    call <sid>hiTS('@text', 'TSText', s:cdNone, s:cdNone, 'bold', {})
-    call <sid>hiTS('@text.strong', 'TSStrong', s:cdNone, s:cdNone, 'bold', {})
+    call <sid>hiTS('@text', 'TSText', s:cdFront, s:cdNone, 'bold', {})
+    call <sid>hiTS('@text.strong', 'TSStrong', s:cdFront, s:cdNone, 'bold', {})
     call <sid>hiTS('@text.emphasis', 'TSEmphasis', s:cdYellowOrange, s:cdNone, 'italic', {})
     call <sid>hiTSlink('@text.underline', 'TSUnderline', 'Underlined')
     call <sid>hiTS('@text.title', 'TSTitle', s:cdBlue, {}, 'bold', {})
@@ -297,9 +326,9 @@ if has("nvim")
     call <sid>hi('CmpItemKindText', s:cdLightBlue, {}, 'none', {})
     call <sid>hi('CmpItemKindFunction', s:cdPink, {}, 'none', {})
     call <sid>hi('CmpItemKindMethod ', s:cdPink, {}, 'none', {})
-    call <sid>hi('CmpItemKindKeyword', s:cdNone, {}, 'none', {})
-    call <sid>hi('CmpItemKindProperty', s:cdNone, {}, 'none', {})
-    call <sid>hi('CmpItemKindUnit', s:cdNone, {}, 'none', {})
+    call <sid>hi('CmpItemKindKeyword', s:cdFront, {}, 'none', {})
+    call <sid>hi('CmpItemKindProperty', s:cdFront, {}, 'none', {})
+    call <sid>hi('CmpItemKindUnit', s:cdFront, {}, 'none', {})
 endif
 
 " MARKDOWN (built-in)
@@ -367,7 +396,7 @@ call <sid>hi('phpRegion', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('phpMethodsVar', s:cdLightBlue, {}, 'none', {})
 
 " CSS (built-in)
-call <sid>hi('cssBraces', s:cdNone, {}, 'none', {})
+call <sid>hi('cssBraces', s:cdFront, {}, 'none', {})
 call <sid>hi('cssInclude', s:cdPink, {}, 'none', {})
 call <sid>hi('cssTagName', s:cdBlue, {}, 'none', {})
 call <sid>hi('cssClassName', s:cdYellowOrange, {}, 'none', {})
@@ -388,7 +417,7 @@ call <sid>hi('cssValueLength', s:cdLightGreen, {}, 'none', {})
 call <sid>hi('cssUnitDecorators', s:cdLightGreen, {}, 'none', {})
 call <sid>hi('cssStyle', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('cssImportant', s:cdBlue, {}, 'none', {})
-call <sid>hi('cssSelectorOp', s:cdNone, {}, 'none', {})
+call <sid>hi('cssSelectorOp', s:cdFront, {}, 'none', {})
 call <sid>hi('cssKeyFrameProp2', s:cdLightGreen, {}, 'none', {})
 
 " JavaScript:
@@ -427,9 +456,9 @@ call <sid>hi('VueKey', s:cdPink, {}, 'none', {})
 call <sid>hi('typescriptLabel', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('typescriptTry', s:cdPink, {}, 'none', {})
 call <sid>hi('typescriptExceptions', s:cdPink, {}, 'none', {})
-call <sid>hi('typescriptBraces', s:cdNone, {}, 'none', {})
+call <sid>hi('typescriptBraces', s:cdFront, {}, 'none', {})
 call <sid>hi('typescriptEndColons', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptParens', s:cdNone, {}, 'none', {})
+call <sid>hi('typescriptParens', s:cdFront, {}, 'none', {})
 call <sid>hi('typescriptDocTags', s:cdBlue, {}, 'none', {})
 call <sid>hi('typescriptDocComment', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('typescriptLogicSymbols', s:cdLightBlue, {}, 'none', {})
@@ -525,8 +554,8 @@ call <sid>hi('goTypeDecl', s:cdBlue, {}, 'none', {})
 call <sid>hi('goTypeName', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('goVarAssign', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('goVarDefs', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('goReceiver', s:cdNone, {}, 'none', {})
-call <sid>hi('goReceiverType', s:cdNone, {}, 'none', {})
+call <sid>hi('goReceiver', s:cdFront, {}, 'none', {})
+call <sid>hi('goReceiverType', s:cdFront, {}, 'none', {})
 call <sid>hi('goFunctionCall', s:cdYellow, {}, 'none', {})
 call <sid>hi('goMethodCall', s:cdYellow, {}, 'none', {})
 call <sid>hi('goSingleDecl', s:cdLightBlue, {}, 'none', {})
