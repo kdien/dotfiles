@@ -189,7 +189,7 @@ if has("nvim")
     hi! link @variable.builtin Normal
     hi! link @variable.parameter Normal
     hi! link @variable.member Normal
-    hi! link @constant Normal
+    hi! link @constant Constant
     hi! link @constant.builtin Constant
     hi! link @constant.macro Constant
     hi! link @property Normal
