@@ -7,11 +7,6 @@ require('main.statusline')
 
 vim.cmd('colorscheme codedark')
 
--- Disable LSP semantic token highlighting
-for _, group in ipairs(vim.fn.getcompletion('@lsp', 'highlight')) do
-  vim.api.nvim_set_hl(0, group, {})
-end
-
 -- Load local config
 local local_conf = vim.fn.expand('$HOME/.config/nvim.local')
 if vim.fn.isdirectory(local_conf) == 1 then

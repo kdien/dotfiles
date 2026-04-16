@@ -115,6 +115,7 @@ return {
       end
 
       vim.lsp.enable(lsp_servers)
+      vim.lsp.semantic_tokens.enable(false)
 
       vim.diagnostic.config({
         virtual_text = {
