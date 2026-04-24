@@ -57,6 +57,13 @@ install_or_update_starship() {
   fi
 }
 
+prompt_git_branch() {
+  local branch
+  branch=$(git branch --show-current 2>/dev/null)
+  [[ -n "$branch" ]] && branch=" ($branch)"
+  echo "$branch"
+}
+
 if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.toml"; then
   export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
   eval "$(starship init bash)"
@@ -68,7 +75,7 @@ if command -v starship &>/dev/null && test -f "$HOME/dotfiles/starship/starship.
 #   alias kt='oh-my-posh toggle kubectl'
 #   oh-my-posh toggle az
 else
-  export PS1='\[\e[0;38;5;39m\][\[\e[0;38;5;39m\]\u\[\e[0;38;5;39m\]@\[\e[0;38;5;39m\]\h\[\e[0;38;5;39m\]]\[\e[m\] \[\e[0;38;5;35m\]\w\[\e[m\]\[\e[0;38;5;37m\]$(git branch --show-current)\[\e[m\]\n\[\e[0;38;5;22m\]\$\[\e[0m\] '
+  export PS1='\[\e[34m\][\u@\h]\[\e[m\] \[\e[36m\]\w\[\e[35m\]$(prompt_git_branch)\n\[\e[32m\]\$\[\e[0m\] '
 fi
 
 if command -v nvim &>/dev/null; then
