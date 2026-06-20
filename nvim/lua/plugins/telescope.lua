@@ -13,14 +13,11 @@ local grep_args = {
 return {
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
     dependencies = {
       { 'nvim-lua/plenary.nvim', branch = 'master' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     cmd = 'Telescope',
-
-    enabled = false,
 
     keys = {
       { '<leader>sr', '<Cmd>Telescope resume<CR>' },

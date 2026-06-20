@@ -7,6 +7,8 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   lazy = false,
 
+  enabled = false,
+
   keys = {
     { '<leader>sr', '<Cmd>FzfLua resume<CR>' },
     { '<leader>sf', '<Cmd>FzfLua files<CR>' },

@@ -38,22 +38,24 @@ return {
     branch = 'main',
     ft = 'yaml',
 
-    keys = {
-      {
-        '<leader>sy',
-        function()
-          require('yaml-companion').open_ui_select()
-        end,
-      },
-    },
-
-    opts = {
-      schemas = {
-        {
-          name = 'Argo',
-          uri = 'https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/jsonschema/schema.json',
+    config = function()
+      require('yaml-companion').setup({
+        schemas = {
+          {
+            name = 'Argo',
+            uri = 'https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/jsonschema/schema.json',
+          },
         },
-      },
-    },
+      })
+
+      vim.keymap.set('n', '<leader>sy', function()
+        require('yaml-companion').open_ui_select()
+      end)
+
+      local ok, _ = pcall(require, 'telescope', 'load_extension("yaml_schema")')
+      if ok then
+        vim.keymap.set('n', '<leader>sy', '<Cmd>Telescope yaml_schema<CR>')
+      end
+    end,
   },
 }
