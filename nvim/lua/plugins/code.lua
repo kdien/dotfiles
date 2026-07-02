@@ -15,6 +15,7 @@ return {
 
   {
     'pearofducks/ansible-vim',
+    enabled = false,
     ft = 'ansible',
     keys = {
       {
