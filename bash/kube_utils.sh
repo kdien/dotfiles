@@ -54,3 +54,15 @@ kns() {
     [[ -n "$namespace" ]] && kubectl config set-context --current --namespace="$namespace"
   fi
 }
+
+k_node_from_instance_id() {
+  local instance_id=$1
+  if [[ -z "$instance_id" ]]; then
+    echo "${FUNCNAME[0]} <instance_id>" >&2
+    return 1
+  fi
+
+  kubectl get nodes -o json \
+    | jq -r --arg id "$instance_id" \
+      '.items[] | select(.spec.providerID | test($id)) | .metadata.name'
+}
