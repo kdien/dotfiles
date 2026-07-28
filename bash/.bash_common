@@ -22,6 +22,10 @@ export RUN_OS
 
 export LESS='-RF --tabs=4'
 
+p() {
+  eval "$* | less"
+}
+
 . "$HOME/dotfiles/bash/git_utils.sh"
 
 install_or_update_ohmyposh() {
