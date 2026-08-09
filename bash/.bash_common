@@ -26,7 +26,9 @@ p() {
   eval "$* | less"
 }
 
-. "$HOME/dotfiles/bash/git_utils.sh"
+if command -v git &>/dev/null; then
+  . "$HOME/dotfiles/bash/git_utils.sh"
+fi
 
 install_or_update_ohmyposh() {
   if [[ "$RUN_OS" = WSL || "$RUN_OS" = Linux ]]; then
