@@ -6,10 +6,10 @@
 [delta]
 	line-numbers = true
 	tabs = 4
+	syntax-theme = ansi
 
 [interactive]
 	diffFilter = delta --color-only
 
 [pull]
 	rebase = false
-
