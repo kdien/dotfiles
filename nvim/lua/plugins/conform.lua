@@ -18,7 +18,7 @@ return {
         end,
         formatters_by_ft = {
           go = { 'gofumpt', lsp_format = 'fallback' },
-          json = { 'jq' },
+          json = { lsp_format = 'prefer' },
           lua = { 'stylua' },
           proto = { 'buf' },
           python = { 'ruff_organize_imports', 'ruff_format' },
