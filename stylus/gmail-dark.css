@@ -1,0 +1,37 @@
+@media screen {
+  /* Darken the open conversation (both layouts), compose window, and menus */
+  .ao9:has(.a98.iY), .a98.iY:not(.ao9 *), .Hd[role="dialog"], .J-M[role="menu"] {
+    filter: invert(1) hue-rotate(180deg) contrast(0.72);
+  }
+  /* Floating surfaces: drop the (inverted) shadow, redraw it dark after inversion */
+  :is(.Hd[role="dialog"], .J-M[role="menu"]) {
+    box-shadow: none !important;
+    filter: invert(1) hue-rotate(180deg) contrast(0.72) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  }
+  /* Nested UI (inline reply, cards): inverted shadows glow, so remove them */
+  :is(.ao9:has(.a98.iY), .a98.iY:not(.ao9 *), .Hd[role="dialog"], .J-M[role="menu"])
+  :not(.a3s, .a3s *, [g_editable], [g_editable] *, :focus-visible) {
+    box-shadow: none !important;
+  }
+  /* Light borders nearly vanish when inverted, so darken them beforehand */
+  .ip .I5 { border-color: rgb(180, 180, 180) !important; }
+  /* Compose window border as a top-most overlay so no child can paint over it */
+  .Hd[role="dialog"]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2147483647;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  /* Keep the sticky compose toolbar in flow (filter breaks position:fixed offsets) */
+  :is(.ao9:has(.a98.iY), .a98.iY:not(.ao9 *), .Hd[role="dialog"], .J-M[role="menu"]) .aDj.ahe {
+    position: static !important;
+  }
+  /* Re-invert media so photos and avatars keep their colors */
+  :is(.ao9:has(.a98.iY), .a98.iY:not(.ao9 *), .Hd[role="dialog"], .J-M[role="menu"])
+  :is(img, video, [style*="background-image"]) {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
