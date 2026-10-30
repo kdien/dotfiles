@@ -11,8 +11,7 @@ if command -v tenv &>/dev/null; then
 fi
 
 if command -v terraform-docs &>/dev/null; then
-  # shellcheck source=/dev/null
-  . <(terraform-docs completion bash)
+  complete -p terraform-docs &>/dev/null || _cached_source terraform-docs completion bash
   complete -F __start_terraform-docs tfd
 fi
 

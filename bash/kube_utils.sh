@@ -3,19 +3,20 @@
 
 alias k='kubectl'
 
-. <(kubectl completion bash)
+# Homebrew already installs completions for these into bash_completion.d; only generate when missing
+complete -p kubectl &>/dev/null || _cached_source kubectl completion bash
 complete -F __start_kubectl k
 
 if command -v kustomize &>/dev/null; then
-  . <(kustomize completion bash)
+  complete -p kustomize &>/dev/null || _cached_source kustomize completion bash
 fi
 
 if command -v minikube &>/dev/null; then
-  . <(minikube completion bash)
+  complete -p minikube &>/dev/null || _cached_source minikube completion bash
 fi
 
 if command -v eksctl &>/dev/null; then
-  . <(eksctl completion bash)
+  complete -p eksctl &>/dev/null || _cached_source eksctl completion bash
 fi
 
 kconf() {

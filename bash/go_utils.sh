@@ -6,7 +6,7 @@ if command -v goenv &>/dev/null; then
   PATH="$GOENV_ROOT/bin:$PATH"
   eval "$(goenv init -)"
 else
-  . <(go env)
+  export GOPATH="${GOPATH:-$HOME/go}"
 fi
 
 PATH="$GOPATH/bin:$PATH"

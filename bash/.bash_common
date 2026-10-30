@@ -7,18 +7,37 @@ shopt -s direxpand
 # for some reason only "\C-@" works for binding
 bind '"\C-@": alias-expand-line'
 
-case "$(uname -sr)" in
-  Darwin*)
+case "$OSTYPE" in
+  darwin*)
     RUN_OS=macOS
     ;;
-  Linux*Microsoft* | Linux*microsoft*)
-    RUN_OS=WSL
-    ;;
-  Linux*)
-    RUN_OS=Linux
+  linux*)
+    if [[ "$(</proc/sys/kernel/osrelease)" == *[Mm]icrosoft* ]]; then
+      RUN_OS=WSL
+    else
+      RUN_OS=Linux
+    fi
     ;;
 esac
 export RUN_OS
+
+# _cached_source CMD ARGS...: source the output of `CMD ARGS`, cached under ~/.cache/bash-init.
+# The cache is rebuilt when CMD or its directory changes (Homebrew keeps build-time mtimes on
+# binaries, but relinking or replacing one updates the directory).
+_cached_source() {
+  local bin f
+  bin=$(type -P "$1") || return
+  f="${XDG_CACHE_HOME:-$HOME/.cache}/bash-init/$1.bash"
+  if [[ ! -s "$f" || "$bin" -nt "$f" || "${bin%/*}" -nt "$f" ]]; then
+    mkdir -p "${f%/*}"
+    if ! "$bin" "${@:2}" >"$f.$$" 2>/dev/null; then
+      rm -f "$f.$$"
+      return 1
+    fi
+    mv -f "$f.$$" "$f"
+  fi
+  . "$f"
+}
 
 export LESS='-RF --tabs=4'
 
@@ -103,7 +122,7 @@ fi
 export JAVA_HOME
 
 if command -v aws &>/dev/null; then
-  complete -C "$(which aws_completer)" aws
+  complete -C "$(command -v aws_completer)" aws
   . "$HOME/dotfiles/bash/aws_utils.sh"
 fi
 
@@ -121,14 +140,12 @@ if command -v fzf &>/dev/null; then
   export FZF_DEFAULT_OPTS
 
   alias fzfp='fzf --preview="bat --color=always {}"'
-  if fzf --bash &>/dev/null; then
-    . <(fzf --bash)
-  fi
+  _cached_source fzf --bash
 fi
 
 if command -v terraform &>/dev/null; then
-  complete -C "$(which terraform)" terraform
-  complete -C "$(which terraform)" tf
+  complete -C "$(command -v terraform)" terraform
+  complete -C "$(command -v terraform)" tf
   . "$HOME/dotfiles/bash/terraform_utils.sh"
 fi
 
@@ -142,6 +159,11 @@ fi
 
 if [[ -f "$HOME/.nvm/nvm.sh" ]]; then
   . "$HOME/.nvm/nvm.sh"
+fi
+
+if command -v direnv &>/dev/null; then
+  export DIRENV_LOG_FORMAT=
+  _cached_source direnv hook bash
 fi
 
 # Aliases
