@@ -2,6 +2,7 @@
 	autocrlf = input
 	editor = nvim
 	pager = delta
+	untrackedCache = true
 
 [delta]
 	line-numbers = true
