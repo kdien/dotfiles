@@ -103,6 +103,11 @@ return {
 
         terraformls = {
           filetypes = { 'terraform' },
+          capabilities = {
+            experimental = {
+              showReferencesCommandId = false,
+            },
+          },
         },
 
         yamlls = require('yaml-companion').setup({}),
